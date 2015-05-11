@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2463b5a71c70422f91f3665e4dabb790" Name="Diagram1" ZoomLevel="44" >
+        <EntityTypeShape EntityType="InquiryModel.APEXCD" Width="1.5" PointX="6.9842211226859225" PointY="10.606889506153244" />
+        <EntityTypeShape EntityType="InquiryModel.APEXTR" Width="1.5" PointX="0.49212706111936227" PointY="15.134441099657883" />
+        <EntityTypeShape EntityType="InquiryModel.APVEND" Width="1.5" PointX="0.91209821259234936" PointY="7.5399910842720379" />
+        <EntityTypeShape EntityType="InquiryModel.ARCCPT" Width="1.5" PointX="11.026610970043862" PointY="9.52872859385271" />
+        <EntityTypeShape EntityType="InquiryModel.ARCUST" Width="1.5" PointX="4.96904746488158" PointY="29.944892360803156" />
+        <EntityTypeShape EntityType="InquiryModel.ARNERA" Width="1.5" PointX="8.8870281376349869" PointY="0.70786000821174122" />
+        <EntityTypeShape EntityType="InquiryModel.AROPEN" Width="1.5" PointX="8.4439930340480025" PointY="1.2198798215109294" />
+        <EntityTypeShape EntityType="InquiryModel.ARSHIP" Width="1.5" PointX="7.8704027532927707" PointY="28.711372761387086" />
+        <EntityTypeShape EntityType="InquiryModel.ARSVIA" Width="1.5" PointX="9.032747339938183" PointY="31.28927056458279" />
+        <EntityTypeShape EntityType="InquiryModel.ARTerm" Width="1.5" PointX="9.60941275097868" PointY="10.961873238422848" />
+        <EntityTypeShape EntityType="InquiryModel.ARTRAN" Width="1.5" PointX="5.6234608113874964" PointY="19.639660203661613" />
+        <EntityTypeShape EntityType="InquiryModel.Collection2" Width="1.5" PointX="8.9167034276373229" PointY="1.5636990971694231" />
+        <EntityTypeShape EntityType="InquiryModel.Country2" Width="1.5" PointX="3.7305137308922194" PointY="27.358007548077968" />
+        <EntityTypeShape EntityType="InquiryModel.CustClass" Width="1.5" PointX="2.3103605165660195" PointY="14.853864676716675" />
+        <EntityTypeShape EntityType="InquiryModel.CustomerSummary" Width="1.5" PointX="2.4273421123751167" PointY="17.027776398243279" />
+        <EntityTypeShape EntityType="InquiryModel.CustomerSummaryNetSale" Width="1.5" PointX="7.7354527431239628" PointY="21.906128088899948" />
+        <EntityTypeShape EntityType="InquiryModel.CustSalesClass" Width="1.5" PointX="4.1307168510419858" PointY="15.425701804191666" />
+        <EntityTypeShape EntityType="InquiryModel.EODUpdateLog" Width="1.5" PointX="6.4981407888690672" PointY="3.894055204416651" />
+        <EntityTypeShape EntityType="InquiryModel.EXDATA" Width="1.5" PointX="7.2271051403261275" PointY="14.691635555909777" />
+        <EntityTypeShape EntityType="InquiryModel.FRAME" Width="1.5" PointX="9.2247878393273748" PointY="4.0563036222273032" />
+        <EntityTypeShape EntityType="InquiryModel.FrameData" Width="1.5" PointX="7.5491217558966586" PointY="12.902057832527001" />
+        <EntityTypeShape EntityType="InquiryModel.FramesData" Width="1.5" PointX="5.1016777945224554" PointY="28.386297179565904" />
+        <EntityTypeShape EntityType="InquiryModel.GeoRegion" Width="1.5" PointX="0.93678794658593278" PointY="26.690280986339918" />
+        <EntityTypeShape EntityType="InquiryModel.INATTR" Width="1.5" PointX="4.6588490086881675" PointY="2.5050569635373807" />
+        <EntityTypeShape EntityType="InquiryModel.INDATA" Width="1.5" PointX="10.191165876663833" PointY="25.768549826819704" />
+        <EntityTypeShape EntityType="InquiryModel.INFrame" Width="1.5" PointX="3.3226487409894583" PointY="7.5154474859663507" />
+        <EntityTypeShape EntityType="InquiryModel.INItem" Width="1.5" PointX="11.492076895894519" PointY="4.0814727861813607" />
+        <EntityTypeShape EntityType="InquiryModel.INLEAD" Width="1.5" PointX="11.165859471618132" PointY="30.984929456834184" />
+        <EntityTypeShape EntityType="InquiryModel.INMAST" Width="1.5" PointX="7.0608801371701428" PointY="31.748639732482211" />
+        <EntityTypeShape EntityType="InquiryModel.INPOP" Width="1.5" PointX="1.9449016814794866" PointY="7.0742543521682988" />
+        <EntityTypeShape EntityType="InquiryModel.InquiryParam" Width="1.5" PointX="0.5171361400359944" PointY="14.55043124340029" />
+        <EntityTypeShape EntityType="InquiryModel.INStyle" Width="1.5" PointX="1.1459311103196495" PointY="28.223016841440934" />
+        <EntityTypeShape EntityType="InquiryModel.INQInventory" Width="1.5" PointX="3.493881892177221" PointY="1.7926136114600177" />
+        <EntityTypeShape EntityType="InquiryModel.INWHSE" Width="1.5" PointX="8.1347306520374154" PointY="7.0916129532696743" />
+        <EntityTypeShape EntityType="InquiryModel.ItemClass" Width="1.5" PointX="5.9593141441975321" PointY="17.093685471030739" />
+        <EntityTypeShape EntityType="InquiryModel.ItemRecall" Width="1.5" PointX="3.5396596451940292" PointY="9.39569068392538" />
+        <EntityTypeShape EntityType="InquiryModel.JuneRecall" Width="1.5" PointX="2.5086886223911722" PointY="21.568797047049177" />
+        <EntityTypeShape EntityType="InquiryModel.KENSAL" Width="1.5" PointX="8.56158070851191" PointY="2.0938376645063226" />
+        <EntityTypeShape EntityType="InquiryModel.Layout" Width="1.5" PointX="2.2631947818506486" PointY="27.391578627466959" />
+        <EntityTypeShape EntityType="InquiryModel.MasterLayout" Width="1.5" PointX="11.6495992148526" PointY="15.257755629372669" />
+        <EntityTypeShape EntityType="InquiryModel.MyDateTable" Width="1.5" PointX="5.60040382184107" PointY="3.6559044139720056" />
+        <EntityTypeShape EntityType="InquiryModel.NewFrameData" Width="1.5" PointX="7.3790333771049195" PointY="12.704362472847272" />
+        <EntityTypeShape EntityType="InquiryModel.ORANAL" Width="1.5" PointX="3.0627674083517715" PointY="13.112426495697548" />
+        <EntityTypeShape EntityType="InquiryModel.ORCTRT" Width="1.5" PointX="8.7227211374429618" PointY="6.9337721499306024" />
+        <EntityTypeShape EntityType="InquiryModel.ORDATA" Width="1.5" PointX="6.6187787049537423" PointY="18.343445980149994" />
+        <EntityTypeShape EntityType="InquiryModel.ORDER2" Width="1.5" PointX="6.3993905644861009" PointY="19.5236406417208" />
+        <EntityTypeShape EntityType="InquiryModel.ORDERS2" Width="1.5" PointX="3.5644616519866794" PointY="17.525179886038032" />
+        <EntityTypeShape EntityType="InquiryModel.ORPINA" Width="1.5" PointX="1.0039777182992444" PointY="5.5805601056574661" />
+        <EntityTypeShape EntityType="InquiryModel.ORPINATemp" Width="1.5" PointX="3.6923405768779762" PointY="17.381457277285612" />
+        <EntityTypeShape EntityType="InquiryModel.ORPINV" Width="1.5" PointX="7.1509795501599935" PointY="0.70548757943580276" />
+        <EntityTypeShape EntityType="InquiryModel.ORPINV2" Width="1.5" PointX="1.8741247178400515" PointY="5.3319844032321049" />
+        <EntityTypeShape EntityType="InquiryModel.ORPINV2Temp" Width="1.5" PointX="6.9800822171289862" PointY="10.082756866739484" />
+        <EntityTypeShape EntityType="InquiryModel.ORPINVTemp" Width="1.5" PointX="6.12354653986336" PointY="31.464705958713175" />
+        <EntityTypeShape EntityType="InquiryModel.PerformanceSummary" Width="1.5" PointX="0.30960418484620944" PointY="9.07674134200287" />
+        <EntityTypeShape EntityType="InquiryModel.PORDR" Width="1.5" PointX="4.9689715863061" PointY="27.68178759314203" />
+        <EntityTypeShape EntityType="InquiryModel.PORDRS2" Width="1.5" PointX="9.35615376446217" PointY="23.437435071653422" />
+        <EntityTypeShape EntityType="InquiryModel.Region" Width="1.5" PointX="0.25614068482822772" PointY="21.928648854572629" />
+        <EntityTypeShape EntityType="InquiryModel.RegionSummary" Width="1.5" PointX="9.0524415602220429" PointY="29.723125292790645" />
+        <EntityTypeShape EntityType="InquiryModel.SACFAN" Width="1.5" PointX="10.077378339170188" PointY="22.35145382133846" />
+        <EntityTypeShape EntityType="InquiryModel.SACFANTemp" Width="1.5" PointX="7.5208639071885788" PointY="28.204591883441708" />
+        <EntityTypeShape EntityType="InquiryModel.SACFA" Width="1.5" PointX="3.9495089668545447" PointY="14.758842922169176" />
+        <EntityTypeShape EntityType="InquiryModel.SACFASTemp" Width="1.5" PointX="8.0405761525223856" PointY="29.548058404376757" />
+        <EntityTypeShape EntityType="InquiryModel.SACMM" Width="1.5" PointX="0.010741487150425784" PointY="21.91545174546328" />
+        <EntityTypeShape EntityType="InquiryModel.SACMMSTemp" Width="1.5" PointX="11.958922354485338" PointY="21.164656440338426" />
+        <EntityTypeShape EntityType="InquiryModel.SACollection" Width="1.5" PointX="7.0843211743441978" PointY="17.250321783707626" />
+        <EntityTypeShape EntityType="InquiryModel.SACollectionCurrent" Width="1.5" PointX="9.0928485473118954" PointY="20.653728807649451" />
+        <EntityTypeShape EntityType="InquiryModel.SACountry" Width="1.5" PointX="3.1208624351401175" PointY="30.3601103268378" />
+        <EntityTypeShape EntityType="InquiryModel.SACountryCurrent" Width="1.5" PointX="3.8475336431746996" PointY="9.6024257883440818" />
+        <EntityTypeShape EntityType="InquiryModel.SACSFN" Width="1.5" PointX="6.3908819381105157" PointY="9.59466547220697" />
+        <EntityTypeShape EntityType="InquiryModel.SACSFNTemp" Width="1.5" PointX="10.640589387454368" PointY="8.7026737968915491" />
+        <EntityTypeShape EntityType="InquiryModel.SACSF" Width="1.5" PointX="4.6075557510403709" PointY="14.183848357845028" />
+        <EntityTypeShape EntityType="InquiryModel.SACSFSTemp" Width="1.5" PointX="9.6311929699178762" PointY="21.968288953401284" />
+        <EntityTypeShape EntityType="InquiryModel.SACUSO" Width="1.5" PointX="9.5226384780940769" PointY="25.627606433642846" />
+        <EntityTypeShape EntityType="InquiryModel.SACUST" Width="1.5" PointX="7.0652245558170712" PointY="19.576582217391852" />
+        <EntityTypeShape EntityType="InquiryModel.SACUST_NEW" Width="1.5" PointX="9.51950089704222" PointY="4.9541486226740057" />
+        <EntityTypeShape EntityType="InquiryModel.SACustomer" Width="1.5" PointX="4.0153317004513607" PointY="19.494787717002811" />
+        <EntityTypeShape EntityType="InquiryModel.SACustomerCurrent" Width="1.5" PointX="10.997182571793527" PointY="22.864686916984937" />
+        <EntityTypeShape EntityType="InquiryModel.SADATA" Width="1.5" PointX="8.3150488754338809" PointY="22.238822992070961" />
+        <EntityTypeShape EntityType="InquiryModel.SADATACurrent" Width="1.5" PointX="5.958917998689655" PointY="21.065494174633869" />
+        <EntityTypeShape EntityType="InquiryModel.SADATATemp" Width="1.5" PointX="3.7702923378768807" PointY="26.414005694172349" />
+        <EntityTypeShape EntityType="InquiryModel.SAFrame" Width="1.5" PointX="11.840342380032103" PointY="11.660954719251466" />
+        <EntityTypeShape EntityType="InquiryModel.SAFrameCurrent" Width="1.5" PointX="8.31945682890688" PointY="28.00026911310864" />
+        <EntityTypeShape EntityType="InquiryModel.SAGoal" Width="1.5" PointX="1.2878218001163666" PointY="4.2960145642496714" />
+        <EntityTypeShape EntityType="InquiryModel.SAItem" Width="1.5" PointX="5.668175716729916" PointY="2.3229314993708075" />
+        <EntityTypeShape EntityType="InquiryModel.SAItemCurrent" Width="1.5" PointX="4.3757096772900361" PointY="14.537418372248029" />
+        <EntityTypeShape EntityType="InquiryModel.Salesperson" Width="1.5" PointX="4.7552900466859764" PointY="17.278343432246867" />
+        <EntityTypeShape EntityType="InquiryModel.SalespersonSummary" Width="1.5" PointX="9.7412057955475539" PointY="11.352963288944663" />
+        <EntityTypeShape EntityType="InquiryModel.SALikeCollection" Width="1.5" PointX="5.96916620525027" PointY="28.348175553767092" />
+        <EntityTypeShape EntityType="InquiryModel.SALikeCollectionCurrent" Width="1.5" PointX="7.9033731258955662" PointY="31.473247453325076" />
+        <EntityTypeShape EntityType="InquiryModel.SARegion" Width="1.5" PointX="1.5578834235472061" PointY="6.4010375320916237" />
+        <EntityTypeShape EntityType="InquiryModel.SARegionCurrent" Width="1.5" PointX="1.1530698487316584" PointY="12.313877394569049" />
+        <EntityTypeShape EntityType="InquiryModel.SASalesperson" Width="1.5" PointX="10.417245268084688" PointY="13.937374508910521" />
+        <EntityTypeShape EntityType="InquiryModel.SASalespersonCurrent" Width="1.5" PointX="2.4535389684389992" PointY="4.7528084091622418" />
+        <EntityTypeShape EntityType="InquiryModel.SASCOL" Width="1.5" PointX="8.7479657310750181" PointY="17.457612910055374" />
+        <EntityTypeShape EntityType="InquiryModel.SASLSP" Width="1.5" PointX="3.0699924971302934" PointY="20.021266723061569" />
+        <EntityTypeShape EntityType="InquiryModel.SASLSPTemp" Width="1.5" PointX="9.6419916719393761" PointY="27.976857660327507" />
+        <EntityTypeShape EntityType="InquiryModel.SAStyle" Width="1.5" PointX="11.827707214200732" PointY="1.9608993390392975" />
+        <EntityTypeShape EntityType="InquiryModel.SAStyleCurrent" Width="1.5" PointX="3.4231602938022276" PointY="0.62586061685618977" />
+        <EntityTypeShape EntityType="InquiryModel.SASummary" Width="1.5" PointX="8.9994863052850054" PointY="29.682912140005694" />
+        <EntityTypeShape EntityType="InquiryModel.SASummaryTemp" Width="1.5" PointX="6.9502865574091146" PointY="21.097688044001202" />
+        <EntityTypeShape EntityType="InquiryModel.SASVCR" Width="1.5" PointX="3.9421766958861504" PointY="16.517667316141385" />
+        <EntityTypeShape EntityType="InquiryModel.SAVendor" Width="1.5" PointX="2.9655086542319085" PointY="10.847917353197893" />
+        <EntityTypeShape EntityType="InquiryModel.SAVendorCurrent" Width="1.5" PointX="9.1025156868167763" PointY="25.429207768956761" />
+        <EntityTypeShape EntityType="InquiryModel.SLSINV" Width="1.5" PointX="9.569339598328499" PointY="17.972856902504738" />
+        <EntityTypeShape EntityType="InquiryModel.SLSTran" Width="1.5" PointX="2.6050913886190816" PointY="25.82528811405659" />
+        <EntityTypeShape EntityType="InquiryModel.SLSTransArchive" Width="1.5" PointX="0.43618549613104457" PointY="16.417200543180666" />
+        <EntityTypeShape EntityType="InquiryModel.State" Width="1.5" PointX="6.3416768919404962" PointY="3.6530753689133912" />
+        <EntityTypeShape EntityType="InquiryModel.StockPerformance" Width="1.5" PointX="8.7521822865829719" PointY="19.260368952183224" />
+        <EntityTypeShape EntityType="InquiryModel.STYLE" Width="1.5" PointX="5.9556127516346109" PointY="8.2478437015078239" />
+        <EntityTypeShape EntityType="InquiryModel.sysdiagram" Width="1.5" PointX="8.0465619489767413" PointY="30.681383057814735" />
+        <EntityTypeShape EntityType="InquiryModel.User" Width="1.5" PointX="4.8630397305186088" PointY="29.657522334557736" />
+        <EntityTypeShape EntityType="InquiryModel.USRegion" Width="1.5" PointX="9.8011068151337586" PointY="23.647292416378527" />
+        <EntityTypeShape EntityType="InquiryModel.ValidDate" Width="1.5" PointX="7.8095402176536339" PointY="16.703915797501764" />
+        <EntityTypeShape EntityType="InquiryModel.WebUser" Width="1.5" PointX="6.6516715728918427" PointY="24.015649449087515" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

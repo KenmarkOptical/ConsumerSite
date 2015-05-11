@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">  
+    @Styles.Render("~/Content/css")
+@*    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    
+    <script src="//use.typekit.net/pxt7sgq.js"></script>
+    <script>try { Typekit.load(); } catch (e) { }</script>
+
+    <script type="text/javascript">
+        var is_mobile = false;
+        $(function () {
+
+            $(window).on('resize', function () {
+                if ($('#mobile-test').is(':visible')) {
+                    is_mobile = true;
+                }
+
+                if (is_mobile) {
+                    $('.navbar-inner div').css('padding', 0);
+                    $('#logo-sprite').css('margin-right', 0);
+                }
+                var h = $('.navbar').height() - 5;
+                $('#main-body').css('margin-top', (h));
+            });
+
+
+            if ($('#mobile-test').is(':visible')) {
+                is_mobile = true;
+            }
+
+            if (is_mobile) {
+                $('.navbar-inner div').css('padding', 0);
+                $('#logo-sprite').css('margin-right', 0);
+            }
+
+            var h = $('.navbar').height() - 5;
+            $('#main-body').css('margin-top', (h));
+            
+            $('#Brands-Link').click(function () {
+                if ($('#brand-links-div').is(':visible')) {
+                    $('.navbar-inner .container').addClass('shadow');
+                }
+                else {
+                    $('.navbar-inner .container').removeClass('shadow');
+                }
+                $("#brand-links-div").fadeToggle(200);
+            });            
+           
+            $('.collection-link-text').hover(function (e) {
+                $(this).prev().removeClass('desaturate').addClass('saturate');
+            })
+
+            $('.collection-link-text').mouseleave(function (e) {
+                $(this).prev().removeClass('saturate').addClass('desaturate');
+            })
+        });
+    </script>
+</head>
+<body>
+
+    
+      <div class="navbar navbar-fixed-top" role='navigation' style="margin-bottom:0px;">
+        <div class="navbar-inner">
+            <div class="container shadow" style="padding-top:28px;padding-left: 35px; padding-right:35px;">
+                                
+                <a id="logo-sprite" href="~/" class="navbar-brand image-responsive" style="margin-right: 60px;"><span></span></a>              
+
+
+                   <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                         data-target="#gw-navbar-collapse" style="margin-top:0px;">
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                      </button>
+                   </div>
+                   <div class="collapse navbar-collapse" id="gw-navbar-collapse" style="margin:0px;">
+                         <ul class="nav navbar-nav" style="margin-left:0;margin-right:0px;">                              
+                            <li><a id="Brands-Link" href="#">BRANDS</a></li>   
+                            <li><a href="#">PROFILE</a></li>   
+                            <li><a href="#">THE MIRROR</a></li>
+                            <li><a href="#">WHERE TO BUY</a></li>
+                            <li><a id="icon-sprite" href="#"><span></span></a></li>
+                        </ul>
+                       
+                        <div class="pull-right text-right hidden-xs" style="margin-top:-13px;">
+                            <div class="row" style="padding-right:3px;">
+                                <a class="nav-link" href="#" style="margin-right:28px;">CREATE ACCOUNT</a>
+                                <a class="nav-link" href="#">LOGIN</a>
+                            </div>
+                            <div class="row">
+                                <a class="facebook-sprite" href="#" style="margin-right:5px;"><span></span></a>
+                                <a class="twitter-sprite" href="#" style="margin-right:5px;"><span></span></a>
+                                <a class="instagram-sprite" href="#" style="margin-right:5px;"><span></span></a>
+                                <a class="pinterest-sprite" href="#"><span></span></a>
+                            </div>
+                        </div>   
+                       
+                       <div class="hidden-sm hidden-md hidden-lg">
+                            <div class="col-xs-6 col-sm-6">
+                                <a class="nav-link" href="#" style="font-size:11px;">CREATE ACCOUNT</a><br />
+                                <a class="nav-link" href="#" style="font-size:11px;">LOGIN</a>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                <a class="facebook-sprite" href="#"><span></span></a>
+                                <a class="twitter-sprite" href="#"><span></span></a>
+                                <a class="instagram-sprite" href="#"><span></span></a>
+                                <a class="pinterest-sprite" href="#"><span></span></a>
+                            </div>
+                        </div>                         
+                    </div>                  
+                     
+            </div>           
+        </div>
+
+            <div id="brand-links-div" class="container" style="background-color:#eeebdf; z-index:5; display:none; width:100%; max-width:1074px;box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);">
+                <div class="row">
+                    <div class="col-lg-3" style="border:1px solid white;">
+                        <a href="#" style="display:inline-block;"><img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/all_pages/nav/logo_vera.jpg")" /></a>
+                    </div>
+                    <div class="col-lg-3" style="border:1px solid white;">
+                        <a href="#" style="display:inline-block;"><img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/all_pages/nav/logo_zac.jpg")" /></a>
+                    </div>
+                    <div class="col-lg-3" style="border:1px solid white;">
+                        <a href="/Original-Penguin-Eyewear" style="display:inline-block;"><img class="img-responsive saturate-2" src="@Url.Content("~/Content/images/all_pages/nav/logo_penguin.jpg")" /></a>
+                    </div>
+                    <div class="col-lg-3" style="border:1px solid white;">
+                        <a href="#" style="display:inline-block;"><img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/all_pages/nav/logo_lillypulitzer.jpg")" /></a>
+                    </div>                                      
+                </div>
+                    <div class="row">
+                        <div class="col-lg-3" style="border:1px solid white;">
+                            <a href="#"><img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/all_pages/nav/logo_timex.jpg")" /></a>
+                        </div>
+                  </div>   
+        </div>  
+    </div>
+
+    <div id="main-body" class="container" style="padding-top:0px; padding-bottom:15px;">     
+        @RenderBody()
+    </div>
+   
+    <div class="container" style="background-color:#eeebdf;margin-top:30px; margin-bottom:10px;">
+        <div class="row" style="padding-left:35px; padding-right:35px;">
+            <div class="col-xs-6">
+                <span style="font-size:12px; font-weight:bold;">CONTACT US  &nbsp;&nbsp; 1.800.627.2898 &nbsp;&nbsp; SALES REP LOGIN</span><br />
+                <span style="font-size:11px;">ALL MATERIAL @(DateTime.Now.Year) KENMARK OPTICAL GROUP.</span>
+            </div>
+            <div class="col-xs-6 text-right">
+                <a class="facebook-sprite-large" href="#" style="margin-right:5px;"><span></span></a>
+                <a class="twitter-sprite-large" href="#" style="margin-right:5px;margin-top:0px;"><span></span></a>
+                <a class="instagram-sprite-large" href="#" style="margin-right:5px;margin-top:0px;"><span></span></a>
+                <a class="pinterest-sprite-large" href="#" style="margin-top:0px;"><span></span></a>
+            </div>
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
+         <!-- Latest compiled and minified JavaScript -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>    
+
+        <script type="text/javascript">
+            jQuery.fn.visible = function () {
+                return this.css('visibility', 'visible');
+            };
+
+            jQuery.fn.invisible = function () {
+                return this.css('visibility', 'hidden');
+            };
+
+            jQuery.fn.visibilityToggle = function () {
+                return this.css('visibility', function (i, visibility) {
+                    return (visibility == 'visible') ? 'hidden' : 'visible';
+                });
+            };
+    </script>
+
+    <div id="mobile-test" class="hidden-sm hidden-md hidden-lg"></div>
+</body>
+</html>

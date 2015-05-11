@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A283979E-185F-442E-926A-7C17297DFC4D}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kenmark_Consumer</RootNamespace>
+    <AssemblyName>Kenmark-Consumer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="address.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="address_to_collections.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="address_to_country.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminExceptionDecision.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="admin_values.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APEXCD.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APEXTR.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="APVEND.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARCCPT.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARCUST.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARNERA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AROPEN.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARSHIP.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARSVIA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARTerm.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARTRAN.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BBX_Order_Log.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="career.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="collection.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Collection2.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="collection_codes.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Collection_POP.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="companyProfile.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="content.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CollectionController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="country.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country2.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustClass.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customersTest.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customersTEST2.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSummary.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSummaryNetSale.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer_coll_buy.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Inventory.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Note.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Price.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer_purchased.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer_shiptos.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustSalesClass.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="designer_image_order.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dtproperty.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="employee.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EODUpdateLog.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="event.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Event1.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="exception_order_items.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EXDATA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fcdFrame.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fcdFrameColor.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fcdFrameUPC.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FRAME.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FrameData.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FramesData.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Frame_Feedback.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frame_parts.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeoRegion.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="image_test.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_customers.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_customer_coll_buy.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_frame_parts.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_inv.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_inventoryBestSellers.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_inventorySale.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_Inventory_Admin_Info.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_invstock.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_inv_admin.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_ob_inv.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_ob_qty_breaks.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_Prospect_Customers.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_shipto.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_ShipVia_Allowed.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_stmts.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_stmt_aging.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="import_VSB_inv.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INATTR.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INDATA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INFrame.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INItem.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INLEAD.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INMAST.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INPOP.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INQInventory.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inquiry.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inquiry.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="InquiryParam.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INStyle.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventory.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryBestSeller.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryBestSellersImport.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventorySale.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventory_admin.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory_Admin_Info.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventory_info.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inventory_temp.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INWHSE.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemClass.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemRecall.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JuneRecall.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KenmarkTestDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KenmarkTestDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KenmarkTestDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KenmarkTestDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KenmarkTestDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Kenmark_Collections.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kenmark_Collections_like.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kenmark_Collections_Sub.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KENSAL.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Layout.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lookup_type.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterLayout.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile_Feedback.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Collections.cs" />
+    <Compile Include="Models\Common.cs" />
+    <Compile Include="Models\Filters.cs" />
+    <Compile Include="Models\MyBaseController.cs" />
+    <Compile Include="MyDateTable.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFrameData.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="new_registrations.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ob_inv.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ob_qty_breaks.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORANAL.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORCTRT.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDATA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDER2.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDERS2.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_cases.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_items.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_items_deleted.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_note.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_number.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_POP.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_POP_Combination.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order_status.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORPINA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORPINATemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORPINV.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORPINV2.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORPINV2Temp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORPINVTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="outofstock_skus.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="payment.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="payment_logs.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="payment_options.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceSummary.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PORDR.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PORDRS2.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PressReleasePreview.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="press_releases.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Promo_Codes.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prospect_Customers.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prospect_CustomersBAK.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Publicity.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="publicity_items.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Region.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="regional_manager.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegionSummary.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rep_Map_Remove.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="role.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACFA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACFAN.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACFANTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACFASTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACMM.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACMMSTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACollection.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACollectionCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACountry.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACountryCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACSF.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACSFN.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACSFNTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACSFSTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACUSO.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACUST.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACustomer.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACustomerCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SACUST_NEW.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SADATA.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SADATACurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SADATATemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAFrame.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAFrameCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAGoal.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAItem.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAItemCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SaleFrame.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Salesperson.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalespersonSummary.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALikeCollection.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALikeCollectionCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SARegion.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SARegionCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASalesperson.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASalespersonCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASCOL.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASLSP.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASLSPTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAStyle.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAStyleCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASummary.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASummaryTemp.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SASVCR.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAVendor.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAVendorCurrent.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="secret_question.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="security.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="securityBAK.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shipping_Methods.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipVia_Allowed.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Show_Codes.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Show_ScansVEW2013.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SLSINV.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SLSTran.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SLSTransArchive.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="staff.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statement.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatementCheck.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatementOpenItem.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="statement_register_log.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="status.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stmt_aging.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="stmt_details90.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockPerformance.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STYLE.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="survey.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="team.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Temporary_Customers.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Temporary_ShipTo.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Term.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextAlert_Numbers.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Used_Promo_Codes.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Tracking.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USRegion.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ValidDate.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="virtualbag_user_values.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VSB_inventory.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebUser.cs">
+      <DependentUpon>Inquiry.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zip_Map_Location.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zz_fcdFrameColor.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zz_fcdFrameLensColor.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zz_fcdFrames.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zz_fcdFrameSize.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="zz_fcdFrameUPC.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\all_pages\icons\icon_facebook.png" />
+    <Content Include="Content\images\all_pages\icons\icon_instagram.png" />
+    <Content Include="Content\images\all_pages\icons\icon_new.png" />
+    <Content Include="Content\images\all_pages\icons\icon_pinterest.png" />
+    <Content Include="Content\images\all_pages\icons\icon_search.png" />
+    <Content Include="Content\images\all_pages\icons\icon_twitter.png" />
+    <Content Include="Content\images\all_pages\logo\logo.png" />
+    <Content Include="Content\images\all_pages\logo\logo_retina.png" />
+    <Content Include="Content\images\all_pages\nav\logo_danabuchman.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_danabuchman_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_housecollection.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_housecollection_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_jhanebarnes.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_jhanebarnes_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_kensie.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_kensie_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_lillypulitzer.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_lillypulitzer_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_markofagreatstory.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_markofagreatstory_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_penguin.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_penguin_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_republica.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_republica_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_timex.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_timex_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_vera.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_vera_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_wolverine.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_wolverine_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_zac.jpg" />
+    <Content Include="Content\images\all_pages\nav\logo_zac_hover.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\search.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <EntityDeploy Include="KenmarkTestDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KenmarkTestDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="KenmarkTestDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KenmarkTestDB.edmx</DependentUpon>
+      <LastGenOutput>KenmarkTestDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KenmarkTestDB.edmx.diagram">
+      <DependentUpon>KenmarkTestDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="KenmarkTestDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KenmarkTestDB.edmx</DependentUpon>
+      <LastGenOutput>KenmarkTestDB.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Inquiry.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Inquiry.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Inquiry.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Inquiry.edmx</DependentUpon>
+      <LastGenOutput>Inquiry.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Inquiry.edmx.diagram">
+      <DependentUpon>Inquiry.edmx</DependentUpon>
+    </Content>
+    <Content Include="Inquiry.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Inquiry.edmx</DependentUpon>
+      <LastGenOutput>Inquiry.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\Slide.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Collection\Index.cshtml" />
+    <Content Include="Views\Collection\ViewCollection.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Shared\_Filter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51497/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

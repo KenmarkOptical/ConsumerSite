@@ -1,0 +1,401 @@
+﻿@model Kenmark_Consumer.Models.Filters
+
+@{
+    ViewBag.Title = "_Filter";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.slider.css")">
+
+<script type="text/javascript">
+    var _Page = 1;
+    var _inCallback = false;
+   
+    //see if all checkboxes have been cleared
+    var n = $("input:checkbox:checked").length;
+    if (n == 0) {
+        $('#FirstElement').val('none');
+    }
+    if($('#CloseOut_0__Value').is(':checked')){
+        $('#MinQtyDiv').show();
+    }
+
+
+        $('#FilterLink').click(function () {
+            $('#FilterList').fadeToggle();
+    });
+
+        $('.filterAttribute').click(function () {
+
+            if ($('#FirstElement').val() == 'none') {
+                var v = $(this).attr("id");               
+                $('#FirstElement').val(v);
+    }
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+
+            //$('#FilterDiv').append('<img id="FilterLoader" src="@Url.Content("~/content/images/loader.gif")"  style="margin-left:5px;"/>');
+            $('#FilterList').fadeOut(150);
+            $('#FilterForm').submit();
+    });
+
+        $('#EyeToggle').click(function () {
+            if ($(this).html() == "clear") {
+                $('#SelectedMinEyeSize').val(@Model.MinEyeSize);
+                $('#SelectedMaxEyeSize').val(@Model.MaxEyeSize);
+    }
+
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+    });
+
+        $('#RetiredToggle').click(function () {
+            if ($(this).html() == "clear") {
+                $('.RetiredCB').removeAttr('checked');
+    }
+
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+    });
+
+        $('#Qty').blur(function () {           
+            if ($(this).val() == '') {
+                $(this).val('0');
+
+                _Page = 0;
+                $('#height').val($(window).height());
+                $('#width').val($(window).width());
+               
+                $('#Reload').val(true);
+                $('#CurrPage').val(_Page);
+                $('#FilterForm').submit();
+    }
+            if ($(this).val() > 0) {
+                $('#CloseOut_0__Value').attr('checked', 'checked');
+
+                _Page = 0;
+                $('#height').val($(window).height());
+                $('#width').val($(window).width());
+               
+                $('#Reload').val(true);
+                $('#CurrPage').val(_Page);
+                $('#FilterForm').submit();
+    }
+    });
+
+        $('#QtyToggle').click(function () {
+            $('#Qty').val('0');
+
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+    });
+
+        $('#ShapeToggle').click(function () {
+            if ($(this).html() == "clear") {
+                $('.ShapeCB').removeAttr('checked');
+    }
+
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+    });
+
+        $('#ColorToggle').click(function () {
+            if ($(this).html() == "clear") {
+                $('.ColorCB').removeAttr('checked');
+    }          
+            
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+    });
+
+        $('#GenderToggle').click(function () {
+            if ($(this).html() == "clear") {
+                $('.GenderCB').removeAttr('checked');
+    }           
+
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+    });
+
+
+        $('#MaterialToggle').click(function () {
+            if ($(this).html() == "clear") {
+                $('.MaterialCB').removeAttr('checked');
+    }
+
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+    });
+
+
+        $("#slider-range").slider({
+        range: true,
+        min: parseInt('@Model.MinEyeSize'),
+        max: parseInt('@Model.MaxEyeSize'),
+        orientation: "vertical",
+        values: [parseInt('@Model.SelectedMinEyeSize'), parseInt('@Model.SelectedMaxEyeSize')],
+        slide: function (event, ui) {
+                $("#amount").val(ui.values[0] + " - " + ui.values[1]);               
+    },
+        stop: function (event, ui) {
+                $('#SelectedMinEyeSize').val(ui.values[0]);
+                $('#SelectedMaxEyeSize').val(ui.values[1]);
+
+                _Page = 0;
+                $('#height').val($(window).height());
+                $('#width').val($(window).width());
+               
+                $('#Reload').val(true);
+                $('#CurrPage').val(_Page);
+                $('#FilterForm').submit();
+    }
+    });
+
+        $("#amount").val($("#slider-range").slider("values", 0) +
+          " - " + $("#slider-range").slider("values", 1));
+
+
+
+
+
+    function GetResult(data, status, xhr) {
+
+        if (data.filterChange == 1) {
+            $('#FramesDiv').html(data.html);
+            $('#FilterDiv').html(data.htmlfilter);
+
+            //un-disable the first item checked
+
+            if ($('#FirstElement').val() != 'none') {
+                var id = $('#FirstElement').val();
+                $('#' + id).parent().siblings().attr('style', 'margin-left:5px;');
+            }
+
+            $('#FilterList').show();
+        }
+        else {
+
+            if (data.count != '0') {                                   
+                $('#grid').append(data.html);
+            }
+            else {
+                _Page = -1;
+            }
+        }
+
+        
+    }
+
+    function loadFrames() {
+       
+        $('#Reload').val(false);
+
+        if (_Page > -1 && !_inCallback) {
+            _inCallback = true;
+            var fCount = $('#grid > ul > li').length;
+            var sort = $('#sortOrder').val();
+
+            $('#loading').html('loading');
+
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+           
+            $('#CurrPage').val(_Page);   
+       
+            
+            $('#FilterForm').submit();        
+            $('#loading').empty();
+            _inCallback = false;
+            _Page++;
+        }
+    }
+
+
+  
+</script>
+
+
+
+
+ @using (Ajax.BeginForm("FilterChange", "Collection", null,
+     new AjaxOptions { OnSuccess = "GetResult", OnComplete = "$('#FilterList').fadeIn(150); $('#FilterLoader').remove();" },
+     new { id = "FilterForm" }))
+ {
+     @Html.HiddenFor(m => m.coll)
+     @Html.HiddenFor(m => m.group)
+     @Html.HiddenFor(m => m.height)
+     @Html.HiddenFor(m => m.width)
+     @Html.HiddenFor(m => m.sort)
+     @Html.HiddenFor(m => m.CurrPage)
+     @Html.HiddenFor(m => m.Reload)
+     @Html.HiddenFor(m => m.sort)
+
+    <div id="FilterList" class="row" >  
+        <div class="col-xs-12">
+            <span><b>FILTER</b></span>
+        </div>  
+
+        <div class="col-xs-12">
+             @if (Model.Colors != null)
+            {
+                <span onclick="$('#color-items').toggle();" style="cursor:pointer; margin-top:5px; display:inline-block;">+ COLOR</span><br />
+                   if (Model.Colors.Where(m => m.Value == true).Count() > 0)
+                   {
+                    <span id="ColorToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
+                    <script>$('#color-items').show();</script>
+                   }
+                 
+                <div id="color-items" style="display:none;">              
+                @for (int i = 0; i < Model.Colors.Count; i++)
+                {
+                    <div style="@(Model.Colors[i].Disabled == true ? "pointer-events:none; color:#999;" : ""); margin-left:5px;" class="row">
+                    @Html.CheckBoxFor(x => x.Colors[i].Value, new { @class = "filterAttribute ColorCB" })
+                    @Html.LabelFor(x => x.Colors[i].Value, Model.Colors[i].DisplayName)
+                    @Html.HiddenFor(x => x.Colors[i].DisplayName, new { @class = "ColorCBHF" })
+                    <br />
+                    </div>
+                }
+                </div>
+            }
+        </div>
+       
+
+
+   
+       <div class="col-xs-12">
+        @if (Model.Genders != null)
+        {
+            <span onclick="$('#gender-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ GENDER</span><br />
+            if (Model.Genders.Where(m => m.Value == true).Count() > 0)
+            {
+                <span id="GenderToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
+                <script>$('#gender-items').show();</script>
+            }
+            <div id="gender-items" style="display:none;">
+            @for (int i = 0; i < Model.Genders.Count; i++)
+            {
+                <div style="@(Model.Genders[i].Disabled == true ? "pointer-events:none; color:#999;" : ""); margin-left:5px;" class="row">
+                @Html.CheckBoxFor(x => x.Genders[i].Value, new { @class = "filterAttribute GenderCB" })
+                @Html.LabelFor(x => x.Genders[i].Value, Model.Genders[i].DisplayName)
+                @Html.HiddenFor(x => x.Genders[i].DisplayName, new { @class = "GenderCBHF" })
+                </div>
+            }
+            </div>
+        }
+        </div>
+
+        <div class="col-xs-12">
+        @if (Model.Material != null)
+        {
+            <span onclick="$('#material-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ MATERIAL</span><br />
+            if (Model.Material.Where(m => m.Value == true).Count() > 0)
+            {
+                <span id="MaterialToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
+                <script>$('#material-items').show();</script>
+            }
+            <div id="material-items" style="display:none;">
+            @for (int i = 0; i < Model.Material.Count; i++)
+            {
+                <div style="@(Model.Material[i].Disabled == true ? "pointer-events:none; color:#999;" : ""); margin-left:5px;"  class="row">
+                @Html.CheckBoxFor(x => x.Material[i].Value, new { @class = "filterAttribute MaterialCB" })
+                @Html.LabelFor(x => x.Material[i].Value, Model.Material[i].DisplayName)
+                @Html.HiddenFor(x => x.Material[i].DisplayName, new { @class = "MaterialCBHF" })
+                </div>
+            }
+            </div>
+        }
+         </div>
+
+
+        <div class="col-xs-12">
+        @if (Model.Shape != null)
+        {
+           <span onclick="$('#shape-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ SHAPE</span><br />
+            if (Model.Shape.Where(m => m.Value == true).Count() > 0)
+            {
+                <span id="ShapeToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
+                <script>$('#shape-items').show();</script>
+            }
+            <div id="shape-items" style="display:none;">
+            @for (int i = 0; i < Model.Shape.Count; i++)
+            {
+                <div style="@(Model.Shape[i].Disabled == true ? "pointer-events:none; color:#999;" : ""); margin-left:5px;"  class="row">
+                @Html.CheckBoxFor(x => x.Shape[i].Value, new { @class = "filterAttribute ShapeCB" })
+                @Html.LabelFor(x => x.Shape[i].Value, Model.Shape[i].DisplayName)
+                @Html.HiddenFor(x => x.Shape[i].DisplayName, new { @class = "ShapeCBHF" })
+                </div>
+            }
+           </div>
+        }
+         </div>
+
+        <div class="col-xs-12">
+         @if (Model.MinEyeSize != null && Model.MaxEyeSize != null)
+         {
+            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ EYE SIZE</span><br />
+            <div id="eye-items" style="display:none;">
+             <span id="EyeToggle" class="link" style="padding:4px;">clear</span><br />
+             
+
+             
+             @Html.HiddenFor(x => x.MinEyeSize)
+             @Html.HiddenFor(x => x.MaxEyeSize)
+             @Html.HiddenFor(x => x.SelectedMinEyeSize)
+             @Html.HiddenFor(x => x.SelectedMaxEyeSize)
+
+             <div id="slider-range" style="margin-left:16px; margin-top:18px;"></div>
+              <p style="width:125px;">
+                <label for="amount"></label>
+                <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+             </p>
+            </div>
+         }
+         </div>
+
+        <div class="col-xs-12" style="margin-top:30px;">
+            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block; vertical-align:top;">+</span>
+            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;max-width:120px">BACK TO PENGUIN COLLECTIONS</span><br />
+        </div>
+    
+   </div>
+ }
+
+

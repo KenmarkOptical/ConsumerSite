@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('.feature').delay(3000).removeClass('desaturate').addClass('saturate');
+
+        $('.carousel').carousel({
+            interval: 6000
+        });             
+    });
+</script>
+
+
+<div class="row">
+   
+
+ <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+       <img class="img-responsive desaturate feature" src="@Url.Content("~/Content/images/home/feature.png")" />
+      @*<div class="carousel-caption">
+          <h3>Caption Text</h3>
+      </div>*@
+    </div>
+    <div class="item">
+       <img class="img-responsive desaturate feature" src="@Url.Content("~/Content/images/home/feature.png")" />
+     @* <div class="carousel-caption">
+          <h3>Caption Text</h3>
+      </div>*@
+    </div>
+    <div class="item">
+       <img class="img-responsive desaturate feature" src="@Url.Content("~/Content/images/home/feature.png")" />
+      @*<div class="carousel-caption">
+          <h3>Caption Text</h3>
+      </div>*@
+    </div>
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> 
+<!-- Carousel -->
+</div>
+
+<div class="row" style="max-width: 936px;margin: auto; margin-top:19px;">
+    <div class="row no-gutter">
+        <div class="col-xs-6 col-sm-8" style="padding:5px;">
+            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/craft.jpg")" />
+            <span class="div-text-center collection-link-text">
+                <span style="display: block;text-align: center;">CRAFTSMANSHIP</span>
+                <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">THE MARK OF A GREAT FRAME</span>
+            </span>
+        </div>
+        <div class="col-xs-6 col-sm-4"  style="padding:5px;">
+             <a href="~/">
+                <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/brand.jpg")" />
+                 <span class="div-text-center collection-link-text">
+                    <span style="display: block;text-align: center;">KENMARK</span>
+                    <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">ABOUT OUR BRAND</span>
+                </span>
+             </a>
+        </div>
+    </div>
+    <div class="row no-gutter">
+        <div class="col-xs-6 col-sm-4" style="padding:5px;">
+            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/insta.jpg")" />
+             <span class="div-text-center collection-link-text">
+                    <span style="display: block;text-align: center;">INSTAGRAM</span>
+                    <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">PHOTOS FROM</span>
+                    <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">AROUND THE WORLD</span>
+                </span>
+        </div>
+        <div class="col-xs-6 col-sm-4"  style="padding:5px;">
+            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/face.jpg")" />
+            <span class="div-text-center collection-link-text">
+                <span style="display: block;text-align: center;">ABOUT FACE</span>
+                <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">WHAT'S THE RIGHT FRAME</span>
+             </span>
+        </div>
+        <div class="col-xs-6 col-sm-4"  style="padding:5px;">
+            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/jason.jpg")" />
+            <span class="div-text-center collection-link-text">
+                <span style="display: block;text-align: center;">JASON</span>
+                <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">A DESIGNER PROFILE</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12" style="margin-top:19px;">
+     <img class="img-responsive" src="@Url.Content("~/Content/images/home/viewall.jpg")" />
+     <span class="div-text-center collection-link-static">
+        <span style="display: block;text-align: center;">VIEW ALL BRANDS</span>
+     </span>
+</div>

@@ -1,0 +1,492 @@
+﻿body {
+    font-size: 12px;
+    font-family: "proxima-nova","Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #eeebdf;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+.container {
+    background-color:white;
+    max-width:1074px;
+}
+
+.shadow {
+ box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);
+}
+
+
+/*Sprites*/
+#logo-sprite {
+    background:url(/Content/images/all_pages/logo/logo.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 200px;
+    height: 32px;
+    background-position: 0 -32px;        
+}
+
+#logo-sprite span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/logo/logo.png) no-repeat;
+    background-position: 0 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+}
+
+#logo-sprite:hover span {
+    opacity: 1;
+}
+
+#icon-sprite {
+    background:url(/Content/images/all_pages/icons/icon_search.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 32px;
+    height: 32px;
+    background-position: 0 0;
+    margin-top:9px;
+}
+
+#icon-sprite span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_search.png) no-repeat;
+    background-position: 0 -32px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+}
+
+#icon-sprite:hover span {
+    opacity: 1;
+}
+
+
+
+
+.facebook-sprite {
+    background:url(/Content/images/all_pages/icons/icon_facebook.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background-position: 0 -20px;
+    margin-top:9px;
+    background-size: 20px 40px;
+}
+
+.facebook-sprite span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_facebook.png) no-repeat;
+    background-position: 0 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 20px 40px;
+}
+
+.facebook-sprite:hover span {
+    opacity: 1;
+}
+
+.twitter-sprite {
+    background:url(/Content/images/all_pages/icons/icon_twitter.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background-position: 0 -20px;
+    margin-top:9px;
+    background-size: 20px 40px;
+}
+
+.twitter-sprite span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_twitter.png) no-repeat;
+    background-position: 0 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 20px 40px;
+}
+
+.twitter-sprite:hover span {
+    opacity: 1;
+}
+
+.instagram-sprite {
+    background:url(/Content/images/all_pages/icons/icon_instagram.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background-position: 0 -20px;
+    margin-top:9px;
+    background-size: 20px 40px;
+}
+
+.instagram-sprite span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_instagram.png) no-repeat;
+    background-position: 0 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 20px 40px;
+}
+
+.instagram-sprite:hover span {
+    opacity: 1;
+}
+
+.pinterest-sprite {
+    background:url(/Content/images/all_pages/icons/icon_pinterest.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background-position: 0 -20px;
+    margin-top:9px;
+    background-size: 20px 40px;
+}
+
+.pinterest-sprite span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_pinterest.png) no-repeat;
+    background-position: 0 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 20px 40px;
+}
+
+.pinterest-sprite:hover span {
+    opacity: 1;
+}
+
+
+.facebook-sprite-large {
+    background:url(/Content/images/all_pages/icons/icon_facebook.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 30px;
+    height: 30px;
+    background-position: 0 0px;
+    background-size: 30px 60px;
+}
+
+.facebook-sprite-large span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_facebook.png) no-repeat;
+    background-position: 0 -30px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 30px 60px;
+}
+
+.facebook-sprite-large:hover span {
+    opacity: 1;
+}
+
+.twitter-sprite-large {
+    background:url(/Content/images/all_pages/icons/icon_twitter.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 30px;
+    height: 30px;
+    background-position: 0 0;
+    background-size: 30px 60px;
+}
+
+.twitter-sprite-large span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_twitter.png) no-repeat;
+    background-position: 0 -30px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 30px 60px;
+}
+
+.twitter-sprite-large:hover span {
+    opacity: 1;
+}
+
+.instagram-sprite-large {
+    background:url(/Content/images/all_pages/icons/icon_instagram.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 30px;
+    height: 30px;
+    background-position: 0 0;
+    background-size: 30px 60px;
+}
+
+.instagram-sprite-large span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_instagram.png) no-repeat;
+    background-position: 0 -30px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 30px 60px;
+}
+
+.instagram-sprite-large:hover span {
+    opacity: 1;
+}
+
+.pinterest-sprite-large {
+    background:url(/Content/images/all_pages/icons/icon_pinterest.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 30px;
+    height: 30px;
+    background-position: 0 0;
+    background-size: 30px 60px;
+}
+
+.pinterest-sprite-large span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/all_pages/icons/icon_pinterest.png) no-repeat;
+    background-position: 0 -30px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 30px 60px;
+}
+
+.pinterest-sprite-large:hover span {
+    opacity: 1;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.nav-link {
+    font-size:12px;
+    font-weight:bold;
+    text-decoration:none !important;
+    color:#adadad;
+    -webkit-transition: color 0.15s;
+    -moz-transition:    color 0.15s;
+    -o-transition:      color 0.15s;
+}
+
+.nav-link:hover {
+    color:black;
+    background-color:white;
+}
+
+
+/* Styles for Bootstrap
+-----------------------------------------------------------*/
+.navbar-nav li a {
+    font-size:14px;
+    font-weight:bold;
+    color:black;    
+    -webkit-transition: color 0.15s;
+    -moz-transition:    color 0.15s;
+    -o-transition:      color 0.15s;
+}
+
+.navbar-nav li a:hover {
+    color:#5c5c5c;
+    background-color:white;
+}
+
+.icon-bar {
+background-color:black;
+}
+
+
+img.saturate{
+  filter: none;
+-webkit-filter: grayscale(0%);
+  -webkit-transition: all .5s ease-in-out;
+}
+
+
+img.desaturate{
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+  -webkit-transition: all .5s ease-in-out;
+}
+
+
+img.desaturate:hover{
+filter: none;
+-webkit-filter: grayscale(0%);
+}
+
+img.saturate-2{
+  filter: none;
+-webkit-filter: grayscale(0%);   
+}
+
+
+img.saturate-2:hover{
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left:0;
+  padding-right:0;
+}
+
+.div-text-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    width:100%;
+}
+
+
+
+.collection-link-text {
+     font-size: 4.5vw;
+}
+.collection-link-sub {
+     font-size: 2.5vw;
+}
+
+.collection-link-static {
+     font-size: 4.5vw;
+}
+
+@media all and (min-width: 850px) {
+.collection-link-text {
+     font-size: 34px;
+}
+.collection-link-sub {
+     font-size: 17px;
+}
+.collection-link-static {
+     font-size: 34px;
+}
+}
+

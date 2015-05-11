@@ -1,0 +1,140 @@
+﻿
+@model Kenmark_Consumer.Models.Collections
+
+@{
+    ViewBag.Title = Model.CollectionName + " Eyewear";
+}
+
+<script type="text/javascript">
+    var height = $(window).height();
+    var width = $(window).width();
+    var _scrollVisible = false;
+    var _collGroup = '@(Model.CollectionGroup)';
+    var _coll = '@(Model.CollectionCode)';
+
+    initalLoadFrames();
+
+
+    function initalLoadFrames() {
+        var sort = '@(ViewBag.sort)';
+        var height = $(window).height();
+        var width = $(window).width();
+        var page = '@(Model.Page - 1)';
+
+        if (_collGroup != '') {
+            if (!$.trim($('#FilterDiv').html()).length) {  //only load the filter and frames once
+                $('#FilterDiv').html('<img src="@Url.Content("~/content/images/loader.gif")"  style="margin-left:5px;"/>');
+
+                //get filters
+                $.get("/Collection/GetFilters", { coll: _coll, group: _collGroup, sort: sort }, function (result) {
+                    if ($('#mobile-nav').is(":visible")) {
+                        $('#FilterDiv2').html(result);
+                    }
+                    else {
+                        $('#FilterDiv').html(result);
+                    }
+                    
+                   
+                    
+                }); //end get       
+
+              
+            }
+
+            $('#FilterDiv').show();
+            $('#sortDD').show();
+            $('#CollGroupDIV').css('margin-right', '125px');
+
+        }
+    }
+
+
+    $(document).ready(function () {
+
+        $('.scrollup').click(function (e) {
+            e.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, 500, null, function () {
+                $("html, body").stop(true, false);
+                $('.scrollup').fadeOut();
+                _scrollVisible = false;
+            });
+            return false;
+        });
+
+        $('#sortDD').change(function () {
+            $('#sortOrder').val($(this).attr('value'));
+            $('#FramesDiv').fadeOut(200, function () {
+                $('#FramesDiv').html('');
+                initalLoadFrames();
+            });
+            $('#FramesDiv').fadeIn(200);
+        });
+
+
+
+
+    }); //end document ready
+
+    $(window).scroll(function () {
+
+        if (!_scrollVisible && $(window).scrollTop() > 200) {
+            $('.scrollup').fadeIn();
+            $('#CartMiniBTN').fadeIn();
+            _scrollVisible = true;
+        }
+
+        if ($(this).scrollTop() == 0) {
+            $('.scrollup').stop(true, false).fadeOut();
+            $('#CartMiniBTN').stop(true, false).fadeOut();
+            $('#CartMiniContainer').stop(true, false).fadeOut();
+            _scrollVisible = false;
+        }
+
+    });
+
+
+
+</script>
+
+<input type="hidden" id="FirstElement" value="none" />
+
+<div id="mobile-nav" class="col-xs-12 hidden-sm hidden-md hidden-lg" style="margin-top:10px;">     
+    <div class="col-xs-6 no-gutter">
+        <span style="font-size: 12px;">PENGUIN / RX</span>
+    </div>
+     <div class="col-xs-6 no-gutter text-right">
+        <span onclick="$('#FilterDiv2').slideToggle();" style="cursor:pointer;font-size: 12px;">Filter</span>        
+     </div>  
+    <div class="col-xs-12 no-gutter">
+        <div id="FilterDiv2" class="col-xs-12" style="display:none;margin-top:10px;"></div>
+    </div>     
+</div>
+
+<div class="row">
+    <img class="img-responsive" src="@Url.Content("~/Content/images/viewcollection/peo.jpg")" />
+</div>
+
+
+
+<div class="col-xs-3 hidden-xs">
+    <div class="col-xs-12 no-gutter" style="margin-top:15px; margin-bottom:20px;">
+       PENGUIN / RX
+    </div>    
+    <div id="FilterDiv" class="col-xs-12"></div>
+</div>
+
+
+
+<div id="FramesDiv" class="col-xs-12 col-sm-9">
+    @Html.Partial("_Grid",Model)
+</div>
+<div id="loading" style="margin-top:30px;"></div>
+
+
+
+<a href="#" class="scrollup">Scroll</a>
+<input type="hidden" id="sortOrder" value ="1" />
+
+
+
+
