@@ -354,7 +354,7 @@
                 <span id="ShapeToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
                 <script>$('#shape-items').show();</script>
             }
-            <div id="shape-items" style="display:none;">
+            <div id="shape-items" style="display:none;" onclick="">
             @for (int i = 0; i < Model.Shape.Count; i++)
             {
                 <div style="@(Model.Shape[i].Disabled == true ? "pointer-events:none; color:#999;" : ""); margin-left:5px;"  class="row">

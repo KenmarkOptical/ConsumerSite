@@ -17,6 +17,8 @@ namespace Kenmark_Consumer.Models
         public List<CollectionImage> Images { get; set; }
         public int Page { get; set; }
         public int PageCount = 8;
+        
+       
 
         public class CollectonCode
         {
@@ -80,7 +82,7 @@ namespace Kenmark_Consumer.Models
 
         public Collections GetFrames(string Group, string SubGroup, int page, int pageSize, int sort, Filters Filter)
         {
-
+            
             KenmarkTestDBEntities db = new KenmarkTestDBEntities();
             InquiryEntities di = new InquiryEntities();
 

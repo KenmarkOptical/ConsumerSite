@@ -1,0 +1,19 @@
+﻿
+@model Kenmark_Consumer.Models.Persons
+
+@{
+    ViewBag.Title = "Person";
+}
+
+<h2>Person</h2>
+
+
+<h2>Add Person</h2>
+
+@using(Html.BeginForm("AddPerson","Home"))
+{
+    @Html.TextBoxFor(m => m.NewName)
+    
+<input type="submit" value="SAVE" />
+  
+}

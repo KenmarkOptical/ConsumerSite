@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kenmark_Consumer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,5 +20,22 @@ namespace Kenmark_Consumer.Controllers
             return View();
         }
 
+        [Authorize]
+        public ActionResult P()
+        {
+            Persons p = new Persons();
+            p = p.GetPeople();
+            
+            
+            return View("Person", p);
+        }
+
+        public ActionResult AddPerson(Persons p)
+        {
+            p.SavePeople(p);
+            p.NewName = "";
+            
+            return View("Person", p);
+        }
     }
 }

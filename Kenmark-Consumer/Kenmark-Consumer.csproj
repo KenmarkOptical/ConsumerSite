@@ -495,6 +495,7 @@
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\Filters.cs" />
     <Compile Include="Models\MyBaseController.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="MyDateTable.cs">
       <DependentUpon>Inquiry.tt</DependentUpon>
     </Compile>
@@ -1053,6 +1054,7 @@
     </Content>
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Shared\_Filter.cshtml" />
+    <Content Include="Views\Home\Person.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
