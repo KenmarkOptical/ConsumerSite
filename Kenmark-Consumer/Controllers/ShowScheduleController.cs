@@ -17,7 +17,7 @@ namespace Kenmark_Consumer.Controllers
             ShowSchedule s = new ShowSchedule().GetShow();
 
             //change to return View(s) when ready to test.
-            return View();
+            return View(s);
         }
 
     }
