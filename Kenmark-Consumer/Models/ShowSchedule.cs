@@ -18,7 +18,7 @@ namespace Kenmark_Consumer.Models
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
                 s.Shows = db.events.Where(m => m.is_active == true)
-                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth,Month = m.event_start_date.Month, Year = m.event_start_date.Year})
+                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth,Month = m.event_start_date.Month, Year = m.event_start_date.Year, Location = m.location})
                                    .ToList();
             }
 
@@ -37,6 +37,7 @@ namespace Kenmark_Consumer.Models
         public string EventName { get; set; }
         public string Date { get; set; }
         public string Booth { get; set; }
+        public string Location { get; set; }
         public string Group { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
