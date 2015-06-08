@@ -12,7 +12,6 @@ namespace Kenmark_Consumer.Models
 
         public Persons GetPeople()
         {
-            //test github
             Persons p = new Persons();
             p.People = new List<Person>();
 
