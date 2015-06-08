@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -17,8 +18,15 @@ namespace Kenmark_Consumer.Models
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
                 s.Shows = db.events.Where(m => m.is_active == true)
-                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth, Group = m.event_start_date.ToString("MMM") + " " + m.event_start_date.Year})
+                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth,Month = m.event_start_date.Month, Year = m.event_start_date.Year})
                                    .ToList();
+            }
+
+            //fix the month abreviations for the groupings
+            foreach (var item in s.Shows)
+            {
+                string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMM", CultureInfo.InvariantCulture);
+                item.Group = monthName + " " + item.Year;
             }
             return s;
         }
@@ -30,5 +38,7 @@ namespace Kenmark_Consumer.Models
         public string Date { get; set; }
         public string Booth { get; set; }
         public string Group { get; set; }
+        public int Month { get; set; }
+        public int Year { get; set; }
     }
 }
