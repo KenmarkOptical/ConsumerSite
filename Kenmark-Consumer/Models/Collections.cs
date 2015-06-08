@@ -8,7 +8,6 @@ namespace Kenmark_Consumer.Models
 {
     public class Collections
     {
-        //github 
         public string CollectionName { get; set; }
         public string CollectionCode { get; set; }
         public string CollectionType { get; set; }
