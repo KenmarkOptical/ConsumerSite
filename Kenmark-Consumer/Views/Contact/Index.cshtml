@@ -1,0 +1,65 @@
+﻿@model Kenmark_Consumer.Models.Contact
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-sm-3" style="padding-left:50px;margin-top:50px;font-size:12px;">PROFILE / CONTACT</div>
+</div>
+
+<div class="row">
+    
+    <div class="col-xs-12 col-sm-3" style="padding-left:50px;margin-top:50px;font-size:14px;">
+        <strong>KENMARK GROUP</strong><br />
+        11851 Plantside Drive<br />
+        Louisville, KY 40299
+    
+        <div class="col-xs-12 col-sm-12 no-gutter" style="margin-top:30px;" >
+            <div class="col-xs-2 no-gutter">
+                <span style="font-size:12px;">TEL</span>
+            </div>
+            <div class="col-xs-10 no-gutter">
+                800.627.2898<br />
+                502.267.4486
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 no-gutter" style="margin-top:15px;">
+            <div class="col-xs-2 no-gutter">
+                <span style="font-size:12px;">FAX</span>
+            </div>
+            <div class="col-xs-10 no-gutter">
+                800.395.6733<br />
+                502.267.6161
+            </div>
+            
+        </div>
+
+        <div class="col-xs-12 col-sm-12 no-gutter" style="margin-top:15px;font-size:12px;">
+            info@kenmark.optical.com
+        </div>
+
+        
+    </div>
+
+    <div class="col-xs-12 visible-xs hidden-sm-block"> 
+            <hr style="border-color:#bbb"/>
+        </div>
+
+
+    <div class="col-xs-12 col-sm-6" style="margin-top:50px;font-size:14px;">
+        Have questions? Need to talk to a sales representative? Contact us
+        using the form below, and we'll reply within 1 business day. Or you 
+        can contact us directly using the information to the left.
+
+      @*  @using (Ajax.BeginForm("SaveContact", new AjaxOptions {OnSuccess = } ){
+        
+        }*@
+
+
+    </div><!-- end middle screen div -->
+
+    <div class="col-xs-12 col-sm-3" style="margin-top:50px;">RESERVED KENMARK PIC</div>
+
+</div>
