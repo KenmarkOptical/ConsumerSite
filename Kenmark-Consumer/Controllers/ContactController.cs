@@ -18,6 +18,7 @@ namespace Kenmark_Consumer.Controllers
             return View(c);
         }
 
+        [HttpPost]
         public ActionResult SaveContact(Contact c)
         {
            bool result =  c.SaveContact(c);
