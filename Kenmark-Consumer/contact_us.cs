@@ -12,12 +12,17 @@ namespace Kenmark_Consumer
     using System;
     using System.Collections.Generic;
     
-    public partial class payment_options
+    public partial class contact_us
     {
-        public string Kenmark_ID { get; set; }
-        public string Type { get; set; }
-        public string FirstLast4 { get; set; }
-        public string Name { get; set; }
         public int id { get; set; }
+        public string first { get; set; }
+        public string last { get; set; }
+        public string phone { get; set; }
+        public string email { get; set; }
+        public string address { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string zip { get; set; }
+        public string comment { get; set; }
     }
 }

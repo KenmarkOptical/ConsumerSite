@@ -36,6 +36,7 @@ namespace Kenmark_Consumer
         public DbSet<Collection_POP> Collection_POP { get; set; }
         public DbSet<collection> collections { get; set; }
         public DbSet<companyProfile> companyProfiles { get; set; }
+        public DbSet<contact_us> contact_us { get; set; }
         public DbSet<content> contents { get; set; }
         public DbSet<country> countries { get; set; }
         public DbSet<customer_coll_buy> customer_coll_buy { get; set; }
