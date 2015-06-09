@@ -17,6 +17,7 @@
           <EntitySet Name="Collection_POP" EntityType="KenmarkTestDBModel.Store.Collection_POP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="collections" EntityType="KenmarkTestDBModel.Store.collections" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="companyProfile" EntityType="KenmarkTestDBModel.Store.companyProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="contact_us" EntityType="KenmarkTestDBModel.Store.contact_us" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="content" EntityType="KenmarkTestDBModel.Store.content" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="country" EntityType="KenmarkTestDBModel.Store.country" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="customer_coll_buy" EntityType="KenmarkTestDBModel.Store.customer_coll_buy" store:Type="Tables" store:Schema="dbo" store:Name="customer_coll_buy">
@@ -1049,6 +1050,21 @@
           <Property Name="text" Type="text" />
           <Property Name="cpID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="image" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="contact_us">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="first" Type="varchar" MaxLength="85" />
+          <Property Name="last" Type="varchar" MaxLength="85" />
+          <Property Name="phone" Type="varchar" MaxLength="25" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="address" Type="varchar" MaxLength="250" />
+          <Property Name="city" Type="varchar" MaxLength="100" />
+          <Property Name="state" Type="varchar" MaxLength="3" />
+          <Property Name="zip" Type="varchar" MaxLength="15" />
+          <Property Name="comment" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="content">
           <Key>
@@ -2359,15 +2375,13 @@
         </EntityType>
         <EntityType Name="payment_options">
           <Key>
-            <PropertyRef Name="Kenmark_ID" />
-            <PropertyRef Name="Type" />
-            <PropertyRef Name="FirstLast4" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="Kenmark_ID" Type="varchar" Nullable="false" MaxLength="8" />
           <Property Name="Type" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="FirstLast4" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="payments">
           <Key>
@@ -3514,6 +3528,7 @@
           <EntitySet Name="Collection_POP" EntityType="KenmarkTestDBModel.Collection_POP" />
           <EntitySet Name="collections" EntityType="KenmarkTestDBModel.collection" />
           <EntitySet Name="companyProfiles" EntityType="KenmarkTestDBModel.companyProfile" />
+          <EntitySet Name="contact_us" EntityType="KenmarkTestDBModel.contact_us" />
           <EntitySet Name="contents" EntityType="KenmarkTestDBModel.content" />
           <EntitySet Name="countries" EntityType="KenmarkTestDBModel.country" />
           <EntitySet Name="customer_coll_buy" EntityType="KenmarkTestDBModel.customer_coll_buy" />
@@ -3755,6 +3770,21 @@
           <Property Type="String" Name="text" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="cpID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="image" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="contact_us">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="first" MaxLength="85" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last" MaxLength="85" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="phone" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="address" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="city" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="state" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="zip" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="comment" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="content">
           <Key>
@@ -4969,15 +4999,13 @@
         </EntityType>
         <EntityType Name="payment_options">
           <Key>
-            <PropertyRef Name="Kenmark_ID" />
-            <PropertyRef Name="Type" />
-            <PropertyRef Name="FirstLast4" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Type="String" Name="Kenmark_ID" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Type" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="FirstLast4" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="payment">
           <Key>
@@ -5668,7 +5696,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -5804,6 +5832,22 @@
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="cpID" ColumnName="cpID" />
                 <ScalarProperty Name="text" ColumnName="text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contact_us">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.contact_us">
+              <MappingFragment StoreEntitySet="contact_us">
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="last" ColumnName="last" />
+                <ScalarProperty Name="first" ColumnName="first" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -7023,6 +7067,7 @@
           <EntitySetMapping Name="payment_options">
             <EntityTypeMapping TypeName="KenmarkTestDBModel.payment_options">
               <MappingFragment StoreEntitySet="payment_options">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="FirstLast4" ColumnName="FirstLast4" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
