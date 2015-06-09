@@ -6,53 +6,53 @@
 
 
 <div class="row">
-    <img class="img-responsive" src="~/Content/images/Brand/Penguin/sun.jpg" /> 
+    <img class="img-responsive" src="~/Content/images/ShowSchedule/header.jpg" /> 
     <div class="row" style="padding-left:50px;margin-top:10px;">
         <div class="col-md-3" style="font-size:14px;">PROFILE / SHOW SCHEDULE</div>
     </div>
 </div>
 
-
-
 <div class="row">
     
-    <div class="col-xs-12 text-center col-sm-3" style="margin-top:30px;padding-left:50px;font-weight:bold;font-size:16px;">
+    <div class="col-xs-12 visible-xs hidden-sm-block text-center" style="margin-top:30px;padding-left:50px;font-weight:bold;font-size:16px;">
         
         SHOW & EVENT SCHEDULE
+    </div>
 
+    <div class="col-xs-12 hidden-xs visible-sm-block col-sm-3" style="margin-top:30px;padding-left:50px;font-weight:bold;font-size:16px;">
+        
+        SHOW & EVENT SCHEDULE
     </div>
     
-    <div class="col-xs-12 col-sm-8" style="margin-top:30px;font-size:14px;">To see the latest Kenmark products, visit us at one of
+    <div class="col-xs-12 col-sm-9" style="margin-top:30px;font-size:14px;">To see the latest Kenmark products, visit us at one of
         the large industry trade shows this year, including MIDO, SECO and Vision Expo.
         To request an appointment contact <u>shows@kenmarkoptical.com </u>
 
-        <hr />
-    
-        <div class="row">
-           
+        @foreach (var s in Model.Shows.GroupBy(s => s.Group).OrderBy(s => s.Key)) {
+          
+       <hr style="border-color:#bbb;"/>
+       <div class="row"> 
             
+       <div class="col-xs-4 col-sm-2" style="text-transform:uppercase;">@s.Key </div>
+           
+            <div class="col-xs-8 col-sm-10">
                 
-                @foreach (var s in Model.Shows) {
-         
-
-            <div class="col-xs-4 col-sm-2">@s.Group</div>
+                @foreach(var x in Model.Shows){
                     
-                 <div class="col-xs-8 col-sm-5">
-                     <strong>@s.EventName</strong>
-                             @s.Booth<br />
-                             
-
-                     <hr />
-
-
-            </div>
+                   if(x.Group.Equals(s.Key)){
+                       
+                       <div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+                            <strong>@x.EventName</strong><br />
+                                    @x.Date<br />
+                                    @x.Location
+                         </div>
+                        
+                    } <!-- end if statement for grouping --> 
                 }
-        </div>
-               
-
-      
-    </div>
-</div> <!-- End main Row DIV -->
-
-
-
+                
+            </div>   
+       </div>
+          
+    }
+ </div> 
+</div><!-- End main Row DIV -->

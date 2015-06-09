@@ -14,11 +14,13 @@ namespace Kenmark_Consumer.Models
         {
             ShowSchedule s = new ShowSchedule();
             s.Shows = new List<Show>();
+            
 
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
+
                 s.Shows = db.events.Where(m => m.is_active == true)
-                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth,Month = m.event_start_date.Month, Year = m.event_start_date.Year, Location = m.location})
+                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth, Month = m.event_start_date.Month, Year = m.event_start_date.Year, Location = m.location})
                                    .ToList();
             }
 
@@ -30,6 +32,7 @@ namespace Kenmark_Consumer.Models
             }
             return s;
         }
+        
     }
 
     public class Show
@@ -41,5 +44,9 @@ namespace Kenmark_Consumer.Models
         public string Group { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
+
+        
     }
+
+    
 }
