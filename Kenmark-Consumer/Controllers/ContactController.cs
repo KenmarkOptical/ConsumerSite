@@ -21,8 +21,18 @@ namespace Kenmark_Consumer.Controllers
         [HttpPost]
         public ActionResult SaveContact(Contact c)
         {
-           bool result =  c.SaveContact(c);
-           return Json(new { success = result });
+            if (ModelState.IsValid)
+            {
+                // bool result =  c.SaveContact(c);
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false });
+            }
+
+          
+            
         }
 
     }

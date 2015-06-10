@@ -1,16 +1,56 @@
 ﻿@model Kenmark_Consumer.Models.Contact
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Contact";
 }
 
-<div class="row">
-    <div class="col-sm-3" style="padding-left:50px;margin-top:50px;font-size:12px;">PROFILE / CONTACT</div>
+<script type="text/javascript">
+    function OnSuccess(data, status, xhr) {
+       
+        if (data.success == true) {
+
+            
+            $("input[type=text], textarea").val("");
+            $('#validate').text("Thank You. Your contact information was submitted successfully.")
+            
+
+        }
+        else {
+                alert('Form was not submitted correctly, please contact us @@...')
+        }
+        };
+</script>
+
+<script type="text/javascript">
+    var is_mobile = false;
+    $(function(){
+        
+        if ($('#mobile-test').is(':visible')) {
+            is_mobile = true;
+        }
+
+        if (is_mobile) {
+            $('.kenmarkInfo').css({ 'padding-left': '' });
+        }
+
+        if (is_mobile = false) {
+            $('.kenmarkInfo').css({ 'padding-left' : '50px'});
+        }
+
+    });
+
+</script>
+
+
+
+<div class="row" >
+    <div class="col-sm-3 kenmarkInfo" style="padding-left:50px;margin-top:50px;font-size:12px;">PROFILE / CONTACT</div>
 </div>
 
-<div class="row">
+
+<div class="row kenmarkInfo">
     
-    <div class="col-xs-12 col-sm-3" style="padding-left:50px;margin-top:50px;font-size:14px;">
+    <div class="col-xs-12 col-sm-3 kenmarkInfo" style="padding-left:50px;margin-top:50px;font-size:14px;">
         <strong>KENMARK GROUP</strong><br />
         11851 Plantside Drive<br />
         Louisville, KY 40299
@@ -53,13 +93,96 @@
         using the form below, and we'll reply within 1 business day. Or you 
         can contact us directly using the information to the left.
 
-      @*  @using (Ajax.BeginForm("SaveContact", new AjaxOptions {OnSuccess = } ){
-        
-        }*@
+        @using (Ajax.BeginForm("SaveContact", "Contact", new AjaxOptions {OnSuccess = "OnSuccess", OnFailure = "OnFailure"}))
+        {
+           
+            
+            <div class="row">
+                @Html.Label("Your Name*", new {@class="col-sm-12", @style="margin-top:30px;"})
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    @Html.TextBoxFor(m => m.first, new { @class="col-xs-12 col-sm-11 form-control"})
+                    @Html.LabelFor(m => m.first, new { @class="col-xs-12 no-gutter", @style="font-size:11px; color:#bbbbbb;"})
+                    @Html.ValidationMessageFor(m => m.first)
+                </div>
+                 
+                <div class="col-xs-12 col-sm-6">
+                    @Html.TextBoxFor(m => m.last, new { @class="col-xs-12 form-control"})
+                    @Html.LabelFor(m => m.last, new { @class="col-xs-12 no-gutter", @style="font-size:11px; color:#bbbbbb;"})
+                    @Html.ValidationMessageFor(m => m.last)
+                </div>
+           </div>
+            
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    @Html.LabelFor(m => m.phone, new{ @class="col-xs-12 no-gutter", @style="margin-top:20px;"})
+                    @Html.TextBoxFor(m => m.phone, new { @class="col-xs-12 col-sm-11 form-control"})
+                    @Html.ValidationMessageFor(m => m.phone)
+                </div>
 
+                <div class="col-xs-12 col-sm-6">
+                    @Html.LabelFor(m => m.email, new{ @class="col-xs-12 no-gutter", @style="margin-top:20px;"})
+                    @Html.TextBoxFor(m => m.email, new { @class="col-xs-12 form-control"})
+                    @Html.ValidationMessageFor(m => m.email)
+                </div>
+            </div>
+            
+            
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.address, new{@class="col-xs-12 no-gutter", @style="margin-top:20px;"})
+                    @Html.TextBoxFor(m => m.address,  new { @class="col-xs-12 form-control"})
+                </div>
+            </div>
+            
+            
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    @Html.LabelFor(m => m.city, new{ @class="col-xs-12 no-gutter", @style="margin-top:20px;"})
+                    @Html.TextBoxFor(m => m.city, new{ @class="col-xs-12 form-control"})
+                </div>
+
+                <div class="col-xs-4 col-sm-3">
+                    @Html.LabelFor(m => m.state, new{@class="col-xs-12 no-gutter", @style="margin-top:20px;"})
+                    @Html.DropDownListFor(m => m.state, Kenmark_Consumer.Models.Common.States, new { @class="col-xs-12 form-control no-gutter"})
+                </div>
+            
+                <div class="col-xs-8 col-sm-3">
+                    @Html.LabelFor(m => m.zip, new{ @class="col-xs-12 no-gutter", @style="margin-top:20px;"})
+                    @Html.TextBoxFor(m => m.zip, new{ @class="col-xs-12 form-control"})
+                </div>
+            </div>
+            
+            
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.comment, new { @class="col-xs-12 no-gutter", @style="margin-top:20px;"})
+                    @Html.TextAreaFor(m => m.comment, 10, 10, new { @class="col-xs-12 form-control"})
+                    @Html.ValidationMessageFor(m => m.comment)
+                </div>
+            </div>
+            
+            <div class="col-xs-12 no-gutter"> 
+                <button type="submit" class="hidden-xs btn btn-default submitButton" style="margin-top:20px;" onclick="this.disabled=disabled">Submit</button>
+                <button type="submit" style="margin-top:20px;" class="visible-xs btn btn-default btn form-control submitButton" onclick="this.disabled=disabled" >Submit</button>
+            </div>
+            
+            <div class="col-xs-12 text-center" id="validate" style="color:red;font-weight:bold;"></div>
+        }
+        
+        
+        
 
     </div><!-- end middle screen div -->
 
+    
+    
     <div class="col-xs-12 col-sm-3" style="margin-top:50px;">RESERVED KENMARK PIC</div>
 
 </div>

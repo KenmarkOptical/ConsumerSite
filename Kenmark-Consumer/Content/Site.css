@@ -577,3 +577,11 @@ img.saturate-2:hover{
     
     
 /* END BOOTSTRAP CSS*/
+
+.submitButton {
+
+    background-color:#696969;
+    color:white;
+    font-weight:bold;
+    
+}

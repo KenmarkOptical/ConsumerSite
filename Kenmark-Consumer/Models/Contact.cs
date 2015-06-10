@@ -8,11 +8,11 @@ namespace Kenmark_Consumer.Models
 {
     public class Contact
     {
-        [Display(Name = "First*")]
+        [Display(Name = "First")]
         [Required(ErrorMessage = "A First Name is required")]
         public string first { get; set; }
 
-        [Display(Name = "Last*")]
+        [Display(Name = "Last")]
         [Required(ErrorMessage = "A Last Name is required")]
         public string last { get; set; }
 
