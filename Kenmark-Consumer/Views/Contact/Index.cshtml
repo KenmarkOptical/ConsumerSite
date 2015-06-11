@@ -1,62 +1,75 @@
 ﻿@model Kenmark_Consumer.Models.Contact
 
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contact Kenmark";
 }
 
+<script type="text/javascript">
+
+    function OnSuccess(data, status, xhr) {
+       
+            if (data.success == true)
+            {
+                
+                $("input[type=text], textarea").val("");
+                $('#validate').show();
+                $('#validate').css("color" , "black");
+                $('#validate').text("Thank You. Your contact information was submitted successfully.");
+                $('.submitButton').prop('disabled', false);
+                $('#validate').delay(5000).fadeOut();
+            
+            }
+            else
+            {
+                $("input[type=text], textarea").val("");
+                $('#validate').show();
+                $('#validate').text("There was an error when submitting your form. Please try again later.");
+                $('.submitButton').prop('disabled', false);
+                $('#validate').delay(10000).fadeOut();
+            }
+    };
 
 
-<script type="text/javascript"> 
-    var is_mobile = false;
+    function OnFailure() {
+        $('#validate').show();
+        $('#validate').text("There was an error while processing your form. Please contact us @@kenmarkoptical.com");
 
-    $(function () {
+    };
 
+
+    function OnBegin() {
+
+        $('.submitButton').prop('disabled', true);
+        $('#validate').css("color", "black");
+        $('#validate').text("Submitting...");
+        return true;
+
+    };
+
+
+   var is_mobile = false;
+    $(function(){
+        
         if ($('#mobile-test').is(':visible')) {
             is_mobile = true;
         }
 
         if (is_mobile) {
             $('.kenmarkInfo').css({ 'padding-left': '', 'margin-top': '20px' });
+            $('#questions').css({ 'margin-top': '10px' });
+            $('#questions').text("Have questions? Need to talk to a sales representative? " +
+                "Contact us using the form below, and we'll reply within 1 business day. Or you can contact us " +
+                "by telephone.");
         }
 
         if (is_mobile = false) {
-            $('.kenmarkInfo').css({ 'padding-left': '50px' });
+            $('.kenmarkInfo').css({ 'padding-left' : '50px'});
         }
 
     });
-        
-        function OnSuccess(data, status, xhr) {       
-            if (data.success == true)
-            {
-                $('.submitButton').prop('disabled', false);
-                $("input[type=text], textarea").val("");
-                $('#validate').show();
-                $('#validate').css("color" , "black");
-                $('#validate').text("Thank You. Your contact information was submitted successfully.");                
-                $('#validate').delay(5000).fadeOut();
-            
-            }
-            else
-            {
-                $('.submitButton').prop('disabled', false);
-                $("input[type=text], textarea").val("");
-                $('#validate').show();
-                $('#validate').text("There was an error when submitting your form. Please try again later.");                
-                $('#validate').delay(10000).fadeOut();
-            }
-        };
 
-        function OnFailure() {
-            $('#validate').text("There was an error while processing your form. Please contact us @@kenmarkoptical.com");        
-        };
-   
-        function OnBegin() {
-            $('.submitButton').prop('disabled', true);
-            $('#validate').css("color", "black");
-            $('#validate').text("Submitting...");
-            return true;
-        };
 </script>
+
 
 <div class="row" >
     <div class="col-sm-3 kenmarkInfo" style="padding-left:50px;margin-top:50px;font-size:12px;">PROFILE / CONTACT</div>
@@ -104,14 +117,15 @@
 
 
     <div class="col-xs-12 col-sm-6" style="margin-top:50px;font-size:14px;">
-        Have questions? Need to talk to a sales representative? Contact us
-        using the form below, and we'll reply within 1 business day. Or you 
-        can contact us directly using the information to the left.
+        <div class="col-xs-12 no-gutter" id="questions">
+            Have questions? Need to talk to a sales representative? Contact us
+            using the form below, and we'll reply within 1 business day. Or you 
+            can contact us directly using the information to the left.
+        </div>
 
-        @using (Ajax.BeginForm("SaveContact", "Contact", new AjaxOptions { OnBegin="OnBegin", OnSuccess = "OnSuccess", OnFailure = "OnFailure"}))
+    @using (Ajax.BeginForm("SaveContact", "Contact", new AjaxOptions { OnBegin="OnBegin", OnSuccess = "OnSuccess", OnFailure = "OnFailure"}))
         {
            
-            
             <div class="row">
                 @Html.Label("Your Name*", new {@class="col-sm-12", @style="margin-top:30px;"})
             </div>
@@ -145,16 +159,12 @@
                 </div>
             </div>
             
-            
-            
             <div class="row">
                 <div class="col-xs-12">
                     @Html.LabelFor(m => m.address, new{@class="col-xs-12 no-gutter", @style="margin-top:20px;"})
                     @Html.TextBoxFor(m => m.address,  new { @class="col-xs-12 form-control"})
                 </div>
             </div>
-            
-            
             
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
@@ -173,8 +183,6 @@
                 </div>
             </div>
             
-            
-            
             <div class="row">
                 <div class="col-xs-12">
                     @Html.LabelFor(m => m.comment, new { @class="col-xs-12 no-gutter", @style="margin-top:20px;"})
@@ -184,7 +192,7 @@
             </div>
         
             <div class="col-xs-12 no-gutter"> 
-                <button type="submit" class="hidden-xs btn btn-default submitButton" style="margin-top:20px;">Submit</button>                    
+                <button type="submit" class="hidden-xs btn btn-default submitButton" style="margin-top:20px;">Submit</button>
                 <button type="submit" style="margin-top:20px;" class="visible-xs btn btn-default form-control submitButton" >Submit</button>
             </div>
             
@@ -192,12 +200,8 @@
         
         }
         
-        
+   </div><!-- end middle screen div -->
 
-    </div><!-- end middle screen div -->
-
-    
-    
-    <div class="col-xs-12 col-sm-3" style="margin-top:50px;">RESERVED KENMARK PIC</div>
+    <div class="col-xs-12 col-sm-3" style="margin-top:50px">RESERVED KENMARK PIC</div>
 
 </div>
