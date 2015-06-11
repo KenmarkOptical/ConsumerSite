@@ -23,6 +23,7 @@ namespace Kenmark_Consumer.Controllers
         {
             if (ModelState.IsValid)
             {
+                //System.Threading.Thread.Sleep(15000);
                 // bool result =  c.SaveContact(c);
                 return Json(new { success = true });
             }

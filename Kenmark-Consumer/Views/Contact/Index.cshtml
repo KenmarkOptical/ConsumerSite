@@ -5,21 +5,35 @@
 }
 
 <script type="text/javascript">
+
+
+</script>
+
+<script type="text/javascript">
     function OnSuccess(data, status, xhr) {
        
-        if (data.success == true) {
-
-            
+        if (data.success == true)
+        {
             $("input[type=text], textarea").val("");
             $('#validate').text("Thank You. Your contact information was submitted successfully.")
+            $('.submitButton').prop('disabled', false);
+            $('#validate').delay(3000).fadeOut();
             
-
         }
-        else {
-                alert('Form was not submitted correctly, please contact us @@...')
+        else
+        {
+            $('#validate').text("There was an error when submitting your form. Please try again later.");
+            $('#validate').delay(10000).fadeOut();
         }
-        };
+   };
 </script>
+
+<script type="text/javascript">
+    function OnFailure() {
+        $('#validate').text("There was an error while processing your form. Please contact us @@kenmarkoptical.com");
+    }
+</script>
+
 
 <script type="text/javascript">
     var is_mobile = false;
@@ -169,11 +183,14 @@
             </div>
             
             <div class="col-xs-12 no-gutter"> 
-                <button type="submit" class="hidden-xs btn btn-default submitButton" style="margin-top:20px;" onclick="this.disabled=disabled">Submit</button>
-                <button type="submit" style="margin-top:20px;" class="visible-xs btn btn-default btn form-control submitButton" onclick="this.disabled=disabled" >Submit</button>
+                <button type="submit" class="hidden-xs btn btn-disabled submitButton"style="margin-top:20px;">Submit</button>
+                    
+                    
+            
+                <button type="submit" style="margin-top:20px;" class="visible-xs btn btn-default form-control submitButton" >Submit</button>
             </div>
             
-            <div class="col-xs-12 text-center" id="validate" style="color:red;font-weight:bold;"></div>
+            <div class="col-xs-12 text-center" id="validate" style="color:red;font-weight:bold;margin-top:10px;"></div>
         }
         
         
