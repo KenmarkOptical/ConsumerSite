@@ -4,34 +4,45 @@
     ViewBag.Title = "Contact";
 }
 
+
+
 <script type="text/javascript">
 
-
-</script>
-
-<script type="text/javascript">
-    function OnSuccess(data, status, xhr) {
+   
+        
+        function OnSuccess(data, status, xhr) {
        
-        if (data.success == true)
-        {
-            $("input[type=text], textarea").val("");
-            $('#validate').text("Thank You. Your contact information was submitted successfully.")
-            $('.submitButton').prop('disabled', false);
-            $('#validate').delay(3000).fadeOut();
+            if (data.success == true)
+            {
+                
+                $("input[type=text], textarea").val("");
+                $('#validate').show();
+                $('#validate').css("color" , "black");
+                $('#validate').text("Thank You. Your contact information was submitted successfully.");
+                $('.submitButton').prop('disabled', false);
+                $('#validate').delay(5000).fadeOut();
             
-        }
-        else
-        {
-            $('#validate').text("There was an error when submitting your form. Please try again later.");
-            $('#validate').delay(10000).fadeOut();
-        }
-   };
+            }
+            else
+            {
+                $("input[type=text], textarea").val("");
+                $('#validate').show();
+                $('#validate').text("There was an error when submitting your form. Please try again later.");
+                $('.submitButton').prop('disabled', false);
+                $('#validate').delay(10000).fadeOut();
+            }
+        };
+   
 </script>
 
+
+
 <script type="text/javascript">
-    function OnFailure() {
-        $('#validate').text("There was an error while processing your form. Please contact us @@kenmarkoptical.com");
-    }
+   
+        function OnFailure() {
+            $('#validate').text("There was an error while processing your form. Please contact us @@kenmarkoptical.com");
+        
+    };
 </script>
 
 
@@ -44,7 +55,7 @@
         }
 
         if (is_mobile) {
-            $('.kenmarkInfo').css({ 'padding-left': '' });
+            $('.kenmarkInfo').css({ 'padding-left': '', 'margin-top': '20px' });
         }
 
         if (is_mobile = false) {
@@ -53,6 +64,22 @@
 
     });
 
+</script>
+
+<script type="text/javascript">
+    
+        function OnBegin() {          
+
+            $('.submitButton').prop('disabled', true);
+            $('#validate').css("color", "black");
+            $('#validate').text("Submitting...");
+                return true;
+
+          
+        };
+   
+
+        
 </script>
 
 
@@ -107,7 +134,7 @@
         using the form below, and we'll reply within 1 business day. Or you 
         can contact us directly using the information to the left.
 
-        @using (Ajax.BeginForm("SaveContact", "Contact", new AjaxOptions {OnSuccess = "OnSuccess", OnFailure = "OnFailure"}))
+        @using (Ajax.BeginForm("SaveContact", "Contact", new AjaxOptions { OnBegin="OnBegin", OnSuccess = "OnSuccess", OnFailure = "OnFailure"}))
         {
            
             
@@ -181,18 +208,16 @@
                     @Html.ValidationMessageFor(m => m.comment)
                 </div>
             </div>
-            
+        
             <div class="col-xs-12 no-gutter"> 
-                <button type="submit" class="hidden-xs btn btn-disabled submitButton"style="margin-top:20px;">Submit</button>
+                <button type="submit" class="hidden-xs btn btn-default submitButton" style="margin-top:20px;">Submit</button>
                     
-                    
-            
                 <button type="submit" style="margin-top:20px;" class="visible-xs btn btn-default form-control submitButton" >Submit</button>
             </div>
             
             <div class="col-xs-12 text-center" id="validate" style="color:red;font-weight:bold;margin-top:10px;"></div>
-        }
         
+        }
         
         
 
