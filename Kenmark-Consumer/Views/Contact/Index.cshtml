@@ -6,50 +6,11 @@
 
 
 
-<script type="text/javascript">
-
-   
-        
-        function OnSuccess(data, status, xhr) {
-       
-            if (data.success == true)
-            {
-                
-                $("input[type=text], textarea").val("");
-                $('#validate').show();
-                $('#validate').css("color" , "black");
-                $('#validate').text("Thank You. Your contact information was submitted successfully.");
-                $('.submitButton').prop('disabled', false);
-                $('#validate').delay(5000).fadeOut();
-            
-            }
-            else
-            {
-                $("input[type=text], textarea").val("");
-                $('#validate').show();
-                $('#validate').text("There was an error when submitting your form. Please try again later.");
-                $('.submitButton').prop('disabled', false);
-                $('#validate').delay(10000).fadeOut();
-            }
-        };
-   
-</script>
-
-
-
-<script type="text/javascript">
-   
-        function OnFailure() {
-            $('#validate').text("There was an error while processing your form. Please contact us @@kenmarkoptical.com");
-        
-    };
-</script>
-
-
-<script type="text/javascript">
+<script type="text/javascript"> 
     var is_mobile = false;
-    $(function(){
-        
+
+    $(function () {
+
         if ($('#mobile-test').is(':visible')) {
             is_mobile = true;
         }
@@ -59,30 +20,43 @@
         }
 
         if (is_mobile = false) {
-            $('.kenmarkInfo').css({ 'padding-left' : '50px'});
+            $('.kenmarkInfo').css({ 'padding-left': '50px' });
         }
 
     });
+        
+        function OnSuccess(data, status, xhr) {       
+            if (data.success == true)
+            {
+                $('.submitButton').prop('disabled', false);
+                $("input[type=text], textarea").val("");
+                $('#validate').show();
+                $('#validate').css("color" , "black");
+                $('#validate').text("Thank You. Your contact information was submitted successfully.");                
+                $('#validate').delay(5000).fadeOut();
+            
+            }
+            else
+            {
+                $('.submitButton').prop('disabled', false);
+                $("input[type=text], textarea").val("");
+                $('#validate').show();
+                $('#validate').text("There was an error when submitting your form. Please try again later.");                
+                $('#validate').delay(10000).fadeOut();
+            }
+        };
 
-</script>
-
-<script type="text/javascript">
-    
-        function OnBegin() {          
-
+        function OnFailure() {
+            $('#validate').text("There was an error while processing your form. Please contact us @@kenmarkoptical.com");        
+        };
+   
+        function OnBegin() {
             $('.submitButton').prop('disabled', true);
             $('#validate').css("color", "black");
             $('#validate').text("Submitting...");
-                return true;
-
-          
+            return true;
         };
-   
-
-        
 </script>
-
-
 
 <div class="row" >
     <div class="col-sm-3 kenmarkInfo" style="padding-left:50px;margin-top:50px;font-size:12px;">PROFILE / CONTACT</div>
@@ -210,8 +184,7 @@
             </div>
         
             <div class="col-xs-12 no-gutter"> 
-                <button type="submit" class="hidden-xs btn btn-default submitButton" style="margin-top:20px;">Submit</button>
-                    
+                <button type="submit" class="hidden-xs btn btn-default submitButton" style="margin-top:20px;">Submit</button>                    
                 <button type="submit" style="margin-top:20px;" class="visible-xs btn btn-default form-control submitButton" >Submit</button>
             </div>
             
