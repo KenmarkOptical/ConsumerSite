@@ -6,25 +6,45 @@
 
 <script type="text/javascript">
 
+    var is_mobile = false;
+    $(function () {
+
+        if ($('#mobile-test').is(':visible')) {
+            is_mobile = true;
+        }
+
+        if (is_mobile) {
+            $('.kenmarkInfo').css({ 'padding-left': '', 'margin-top': '20px' });
+            $('#questions').css({ 'margin-top': '10px' });
+            $('#questions').text("Have questions? Need to talk to a sales representative? " +
+                "Contact us using the form below, and we'll reply within 1 business day. Or you can contact us " +
+                "by telephone.");
+        }
+
+        if (is_mobile = false) {
+            $('.kenmarkInfo').css({ 'padding-left': '50px' });
+        }
+
+    });
+
     function OnSuccess(data, status, xhr) {
        
             if (data.success == true)
             {
-                
+                $('.submitButton').prop('disabled', false);
                 $("input[type=text], textarea").val("");
                 $('#validate').show();
                 $('#validate').css("color" , "black");
                 $('#validate').text("Thank You. Your contact information was submitted successfully.");
-                $('.submitButton').prop('disabled', false);
                 $('#validate').delay(5000).fadeOut();
             
             }
             else
             {
+                $('.submitButton').prop('disabled', false);
                 $("input[type=text], textarea").val("");
                 $('#validate').show();
                 $('#validate').text("There was an error when submitting your form. Please try again later.");
-                $('.submitButton').prop('disabled', false);
                 $('#validate').delay(10000).fadeOut();
             }
     };
@@ -45,28 +65,6 @@
         return true;
 
     };
-
-
-   var is_mobile = false;
-    $(function(){
-        
-        if ($('#mobile-test').is(':visible')) {
-            is_mobile = true;
-        }
-
-        if (is_mobile) {
-            $('.kenmarkInfo').css({ 'padding-left': '', 'margin-top': '20px' });
-            $('#questions').css({ 'margin-top': '10px' });
-            $('#questions').text("Have questions? Need to talk to a sales representative? " +
-                "Contact us using the form below, and we'll reply within 1 business day. Or you can contact us " +
-                "by telephone.");
-        }
-
-        if (is_mobile = false) {
-            $('.kenmarkInfo').css({ 'padding-left' : '50px'});
-        }
-
-    });
 
 </script>
 
