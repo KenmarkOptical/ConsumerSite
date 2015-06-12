@@ -465,6 +465,26 @@ img.saturate-2:hover{
     width:100%;
 }
 
+#carouselCaption {
+    position:absolute;
+    top: 73%;
+    left:7%;
+    font-size:12px;
+    line-height:117%;
+    font-size:3vmin;
+}
+
+#profileImage {
+    position:absolute;
+    top: 88%;
+    left:7%;
+    line-height:100%;
+    font-size:12px;
+    font-size:3vmin;
+    color:white;
+    
+    
+}
 
 
 .collection-link-text {
@@ -585,3 +605,4 @@ img.saturate-2:hover{
     font-weight:bold;
     
 }
+
