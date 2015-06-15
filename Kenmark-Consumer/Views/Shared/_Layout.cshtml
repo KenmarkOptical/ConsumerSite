@@ -6,6 +6,8 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">  
     <link rel="stylesheet" href="@(Url.Content("~/Content/themes/base/jquery.fancybox.css"))" type="text/css" media="screen" />
+    <link rel="stylesheet" href="@(Url.Content("~/Content/themes/base/jquery.fancybox-buttons.css"))" type="text/css" media="screen" />
+
 
     @Styles.Render("~/Content/css")
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -190,6 +192,7 @@
 
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.fancybox.pack.js"))"></script>
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.mousewheel-3.0.6.pack.js"))"></script>
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.fancybox-buttons.js"))"></script>
 
     <div id="mobile-test" class="hidden-sm hidden-md hidden-lg"></div>
 </body>

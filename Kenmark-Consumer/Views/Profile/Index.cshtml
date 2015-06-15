@@ -20,7 +20,13 @@
     });
 
     $(function () {
-        $(".fancybox").fancybox();
+        $(".fancybox").fancybox({
+            fitToView: false,
+            beforeShow: function () {
+                this.width = 600;
+                this.height = 400;
+            }
+        });
     });
 
 
@@ -129,5 +135,5 @@
 
 
 <a class="fancybox" href="~/Content/images/home/insta.jpg" title="Lightbox Example">
-    <img src="~/Content/images/home/insta.jpg" alt="" >
+    <img  src="~/Content/images/home/insta.jpg" alt="" >
 </a>
