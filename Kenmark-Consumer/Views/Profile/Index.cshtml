@@ -3,6 +3,8 @@
 }
 
 <script type="text/javascript">
+
+    
  var is_mobile = false;
     $(function () {
 
@@ -16,6 +18,13 @@
         }
        
     });
+
+    $(function () {
+        $(".fancybox").fancybox();
+    });
+
+
+   
 </script>
 
 
@@ -63,10 +72,12 @@
         <div class="col-xs-12 text-left profileText">
             <hr style="width:70%; border-color:black; margin:0%;margin-bottom:10px;"/>
             <div><strong>A HUMAN TOUCH</strong> </div><br />
-            <div style="margin-bottom:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt, mi sit amet tincidunt tristique, 
+            <div style="margin-bottom:20px;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt, mi sit amet tincidunt tristique, 
             sem velit lobortis eros, id viverra dolor lectus vulputate massa. Etiam nec malesuada mauris. Praesent venenatis 
             eros et mattis lobortis. Morbi suscipit sed nunc quis mollis. Nunc venenatis dolor sed quam posuere, a venenatis 
             nisi maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus eu ligula ac tincidunt. 
+                
                 <div class="hidden-xs" style="margin-top:30px;">
                     <hr style="width:70%; border-color:black; margin:0%;margin-bottom:10px;"/>
                     <div><strong>LOREM IPSUM DOLOR</strong></div><br />
@@ -114,3 +125,9 @@
        </div>
    </div>
 </div>
+
+
+
+<a class="fancybox" href="~/Content/images/home/insta.jpg" title="Lightbox Example">
+    <img src="~/Content/images/home/insta.jpg" alt="" >
+</a>
