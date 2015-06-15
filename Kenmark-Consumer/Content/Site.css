@@ -606,3 +606,12 @@ img.saturate-2:hover{
     
 }
 
+@media (max-width: 767px) {
+    .profileText {
+        padding:0px;
+        
+        
+    }
+
+}
+
