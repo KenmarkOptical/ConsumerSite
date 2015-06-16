@@ -1,5 +1,118 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model Kenmark_Consumer.Models.PressClipping
+
+@{
+    ViewBag.Title = "Press Clippings";
 }
 
-<h2>Index</h2>
+<script type="text/javascript">
+    $(function () {
+        $(".fancybox").fancybox({
+
+            autoSize: true,
+
+           
+
+        });
+    });
+</script>
+
+
+<div class="col-xs-12"style="margin-bottom:40px;margin-top:20px;">PROFILE / PRESS</div>
+
+    @using(Html.BeginForm("Index", "PressClipping")){
+
+
+<div class="col-xs-12 col-sm-3">
+    <div class="col-xs-12 no-gutter" style="font-size:16px;">PRESS CLIPPINGS</div>
+    
+    <div class="col-xs-12 col-sm-12 no-gutter">
+        <div class="col-xs-11 col-sm-12 no-gutter">
+            <div class="col-xs-6 col-sm-12" style="margin-bottom:10px;padding-left:0px;">
+                 @Html.DropDownListFor(m => m.Filter_Like_Collection, Kenmark_Consumer.Models.Common.Collections, "All Brands" ,new { @class="form-control"})
+           </div>
+            <div class="col-xs-6 col-sm-12" style="padding-left:0px;">
+                 @Html.DropDownListFor(m => m.Filter_DateRange, Kenmark_Consumer.Models.PressClipping.Date_List, new { @class="form-control"})
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.Page)
+    <button type="submit" class="btn btn-default submitButton"style="margin-top:10px; margin-bottom:10px;">Filter</button>        
+    
+</div>
+
+
+        
+<div class="col-xs-12 col-sm-9">
+
+    
+    <div class="row">
+           
+          @foreach (var s in Model.Items) { 
+            <img src="~/Content/images/Press_Clippings/@s.main_image" />
+            <br />
+              <span>@(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.release_date))
+              &nbsp;
+              @(((DateTime)s.release_date).Year.ToString())</span>
+          }
+        
+        
+        
+        
+        
+        <div class="col-xs-6 col-sm-4" style="margin-bottom:10px;">
+             <a class="fancybox" href="#insideImage" ><img class="img-responsive" src="~/Content/images/Press_Clippings/VW-Elle.jpg" /></a>
+              <div class="col-xs-12 no-gutter">
+                  <strong>Vera Wang</strong><br />
+                  June 2015
+              </div> 
+          </div>
+
+        <div class="col-xs-6 col-sm-4" style="margin-bottom:10px;">
+              <img class="img-responsive " src="~/Content/images/Press_Clippings/VW-Elle.jpg" />
+              <div class="col-xs-12">
+                  <strong>Vera Wang</strong><br />
+                  June 2015
+              </div> 
+          </div>
+              
+
+        <div class="col-xs-6 col-sm-4" style="margin-bottom:10px;">
+              <img class="img-responsive " src="~/Content/images/Press_Clippings/VW-Elle.jpg" />
+              <div class="col-xs-12">
+                  <strong>Vera Wang</strong><br />
+                  June 2015
+              </div> 
+          </div>
+              
+       <div class="col-xs-6 col-sm-4" style="margin-bottom:10px;">
+           <img class="img-responsive " src="~/Content/images/Press_Clippings/VW-Elle.jpg" />
+           <div class="col-xs-12">
+               <strong>Vera Wang</strong><br />
+               June 2015
+           </div> 
+       </div>
+              
+              
+            
+    </div>
+
+    
+    
+</div>
+        
+    }
+
+<div id="insideImage" style="display:none;">
+    <div class="col-xs-12">
+        <img src="~/Content/images/Press_Clippings/VW-Elle-Inside.jpg" class="img img-responsive center-block" style="max-width:400px;"/>
+    </div>
+        <div class="col-xs-6">
+            <span style="font-size:2vmin;">
+            Elle Magazine, Nov. 2010<br />
+            Vera Wang - Audran Frames
+            </span>
+        </div>
+        <div class="col-xs-6 text-right">
+            <a target="" href="~/Content/images/Press_Clippings/VW-Elle-PDF.pdf"><span style="color:#aaa; font-weight:bold; font-size:1.5vmin;" ><br />VIEW LARGER (PDF)</span></a>
+        </div>
+</div>

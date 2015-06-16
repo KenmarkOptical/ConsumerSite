@@ -15,7 +15,7 @@ namespace Kenmark_Consumer.Controllers
         public ActionResult Index(PressClipping p)
         {
             p = new PressClipping().GetItems(p.Filter_Like_Collection, p.Filter_DateRange, p.Page);                
-            return View();
+            return View(p);
         }
 
     }

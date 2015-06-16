@@ -16,7 +16,7 @@ namespace Kenmark_Consumer.Models
 
         public static List<SelectListItem> Date_List = new List<SelectListItem>() //creat the drop down list for date filters
         {
-            new SelectListItem() {Text="All", Value= DateTime.Now.AddYears(-20).ToString()},
+            new SelectListItem() {Text="All Dates", Value= DateTime.Now.AddYears(-20).ToString()},
             new SelectListItem() {Text="Previous Month", Value= DateTime.Now.AddMonths(-1).ToString()},
             new SelectListItem() {Text="Previous 6 Months", Value= DateTime.Now.AddMonths(-6).ToString()},
             new SelectListItem() {Text="Previous Year", Value= DateTime.Now.AddYears(-1).ToString()},
