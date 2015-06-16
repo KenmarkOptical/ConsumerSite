@@ -25,6 +25,7 @@ namespace Kenmark_Consumer.Models
         public PressClipping GetItems(int? Like_ID = 0, DateTime? filter_date = null, int Page = 0)
         {
             filter_date = filter_date == null ? DateTime.Now.AddYears(-20) : filter_date; //fix null dates so db doesnt error out
+            Like_ID = Like_ID == null ? 0 : Like_ID;
             PressClipping pc = new PressClipping();
             pc.Items = new List<Press_Clippings>();
             using(KenmarkTestDBEntities db = new KenmarkTestDBEntities())
