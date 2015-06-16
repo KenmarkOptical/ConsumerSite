@@ -646,6 +646,18 @@
           <EntitySet Name="payment_logs" EntityType="KenmarkTestDBModel.Store.payment_logs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="payment_options" EntityType="KenmarkTestDBModel.Store.payment_options" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="payments" EntityType="KenmarkTestDBModel.Store.payments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Press_Clippings" EntityType="KenmarkTestDBModel.Store.Press_Clippings" store:Type="Tables" store:Schema="dbo" store:Name="Press_Clippings">
+            <DefiningQuery>SELECT 
+      [Press_Clippings].[id] AS [id], 
+      [Press_Clippings].[Kenmark_Collections_Like_ID] AS [Kenmark_Collections_Like_ID], 
+      [Press_Clippings].[release_date] AS [release_date], 
+      [Press_Clippings].[magazine] AS [magazine], 
+      [Press_Clippings].[main_image] AS [main_image], 
+      [Press_Clippings].[inside_image] AS [inside_image], 
+      [Press_Clippings].[pdf] AS [pdf], 
+      [Press_Clippings].[enabled] AS [enabled]
+      FROM [dbo].[Press_Clippings] AS [Press_Clippings]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="press_releases" EntityType="KenmarkTestDBModel.Store.press_releases" store:Type="Tables" store:Schema="dbo" store:Name="press_releases">
             <DefiningQuery>SELECT 
       [press_releases].[press_release_id] AS [press_release_id], 
@@ -2418,6 +2430,23 @@
           <Property Name="pmt_submit_date" Type="smalldatetime" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'KenmarkWeb_Live.dbo.Press_Clippings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Press_Clippings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Kenmark_Collections_Like_ID" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Kenmark_Collections_Like_ID" Type="int" Nullable="false" />
+          <Property Name="release_date" Type="date" />
+          <Property Name="magazine" Type="varchar" MaxLength="250" />
+          <Property Name="main_image" Type="varchar" MaxLength="250" />
+          <Property Name="inside_image" Type="varchar" MaxLength="250" />
+          <Property Name="pdf" Type="varchar" MaxLength="250" />
+          <Property Name="enabled" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'KenmarkWeb_Live.dbo.press_releases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="press_releases">
@@ -3646,6 +3675,7 @@
             <End Role="collection" EntitySet="collections" />
             <End Role="address_to_collections" EntitySet="address_to_collections" />
           </AssociationSet>
+          <EntitySet Name="Press_Clippings" EntityType="KenmarkTestDBModel.Press_Clippings" />
         </EntityContainer>
         <EntityType Name="address">
           <Key>
@@ -5696,6 +5726,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Press_Clippings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Kenmark_Collections_Like_ID" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Kenmark_Collections_Like_ID" Nullable="false" />
+          <Property Type="DateTime" Name="release_date" Precision="0" />
+          <Property Type="String" Name="magazine" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="main_image" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="inside_image" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pdf" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="enabled" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7755,6 +7799,20 @@
                 <ScalarProperty Name="SKU" ColumnName="SKU" />
                 <ScalarProperty Name="UPC" ColumnName="UPC" />
                 <ScalarProperty Name="lUPCLink_sk" ColumnName="lUPCLink_sk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Press_Clippings">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.Press_Clippings">
+              <MappingFragment StoreEntitySet="Press_Clippings">
+                <ScalarProperty Name="enabled" ColumnName="enabled" />
+                <ScalarProperty Name="pdf" ColumnName="pdf" />
+                <ScalarProperty Name="inside_image" ColumnName="inside_image" />
+                <ScalarProperty Name="main_image" ColumnName="main_image" />
+                <ScalarProperty Name="magazine" ColumnName="magazine" />
+                <ScalarProperty Name="release_date" ColumnName="release_date" />
+                <ScalarProperty Name="Kenmark_Collections_Like_ID" ColumnName="Kenmark_Collections_Like_ID" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

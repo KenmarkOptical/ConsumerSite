@@ -150,5 +150,6 @@ namespace Kenmark_Consumer
         public DbSet<zz_fcdFrames> zz_fcdFrames { get; set; }
         public DbSet<zz_fcdFrameSize> zz_fcdFrameSize { get; set; }
         public DbSet<zz_fcdFrameUPC> zz_fcdFrameUPC { get; set; }
+        public DbSet<Press_Clippings> Press_Clippings { get; set; }
     }
 }

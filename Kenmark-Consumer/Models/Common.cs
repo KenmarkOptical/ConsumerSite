@@ -21,6 +21,17 @@ namespace Kenmark_Consumer.Models
         }
 
 
+        public static List<SelectListItem> Collections
+        {
+            get{
+                KenmarkTestDBEntities db = new KenmarkTestDBEntities();
+                return db.Kenmark_Collections_like
+                    .Where(m => m.Enabled == true)
+                    .Select(m => new SelectListItem() { Text = m.Site_Display, Value = m.ID.ToString() })
+                    .ToList();                
+            }
+        }
+
        public static List<SelectListItem> States = new List<SelectListItem>()
     {
         new SelectListItem() {Text="Alabama", Value="AL"},

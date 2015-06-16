@@ -131,6 +131,7 @@
         <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameSize" Width="1.5" PointX="2.1945201448139366" PointY="28.247578455250515" />
         <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameUPC" Width="1.5" PointX="8.2964429949859362" PointY="9.9248402164899" />
         <AssociationConnector Association="KenmarkTestDBModel.FK_address_to_collections_collections" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Press_Clippings" Width="1.5" PointX="2.1286383858549587" PointY="7.660273451199882" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
