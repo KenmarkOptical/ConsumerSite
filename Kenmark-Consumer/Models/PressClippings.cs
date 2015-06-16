@@ -9,7 +9,7 @@ namespace Kenmark_Consumer.Models
     public class PressClipping
     {
         public int Page { get; set; }
-        public int Filter_Like_Collection { get; set; }
+        public int? Filter_Like_Collection { get; set; }
         public DateTime Filter_DateRange { get; set; }
         public List<Press_Clippings> Items { get; set; }
         public bool HasNextPage { get; set; }
@@ -22,7 +22,7 @@ namespace Kenmark_Consumer.Models
             new SelectListItem() {Text="Previous Year", Value= DateTime.Now.AddYears(-1).ToString()},
         };
 
-        public PressClipping GetItems(int Like_ID = 0, DateTime? filter_date = null, int Page = 0)
+        public PressClipping GetItems(int? Like_ID = 0, DateTime? filter_date = null, int Page = 0)
         {
             filter_date = filter_date == null ? DateTime.Now.AddYears(-20) : filter_date; //fix null dates so db doesnt error out
             PressClipping pc = new PressClipping();
