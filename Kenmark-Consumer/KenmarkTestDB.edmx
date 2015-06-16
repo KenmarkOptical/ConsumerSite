@@ -654,6 +654,7 @@
       [Press_Clippings].[magazine] AS [magazine], 
       [Press_Clippings].[main_image] AS [main_image], 
       [Press_Clippings].[inside_image] AS [inside_image], 
+      [Press_Clippings].[frame] AS [frame], 
       [Press_Clippings].[pdf] AS [pdf], 
       [Press_Clippings].[enabled] AS [enabled]
       FROM [dbo].[Press_Clippings] AS [Press_Clippings]</DefiningQuery>
@@ -2443,6 +2444,7 @@
           <Property Name="magazine" Type="varchar" MaxLength="250" />
           <Property Name="main_image" Type="varchar" MaxLength="250" />
           <Property Name="inside_image" Type="varchar" MaxLength="250" />
+          <Property Name="frame" Type="varchar" MaxLength="100" />
           <Property Name="pdf" Type="varchar" MaxLength="250" />
           <Property Name="enabled" Type="bit" />
         </EntityType>
@@ -5082,6 +5084,7 @@
           <Property Type="String" Name="magazine" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="main_image" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="inside_image" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="frame" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="pdf" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="enabled" />
         </EntityType>
@@ -7159,6 +7162,7 @@
               <MappingFragment StoreEntitySet="Press_Clippings">
                 <ScalarProperty Name="enabled" ColumnName="enabled" />
                 <ScalarProperty Name="pdf" ColumnName="pdf" />
+                <ScalarProperty Name="frame" ColumnName="frame" />
                 <ScalarProperty Name="inside_image" ColumnName="inside_image" />
                 <ScalarProperty Name="main_image" ColumnName="main_image" />
                 <ScalarProperty Name="magazine" ColumnName="magazine" />

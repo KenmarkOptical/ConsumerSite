@@ -11,7 +11,7 @@ namespace Kenmark_Consumer.Models
         public int Page { get; set; }
         public int? Filter_Like_Collection { get; set; }
         public DateTime Filter_DateRange { get; set; }
-        public List<Press_Clippings> Items { get; set; }
+        public List<PressClippingItem> Items { get; set; }
         public bool HasNextPage { get; set; }
 
         public static List<SelectListItem> Date_List = new List<SelectListItem>() //creat the drop down list for date filters
@@ -27,21 +27,36 @@ namespace Kenmark_Consumer.Models
             filter_date = filter_date == null ? DateTime.Now.AddYears(-20) : filter_date; //fix null dates so db doesnt error out
             Like_ID = Like_ID == null ? 0 : Like_ID;
             PressClipping pc = new PressClipping();
-            pc.Items = new List<Press_Clippings>();
+            pc.Items = new List<PressClippingItem>();
             using(KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
-                pc.Items = db.Press_Clippings
-                    .Where(m => m.enabled == true && (m.Kenmark_Collections_Like_ID == Like_ID || Like_ID == 0) && m.release_date > filter_date)
-                    .OrderByDescending( m => m.release_date)
-                    .Skip(Page * 9)
-                    .Take(9)
-                    .ToList();                              
+                //pc.Items = db.Press_Clippings
+                //    .Where(m => m.enabled == true && (m.Kenmark_Collections_Like_ID == Like_ID || Like_ID == 0) && m.release_date > filter_date)
+                //    .OrderByDescending( m => m.release_date)
+                //    .Skip(Page * 9)
+                //    .Take(9)
+                //    .ToList(); 
+                
+                pc.Items = (from p in db.Press_Clippings
+                            join l in db.Kenmark_Collections_like on p.Kenmark_Collections_Like_ID equals l.ID
+                            where p.enabled == true && (p.Kenmark_Collections_Like_ID == Like_ID || Like_ID == 0) && p.release_date > filter_date
+                            select new PressClippingItem(){ press_clipping = p, Collection = l.Site_Display})
+                            .OrderByDescending(m => m.press_clipping.release_date)
+                            .Skip(Page * 9)
+                            .Take(9)
+                            .ToList(); 
 
                    pc.HasNextPage = (Page * 9) < 
                                   (db.Press_Clippings.Where(m => m.enabled == true && (m.Kenmark_Collections_Like_ID == Like_ID || Like_ID == 0) && m.release_date > filter_date).Count()) ? true : false;
             }
             return pc;
         }
+    }
+
+    public class PressClippingItem
+    {
+        public Press_Clippings press_clipping { get; set; }
+        public string Collection { get; set; }
     }
    
 }

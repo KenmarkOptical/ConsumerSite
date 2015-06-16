@@ -20,6 +20,7 @@ namespace Kenmark_Consumer
         public string magazine { get; set; }
         public string main_image { get; set; }
         public string inside_image { get; set; }
+        public string frame { get; set; }
         public string pdf { get; set; }
         public Nullable<bool> enabled { get; set; }
     }
