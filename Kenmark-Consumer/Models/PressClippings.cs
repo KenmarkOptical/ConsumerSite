@@ -12,6 +12,7 @@ namespace Kenmark_Consumer.Models
         public int Filter_Like_Collection { get; set; }
         public DateTime Filter_DateRange { get; set; }
         public List<Press_Clippings> Items { get; set; }
+        public bool HasNextPage { get; set; }
 
         public static List<SelectListItem> Date_List = new List<SelectListItem>() //creat the drop down list for date filters
         {
@@ -33,7 +34,10 @@ namespace Kenmark_Consumer.Models
                     .OrderByDescending( m => m.release_date)
                     .Skip(Page * 9)
                     .Take(9)
-                    .ToList();
+                    .ToList();                              
+
+                   pc.HasNextPage = (Page * 9) < 
+                                  (db.Press_Clippings.Where(m => m.enabled == true && (m.Kenmark_Collections_Like_ID == Like_ID || Like_ID == 0) && m.release_date > filter_date).Count()) ? true : false;
             }
             return pc;
         }
