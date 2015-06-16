@@ -53,10 +53,10 @@
           @foreach (var s in Model.Items) { 
               
           <div class="col-xs-6 col-sm-4" style="margin-bottom:10px;">
-            <a class="fancybox" href="#insideImage"><img class="img-responsive" src="~/Content/images/Press_Clippings/@s.main_image" /></a>
+            <a class="fancybox" href="#insideImage"><img class="img-responsive" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
                 <br />
-                <span>@(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.release_date))
-                   @(((DateTime)s.release_date).Year.ToString())
+                <span>@(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))
+                   @(((DateTime)s.press_clipping.release_date).Year.ToString())
                 </span>
           </div>
               
@@ -64,19 +64,19 @@
               
            <div id="insideImage" class="col-xs-12" style="display:none">
                
-               <img class="img-responsive center-block"  src="~/Content/images/Press_Clippings/@s.inside_image" />
+               <img class="img-responsive center-block"  src="~/Content/images/Press_Clippings/@s.press_clipping.inside_image" />
                
            
               <div class="col-xs-6">
                 <span style="font-size:2vmin;">
-                @s.magazine, &nbsp; @(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.release_date))
-                @(((DateTime)s.release_date).Year.ToString())<br />
-                @s.
+                @s.press_clipping.magazine, &nbsp; @(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))
+                @(((DateTime)s.press_clipping.release_date).Year.ToString())<br />
+                @s.Collection
                 </span>
              </div>
             
              <div class="col-xs-6 text-right">
-                <a target="" href="~/Content/images/Press_Clippings/@s.pdf"><span style="color:#aaa; font-weight:bold; font-size:1.5vmin;" ><br />VIEW LARGER (PDF)</span></a>
+                <a target="_blank" href="~/Content/images/Press_Clippings/@s.press_clipping.pdf"><span style="color:#aaa; font-weight:bold; font-size:1.5vmin;" ><br />VIEW LARGER (PDF)</span></a>
              </div>
           </div>
           }
