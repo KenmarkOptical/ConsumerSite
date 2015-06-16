@@ -108,6 +108,7 @@ namespace Kenmark_Consumer
         public DbSet<payment_logs> payment_logs { get; set; }
         public DbSet<payment_options> payment_options { get; set; }
         public DbSet<payment> payments { get; set; }
+        public DbSet<Press_Clippings> Press_Clippings { get; set; }
         public DbSet<press_releases> press_releases { get; set; }
         public DbSet<PressReleasePreview> PressReleasePreviews { get; set; }
         public DbSet<Promo_Codes> Promo_Codes { get; set; }
@@ -150,6 +151,5 @@ namespace Kenmark_Consumer
         public DbSet<zz_fcdFrames> zz_fcdFrames { get; set; }
         public DbSet<zz_fcdFrameSize> zz_fcdFrameSize { get; set; }
         public DbSet<zz_fcdFrameUPC> zz_fcdFrameUPC { get; set; }
-        public DbSet<Press_Clippings> Press_Clippings { get; set; }
     }
 }

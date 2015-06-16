@@ -21,12 +21,15 @@
 
     $(function () {
         $(".fancybox").fancybox({
-            
-            autoSize:true,
+
+            autoSize: true,
+           
             beforeShow: function () {
                 this.width = 600;
                 this.height = 400;
-            }
+            },
+           
+
         });
     });
 
@@ -135,6 +138,17 @@
 
 
 
-<a class="fancybox" href="~/Content/images/home/insta.jpg" title="Lightbox Example">
-    <img  src="~/Content/images/home/insta.jpg" alt="" >
-</a>
+<!-- FANCYBOX EXAMPLE 
+    <a class="fancybox" href="#pictureId" title="Lightbox Example">
+        <img  src="~/Content/images/home/insta.jpg" class="img-responsive" alt="" >
+    </a>
+
+<div class="col-sm-12" id="pictureId" style="display:none;width:300px;">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit, mi sed sollicitudin hendrerit,
+         elit elit tristique velit, ut sagittis urna dolor non metus. Fusce viverra lacus sit amet urna porttitor
+         eu mollis massa hendrerit.
+    </p>
+</div>
+
+-->

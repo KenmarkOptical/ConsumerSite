@@ -3629,6 +3629,7 @@
           <EntitySet Name="payment_logs" EntityType="KenmarkTestDBModel.payment_logs" />
           <EntitySet Name="payment_options" EntityType="KenmarkTestDBModel.payment_options" />
           <EntitySet Name="payments" EntityType="KenmarkTestDBModel.payment" />
+          <EntitySet Name="Press_Clippings" EntityType="KenmarkTestDBModel.Press_Clippings" />
           <EntitySet Name="press_releases" EntityType="KenmarkTestDBModel.press_releases" />
           <EntitySet Name="PressReleasePreviews" EntityType="KenmarkTestDBModel.PressReleasePreview" />
           <EntitySet Name="Promo_Codes" EntityType="KenmarkTestDBModel.Promo_Codes" />
@@ -3675,7 +3676,6 @@
             <End Role="collection" EntitySet="collections" />
             <End Role="address_to_collections" EntitySet="address_to_collections" />
           </AssociationSet>
-          <EntitySet Name="Press_Clippings" EntityType="KenmarkTestDBModel.Press_Clippings" />
         </EntityContainer>
         <EntityType Name="address">
           <Key>
@@ -5071,6 +5071,20 @@
           <Property Type="String" Name="check_number" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="pmt_submit_date" Precision="0" />
         </EntityType>
+        <EntityType Name="Press_Clippings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Kenmark_Collections_Like_ID" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Kenmark_Collections_Like_ID" Nullable="false" />
+          <Property Type="DateTime" Name="release_date" Precision="0" />
+          <Property Type="String" Name="magazine" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="main_image" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="inside_image" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pdf" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="enabled" />
+        </EntityType>
         <EntityType Name="press_releases">
           <Key>
             <PropertyRef Name="press_release_id" />
@@ -5726,20 +5740,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Press_Clippings">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="Kenmark_Collections_Like_ID" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="Kenmark_Collections_Like_ID" Nullable="false" />
-          <Property Type="DateTime" Name="release_date" Precision="0" />
-          <Property Type="String" Name="magazine" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="main_image" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="inside_image" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pdf" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="enabled" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7154,6 +7154,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Press_Clippings">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.Press_Clippings">
+              <MappingFragment StoreEntitySet="Press_Clippings">
+                <ScalarProperty Name="enabled" ColumnName="enabled" />
+                <ScalarProperty Name="pdf" ColumnName="pdf" />
+                <ScalarProperty Name="inside_image" ColumnName="inside_image" />
+                <ScalarProperty Name="main_image" ColumnName="main_image" />
+                <ScalarProperty Name="magazine" ColumnName="magazine" />
+                <ScalarProperty Name="release_date" ColumnName="release_date" />
+                <ScalarProperty Name="Kenmark_Collections_Like_ID" ColumnName="Kenmark_Collections_Like_ID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="press_releases">
             <EntityTypeMapping TypeName="KenmarkTestDBModel.press_releases">
               <MappingFragment StoreEntitySet="press_releases">
@@ -7799,20 +7813,6 @@
                 <ScalarProperty Name="SKU" ColumnName="SKU" />
                 <ScalarProperty Name="UPC" ColumnName="UPC" />
                 <ScalarProperty Name="lUPCLink_sk" ColumnName="lUPCLink_sk" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Press_Clippings">
-            <EntityTypeMapping TypeName="KenmarkTestDBModel.Press_Clippings">
-              <MappingFragment StoreEntitySet="Press_Clippings">
-                <ScalarProperty Name="enabled" ColumnName="enabled" />
-                <ScalarProperty Name="pdf" ColumnName="pdf" />
-                <ScalarProperty Name="inside_image" ColumnName="inside_image" />
-                <ScalarProperty Name="main_image" ColumnName="main_image" />
-                <ScalarProperty Name="magazine" ColumnName="magazine" />
-                <ScalarProperty Name="release_date" ColumnName="release_date" />
-                <ScalarProperty Name="Kenmark_Collections_Like_ID" ColumnName="Kenmark_Collections_Like_ID" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
