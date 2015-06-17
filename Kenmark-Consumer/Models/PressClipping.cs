@@ -10,7 +10,7 @@ namespace Kenmark_Consumer.Models
     {
         public int Page { get; set; }
         public int? Filter_Like_Collection { get; set; }
-        public DateTime Filter_DateRange { get; set; }
+        public DateTime? Filter_DateRange { get; set; }
         public List<PressClippingItem> Items { get; set; }
         public bool HasNextPage { get; set; }
 
@@ -27,6 +27,9 @@ namespace Kenmark_Consumer.Models
             filter_date = filter_date == null ? DateTime.Now.AddYears(-20) : filter_date; //fix null dates so db doesnt error out
             Like_ID = Like_ID == null ? 0 : Like_ID;
             PressClipping pc = new PressClipping();
+            pc.Filter_Like_Collection = Like_ID;
+            pc.Filter_DateRange = filter_date;
+            pc.Page = Page;
             pc.Items = new List<PressClippingItem>();
             using(KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
