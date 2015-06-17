@@ -82,15 +82,17 @@
           @foreach (var s in Model.Items)
           { 
               
-          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4" style="margin-bottom:10px;">
+          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4 fancybox-wrapper" style="margin-bottom:10px;">
             <a class="fancybox" href="#insideImage-@s.press_clipping.id"><img class="img-responsive" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
                 <br />
                 <span>
                     <span style="font-weight:bold">@s.Collection</span><br />
                     <span style="color:#767676">@s.press_clipping.magazine,
                     @(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))
-                   @(((DateTime)s.press_clipping.release_date).Year.ToString())</span>
+                   @(((DateTime)s.press_clipping.release_date).Year.ToString())</span>              
                 </span>
+
+                @Html.HiddenFor(x => x.Items[Model.Items.IndexOf(s)].press_clipping.main_image)
           </div>
               
               
