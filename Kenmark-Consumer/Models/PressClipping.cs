@@ -51,6 +51,8 @@ namespace Kenmark_Consumer.Models
 
                    pc.HasNextPage = ((Page + 1) * 9) < 
                                   (db.Press_Clippings.Where(m => m.enabled == true && (m.Kenmark_Collections_Like_ID == Like_ID || Like_ID == 0) && m.release_date > filter_date).Count()) ? true : false;
+                   
+                  
             }
             return pc;
         }
