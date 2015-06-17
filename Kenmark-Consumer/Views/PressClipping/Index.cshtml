@@ -140,32 +140,41 @@
           }
          
     </div>
-
+ 
 
     
+
+  
      <div class="col-xs-12 no-gutter" style="margin-top:50px;">
         <div class="col-xs-6 col-sm-2 no-gutter">
+             
+            
             @if (Model.Page > 0)
             {
-                
-          <a class="pageControl" href="pressclipping?page=@(Model.Page--)" style="font-size:14px;color:#767676">< PREVIOUS</a> 
-                    
+               
+          <a class="pageControl" href="pressclipping?page=@(Model.Page - 1)" style="font-size:14px;color:#767676">< PREVIOUS</a> 
+               
             }
         </div>
 
-         
-             
-        <div class="col-xs-6 col-sm-10 text-right-xs no-gutter">
+         <div class="col-xs-6 col-sm-10 text-right-xs no-gutter">
+            
             @if (Model.HasNextPage)
             {
+                 
           <a class="pageControl" href="pressclipping?page=@(Model.Page + 1)" style="font-size:14px;color:#767676">NEXT ></a>
+               
                 
             }
         </div>
+
+             @(Html.HiddenFor(m => m.Filter_DateRange))
+             @(Html.HiddenFor(m => m.Filter_Like_Collection)) 
+             @(Html.HiddenFor(m => m.Page))
          
     </div>
 
-    </div>
-
+</div>
 }
 
+       
