@@ -646,19 +646,7 @@
           <EntitySet Name="payment_logs" EntityType="KenmarkTestDBModel.Store.payment_logs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="payment_options" EntityType="KenmarkTestDBModel.Store.payment_options" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="payments" EntityType="KenmarkTestDBModel.Store.payments" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Press_Clippings" EntityType="KenmarkTestDBModel.Store.Press_Clippings" store:Type="Tables" store:Schema="dbo" store:Name="Press_Clippings">
-            <DefiningQuery>SELECT 
-      [Press_Clippings].[id] AS [id], 
-      [Press_Clippings].[Kenmark_Collections_Like_ID] AS [Kenmark_Collections_Like_ID], 
-      [Press_Clippings].[release_date] AS [release_date], 
-      [Press_Clippings].[magazine] AS [magazine], 
-      [Press_Clippings].[main_image] AS [main_image], 
-      [Press_Clippings].[inside_image] AS [inside_image], 
-      [Press_Clippings].[frame] AS [frame], 
-      [Press_Clippings].[pdf] AS [pdf], 
-      [Press_Clippings].[enabled] AS [enabled]
-      FROM [dbo].[Press_Clippings] AS [Press_Clippings]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Press_Clippings" EntityType="KenmarkTestDBModel.Store.Press_Clippings" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="press_releases" EntityType="KenmarkTestDBModel.Store.press_releases" store:Type="Tables" store:Schema="dbo" store:Name="press_releases">
             <DefiningQuery>SELECT 
       [press_releases].[press_release_id] AS [press_release_id], 
@@ -2430,13 +2418,9 @@
           <Property Name="check_number" Type="varchar" MaxLength="10" />
           <Property Name="pmt_submit_date" Type="smalldatetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'KenmarkWeb_Live.dbo.Press_Clippings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Press_Clippings">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="Kenmark_Collections_Like_ID" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Kenmark_Collections_Like_ID" Type="int" Nullable="false" />
@@ -5076,7 +5060,6 @@
         <EntityType Name="Press_Clippings">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="Kenmark_Collections_Like_ID" />
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="Kenmark_Collections_Like_ID" Nullable="false" />
