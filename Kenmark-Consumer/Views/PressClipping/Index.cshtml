@@ -5,27 +5,54 @@
 }
 
 <script type="text/javascript">
+   
     $(function () {
-        $(".fancybox").fancybox({
-
-            autoSize: true,
+        
+        $(".magazine").click(function () {
+            var magNum = this.id;
+            var magNum = magNum.replace("magazine-", "");
+            var picId = $('#inside_image' + magNum).val();
+            var finalPicId = ("/Content/images/Press_Clippings/" + picId);
+            var magMonth = $('#release_month' + magNum).val();
+            var magYear = $('#release_year' + magNum).val();
+            var collection = $('#inside_collection' + magNum).val();
+            var magName = $('#inside_mag' + magNum).val();
+            var magFrame = $('#inside_frame' + magNum).val();
+            var magPdf = $('#inside_pdf' + magNum).val();
+            var finalMagPdf = ("/Content/images/Press_Clippings/" + magPdf);
             
-            'width': 500,
-            'height': 550,
-           
+            
+
+            $('#magPic').attr('src', finalPicId);
+            $('#magRelease').html(magName + ", " + magMonth + " " + magYear);
+            $('#magBrand').html(collection + " - " + magFrame);
+            
+          
+            
+            $('#magPdf').attr('href', finalMagPdf);
+            $('#magPdfSmall').attr('href', finalMagPdf);
+
 
         });
+
+        $(".fancybox").fancybox({
+
+            autoSize: false,
+            "width": 400,
+            "height": 500,
+
+        });
+        
     });
 
-    
-
+   
     
 </script>
 
 <style type="text/css">
     @@media (max-width: 767px) {
         .lightboxText {
-            font-size: 3vmin;
+            font-size: 3.5vmin;
         }
     }
     @@media (min-width: 768px) {
@@ -36,12 +63,12 @@
 
     @@media (max-width: 767px) {
         .lightboxTextSmall {
-            font-size: 3.5vmin;
+            font-size: 2.5vmin;
         }
     }
     @@media (min-width: 768px) {
         .lightboxTextSmall {
-            font-size: 1.5vmin;
+            font-size: 1.25vmin;
         }
     }
 </style>
@@ -71,7 +98,7 @@
     <button type="submit" class="btn btn-default submitButton"style="margin-top:10px; margin-bottom:10px;">Filter</button>        
     
 </div>
-
+}
 
         
 <div class="col-xs-12 col-sm-9">
@@ -82,8 +109,8 @@
           @foreach (var s in Model.Items)
           { 
               
-          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4" style="margin-bottom:10px;">
-            <a class="fancybox" href="#insideImage-@s.press_clipping.id"><img class="img-responsive" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
+          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4 magazine" style="margin-bottom:10px;">
+            <a class="fancybox" href="#insideImage"><img class="img-responsive fancyboxPicture" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
                 <br />
                 <span>
                     <span style="font-weight:bold">@s.Collection</span><br />
@@ -91,55 +118,26 @@
                     @(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))
                    @(((DateTime)s.press_clipping.release_date).Year.ToString())</span>
                 </span>
-          </div>
-              
-              
-         
-           
-       <!-- START OF FANCYBOX DIV --> 
-
-       
-           <div id="insideImage-@s.press_clipping.id" class="col-xs-12" style="display:none">
-               
-               <img class="img-responsive center-block" style="max-width:295px;"  src="~/Content/images/Press_Clippings/@s.press_clipping.inside_image" />
-               
-           <div class="col-xs-12 no-gutter"  style="margin-top:20px;">
-              
-                <span class="lightboxText">
-                    @s.press_clipping.magazine, @(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))
-                    @(((DateTime)s.press_clipping.release_date).Year.ToString())<br />
-                </span>
-              
-          </div>
-
-               <div class="col-xs-12 no-gutter">
-                   <div class="col-xs-12 col-sm-6 no-gutter" style="margin-bottom:10px;">
-                        <span class="lightboxTextSmall" style="color:#a2a2a2">@s.Collection</span> 
-                        <span class="lightboxTextSmall" style="color:#767676">- @s.press_clipping.frame</span>
-                   </div>
-                   
-                   <div class="hidden-xs col-sm-6 text-right no-gutter">
-                      <a target="_blank" href="~/Content/images/Press_Clippings/@s.press_clipping.pdf">
-                        
-                           <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press" ></span>VIEW LARGER (PDF)</span></a>
-                       </div>
-                   
- 
-                   
-                   <div class="col-xs-12 visible-xs no-gutter">
-                       
-                       <div class="col-xs-12 no-gutter">
-                        <a target="_blank" href="~/Content/images/Press_Clippings/@s.press_clipping.pdf">
-                           <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;height:25px;" ><span id="icon-sprite-press"></span>VIEW LARGER (PDF)</span></a>
-                       </div>
-                   </div>
-               </div>
           
+              <input type="hidden" value="@s.press_clipping.inside_image" id="inside_image@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.press_clipping.magazine" id="inside_mag@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.Collection" id="inside_collection@(s.press_clipping.id)" />
+              <input type="hidden" value="@(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))" id="release_month@(s.press_clipping.id)"/>
+              <input type="hidden" value="@(((DateTime)s.press_clipping.release_date).Year.ToString())" id="release_year@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.press_clipping.frame" id="inside_frame@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.press_clipping.pdf" id="inside_pdf@(s.press_clipping.id)" />
           </div>
+              
               
           }
-         
+                 
     </div>
+           
+    
+    </div>
+              
+         
+    
  
 
     
@@ -174,7 +172,34 @@
          
     </div>
 
-</div>
-}
+
+
+
+
+         <!-- START OF FANCYBOX DIV -->
 
        
+   <div id="insideImage" style="display:none">
+       <img id="magPic" class="img-responsive center-block" style="max-width:295px;" src="#"/>
+               
+         <div class="col-xs-12 no-gutter"  style="margin-top:20px;">
+           <div class="col-xs-12 col-sm-6 no-gutter">
+                <span class="lightboxText" id="magRelease"></span><br />
+                <span class="lightboxTextSmall" id="magBrand"></span>
+              </div>
+         
+
+        <div class="hidden-xs col-sm-6 text-right no-gutter">
+             <a id="magPdf" target="_blank" href="#">
+             <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press" ></span>VIEW LARGER (PDF)</span></a>
+      </div>
+
+        <div class="col-xs-12 visible-xs no-gutter">
+            <a id="magPdfSmall" target="_black" href="#">
+            <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press-sm" ></span>VIEW LARGER (PDF)</span></a>
+
+        </div>
+                   
+         </div>
+       </div>
+    

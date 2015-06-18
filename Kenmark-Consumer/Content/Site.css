@@ -86,6 +86,17 @@ header, footer, nav, section {
     margin-right:10px;
     
 }
+#icon-sprite-press-sm {
+    background:url(/Content/images/all_pages/icons/icon_search.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 22px;
+    height: 22px;
+    background-position: 0 0;
+    margin-right:10px;
+    
+}
 
 
 
