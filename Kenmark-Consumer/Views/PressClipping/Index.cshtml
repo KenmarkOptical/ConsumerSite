@@ -8,32 +8,7 @@
    
     $(function () {
         
-        $(".magazine").click(function () {
-            var magNum = this.id;
-            var magNum = magNum.replace("magazine-", "");
-            var picId = $('#inside_image' + magNum).val();
-            var finalPicId = ("/Content/images/Press_Clippings/" + picId);
-            var magMonth = $('#release_month' + magNum).val();
-            var magYear = $('#release_year' + magNum).val();
-            var collection = $('#inside_collection' + magNum).val();
-            var magName = $('#inside_mag' + magNum).val();
-            var magFrame = $('#inside_frame' + magNum).val();
-            var magPdf = $('#inside_pdf' + magNum).val();
-            var finalMagPdf = ("/Content/images/Press_Clippings/" + magPdf);
-            
-            
-
-            $('#magPic').attr('src', finalPicId);
-            $('#magRelease').html(magName + ", " + magMonth + " " + magYear);
-            $('#magBrand').html(collection + " - " + magFrame);
-            
-          
-            
-            $('#magPdf').attr('href', finalMagPdf);
-            $('#magPdfSmall').attr('href', finalMagPdf);
-
-
-        });
+        
 
         $(".fancybox").fancybox({
 
@@ -42,9 +17,27 @@
             "height": 500,
 
         });
-        
-    });
 
+        //function updateFilter() {
+        $("#filterButton").click(function () {
+            //$.post("/PressClipping/UpdateData", $("#filterForm").serialize(), function (data) {
+            //$("#filterForm").html(data.html);
+            
+            $.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function (data) {
+                    alert(data.html);
+            });
+        })
+
+     });
+
+    
+    //$.post("/PressClipping/UpdateData", $("#filterForm").serialize(), function (data) {
+    //$("#filterForm").html(data.html);
+
+    // $.post("/PressClipping/UpdateData", $("#filterForm").serialize());
+
+    //$.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function(data){
+    //    alert(data.html);
    
     
 </script>
@@ -71,135 +64,88 @@
             font-size: 1.25vmin;
         }
     }
+
 </style>
 
 
 <div class="col-xs-12"style="margin-bottom:40px;margin-top:20px;">PROFILE / PRESS</div>
 
-
-@using (Html.BeginForm("Index", "PressClipping"))
+<div class="col-xs-12 col-sm-3">
+@using (Html.BeginForm("Index", "PressClipping", new { @id = "filterForm"}))
 {
 
-
-<div class="col-xs-12 col-sm-3">
-    <div class="col-xs-12 no-gutter" style="font-size:16px;">PRESS CLIPPINGS</div>
     
-    <div class="col-xs-12 col-sm-12 no-gutter">
-        <div class="col-xs-11 col-sm-12 no-gutter">
-            <div class="col-xs-6 col-sm-12" style="margin-bottom:10px;padding-left:0px;">
-                 @Html.DropDownListFor(m => m.Filter_Like_Collection, Kenmark_Consumer.Models.Common.Collections, "All Brands", new { @class = "form-control" })
-           </div>
-            <div class="col-xs-6 col-sm-12" style="padding-left:0px;">
-                 @Html.DropDownListFor(m => m.Filter_DateRange, Kenmark_Consumer.Models.PressClipping.Date_List, new { @class = "form-control" })
+        <div class="col-xs-12 no-gutter" style="font-size:16px;">PRESS CLIPPINGS</div>
+            <div class="col-xs-12 col-sm-12 no-gutter">
+                <div class="col-xs-11 col-sm-12 no-gutter">
+                    <div class="col-xs-6 col-sm-12" style="margin-bottom:10px;padding-left:0px;">
+                    @Html.DropDownListFor(m => m.Filter_Like_Collection, Kenmark_Consumer.Models.Common.Collections, "All Brands", new { @class = "form-control" })
+                    </div>
+                    <div class="col-xs-6 col-sm-12" style="padding-left:0px;">
+                    @Html.DropDownListFor(m => m.Filter_DateRange, Kenmark_Consumer.Models.PressClipping.Date_List, new { @class = "form-control" })
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    @Html.HiddenFor(m => m.Page)
-    <button type="submit" class="btn btn-default submitButton"style="margin-top:10px; margin-bottom:10px;">Filter</button>        
-    
-</div>
+            @Html.HiddenFor(m => m.Page)
+        
 }
+    
+     <button id="filterButton" type="submit" class="btn btn-default submitButton"style="margin-top:10px; margin-bottom:10px;">Filter</button>        
+</div>
+
+
 
         
 <div class="col-xs-12 col-sm-9">
-
-    
     <div class="row">
-           
-          @foreach (var s in Model.Items)
-          { 
+        @{Html.RenderPartial("_Grid", Model);}
+                 
+    </div>
+</div>
               
-          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4 magazine" style="margin-bottom:10px;">
-            <a class="fancybox" href="#insideImage"><img class="img-responsive fancyboxPicture" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
-                <br />
-                <span>
-                    <span style="font-weight:bold">@s.Collection</span><br />
-                    <span style="color:#767676">@s.press_clipping.magazine,
-                    @(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))
-                   @(((DateTime)s.press_clipping.release_date).Year.ToString())</span>
-                </span>
-          
-              <input type="hidden" value="@s.press_clipping.inside_image" id="inside_image@(s.press_clipping.id)" />
-              <input type="hidden" value="@s.press_clipping.magazine" id="inside_mag@(s.press_clipping.id)" />
-              <input type="hidden" value="@s.Collection" id="inside_collection@(s.press_clipping.id)" />
-              <input type="hidden" value="@(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))" id="release_month@(s.press_clipping.id)"/>
-              <input type="hidden" value="@(((DateTime)s.press_clipping.release_date).Year.ToString())" id="release_year@(s.press_clipping.id)" />
-              <input type="hidden" value="@s.press_clipping.frame" id="inside_frame@(s.press_clipping.id)" />
-              <input type="hidden" value="@s.press_clipping.pdf" id="inside_pdf@(s.press_clipping.id)" />
-          </div>
-              
-              
+         
+   <div class="col-xs-12 no-gutter" style="margin-top:50px;">
+       <div class="col-xs-6 col-sm-2 no-gutter">
+           @if (Model.Page > 0)
+           {
+               <a class="pageControl" href="pressclipping?page=@(Model.Page - 1)" style="font-size:14px;color:#767676">< PREVIOUS</a> 
+           }
+       </div>
+       <div class="col-xs-6 col-sm-10 text-right-xs no-gutter">
+          @if (Model.HasNextPage)
+          {
+               <a class="pageControl" href="pressclipping?page=@(Model.Page + 1)" style="font-size:14px;color:#767676">NEXT ></a>
           }
-                 
-    </div>
-           
-    
-    </div>
-              
-         
-    
- 
-
-    
-
-  
-     <div class="col-xs-12 no-gutter" style="margin-top:50px;">
-        <div class="col-xs-6 col-sm-2 no-gutter">
-             
-            
-            @if (Model.Page > 0)
-            {
-               
-          <a class="pageControl" href="pressclipping?page=@(Model.Page - 1)" style="font-size:14px;color:#767676">< PREVIOUS</a> 
-               
-            }
         </div>
 
-         <div class="col-xs-6 col-sm-10 text-right-xs no-gutter">
-            
-            @if (Model.HasNextPage)
-            {
-                 
-          <a class="pageControl" href="pressclipping?page=@(Model.Page + 1)" style="font-size:14px;color:#767676">NEXT ></a>
-               
-                
-            }
-        </div>
-
-             @(Html.HiddenFor(m => m.Filter_DateRange))
-             @(Html.HiddenFor(m => m.Filter_Like_Collection)) 
-             @(Html.HiddenFor(m => m.Page))
+        @(Html.HiddenFor(m => m.Filter_DateRange))
+        @(Html.HiddenFor(m => m.Filter_Like_Collection)) 
+        @(Html.HiddenFor(m => m.Page))
          
-    </div>
+   </div>
 
+<!-- START OF FANCYBOX DIV -->
 
-
-
-
-         <!-- START OF FANCYBOX DIV -->
-
-       
-   <div id="insideImage" style="display:none">
-       <img id="magPic" class="img-responsive center-block" style="max-width:295px;" src="#"/>
+     <div id="insideImage" style="display:none">
+        <img id="magPic" class="img-responsive center-block" style="max-width:295px;" src="#"/>
                
-         <div class="col-xs-12 no-gutter"  style="margin-top:20px;">
+       <div class="col-xs-12 no-gutter"  style="margin-top:20px;">
            <div class="col-xs-12 col-sm-6 no-gutter">
                 <span class="lightboxText" id="magRelease"></span><br />
                 <span class="lightboxTextSmall" id="magBrand"></span>
-              </div>
+           </div>
          
 
-        <div class="hidden-xs col-sm-6 text-right no-gutter">
+          <div class="hidden-xs col-sm-6 text-right no-gutter">
              <a id="magPdf" target="_blank" href="#">
              <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press" ></span>VIEW LARGER (PDF)</span></a>
-      </div>
+          </div>
 
-        <div class="col-xs-12 visible-xs no-gutter">
+          <div class="col-xs-12 visible-xs no-gutter">
             <a id="magPdfSmall" target="_black" href="#">
             <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press-sm" ></span>VIEW LARGER (PDF)</span></a>
-
-        </div>
-                   
          </div>
+                   
        </div>
+    </div>
     

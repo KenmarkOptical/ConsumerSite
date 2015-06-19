@@ -1,0 +1,54 @@
+﻿         
+<script type="text/javascript">
+
+
+    $(function () {
+
+        $(".magazine").click(function () {
+            var magNum = this.id;
+            var magNum = magNum.replace("magazine-", "");
+            var picId = $('#inside_image' + magNum).val();
+            var finalPicId = ("/Content/images/Press_Clippings/" + picId);
+            var magMonth = $('#release_month' + magNum).val();
+            var magYear = $('#release_year' + magNum).val();
+            var collection = $('#inside_collection' + magNum).val();
+            var magName = $('#inside_mag' + magNum).val();
+            var magFrame = $('#inside_frame' + magNum).val();
+            var magPdf = $('#inside_pdf' + magNum).val();
+            var finalMagPdf = ("/Content/images/Press_Clippings/" + magPdf);
+
+            $('#magPic').attr('src', finalPicId);
+            $('#magRelease').html(magName + ", " + magMonth + " " + magYear);
+            $('#magBrand').html(collection + " - " + magFrame);
+
+            $('#magPdf').attr('href', finalMagPdf);
+            $('#magPdfSmall').attr('href', finalMagPdf);
+        });
+
+    });
+
+</script>
+
+@foreach (var s in Model.Items)
+         { 
+              
+          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4 magazine" style="margin-bottom:10px;">
+            <a class="fancybox" href="#insideImage"><img class="img-responsive fancyboxPicture" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
+                <br />
+                <span>
+                    <span style="font-weight:bold">@s.Collection</span><br />
+                    <span style="color:#767676">@s.press_clipping.magazine,
+                    @(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))
+                   @(((DateTime)s.press_clipping.release_date).Year.ToString())</span>
+                </span>
+          
+              <input type="hidden" value="@s.press_clipping.inside_image" id="inside_image@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.press_clipping.magazine" id="inside_mag@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.Collection" id="inside_collection@(s.press_clipping.id)" />
+              <input type="hidden" value="@(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))" id="release_month@(s.press_clipping.id)"/>
+              <input type="hidden" value="@(((DateTime)s.press_clipping.release_date).Year.ToString())" id="release_year@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.press_clipping.frame" id="inside_frame@(s.press_clipping.id)" />
+              <input type="hidden" value="@s.press_clipping.pdf" id="inside_pdf@(s.press_clipping.id)" />
+          </div>
+              
+          }
