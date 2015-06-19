@@ -21,10 +21,9 @@
         //function updateFilter() {
         $("#filterButton").click(function () {
             //$.post("/PressClipping/UpdateData", $("#filterForm").serialize(), function (data) {
-            //$("#filterForm").html(data.html);
-            
+            //$("#filterForm").html(data.html);     
             $.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function (data) {
-                    alert(data.html);
+                $('#GridWrapper').hide().html(data.html).fadeIn(250);
             });
         })
 
@@ -71,7 +70,7 @@
 <div class="col-xs-12"style="margin-bottom:40px;margin-top:20px;">PROFILE / PRESS</div>
 
 <div class="col-xs-12 col-sm-3">
-@using (Html.BeginForm("Index", "PressClipping", new { @id = "filterForm"}))
+@using (Html.BeginForm("Index", "PressClipping", FormMethod.Post, new { @id = "filterForm"}))
 {
 
     
@@ -97,9 +96,8 @@
 
         
 <div class="col-xs-12 col-sm-9">
-    <div class="row">
-        @{Html.RenderPartial("_Grid", Model);}
-                 
+    <div id ="GridWrapper" class="row">
+        @{Html.RenderPartial("_Grid", Model);}                 
     </div>
 </div>
               
