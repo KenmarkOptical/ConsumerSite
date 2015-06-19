@@ -25,9 +25,7 @@
             
         })
 
-        $("#nextBTN").click(function () {
-            UpdateData(false);
-        })
+       
 
     });
   
@@ -37,10 +35,8 @@
         var page = $("#Page").val();
        
         
-        if (reset) {
-            alert("yo");
-          $("#Page").attr("value", 0);
-
+        if (reset) {           
+          $("#Page").val(0);
         }
 
         $.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function (data) {
