@@ -22,9 +22,7 @@
         $("#filterButton").click(function () {
             //$.post("/PressClipping/UpdateData", $("#filterForm").serialize(), function (data) {
             //$("#filterForm").html(data.html);     
-            $.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function (data) {
-                $('#GridWrapper').hide().html(data.html).fadeIn(250);
-            });
+            UpdateData(false);
         })
 
      });
@@ -38,7 +36,16 @@
     //$.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function(data){
     //    alert(data.html);
    
-    
+    function UpdateData(reset)
+    {
+        if (reset) {
+            // set page variable = 0 before you post;
+        }
+
+        $.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function (data) {
+            $('#GridWrapper').hide().html(data.html).fadeIn(250);
+        });
+    }
 </script>
 
 <style type="text/css">
