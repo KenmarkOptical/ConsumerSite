@@ -18,28 +18,29 @@
 
         });
 
-        //function updateFilter() {
+        
         $("#filterButton").click(function () {
-            //$.post("/PressClipping/UpdateData", $("#filterForm").serialize(), function (data) {
-            //$("#filterForm").html(data.html);     
+               
+            UpdateData(true);
+            
+        })
+
+        $("#nextBTN").click(function () {
             UpdateData(false);
         })
 
-     });
+    });
+  
 
-    
-    //$.post("/PressClipping/UpdateData", $("#filterForm").serialize(), function (data) {
-    //$("#filterForm").html(data.html);
-
-    // $.post("/PressClipping/UpdateData", $("#filterForm").serialize());
-
-    //$.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function(data){
-    //    alert(data.html);
-   
-    function UpdateData(reset)
+   function UpdateData(reset)
     {
+        var page = $("#Page").val();
+       
+        
         if (reset) {
-            // set page variable = 0 before you post;
+            alert("yo");
+          $("#Page").attr("value", 0);
+
         }
 
         $.post("/PressClipping/UpdateData", $("#filterForm").serialize()).done(function (data) {
@@ -108,27 +109,6 @@
     </div>
 </div>
               
-  @*       
-   <div class="col-xs-12 no-gutter" style="margin-top:50px;">
-       <div class="col-xs-6 col-sm-2 no-gutter">
-           @if (Model.Page > 0)
-           {
-               <a class="pageControl" href="pressclipping?page=@(Model.Page - 1)" style="font-size:14px;color:#767676">< PREVIOUS</a> 
-           }
-       </div>
-       <div class="col-xs-6 col-sm-10 text-right-xs no-gutter">
-          @if (Model.HasNextPage)
-          {
-               <a class="pageControl" href="pressclipping?page=@(Model.Page + 1)" style="font-size:14px;color:#767676">NEXT ></a>
-          }
-        </div>
-
-        @(Html.HiddenFor(m => m.Filter_DateRange))
-        @(Html.HiddenFor(m => m.Filter_Like_Collection)) 
-        @(Html.HiddenFor(m => m.Page))
-         
-   </div>*@
-
 <!-- START OF FANCYBOX DIV -->
 
      <div id="insideImage" style="display:none">
