@@ -55,12 +55,17 @@
 
 </script>
 
-@foreach (var s in Model.Items)
-         { 
+@if (Model.Items.Count > 0) { 
+
+    foreach (var s in Model.Items)
+         {
+
+             
               
           <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4 magazine" style="margin-bottom:10px;">
             <a class="fancybox" href="#insideImage"><img class="img-responsive fancyboxPicture" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
-                <br />
+
+            <br />
                 <span>
                     <span style="font-weight:bold">@s.Collection</span><br />
                     <span style="color:#767676">@s.press_clipping.magazine,
@@ -73,14 +78,18 @@
               <input type="hidden" value="@s.Collection" id="inside_collection@(s.press_clipping.id)" />
               <input type="hidden" value="@(Kenmark_Consumer.Models.Common.ToShortMonthName((DateTime)s.press_clipping.release_date))" id="release_month@(s.press_clipping.id)"/>
               <input type="hidden" value="@(((DateTime)s.press_clipping.release_date).Year.ToString())" id="release_year@(s.press_clipping.id)" />
-              <input type="hidden" value="@s.press_clipping.frame" id="inside_frame@(s.press_clipping.id)" />
-              <input type="hidden" value="@s.press_clipping.pdf" id="inside_pdf@(s.press_clipping.id)" />
-
+              <input type="hidden" value="@(s.press_clipping.frame)" id="inside_frame@(s.press_clipping.id)" />
+              <input type="hidden" value="@(s.press_clipping.pdf)" id="inside_pdf@(s.press_clipping.id)" />
+              
               
               
           </div>
+         }    
      
-      }
+}else{
+
+    <span class="col-xs-12 text-center" style="font-size:16px; font-weight:bold;">No results found.</span>
+}
       
    <div class="col-xs-12 no-gutter" style="margin-top:50px;">
        <div class="col-xs-6 col-sm-2 no-gutter">
