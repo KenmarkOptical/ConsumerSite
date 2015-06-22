@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Where to Buy";
+}
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+    function initialize(){
+        var KenmarkLatLng = new google.maps.LatLng(38.210972, -85.536872);
+        var mapOptions = {
+        zoom: 8,
+        center: KenmarkLatLng
+    };
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: KenmarkLatLng,
+        map: map,
+        title: 'Kenmark Optical'
+    });
+}
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div class="row" style="margin-top: 50px;">
+    <div class="col-xs-12 col-sm-3">
+        <span class="center-block" style="font-size:16px;font-weight:bold;">WHERE TO BUY</span>
+    </div>
+
+    <div id="map-canvas" class="col-xs-12 col-sm-9" style="height:500px; width:720px;">
+    </div>
+
+</div>
