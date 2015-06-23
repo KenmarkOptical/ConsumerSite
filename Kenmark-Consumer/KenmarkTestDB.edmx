@@ -3147,6 +3147,10 @@
     <edmx:ConceptualModels>
       <Schema Namespace="KenmarkTestDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="KenmarkTestDBEntities" p1:LazyLoadingEnabled="true" >
+          <FunctionImport Name="usp_where_to_buy" ReturnType="Collection(KenmarkTestDBModel.usp_where_to_buy_Result)">
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+            <Parameter Name="Radius" Mode="In" Type="Int32" />
+          </FunctionImport>
           <EntitySet Name="addresses" EntityType="KenmarkTestDBModel.address" />
           <EntitySet Name="address_to_collections" EntityType="KenmarkTestDBModel.address_to_collections" />
           <EntitySet Name="address_to_country" EntityType="KenmarkTestDBModel.address_to_country" />
@@ -3277,11 +3281,20 @@
             <End Role="collection" EntitySet="collections" />
             <End Role="address_to_collections" EntitySet="address_to_collections" />
           </AssociationSet>
-          <FunctionImport Name="usp_where_to_buy" ReturnType="Collection(KenmarkTestDBModel.usp_where_to_buy_Result)">
-            <Parameter Name="ZipCode" Mode="In" Type="String" />
-            <Parameter Name="Radius" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="usp_where_to_buy_Result">
+          <Property Type="String" Name="kenmark_id" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="customer_name" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="phone" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="state" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="zip" Nullable="true" MaxLength="10" />
+          <Property Type="Double" Name="latitude" Nullable="true" />
+          <Property Type="Double" Name="longitude" Nullable="true" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="proper_address" Nullable="true" MaxLength="250" />
+          <Property Type="Double" Name="distance" Nullable="true" />
+        </ComplexType>
         <EntityType Name="address">
           <Key>
             <PropertyRef Name="addressID" />
@@ -5345,25 +5358,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="usp_where_to_buy_Result">
-          <Property Type="String" Name="kenmark_id" Nullable="false" MaxLength="6" />
-          <Property Type="String" Name="customer_name" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="phone" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="city" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="state" Nullable="true" MaxLength="2" />
-          <Property Type="String" Name="zip" Nullable="true" MaxLength="10" />
-          <Property Type="Double" Name="latitude" Nullable="true" />
-          <Property Type="Double" Name="longitude" Nullable="true" />
-          <Property Type="String" Name="address" Nullable="true" MaxLength="51" />
-          <Property Type="String" Name="proper_address" Nullable="true" MaxLength="250" />
-          <Property Type="Double" Name="distance" Nullable="true" />
-        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KenmarkTestDBModelStoreContainer" CdmEntityContainer="KenmarkTestDBEntities" >
+          <FunctionImportMapping FunctionImportName="usp_where_to_buy" FunctionName="KenmarkTestDBModel.Store.usp_where_to_buy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KenmarkTestDBModel.usp_where_to_buy_Result">
+                <ScalarProperty Name="kenmark_id" ColumnName="kenmark_id" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="proper_address" ColumnName="proper_address" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <EntitySetMapping Name="addresses">
             <EntityTypeMapping TypeName="KenmarkTestDBModel.address">
               <MappingFragment StoreEntitySet="address">
@@ -7435,23 +7452,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="usp_where_to_buy" FunctionName="KenmarkTestDBModel.Store.usp_where_to_buy">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="KenmarkTestDBModel.usp_where_to_buy_Result">
-                <ScalarProperty Name="kenmark_id" ColumnName="kenmark_id" />
-                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="zip" ColumnName="zip" />
-                <ScalarProperty Name="latitude" ColumnName="latitude" />
-                <ScalarProperty Name="longitude" ColumnName="longitude" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="proper_address" ColumnName="proper_address" />
-                <ScalarProperty Name="distance" ColumnName="distance" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

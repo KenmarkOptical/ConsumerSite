@@ -635,4 +635,12 @@ img.saturate-2:hover{
         }
 }
 
+/*WHERE TO BUY EMAIL AND PRINT BUTTONS*/
+
+.wtbButton {
+    border-radius:0;
+    border-color:#64635e;
+    font-weight:bold;
+    color:#64635e;
+}
 

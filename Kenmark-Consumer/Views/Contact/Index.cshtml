@@ -25,6 +25,13 @@
             $('.kenmarkInfo').css({ 'padding-left': '50px' });
         }
 
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                $('.submitButton').click();
+                return false;
+            }
+        }); // catches Enter press, clicks the filter button
+
     });
 
     function OnSuccess(data, status, xhr) {

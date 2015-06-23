@@ -8,11 +8,11 @@ namespace Kenmark_Consumer.Models
 {
     public class WhereToBuy
     {
-        [Display(Name = "Zip Code:")]
+        [Display(Name = "Zip Code")]
         [Required(ErrorMessage = "A Zip Code is required")]
         public string Zip { get; set; }
 
-        [Display(Name = "Radius:")]
+        [Display(Name = "Range")]
         [Required(ErrorMessage = "A Radius is required")]
         public int Radius { get; set; }
 
@@ -21,6 +21,9 @@ namespace Kenmark_Consumer.Models
         public WhereToBuy GetCustomers(WhereToBuy data)
         {
             WhereToBuy wtb = new WhereToBuy();
+            wtb.Zip = data.Zip;
+            wtb.Radius = data.Radius;
+
             wtb.Customers = new List<usp_where_to_buy_Result>();
 
             //prevent altering data

@@ -22,13 +22,14 @@
         $("#filterButton").click(function () {
                
             UpdateData(true);
-
-           
-
-            
-            
         })
 
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                $('#filterButton').click();
+                return false;
+            }
+        }); // catches Enter press, clicks the filter button
        
 
     });

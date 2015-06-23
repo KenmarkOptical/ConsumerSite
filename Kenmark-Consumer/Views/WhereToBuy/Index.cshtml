@@ -1,9 +1,48 @@
-﻿@{
+﻿@model Kenmark_Consumer.Models.WhereToBuy
+
+@using System.Web.UI.WebControls
+
+@{
     ViewBag.Title = "Where to Buy";
 }
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 
-<script>
+<script type="text/javascript">
+    
+    $(function () {
+        $('#rangeFilter').click(function () {
+            $.post("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
+                
+                $('#customerWrapper').hide().html(data.html).fadeIn(250);
+                buildMap(data.GooglePoints);
+
+            });
+        });
+
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                $('#rangeFilter').click();
+                return false;
+            }
+        }); // catches Enter press, clicks the filter button
+    });
+
+    
+
+    
+
+    function buildMap(points) {
+        
+
+        // foreach points
+        // create marker
+        // plot points (push marker to map)
+        
+    }
+
+  
+
+
     function initialize(){
         var KenmarkLatLng = new google.maps.LatLng(38.210972, -85.536872);
         var mapOptions = {
@@ -18,16 +57,76 @@
         map: map,
         title: 'Kenmark Optical'
     });
+    
 }
     google.maps.event.addDomListener(window, 'load', initialize);
+   
 </script>
 
 <div class="row" style="margin-top: 50px;">
+    <div class="col-xs-12 col-sm-3" style="padding-left:50px;">
+        <span class="center-block" style="font-size:16px;font-weight:bold;">WHERE TO BUY</span><br />
+        <span style="font-size:14px;">Find retail locations where Kenmark Brands are sold.</span>
+    
+
+        @using (Html.BeginForm("GetCustomers", "WhereToBuy", FormMethod.Post, new { @id = "buyFilter" }))
+        {
+           <div class="col-xs-12 no-gutter" style="margin-top:30px;">
+               @(Html.LabelFor(m => m.Zip))<br />
+               @(Html.TextBoxFor(m => m.Zip, new { @class="form-control" }))
+           </div>
+            
+           <div class="col-xs-12 no-gutter" style="margin-top:30px;margin-bottom:30px;">
+              @(Html.LabelFor(m => m.Radius))<br />
+              
+              @(Html.DropDownListFor(m => m.Radius, new SelectListItem[]{
+                new SelectListItem() {Text = "5 miles", Value="5"},
+                new SelectListItem() {Text = "10 miles", Value="10"},
+                new SelectListItem() {Text = "25 miles", Value="25"},
+                new SelectListItem() {Text = "50 miles", Value="50"},
+                new SelectListItem() {Text = "90 miles", Value="90"},
+              }, new{@class="form-control"}))
+                   
+          </div>
+       }
+    
+        <button id="rangeFilter" type="button" class="btn btn-default submitButton" style="margin-bottom:30px;">FIND DEALERS</button>
+
+    </div>
+    
+
+    <!-- DIV FOR GOOGLE MAP -->
+    <div class="container-map" style="height:100%; width: 100%">
+        <div id="map-canvas" class="col-xs-12 col-sm-9" style="height:500px; width:700px;">
+        </div>
+    </div>
+    
+</div>
+
+<div class="row" style="margin-top:50px;">
     <div class="col-xs-12 col-sm-3">
-        <span class="center-block" style="font-size:16px;font-weight:bold;">WHERE TO BUY</span>
+        
+        <div class="col-xs-12 no-gutter text-center" style="margin-bottom:30px;">
+            <div style="font-size:14px; font-weight:bold;">SAVE YOUR LISTINGS</div><br />
+                <div class="col-xs-6 no-gutter text-right" style="padding-right:5px;">
+                    <button id="emailBtn" type="submit" class="btn btn-default wtbButton">EMAIL</button>
+                </div>
+                <div class="col-xs-6 no-gutter text-left" style="padding-left:5px;">
+                    <button id="printBtn" type="submit" class="btn btn-default wtbButton">PRINT</button>
+                </div>
+
+        </div>
     </div>
 
-    <div id="map-canvas" class="col-xs-12 col-sm-9" style="height:500px; width:720px;">
+    
+            
+    <div class="col-xs-12 col-sm-9">
+        <div id="customerWrapper">
+                  
+        </div>
     </div>
+           
 
+        
+    
 </div>

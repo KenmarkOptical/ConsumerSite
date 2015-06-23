@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace Kenmark_Consumer.Controllers
 {
-    public class WhereToBuyController : Controller
+    public class WhereToBuyController : MyBaseController
     {
         //
         // GET: /WhereToBuy/
@@ -25,13 +25,14 @@ namespace Kenmark_Consumer.Controllers
             var serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
             var resultData = data.Customers;
-            var result = new ContentResult
-            {
-                Content = serializer.Serialize(resultData),
-                ContentType = "application/json"
-            };
+            //var result = new ContentResult
+            //{
+            //    Content = serializer.Serialize(resultData),
+            //    ContentType = "application/json"
+            //};
 
-            return Json(new { Model = data, GooglePoints = result }, JsonRequestBehavior.AllowGet); 
+            string html = RenderPartialViewToString("_Grid", data);
+            return Json(new { html = html, GooglePoints = serializer.Serialize(resultData)}, JsonRequestBehavior.AllowGet); 
         }
 
     }
