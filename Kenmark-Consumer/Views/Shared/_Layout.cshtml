@@ -88,6 +88,13 @@
                 $(this).css("color", "#64635e");
             });
 
+            $('.navBtn').click(function () {
+                
+                $('.navDropdown').toggle();
+                
+                
+            });
+
            
         });
 
@@ -115,8 +122,8 @@
                    </div>
                    <div class="collapse navbar-collapse" id="gw-navbar-collapse" style="margin:0px;">
                          <ul class="nav navbar-nav" style="margin-left:0;margin-right:0px;">                              
-                            <li><a id="Brands-Link" href="#">SHOP</a></li>   
-                            <li><a id="Profile-Link" href="#">PROFILE</a></li>   
+                            <li><a class="navBtn" id="Brands-Link" href="#">SHOP</a></li>   
+                            <li><a class="navBtn" id="Profile-Link" href="#">PROFILE</a></li>   
                             <li><a href="#">THE MIRROR</a></li>
                             <li><a href="/WhereToBuy">WHERE TO BUY</a></li>
                             <li><a id="icon-sprite" href="#"><span></span></a></li>
@@ -153,7 +160,7 @@
                 <div class="row">
                 
                 <!-- Shop Dropdown -->
-            <div id="brand-links-div" class="container" style="background-color:#eeebdf; z-index:5; display:none; width:100%; max-width:1074px;box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);">
+            <div id="brand-links-div" class="container navDropdown" style="background-color:#eeebdf; z-index:5; display:none; width:100%; max-width:1074px;box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);">
                 
 
                     <div class="col-xs-12 col-sm-4">
@@ -251,7 +258,7 @@
 
           <!-- PROFILE DROPDOWN -->
           
-          <div id="profile-links-div" class="container" style="background-color:#eeebdf; z-index:5; display:none; width:100%; max-width:1074px;box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);">
+          <div id="profile-links-div" class="container navDropdown" style="background-color:#eeebdf; z-index:5; display:none; width:100%; max-width:1074px;box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);">
               <div class="row"  style="margin-top:25px;">
                   <div class="col-xs-12">
                       <div class="col-xs-10">
