@@ -12,6 +12,9 @@ namespace Kenmark_Consumer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class KenmarkTestDBEntities : DbContext
     {
@@ -151,5 +154,18 @@ namespace Kenmark_Consumer
         public DbSet<zz_fcdFrames> zz_fcdFrames { get; set; }
         public DbSet<zz_fcdFrameSize> zz_fcdFrameSize { get; set; }
         public DbSet<zz_fcdFrameUPC> zz_fcdFrameUPC { get; set; }
+    
+        public virtual ObjectResult<usp_where_to_buy_Result> usp_where_to_buy(string zipCode, Nullable<int> radius)
+        {
+            var zipCodeParameter = zipCode != null ?
+                new ObjectParameter("ZipCode", zipCode) :
+                new ObjectParameter("ZipCode", typeof(string));
+    
+            var radiusParameter = radius.HasValue ?
+                new ObjectParameter("Radius", radius) :
+                new ObjectParameter("Radius", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_where_to_buy_Result>("usp_where_to_buy", zipCodeParameter, radiusParameter);
+        }
     }
 }
