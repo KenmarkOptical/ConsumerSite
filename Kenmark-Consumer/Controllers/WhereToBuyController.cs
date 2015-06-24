@@ -15,7 +15,9 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            WhereToBuy w = new WhereToBuy();
+            w.Zip = "40047";
+            return View(w);
         }
         
         public ActionResult GetCustomers(WhereToBuy data)

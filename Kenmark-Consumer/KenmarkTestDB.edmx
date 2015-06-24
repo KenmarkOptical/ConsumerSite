@@ -3294,6 +3294,7 @@
           <Property Type="String" Name="address" Nullable="true" MaxLength="51" />
           <Property Type="String" Name="proper_address" Nullable="true" MaxLength="250" />
           <Property Type="Double" Name="distance" Nullable="true" />
+          <Property Type="String" Name="website" Nullable="true" MaxLength="250" />
         </ComplexType>
         <EntityType Name="address">
           <Key>
@@ -5378,6 +5379,7 @@
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="proper_address" ColumnName="proper_address" />
                 <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="website" ColumnName="website" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

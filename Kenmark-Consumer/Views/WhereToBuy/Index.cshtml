@@ -8,14 +8,22 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 
 <script type="text/javascript">
+    var map;
+    var bounds;
+    var marker;
     
+
     $(function () {
+     
+
         $('#rangeFilter').click(function () {
-            $.post("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
+            
+            $.get("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
                 
                 $('#customerWrapper').hide().html(data.html).fadeIn(250);
+                
                 buildMap(data.GooglePoints);
-
+                
             });
         });
 
@@ -27,39 +35,54 @@
         }); // catches Enter press, clicks the filter button
     });
 
-    
-
-    
-
     function buildMap(points) {
-        
 
-        // foreach points
-        // create marker
-        // plot points (push marker to map)
+        var customers = JSON.parse(points);
+
+        bounds = new google.maps.LatLngBounds();
+
+        $(customers).each(function (index, element) {
+           
+           marker = new google.maps.Marker({
+                position: new google.maps.LatLng(element.latitude, element.longitude),
+                map: map,
+                title: element.customer_name,
+                animation: google.maps.Animation.DROP,
+                
+            });
+
+             bounds.extend(marker.position);
+         });
         
+        map.fitBounds(bounds);
     }
-
   
-
-
-    function initialize(){
+  
+   function initialize() {
+        var bounds = new google.maps.LatLngBounds();
         var KenmarkLatLng = new google.maps.LatLng(38.210972, -85.536872);
         var mapOptions = {
-        zoom: 8,
+        zoom: 4,
         center: KenmarkLatLng
-    };
 
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+     };
+       
+       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      
+    }
 
-    var marker = new google.maps.Marker({
-        position: KenmarkLatLng,
-        map: map,
-        title: 'Kenmark Optical'
-    });
-    
-}
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    google.maps.event.addDomListener(window, 'resize', function () {
+        var center = map.getCenter();
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(center);
+    });
+
+    
+   
+    
+    
    
 </script>
 
@@ -96,8 +119,8 @@
     
 
     <!-- DIV FOR GOOGLE MAP -->
-    <div class="container-map" style="height:100%; width: 100%">
-        <div id="map-canvas" class="col-xs-12 col-sm-9" style="height:500px; width:700px;">
+    <div class="col-xs-12 col-sm-9">
+        <div id="map-canvas" class="col-xs-12 col-sm-11 no-gutter" style="height:450px;">
         </div>
     </div>
     
