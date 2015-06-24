@@ -24,5 +24,6 @@ namespace Kenmark_Consumer
         public string address { get; set; }
         public string proper_address { get; set; }
         public Nullable<double> distance { get; set; }
+        public string website { get; set; }
     }
 }
