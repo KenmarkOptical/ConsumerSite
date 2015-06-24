@@ -12,9 +12,10 @@
     var bounds;
     var marker;
     
+   
 
     $(function () {
-     
+        
 
         $('#rangeFilter').click(function () {
             
@@ -36,11 +37,12 @@
     });
 
     function buildMap(points) {
-
+        
+       
         var customers = JSON.parse(points);
 
         bounds = new google.maps.LatLngBounds();
-
+        
         $(customers).each(function (index, element) {
            
            marker = new google.maps.Marker({
@@ -50,14 +52,21 @@
                 animation: google.maps.Animation.DROP,
                 
             });
+           bounds.extend(marker.position);
 
-             bounds.extend(marker.position);
-         });
+            
+      });// end foreach loop
         
         map.fitBounds(bounds);
+        
     }
   
-  
+    
+       
+ 
+    
+
+
    function initialize() {
         var bounds = new google.maps.LatLngBounds();
         var KenmarkLatLng = new google.maps.LatLng(38.210972, -85.536872);
@@ -79,7 +88,7 @@
         map.setCenter(center);
     });
 
-    
+ 
    
     
     
@@ -88,19 +97,19 @@
 
 <div class="row" style="margin-top: 50px;">
     <div class="col-xs-12 col-sm-3" style="padding-left:50px;">
-        <span class="center-block" style="font-size:16px;font-weight:bold;">WHERE TO BUY</span><br />
+        <span class="center-block" style="font-size:20px;font-weight:bold;">WHERE TO BUY</span><br />
         <span style="font-size:14px;">Find retail locations where Kenmark Brands are sold.</span>
     
 
         @using (Html.BeginForm("GetCustomers", "WhereToBuy", FormMethod.Post, new { @id = "buyFilter" }))
         {
            <div class="col-xs-12 no-gutter" style="margin-top:30px;">
-               @(Html.LabelFor(m => m.Zip))<br />
+               @(Html.LabelFor(m => m.Zip, new { @style="font-size:16px"}))<br />
                @(Html.TextBoxFor(m => m.Zip, new { @class="form-control" }))
            </div>
             
            <div class="col-xs-12 no-gutter" style="margin-top:30px;margin-bottom:30px;">
-              @(Html.LabelFor(m => m.Radius))<br />
+              @(Html.LabelFor(m => m.Radius, new { @style="font-size:16px"}))<br />
               
               @(Html.DropDownListFor(m => m.Radius, new SelectListItem[]{
                 new SelectListItem() {Text = "5 miles", Value="5"},
