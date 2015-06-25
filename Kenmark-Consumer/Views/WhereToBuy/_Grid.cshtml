@@ -22,12 +22,14 @@
 @foreach (var s in Model.Customers) { 
         
     <div class="col-xs-6 col-sm-4 no-gutter" style="margin-bottom:40px;">
+        
+        <div class="col-xs-12 no-gutter">
             <span><strong>@s.customer_name</strong></span><br />
              @(s.address)<br />
              @(s.city), @(s.state)<br />
              @(s.phone)<br />
              @(s.distance) @(s.distance == 1 ? "Mile" : "Miles")<br />
-             
+           
            
            
             
@@ -42,6 +44,7 @@
              } 
 
                 </div>
+            </div>  
     </div>
     }
 </div>

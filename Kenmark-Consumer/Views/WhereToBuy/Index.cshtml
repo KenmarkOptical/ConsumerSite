@@ -11,14 +11,12 @@
     var map;
     var bounds;
     var markers = [];
-    var infoWindow;
+   
     
    
 
     $(function () {
-        
-
-        $("#rangeFilter").click(function (e) {
+         $("#rangeFilter").click(function (e) {
             
             clearMap();
            
@@ -40,11 +38,31 @@
     });
 
     function initialize() {
+        var stylesArray = [
+            {
+                "featureType": "landscape",
+                "stylers": [
+                    { "gamma": 1.11 },
+                    { "saturation": -98 },
+                    { "lightness": 70 }
+                ]
+            }, {
+                "featureType": "water",
+                "stylers": [
+                    { "hue": "#0019ff" },
+                    { "lightness": -7 },
+                    { "saturation": -74 }
+                ]
+            }
+        ]
+
         var bounds = new google.maps.LatLngBounds();
         var USLatLng = new google.maps.LatLng(39, -95.);
         var mapOptions = {
             zoom: 4,
-            center: USLatLng
+            center: USLatLng,
+            styles: stylesArray,
+
 
         };
 
@@ -52,15 +70,25 @@
 
     }
 
-    function addMarker(location) {
+    function addMarker(location, content) {
         var marker = new google.maps.Marker({
             position: location,
             map: map,
             animation: google.maps.Animation.DROP,
                 
         });// end marker
+
+        var infoWindow = new google.maps.InfoWindow({
+              content: content
+        });
+
         bounds.extend(marker.position);
         markers.push(marker);
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(map, marker);
+        });
+
     }
 
     function setAllMap(map) {
@@ -73,9 +101,10 @@
         setAllMap(null);
         markers = [];
     }
-    
 
-    function buildMap(points) {
+  
+    
+    function buildMap(points) { // for each customer - create a bound, add marker(extend bound), add to map, fit to bounds
         
         var customers = JSON.parse(points);
 
@@ -83,30 +112,38 @@
         
         $(customers).each(function (index, element) {
             
-            
-           
             var latLng = new google.maps.LatLng(element.latitude, element.longitude);
+            
+            var content = '<strong>' + element.customer_name + '</strong>' + '<br />'
+                + element.address + '<br />'
+                + element.city + ', ' + element.state
+                + '<br />' + element.phone
 
-            addMarker(latLng);
+           //createInfoWindow(content);
+
+            addMarker(latLng, content);
+
             setAllMap(map);
            
 
             
-
-         });// end foreach loop
+          });// end foreach loop
 
         map.fitBounds(bounds);
         
     }
   
     
-       google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, 'load', initialize);
 
-       google.maps.event.addDomListener(window, 'resize', function () {
-            var center = map.getCenter();
-            google.maps.event.trigger(map, 'resize');
-            map.setCenter(center);
-        });
+    
+    google.maps.event.addDomListener(window, 'resize', function () {
+        var center = map.getCenter();
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(center);
+   });
+       
+       
 
  </script>
 
@@ -176,7 +213,4 @@
       </div>
   </div>
            
-
-        
-    
 </div>
