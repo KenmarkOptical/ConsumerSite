@@ -10,15 +10,18 @@
 <script type="text/javascript">
     var map;
     var bounds;
-    var marker;
+    var markers = [];
+    var infoWindow;
     
    
 
     $(function () {
         
 
-        $('#rangeFilter').click(function () {
+        $("#rangeFilter").click(function (e) {
             
+            clearMap();
+           
             $.get("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
                 
                 $('#customerWrapper').hide().html(data.html).fadeIn(250);
@@ -36,64 +39,76 @@
         }); // catches Enter press, clicks the filter button
     });
 
+    function initialize() {
+        var bounds = new google.maps.LatLngBounds();
+        var USLatLng = new google.maps.LatLng(39, -95.);
+        var mapOptions = {
+            zoom: 4,
+            center: USLatLng
+
+        };
+
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    }
+
+    function addMarker(location) {
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            animation: google.maps.Animation.DROP,
+                
+        });// end marker
+        bounds.extend(marker.position);
+        markers.push(marker);
+    }
+
+    function setAllMap(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+    function clearMap() {
+        setAllMap(null);
+        markers = [];
+    }
+    
+
     function buildMap(points) {
         
-       
         var customers = JSON.parse(points);
 
         bounds = new google.maps.LatLngBounds();
         
         $(customers).each(function (index, element) {
+            
+            
            
-           marker = new google.maps.Marker({
-                position: new google.maps.LatLng(element.latitude, element.longitude),
-                map: map,
-                title: element.customer_name,
-                animation: google.maps.Animation.DROP,
-                
-            });
-           bounds.extend(marker.position);
+            var latLng = new google.maps.LatLng(element.latitude, element.longitude);
+
+            addMarker(latLng);
+            setAllMap(map);
+           
 
             
-      });// end foreach loop
-        
+
+         });// end foreach loop
+
         map.fitBounds(bounds);
         
     }
   
     
-       
- 
-    
+       google.maps.event.addDomListener(window, 'load', initialize);
 
+       google.maps.event.addDomListener(window, 'resize', function () {
+            var center = map.getCenter();
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(center);
+        });
 
-   function initialize() {
-        var bounds = new google.maps.LatLngBounds();
-        var KenmarkLatLng = new google.maps.LatLng(38.210972, -85.536872);
-        var mapOptions = {
-        zoom: 4,
-        center: KenmarkLatLng
-
-     };
-       
-       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-      
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-    google.maps.event.addDomListener(window, 'resize', function () {
-        var center = map.getCenter();
-        google.maps.event.trigger(map, 'resize');
-        map.setCenter(center);
-    });
-
- 
-   
-    
-    
-   
-</script>
+ </script>
 
 <div class="row" style="margin-top: 50px;">
     <div class="col-xs-12 col-sm-3" style="padding-left:50px;">
@@ -123,7 +138,10 @@
        }
     
         <button id="rangeFilter" type="button" class="btn btn-default submitButton" style="margin-bottom:30px;">FIND DEALERS</button>
+        <div class="col-xs-12" id="loadingWrapper">
 
+
+        </div>
     </div>
     
 
@@ -136,7 +154,7 @@
 </div>
 
 <div class="row" style="margin-top:50px;">
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-xs-12 hidden-xs col-sm-3">
         
         <div class="col-xs-12 no-gutter text-center" style="margin-bottom:30px;">
             <div style="font-size:14px; font-weight:bold;">SAVE YOUR LISTINGS</div><br />
@@ -152,11 +170,11 @@
 
     
             
-    <div class="col-xs-12 col-sm-9">
-        <div id="customerWrapper">
-                  
-        </div>
-    </div>
+  <div class="col-xs-12 col-sm-9">
+      <div id="customerWrapper">
+                 <!-- Wrapper for partial view to update customers --> 
+      </div>
+  </div>
            
 
         
