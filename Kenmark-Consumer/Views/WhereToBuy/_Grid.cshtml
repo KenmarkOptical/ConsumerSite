@@ -1,5 +1,15 @@
 ﻿@model Kenmark_Consumer.Models.WhereToBuy
 
+<script type="text/javascript">
+
+    $('.webText').mouseenter(function () {
+        $(this).css("color", "#64635e");
+    })
+        .mouseleave(function () {
+            $(this).css("color", "black");
+         });
+</script>
+
 
 
 <div class="col-xs-12">
@@ -12,16 +22,27 @@
 @foreach (var s in Model.Customers) { 
         
     <div class="col-xs-6 col-sm-4 no-gutter" style="margin-bottom:40px;">
+        
+        <div class="col-xs-12 no-gutter">
             <span><strong>@s.customer_name</strong></span><br />
              @(s.address)<br />
              @(s.city), @(s.state)<br />
              @(s.phone)<br />
-             @(s.distance) Mile(s)<br />
+             @(s.distance) @(s.distance == 1 ? "Mile" : "Miles")<br />
            
            
+           <div style="margin-top:3px;"><img src="~/Content/images/Where_To_Buy/icon_map.png" /><span style="display:inline-block; margin-right:5px;"><strong>MAP</strong></span>
             
-            <div style="margin-top:3px;"><img src="~/Content/images/Where_To_Buy/icon_map.png" /><span style="display:inline-block; margin-right:5px;"><strong>MAP</strong></span>
-            <img src="~/Content/images/Where_To_Buy/icon_link.png" /><strong>WEBSITE</strong></div>
+             @if(!String.IsNullOrEmpty(@s.website.Trim())){
+                 <a href ="@(s.website.Contains("http:") || s.website.Contains("https:") ? s.website : "http://" + s.website)" target="_blank">
+                <img src="~/Content/images/Where_To_Buy/icon_link.png" />
+                <span class="webText" style="display:inline-block; color:black; text-decoration:none;"><strong>WEBSITE</strong></span> 
+
+                     </a>
+             } 
+
+                </div>
+            </div>  
     </div>
     }
 </div>
