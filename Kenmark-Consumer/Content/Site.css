@@ -636,14 +636,14 @@ img.saturate-2:hover{
 }
 
 @media (max-width: 767px) {
-    #dropdownText {
-        font-size:3vmin;
+     .browseText {
+        font-size:16px;
     }
 
 }
 
 @media (min-width: 768px) {
-    #dropdownText {
+    .browseText {
         font-size:1.5vmin;
     }
 }

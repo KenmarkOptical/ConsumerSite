@@ -13,7 +13,11 @@
     var markers = [];
     var infoWindow = null;
     
-   $(function () {
+    $(function () {
+       
+        
+
+
          $("#rangeFilter").click(function (e) {
             
             clearMap();
@@ -33,6 +37,17 @@
                 return false;
             }
         }); // catches Enter press, clicks the filter button
+
+        $.get("/WhereToBuy/GetZipGeo").done(function (data) {
+            $('#pageLoad').hide();
+            
+            $('#Zip').val(data.zip);
+            $('#customerWrapper').hide().html(data.html).fadeIn(250);
+           
+
+            buildMap(data.GooglePoints);
+
+        });
     });
 
     function initialize() {
@@ -103,11 +118,7 @@
         markers = [];
     }
 
-    function clickDir(e) {
-        e.preventDefault();
-        $("#dir").click();
-    }
-
+  
     
     
     function buildMap(points) { // for each customer - create a bound, add marker(extend bound), add to map, fit to bounds
@@ -157,6 +168,9 @@
        
 </script>
 
+
+
+
 <div class="row" style="margin-top: 50px;">
     <div class="col-xs-12 col-sm-3" style="padding-left:50px;">
         <span class="center-block" style="font-size:20px;font-weight:bold;">WHERE TO BUY</span><br />
@@ -193,11 +207,14 @@
     
 
     <!-- DIV FOR GOOGLE MAP -->
-    <div class="col-xs-12 col-sm-9">
-        <div id="map-canvas" class="col-xs-12 col-sm-11 no-gutter" style="height:450px;">
+    <div id="pageLoad" class="text-center" style="font-size:20px;">Loading...</div>
+        <div class="col-xs-12 col-sm-9">
+            <div id="map-canvas" class="col-xs-12 col-sm-11 no-gutter" style="height:450px;">
+            </div>
         </div>
-    </div>
     
+
+
 </div>
 
 <div class="row" style="margin-top:50px;">

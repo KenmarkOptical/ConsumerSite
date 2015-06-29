@@ -15,15 +15,26 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index()
         {         
-            WhereToBuy w = new WhereToBuy();          
+            WhereToBuy w = new WhereToBuy();
+            w.Radius = 25;
             return View(w);
         }
 
-        public ActionResult GetZip()
+        public ActionResult GetZipGEO()
         {
             MaxMindGeo m = new MaxMindGeo();
             string zip = m.UserLocation().Postal.Code;
-            return Json(new { zip = zip }, JsonRequestBehavior.AllowGet);
+            WhereToBuy data = new WhereToBuy();
+            data.Zip = zip;
+            data.Radius = 25;
+            
+            data = data.GetCustomers(data);
+
+            var serializer = new JavaScriptSerializer();
+            serializer.MaxJsonLength = Int32.MaxValue;
+            var resultData = data.Customers;
+            string html = RenderPartialViewToString("_Grid", data);
+            return Json(new { zip = zip, html = html, GooglePoints = serializer.Serialize(resultData) }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetCustomers(WhereToBuy data)
