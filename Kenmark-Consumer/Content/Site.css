@@ -635,6 +635,19 @@ img.saturate-2:hover{
         }
 }
 
+@media (max-width: 767px) {
+    #dropdownText {
+        font-size:3vmin;
+    }
+
+}
+
+@media (min-width: 768px) {
+    #dropdownText {
+        font-size:1.5vmin;
+    }
+}
+
 /*WHERE TO BUY EMAIL AND PRINT BUTTONS*/
 
 .wtbButton {
