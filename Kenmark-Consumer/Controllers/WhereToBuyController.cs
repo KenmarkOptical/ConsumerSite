@@ -14,12 +14,18 @@ namespace Kenmark_Consumer.Controllers
         // GET: /WhereToBuy/
 
         public ActionResult Index()
-        {
-            WhereToBuy w = new WhereToBuy();
-            w.Zip = "40047";
+        {         
+            WhereToBuy w = new WhereToBuy();          
             return View(w);
         }
-        
+
+        public ActionResult GetZip()
+        {
+            MaxMindGeo m = new MaxMindGeo();
+            string zip = m.UserLocation().Postal.Code;
+            return Json(new { zip = zip }, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult GetCustomers(WhereToBuy data)
         {
             data = data.GetCustomers(data);
