@@ -88,6 +88,8 @@
             infoWindow.open(map, marker);
         });
 
+        
+
     }
 
     function setAllMap(map) {
@@ -101,7 +103,12 @@
         markers = [];
     }
 
-  
+    function clickDir(e) {
+        e.preventDefault();
+        $("#dir").click();
+    }
+
+    
     
     function buildMap(points) { // for each customer - create a bound, add marker(extend bound), add to map, fit to bounds
         
@@ -113,14 +120,26 @@
             
             var latLng = new google.maps.LatLng(element.latitude, element.longitude);
             
+            var url = 'https://www.google.com/maps/dir//';
+            var route = element.address + " " +  element.city + " " + element.state + " " + element.zip;
+
+           
+            
             var content = '<strong>' + element.customer_name + '</strong>' + '<br />'
                 + element.address + '<br />'
                 + element.city + ', ' + element.state
                 + '<br />' + element.phone + '<br />'
                 + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles")
+                + '<br />' + '<strong>' + '<a id="dir" target="_blank" href="changeString" style="color:black; text-decoration:none;">'
+                + "Get Directions" + '</a>' + '<strong>'
+
+
+            content = content.replace('changeString', url + route);
 
            addMarker(latLng, content);
            setAllMap(map);
+
+
 
         });// end foreach loop
 
