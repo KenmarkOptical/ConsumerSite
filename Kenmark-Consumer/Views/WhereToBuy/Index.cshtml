@@ -135,13 +135,13 @@
 
            
             
-            var content = '<strong>' + element.customer_name + '</strong>' + '<br />'
-                + element.address + '<br />'
-                + element.city + ', ' + element.state
+            var content = '<strong style="text-transform:capitalize">' + element.customer_name.toLowerCase() + '</strong>' + '<br />'
+                + '<span style="text-transform:capitalize">' + element.address.toLowerCase() + '</span>' + ', '
+                + '<span style="text-transform:capitalize">' +  element.city.toLowerCase() + '</span>' + ', ' + element.state
                 + '<br />' + element.phone + '<br />'
                 + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles")
-                + '<br />' + '<strong>' + '<a id="dir" target="_blank" href="changeString" style="color:black; text-decoration:none;">'
-                + "Get Directions" + '</a>' + '<strong>'
+                + '<br />' + '<a id="dir" target="_blank" href="changeString" style="text-decoration:none;">'
+                + "Get Directions" + '</a>'
 
 
             content = content.replace('changeString', url + route);

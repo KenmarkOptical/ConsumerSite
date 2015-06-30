@@ -54,5 +54,9 @@ namespace Kenmark_Consumer.Controllers
             return Json(new { html = html, GooglePoints = serializer.Serialize(resultData)}, JsonRequestBehavior.AllowGet); 
         }
 
+        public ActionResult Email(String email, String zip, int range) {
+            return null;
+        }
+
     }
 }
