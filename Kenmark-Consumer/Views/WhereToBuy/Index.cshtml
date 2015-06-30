@@ -137,9 +137,9 @@
             
             var content = '<strong style="text-transform:capitalize">' + element.customer_name.toLowerCase() + '</strong>' + '<br />'
                 + '<span style="text-transform:capitalize">' + element.address.toLowerCase() + '</span>' + ', '
-                + '<span style="text-transform:capitalize">' +  element.city.toLowerCase() + '</span>' + ', ' + element.state
+                + '<span style="text-transform:capitalize">' +  element.city.toLowerCase() + '</span>' + ', ' + element.state + ', ' + element.zip
                 + '<br />' + element.phone + '<br />'
-                + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles")
+                + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles") + " Away" 
                 + '<br />' + '<a id="dir" target="_blank" href="changeString" style="text-decoration:none;">'
                 + "Get Directions" + '</a>'
 
