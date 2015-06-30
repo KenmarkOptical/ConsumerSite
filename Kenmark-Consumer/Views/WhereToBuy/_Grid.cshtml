@@ -7,10 +7,9 @@
     })
         .mouseleave(function () {
             $(this).css("color", "black");
-         });
+        });
+
 </script>
-
-
 
 <div class="col-xs-12">
     
@@ -19,17 +18,18 @@
 </div>
 
 <div class="row row-eq-height" id="customerRow">
-<div class="col-xs-12">
-@foreach (var s in Model.Customers) { 
+    <div class="col-xs-12">
+    
+        @foreach (var s in Model.Customers) { 
        
-    <div class="col-xs-6 col-sm-4 no-gutter" style="margin-bottom:40px;">
+        <div class="col-xs-6 col-sm-4 no-gutter" style="margin-bottom:40px;">
         
-        <div class="col-xs-12 no-gutter">
-            <span><strong>@s.customer_name</strong></span><br />
-             @(s.address)<br />
-             @(s.city), @(s.state)<br />
-             @(s.phone)<br />
-             @(s.distance) @(s.distance == 1 ? "Mile" : "Miles")<br />
+            <div class="col-xs-12 no-gutter">
+                <span><strong style="text-transform:capitalize;">@(s.customer_name.ToLower())</strong></span><br />
+                <span style="text-transform:capitalize;">@(s.address.ToLower())</span><br />
+                <span style="text-transform:capitalize;">@(s.city.ToLower()), @(s.state)</span><br />
+                @(s.phone)<br />
+                @(s.distance) @(s.distance == 1 ? "Mile" : "Miles")<br />
            
            
            <div id="customerDir" style="margin-top:3px;">
@@ -40,16 +40,14 @@
             
              @if(!String.IsNullOrEmpty(s.website == null ? null : s.website.Trim())){
                  <a href ="@(s.website.Contains("http:") || s.website.Contains("https:") ? s.website : "http://" + s.website)" target="_blank">
-                <img src="~/Content/images/Where_To_Buy/icon_link.png" />
-                <span class="webText" style="display:inline-block; color:black; text-decoration:none;"><strong>WEBSITE</strong></span> 
-                   
-                     </a>
+                    <img src="~/Content/images/Where_To_Buy/icon_link.png" />
+                    <span class="webText" style="display:inline-block; color:black; text-decoration:none;"><strong>WEBSITE</strong></span> 
+                 </a>
              } 
 
-                </div>
-            </div>  
-   
-           </div> 
-    }
+            </div>
+       </div>  
+   </div> 
+            }
+   </div>
 </div>
-    </div>
