@@ -26,12 +26,11 @@
 
         });
 
-         $("#rangeFilter").click(function (e) {
-            
+        $("#rangeFilter").click(function (e) {
             clearMap();
-           
+            $('#pageLoad').show();
             $.get("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
-                
+                $('#pageLoad').hide();
                 $('#customerWrapper').hide().html(data.html).fadeIn(250);
                 
                 buildMap(data.GooglePoints);
@@ -46,6 +45,27 @@
             }
         }); // catches Enter press, clicks the filter button
 
+        $(".fancybox").click(function(){
+
+            $.fancybox([
+            {
+                href: '#emailBox',  
+                autoSize: true,
+                
+            }
+            ]);
+        });
+
+        $("#emailSend").click(function(e){
+            var email = $("input#email").val();
+            var zip = $("input#Zip").val();
+            var radius = $("#Radius option:selected").val();
+            alert(radius);
+            alert(zip);
+            alert(email);
+            $.post("/WhereToBuy/Email",  {email: email, zip: zip, radius: radius});
+        });
+   
         
     });
 
@@ -135,11 +155,11 @@
 
            
             
-            var content = '<strong style="text-transform:capitalize">' + element.customer_name.toLowerCase() + '</strong>' + '<br />'
-                + '<span style="text-transform:capitalize">' + element.address.toLowerCase() + '</span>' + ', '
-                + '<span style="text-transform:capitalize">' +  element.city.toLowerCase() + '</span>' + ', ' + element.state + ', ' + element.zip
-                + '<br />' + element.phone + '<br />'
-                + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles") + " Away" 
+            var content = '<strong style="text-transform:capitalize">' + element.customer_name.toLowerCase()
+                + '</strong>' + '<br />' + '<span style="text-transform:capitalize">' + element.address.toLowerCase()
+                + '</span>' + ', ' + '<span style="text-transform:capitalize">' + element.city.toLowerCase()
+                + '</span>' + ', ' + element.state + ', ' + element.zip + '<br />' + element.phone
+                + '<br />' + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles") + " Away" 
                 + '<br />' + '<a id="dir" target="_blank" href="changeString" style="text-decoration:none;">'
                 + "Get Directions" + '</a>'
 
@@ -222,7 +242,16 @@
         <div class="col-xs-12 no-gutter text-center" style="margin-bottom:30px;">
             <div style="font-size:14px; font-weight:bold;">SAVE YOUR LISTINGS</div><br />
                 <div class="col-xs-6 no-gutter text-right" style="padding-right:5px;">
-                    <button id="emailBtn" type="submit" class="btn btn-default wtbButton">EMAIL</button>
+                   <button id="emailBtn" type="submit" class="btn btn-default wtbButton fancybox">EMAIL</button>
+                    <!-- fancybox div --> 
+                        <div id="emailBox" style="display:none;">
+                            <span style="font-size:14px; margin-bottom:20px;">Please enter your Email Address.</span>
+                            <div class="form-inline" style="margin-top:20px;">
+                                <input id="email" type="email" class="form-control" placeholder="Email Address" />
+                                <button id="emailSend" type="submit" class="btn btn-default submitButton">Send</button>
+
+                            </div>
+                        </div>  
                 </div>
                 <div class="col-xs-6 no-gutter text-left" style="padding-left:5px;">
                     <button id="printBtn" type="submit" class="btn btn-default wtbButton">PRINT</button>
@@ -230,6 +259,8 @@
 
         </div>
     </div>
+
+
 
     
             
