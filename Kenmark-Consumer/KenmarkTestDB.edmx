@@ -235,7 +235,8 @@
       [import_customers].[Gets_Cases] AS [Gets_Cases], 
       [import_customers].[Online_Statements] AS [Online_Statements], 
       [import_customers].[Is_Retired] AS [Is_Retired], 
-      [import_customers].[qualify_bonus] AS [qualify_bonus]
+      [import_customers].[qualify_bonus] AS [qualify_bonus], 
+      [import_customers].[website] AS [website]
       FROM [dbo].[import_customers] AS [import_customers]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="import_frame_parts" EntityType="KenmarkTestDBModel.Store.import_frame_parts" store:Type="Tables" Schema="dbo" />
@@ -1200,6 +1201,7 @@
           <Property Name="Gets_Cases" Type="varchar" MaxLength="50" />
           <Property Name="Online_Statements" Type="bit" />
           <Property Name="Qualify_Bonus" Type="varchar" MaxLength="1" />
+          <Property Name="website" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="customersTest">
           <Key>
@@ -1576,6 +1578,7 @@
           <Property Name="Online_Statements" Type="bit" />
           <Property Name="Is_Retired" Type="bit" />
           <Property Name="qualify_bonus" Type="varchar" MaxLength="1" />
+          <Property Name="website" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="import_frame_parts">
           <Key>
@@ -3142,6 +3145,395 @@
           <Parameter Name="ZipCode" Type="char" Mode="In" />
           <Parameter Name="Radius" Type="int" Mode="In" />
         </Function>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.Collection' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Collection">
+        <Property Name="Collection_Sub" Type="varchar" MaxLength="5" />
+        <Property Name="Collection_Name" Type="varchar" MaxLength="50" />
+        <Property Name="Collection_Code" Type="varchar" MaxLength="50" />
+        <Property Name="Order" Type="varchar" MaxLength="3" />
+        <Property Name="Enabled" Type="bit" />
+        <Property Name="Collection_Type" Type="varchar" MaxLength="1" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.Email_Signup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Email_Signup">
+        <Property Name="Email" Type="varchar" MaxLength="100" />
+        <Property Name="FName" Type="varchar" MaxLength="50" />
+        <Property Name="LName" Type="varchar" MaxLength="50" />
+        <Property Name="Business" Type="varchar" MaxLength="100" />
+        <Property Name="Kenmark_Account" Type="varchar" MaxLength="15" />
+        <Property Name="Date_Added" Type="datetime" />
+        <Property Name="enabled" Type="bit" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.fcdFrameLensColor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="fcdFrameLensColor">
+        <Property Name="ID" Type="int" />
+        <Property Name="LensColorID" Type="int" />
+        <Property Name="FrameColorID" Type="int" />
+        <Property Name="LensColor" Type="varchar" MaxLength="50" />
+        <Property Name="ManufacturerColor" Type="varchar" MaxLength="60" />
+        <Property Name="ManufacturerLensColor" Type="varchar" MaxLength="60" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.fcdFrameSize' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="fcdFrameSize">
+        <Property Name="lSize_sk" Type="int" />
+        <Property Name="lFrame_sk" Type="int" />
+        <Property Name="sEye_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sA_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sB_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sC_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sED_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sDBL_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sTemple_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sTempleDesc_tx" Type="varchar" MaxLength="50" />
+        <Property Name="sCircumference_sz" Type="varchar" MaxLength="50" />
+        <Property Name="sBridge_sz" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.fix_null_upc' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="fix_null_upc">
+        <Property Name="K_UPC" Type="varchar" MaxLength="20" />
+        <Property Name="SKU" Type="varchar" MaxLength="20" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.fix_wrong_upc' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="fix_wrong_upc">
+        <Property Name="Frames_UPC" Type="varchar" MaxLength="20" />
+        <Property Name="Ken_UPC" Type="varchar" MaxLength="20" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.frame_categories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="frame_categories">
+        <Property Name="lFrame_sk" Type="int" />
+        <Property Name="Category" Type="varchar" MaxLength="30" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.frame_search_gender_info' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="frame_search_gender_info">
+        <Property Name="displayname" Type="varchar" MaxLength="25" />
+        <Property Name="searchcriteria" Type="varchar" MaxLength="25" />
+        <Property Name="sortorder" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.frame_search_materials_info' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="frame_search_materials_info">
+        <Property Name="displayname" Type="varchar" MaxLength="25" />
+        <Property Name="searchcriteria" Type="varchar" MaxLength="25" />
+        <Property Name="sortorder" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.frame_search_product_group' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="frame_search_product_group">
+        <Property Name="displayname" Type="varchar" MaxLength="25" />
+        <Property Name="searchcriteria" Type="varchar" MaxLength="25" />
+        <Property Name="sortorder" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.GeoCodeError' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="GeoCodeError">
+        <Property Name="error" Type="varchar" MaxLength="500" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_Collection' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_Collection">
+        <Property Name="Collection_Sub" Type="varchar" MaxLength="5" />
+        <Property Name="Collection_Name" Type="varchar" MaxLength="50" />
+        <Property Name="Collection_Code" Type="varchar" MaxLength="50" />
+        <Property Name="Order" Type="varchar" MaxLength="3" />
+        <Property Name="Enabled" Type="bit" />
+        <Property Name="Collection_Type" Type="varchar" MaxLength="2" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_Collection_POP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_Collection_POP">
+        <Property Name="coll_code" Type="varchar" MaxLength="50" />
+        <Property Name="enabled" Type="bit" />
+        <Property Name="Qty_Limit" Type="varchar" MaxLength="200" />
+        <Property Name="collection_frames_needed" Type="int" />
+        <Property Name="title" Type="varchar" MaxLength="200" />
+        <Property Name="image" Type="varchar" MaxLength="400" />
+        <Property Name="desc" Type="varchar" MaxLength="300" />
+        <Property Name="notes" Type="varchar" MaxLength="300" />
+        <Property Name="popid" Type="varchar" MaxLength="15" />
+        <Property Name="Qty_On_Hand" Type="varchar" MaxLength="50" />
+        <Property Name="Reorder_Message" Type="varchar" MaxLength="50" />
+        <Property Name="Package_Qty" Type="int" />
+        <Property Name="Show_Qty" Type="varchar" MaxLength="1" />
+        <Property Name="New_Accounts_Only" Type="varchar" MaxLength="1" />
+        <Property Name="international_price" Type="varchar" MaxLength="8" />
+        <Property Name="frame_used" Type="varchar" MaxLength="50" />
+        <Property Name="Show_International" Type="varchar" MaxLength="1" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_Collection_POP_admin' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_Collection_POP_admin">
+        <Property Name="coll_code" Type="varchar" MaxLength="50" />
+        <Property Name="enabled" Type="bit" />
+        <Property Name="Qty_Limit" Type="varchar" MaxLength="200" />
+        <Property Name="collection_frames_needed" Type="int" />
+        <Property Name="title" Type="varchar" MaxLength="300" />
+        <Property Name="image" Type="varchar" MaxLength="500" />
+        <Property Name="desc" Type="varchar" MaxLength="300" />
+        <Property Name="notes" Type="varchar" MaxLength="500" />
+        <Property Name="popid" Type="varchar" MaxLength="200" />
+        <Property Name="Qty_On_Hand" Type="varchar" MaxLength="50" />
+        <Property Name="Reorder_Message" Type="varchar" MaxLength="50" />
+        <Property Name="Package_Qty" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_Customer_Price' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_Customer_Price">
+        <Property Name="Account_No" Type="varchar" MaxLength="10" />
+        <Property Name="style_code" Type="varchar" MaxLength="50" />
+        <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_customer_purchased' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_customer_purchased">
+        <Property Name="account_num" Type="varchar" MaxLength="10" />
+        <Property Name="sku" Type="varchar" MaxLength="50" />
+        <Property Name="style" Type="varchar" MaxLength="50" />
+        <Property Name="units_purchased" Type="varchar" MaxLength="50" />
+        <Property Name="last_purchased" Type="varchar" MaxLength="50" />
+        <Property Name="price" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_inventory_info' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_inventory_info">
+        <Property Name="sku" Type="varchar" MaxLength="10" />
+        <Property Name="style" Type="varchar" MaxLength="100" />
+        <Property Name="Eye" Type="int" />
+        <Property Name="A" Type="decimal" Precision="5" Scale="1" />
+        <Property Name="B" Type="decimal" Precision="5" Scale="1" />
+        <Property Name="ED" Type="nchar" MaxLength="10" />
+        <Property Name="DBL" Type="nchar" MaxLength="10" />
+        <Property Name="Temples" Type="nchar" MaxLength="10" />
+        <Property Name="Circ" Type="nchar" MaxLength="10" />
+        <Property Name="Color" Type="varchar" MaxLength="50" />
+        <Property Name="Like_Color" Type="varchar" MaxLength="50" />
+        <Property Name="Gender" Type="varchar" MaxLength="20" />
+        <Property Name="Material" Type="varchar" MaxLength="25" />
+        <Property Name="Shape" Type="varchar" MaxLength="30" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_order_status' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_order_status">
+        <Property Name="order_number" Type="varchar" MaxLength="6" />
+        <Property Name="order_date" Type="smalldatetime" />
+        <Property Name="invoice_number" Type="varchar" MaxLength="6" />
+        <Property Name="invoice_date" Type="smalldatetime" />
+        <Property Name="customer_po" Type="varchar" MaxLength="15" />
+        <Property Name="web_order_number" Type="varchar" MaxLength="10" />
+        <Property Name="item_number" Type="varchar" MaxLength="15" />
+        <Property Name="item_description" Type="varchar" MaxLength="25" />
+        <Property Name="unit_price" Type="smallmoney" />
+        <Property Name="ordered_qty" Type="float" />
+        <Property Name="shipped_qty" Type="float" />
+        <Property Name="special_pricing_flag" Type="char" MaxLength="1" />
+        <Property Name="shipped_date" Type="smalldatetime" />
+        <Property Name="ship_via" Type="varchar" MaxLength="30" />
+        <Property Name="kenmark_id" Type="varchar" MaxLength="6" />
+        <Property Name="ship_to_name" Type="varchar" MaxLength="25" />
+        <Property Name="ship_to_address_1" Type="varchar" MaxLength="25" />
+        <Property Name="ship_to_address_2" Type="varchar" MaxLength="25" />
+        <Property Name="ship_to_address_3" Type="varchar" MaxLength="30" />
+        <Property Name="tracking_number" Type="varchar" MaxLength="50" />
+        <Property Name="list_price" Type="smallmoney" />
+        <Property Name="ship_via_main" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_payment_options' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_payment_options">
+        <Property Name="Kenmark_ID" Type="varchar" MaxLength="8" />
+        <Property Name="Type" Type="varchar" MaxLength="2" />
+        <Property Name="FirstLast4" Type="varchar" MaxLength="10" />
+        <Property Name="Name" Type="varchar" MaxLength="25" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_stmt_details' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_stmt_details">
+        <Property Name="invoice_number" Type="char" MaxLength="6" />
+        <Property Name="invoice_line_number" Type="int" />
+        <Property Name="customer_po" Type="varchar" MaxLength="20" />
+        <Property Name="invoice_date" Type="datetime" />
+        <Property Name="total_invoice" Type="money" />
+        <Property Name="tax" Type="smallmoney" />
+        <Property Name="freight" Type="smallmoney" />
+        <Property Name="kenmark_id" Type="varchar" MaxLength="6" />
+        <Property Name="terms" Type="varchar" MaxLength="15" />
+        <Property Name="ship_via" Type="varchar" MaxLength="30" />
+        <Property Name="shipped_qty" Type="int" />
+        <Property Name="backordered_qty" Type="int" />
+        <Property Name="price" Type="smallmoney" />
+        <Property Name="item_number" Type="varchar" MaxLength="15" />
+        <Property Name="description" Type="varchar" MaxLength="50" />
+        <Property Name="special_pricing_flag" Type="char" MaxLength="1" />
+        <Property Name="shipto_name" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address1" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address2" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address3" Type="varchar" MaxLength="30" />
+        <Property Name="document_number" Type="varchar" MaxLength="6" />
+        <Property Name="list_price" Type="smallmoney" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_stmt_details90' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_stmt_details90">
+        <Property Name="invoice_number" Type="char" MaxLength="6" />
+        <Property Name="invoice_line_number" Type="int" />
+        <Property Name="customer_po" Type="varchar" MaxLength="20" />
+        <Property Name="invoice_date" Type="datetime" />
+        <Property Name="total_invoice" Type="money" />
+        <Property Name="tax" Type="smallmoney" />
+        <Property Name="freight" Type="smallmoney" />
+        <Property Name="kenmark_id" Type="varchar" MaxLength="6" />
+        <Property Name="terms" Type="varchar" MaxLength="15" />
+        <Property Name="ship_via" Type="varchar" MaxLength="30" />
+        <Property Name="shipped_qty" Type="int" />
+        <Property Name="backordered_qty" Type="int" />
+        <Property Name="price" Type="smallmoney" />
+        <Property Name="item_number" Type="varchar" MaxLength="15" />
+        <Property Name="description" Type="varchar" MaxLength="50" />
+        <Property Name="special_pricing_flag" Type="char" MaxLength="1" />
+        <Property Name="shipto_name" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address1" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address2" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address3" Type="varchar" MaxLength="30" />
+        <Property Name="document_number" Type="varchar" MaxLength="6" />
+        <Property Name="list_price" Type="smallmoney" />
+        <Property Name="sold_to" Type="varchar" MaxLength="6" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.import_store_locations' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="import_store_locations">
+        <Property Name="collection" Type="char" MaxLength="3" />
+        <Property Name="sort_order" Type="int" />
+        <Property Name="store_name" Type="varchar" MaxLength="29" />
+        <Property Name="add_1" Type="varchar" MaxLength="25" />
+        <Property Name="add_2" Type="nvarchar" MaxLength="25" />
+        <Property Name="city" Type="nvarchar" MaxLength="50" />
+        <Property Name="state" Type="nvarchar" MaxLength="2" />
+        <Property Name="zip" Type="nvarchar" MaxLength="10" />
+        <Property Name="phone" Type="varchar" MaxLength="12" />
+        <Property Name="website" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.Login_PopUp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Login_PopUp">
+        <Property Name="SecurityID" Type="int" />
+        <Property Name="Enable" Type="int" />
+        <Property Name="Pop_Up_ID" Type="varchar" MaxLength="10" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.Prospect_ManualAssign' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Prospect_ManualAssign">
+        <Property Name="business_ID" Type="varchar" MaxLength="25" />
+        <Property Name="territory" Type="varchar" MaxLength="5" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.stmt_details' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="stmt_details">
+        <Property Name="invoice_number" Type="char" MaxLength="6" />
+        <Property Name="invoice_line_number" Type="int" />
+        <Property Name="customer_po" Type="varchar" MaxLength="15" />
+        <Property Name="invoice_date" Type="datetime" />
+        <Property Name="total_invoice" Type="money" />
+        <Property Name="tax" Type="smallmoney" />
+        <Property Name="freight" Type="smallmoney" />
+        <Property Name="kenmark_id" Type="varchar" MaxLength="6" />
+        <Property Name="terms" Type="varchar" MaxLength="15" />
+        <Property Name="ship_via" Type="varchar" MaxLength="30" />
+        <Property Name="shipped_qty" Type="int" />
+        <Property Name="backordered_qty" Type="int" />
+        <Property Name="price" Type="smallmoney" />
+        <Property Name="list_price" Type="smallmoney" />
+        <Property Name="item_number" Type="varchar" MaxLength="15" />
+        <Property Name="description" Type="varchar" MaxLength="25" />
+        <Property Name="special_pricing_flag" Type="char" MaxLength="10" />
+        <Property Name="shipto_name" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address1" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address2" Type="varchar" MaxLength="25" />
+        <Property Name="shipto_address3" Type="varchar" MaxLength="30" />
+        <Property Name="document_number" Type="varchar" MaxLength="6" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.stmts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="stmts">
+        <Property Name="kenmark_id" Type="varchar" MaxLength="6" />
+        <Property Name="invoice_number" Type="char" MaxLength="8" />
+        <Property Name="invoice_date" Type="datetime" />
+        <Property Name="invoice_due_date" Type="datetime" />
+        <Property Name="original_invoice_amt" Type="money" />
+        <Property Name="current_invoice_amt" Type="money" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.store_locations' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="store_locations">
+        <Property Name="collection" Type="char" MaxLength="3" />
+        <Property Name="sort_order" Type="int" />
+        <Property Name="store_name" Type="varchar" MaxLength="29" />
+        <Property Name="add_1" Type="varchar" MaxLength="25" />
+        <Property Name="add_2" Type="nvarchar" MaxLength="25" />
+        <Property Name="city" Type="nvarchar" MaxLength="50" />
+        <Property Name="state" Type="nvarchar" MaxLength="2" />
+        <Property Name="zip" Type="nvarchar" MaxLength="10" />
+        <Property Name="phone" Type="varchar" MaxLength="12" />
+        <Property Name="website" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.TextAlert_Messages' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="TextAlert_Messages">
+        <Property Name="Security_id" Type="varchar" MaxLength="10" />
+        <Property Name="Message" Type="varchar(max)" />
+        <Property Name="Time" Type="datetime" />
+        <Property Name="Computer_Name" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'KenmarkWeb_Live.dbo.us_zipcodes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="us_zipcodes">
+        <Property Name="state" Type="char" MaxLength="2" />
+        <Property Name="zip" Type="char" MaxLength="5" />
+        <Property Name="name" Type="char" MaxLength="59" />
+        <Property Name="total_pop" Type="char" MaxLength="9" />
+        <Property Name="total_houses" Type="char" MaxLength="9" />
+        <Property Name="land_area_me" Type="char" MaxLength="14" />
+        <Property Name="water_area_me" Type="char" MaxLength="14" />
+        <Property Name="land_area_mi" Type="char" MaxLength="12" />
+        <Property Name="water_area_mi" Type="char" MaxLength="12" />
+        <Property Name="latitude" Type="float" />
+        <Property Name="longitude" Type="float" />
+      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -3562,6 +3954,7 @@
           <Property Type="String" Name="Gets_Cases" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Online_Statements" />
           <Property Type="String" Name="Qualify_Bonus" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="website" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="customersTest">
           <Key>
@@ -3917,6 +4310,7 @@
           <Property Type="Boolean" Name="Online_Statements" />
           <Property Type="Boolean" Name="Is_Retired" />
           <Property Type="String" Name="qualify_bonus" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="website" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="import_frame_parts">
           <Key>
@@ -5620,6 +6014,7 @@
           <EntitySetMapping Name="customers">
             <EntityTypeMapping TypeName="KenmarkTestDBModel.customer">
               <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="website" ColumnName="website" />
                 <ScalarProperty Name="Qualify_Bonus" ColumnName="Qualify_Bonus" />
                 <ScalarProperty Name="Online_Statements" ColumnName="Online_Statements" />
                 <ScalarProperty Name="Gets_Cases" ColumnName="Gets_Cases" />
@@ -5982,6 +6377,7 @@
           <EntitySetMapping Name="import_customers">
             <EntityTypeMapping TypeName="KenmarkTestDBModel.import_customers">
               <MappingFragment StoreEntitySet="import_customers">
+                <ScalarProperty Name="website" ColumnName="website" />
                 <ScalarProperty Name="qualify_bonus" ColumnName="qualify_bonus" />
                 <ScalarProperty Name="Is_Retired" ColumnName="Is_Retired" />
                 <ScalarProperty Name="Online_Statements" ColumnName="Online_Statements" />
@@ -7454,7 +7850,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

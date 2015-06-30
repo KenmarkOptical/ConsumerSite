@@ -57,5 +57,6 @@ namespace Kenmark_Consumer
         public string Gets_Cases { get; set; }
         public Nullable<bool> Online_Statements { get; set; }
         public string Qualify_Bonus { get; set; }
+        public string website { get; set; }
     }
 }

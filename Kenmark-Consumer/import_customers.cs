@@ -58,5 +58,6 @@ namespace Kenmark_Consumer
         public Nullable<bool> Online_Statements { get; set; }
         public Nullable<bool> Is_Retired { get; set; }
         public string qualify_bonus { get; set; }
+        public string website { get; set; }
     }
 }
