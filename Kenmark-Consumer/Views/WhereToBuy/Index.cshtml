@@ -65,6 +65,10 @@
             alert(email);
             $.post("/WhereToBuy/Email",  {email: email, zip: zip, radius: radius});
         });
+
+        $("#printBtn").click(function () {
+            window.print();
+        });
    
         
     });
@@ -190,7 +194,7 @@
 
 
 
-<div class="row" style="margin-top: 50px;">
+<div class="row topRow" style="margin-top: 50px;">
     <div class="col-xs-12 col-sm-3" style="padding-left:50px;">
         <span class="center-block" style="font-size:20px;font-weight:bold;">WHERE TO BUY</span><br />
         <span style="font-size:14px;">Find retail locations where Kenmark Brands are sold.</span>
@@ -245,11 +249,19 @@
                    <button id="emailBtn" type="submit" class="btn btn-default wtbButton fancybox">EMAIL</button>
                     <!-- fancybox div --> 
                         <div id="emailBox" style="display:none;">
-                            <span style="font-size:14px; margin-bottom:20px;">Please enter your Email Address.</span>
-                            <div class="form-inline" style="margin-top:20px;">
-                                <input id="email" type="email" class="form-control" placeholder="Email Address" />
-                                <button id="emailSend" type="submit" class="btn btn-default submitButton">Send</button>
+                            <div class="col-xs-12 text-center" style="margin-bottom:20px;">
+                                <span style="font-size:18px;">Please enter your Email Address.</span>
+                            </div>
 
+                            <div class="form-horizontal" style="margin-top:20px;">
+                                
+                                <div class="col-xs-12">
+                                    <input id="email" type="email" class="form-control" placeholder="Email Address" /><br />
+                                </div>
+                                
+                                <div class="col-xs-12 text-center">
+                                    <button id="emailSend" type="submit" class="btn btn-default submitButton" style="margin-top:10px;">Send</button>
+                                </div>
                             </div>
                         </div>  
                 </div>
