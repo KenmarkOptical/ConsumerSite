@@ -657,3 +657,8 @@ img.saturate-2:hover{
     color:#64635e;
 }
 
+@media print {
+    .topRow {display: none;}
+    #customerDir {display: none;}
+}
+

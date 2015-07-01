@@ -8,8 +8,6 @@
    
     $(function () {
         
-        
-
         $(".fancybox").fancybox({
 
             autoSize: false,
@@ -18,7 +16,6 @@
 
         });
 
-        
         $("#filterButton").click(function () {
                
             UpdateData(true);
@@ -31,7 +28,6 @@
             }
         }); // catches Enter press, clicks the filter button
        
-
     });
   
 
@@ -82,30 +78,24 @@
 @using (Html.BeginForm("Index", "PressClipping", FormMethod.Post, new { @id = "filterForm"}))
 {
 
-    
-        <div class="col-xs-12 no-gutter" style="font-size:16px;">PRESS CLIPPINGS</div>
-            <div class="col-xs-12 col-sm-12 no-gutter">
-                <div class="col-xs-11 col-sm-12 no-gutter">
-                    <div class="col-xs-6 col-sm-12" style="margin-bottom:10px;padding-left:0px;">
+    <div class="col-xs-12 no-gutter" style="font-size:16px;">PRESS CLIPPINGS</div>
+        <div class="col-xs-12 col-sm-12 no-gutter">
+            <div class="col-xs-11 col-sm-12 no-gutter">
+                <div class="col-xs-6 col-sm-12" style="margin-bottom:10px;padding-left:0px;">
                     @Html.DropDownListFor(m => m.Filter_Like_Collection, Kenmark_Consumer.Models.Common.Collections, "All Brands", new { @class = "form-control" })
-                    </div>
-                    <div class="col-xs-6 col-sm-12" style="padding-left:0px;">
+                </div>
+                <div class="col-xs-6 col-sm-12" style="padding-left:0px;">
                     @Html.DropDownListFor(m => m.Filter_DateRange, Kenmark_Consumer.Models.PressClipping.Date_List, new { @class = "form-control" })
-                    </div>
                 </div>
             </div>
-            @Html.HiddenFor(m => m.Page)
-         
-    
-        
+        </div>
+       @Html.HiddenFor(m => m.Page)
 }
     
      <button id="filterButton" type="submit" class="btn btn-default submitButton"style="margin-top:10px; margin-bottom:10px;">Filter</button>        
 </div>
 
 
-
-        
 <div class="col-xs-12 col-sm-9">
     <div id ="GridWrapper" class="row">
         @{Html.RenderPartial("_Grid", Model);}                 
@@ -114,26 +104,26 @@
               
 <!-- START OF FANCYBOX DIV -->
 
-     <div id="insideImage" style="display:none">
-        <img id="magPic" class="img-responsive center-block" style="max-width:295px;" src="#"/>
+<div id="insideImage" style="display:none">
+    <img id="magPic" class="img-responsive center-block" style="max-width:295px;" src="#"/>
                
-       <div class="col-xs-12 no-gutter"  style="margin-top:20px;">
-           <div class="col-xs-12 col-sm-6 no-gutter">
-                <span class="lightboxText" id="magRelease"></span><br />
-                <span class="lightboxTextSmall" id="magBrand"></span>
-           </div>
+    <div class="col-xs-12 no-gutter"  style="margin-top:20px;">
+        <div class="col-xs-12 col-sm-6 no-gutter">
+            <span class="lightboxText" id="magRelease"></span><br />
+            <span class="lightboxTextSmall" id="magBrand"></span>
+        </div>
          
 
-          <div class="hidden-xs col-sm-6 text-right no-gutter">
-             <a id="magPdf" target="_blank" href="#">
-             <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press" ></span>VIEW LARGER (PDF)</span></a>
-          </div>
+        <div class="hidden-xs col-sm-6 text-right no-gutter">
+            <a id="magPdf" target="_blank" href="#">
+            <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press" ></span>VIEW LARGER (PDF)</span></a>
+        </div>
 
-          <div class="col-xs-12 visible-xs no-gutter">
+        <div class="col-xs-12 visible-xs no-gutter">
             <a id="magPdfSmall" target="_black" href="#">
             <span class="lightboxTextSmall" style="color:#767676; font-weight:bold;" ><span id="icon-sprite-press-sm" ></span>VIEW LARGER (PDF)</span></a>
-         </div>
+        </div>
                    
-       </div>
     </div>
+</div>
     
