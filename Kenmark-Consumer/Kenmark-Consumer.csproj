@@ -46,7 +46,16 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\..\..\..\..\KenmarkConsumer2\Kenmark-Consumer\bin\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MaxMind.Db">
+      <HintPath>..\packages\MaxMind.Db.1.0.1.0\lib\net40\MaxMind.Db.dll</HintPath>
+    </Reference>
+    <Reference Include="MaxMind.GeoIP2">
+      <HintPath>..\packages\MaxMind.GeoIP2.2.3.0.0\lib\net40\MaxMind.GeoIP2.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -207,11 +216,20 @@
     <Compile Include="companyProfile.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="contact_us.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="content.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CollectionController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PressClippingController.cs" />
+    <Compile Include="Controllers\PressReleaseController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ShowScheduleController.cs" />
+    <Compile Include="Controllers\WhereToBuyController.cs" />
     <Compile Include="country.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
@@ -493,9 +511,15 @@
     </Compile>
     <Compile Include="Models\Collections.cs" />
     <Compile Include="Models\Common.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Filters.cs" />
+    <Compile Include="Models\MaxMindGeo.cs" />
     <Compile Include="Models\MyBaseController.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PressClipping.cs" />
+    <Compile Include="Models\ShowSchedule.cs" />
+    <Compile Include="Models\WhereToBuy.cs" />
     <Compile Include="MyDateTable.cs">
       <DependentUpon>Inquiry.tt</DependentUpon>
     </Compile>
@@ -593,6 +617,9 @@
       <DependentUpon>Inquiry.tt</DependentUpon>
     </Compile>
     <Compile Include="PressReleasePreview.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Press_Clippings.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
     <Compile Include="press_releases.cs">
@@ -860,6 +887,9 @@
     <Compile Include="User_Tracking.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_where_to_buy_Result.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="USRegion.cs">
       <DependentUpon>Inquiry.tt</DependentUpon>
     </Compile>
@@ -902,6 +932,10 @@
     <Content Include="bin\EntityFramework.xml" />
     <Content Include="bin\Kenmark-Consumer.dll" />
     <Content Include="bin\Kenmark-Consumer.pdb" />
+    <Content Include="bin\MaxMind.Db.dll" />
+    <Content Include="bin\MaxMind.Db.xml" />
+    <Content Include="bin\MaxMind.GeoIP2.dll" />
+    <Content Include="bin\MaxMind.GeoIP2.xml" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="bin\Microsoft.Web.Mvc.FixedDisplayModes.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
@@ -999,8 +1033,25 @@
     <Content Include="Content\images\home\jason.jpg" />
     <Content Include="Content\images\home\viewall.jpg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\Press_Clippings\Vogue-Paris-Inside.jpg" />
+    <Content Include="Content\images\Press_Clippings\Vogue-Paris.jpg" />
+    <Content Include="Content\images\Press_Clippings\VW-Elle-Inside.jpg" />
+    <Content Include="Content\images\Press_Clippings\VW-Elle.jpg" />
+    <Content Include="Content\images\Profile\profile_feature.jpg" />
+    <Content Include="Content\images\Profile\profile_horizontal.jpg" />
+    <Content Include="Content\images\Profile\profile_sidebar_fpo_1.jpg" />
+    <Content Include="Content\images\Profile\profile_sidebar_fpo_2.jpg" />
+    <Content Include="Content\images\Profile\profile_sidebar_fpo_3.jpg" />
     <Content Include="Content\images\search.png" />
+    <Content Include="Content\images\ShowSchedule\banner_1.jpg" />
+    <Content Include="Content\images\ShowSchedule\banner_2.jpg" />
+    <Content Include="Content\images\ShowSchedule\header.jpg" />
     <Content Include="Content\images\ViewCollection\peo.jpg" />
+    <Content Include="Content\images\Where_To_Buy\icon_link.png" />
+    <Content Include="Content\images\Where_To_Buy\icon_map.png" />
+    <Content Include="Content\themes\base\fancybox_overlay.png" />
+    <Content Include="Content\themes\base\fancybox_sprite%402x.png" />
+    <Content Include="Content\themes\base\fancybox_sprite.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -1015,6 +1066,8 @@
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.fancybox-buttons.css" />
+    <Content Include="Content\themes\base\jquery.fancybox.css" />
     <Content Include="Content\themes\base\jquery.ui.accordion.css" />
     <Content Include="Content\themes\base\jquery.ui.all.css" />
     <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
@@ -1091,6 +1144,8 @@
       <DependentUpon>Inquiry.edmx</DependentUpon>
       <LastGenOutput>Inquiry.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\images\Press_Clippings\Vogue-Paris-PDF.pdf" />
+    <Content Include="Content\images\Press_Clippings\VW-Elle-PDF.pdf" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -1127,6 +1182,14 @@
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Shared\_Filter.cshtml" />
     <Content Include="Views\Home\Person.cshtml" />
+    <Content Include="Views\PressClipping\Index.cshtml" />
+    <Content Include="Views\PressClipping\_Grid.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\PressRelease\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\ShowSchedule\Index.cshtml" />
+    <Content Include="Views\WhereToBuy\Index.cshtml" />
+    <Content Include="Views\WhereToBuy\_Grid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
