@@ -5,6 +5,12 @@
     background-color: #eeebdf;
 }
 
+@media (max-width:768px) {
+        .navbar-fixed-top {
+            margin-bottom: 0px;
+        }
+    }
+
 header, footer, nav, section {
     display: block;
 }

@@ -1049,6 +1049,8 @@
     <Content Include="Content\images\ViewCollection\peo.jpg" />
     <Content Include="Content\images\Where_To_Buy\icon_link.png" />
     <Content Include="Content\images\Where_To_Buy\icon_map.png" />
+    <Content Include="Content\normalize.css" />
+    <Content Include="Content\pushy.css" />
     <Content Include="Content\themes\base\fancybox_overlay.png" />
     <Content Include="Content\themes\base\fancybox_sprite%402x.png" />
     <Content Include="Content\themes\base\fancybox_sprite.png" />
@@ -1152,6 +1154,10 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -1161,6 +1167,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\pushy.js" />
     <Content Include="Scripts\Slide.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

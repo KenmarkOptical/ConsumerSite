@@ -9,30 +9,46 @@
     position: fixed;
     width: 200px;
     height: 100%;
-    top: 0;
-    z-index: 9999;
-    background: #333332;
-    font-size: 0.9em;
+    top: 59px;
+    z-index: 5000;
+    background: #646464;
+    font-size: 2vmin;
     font-weight: bold;
-    -webkit-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
-    -moz-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
-    box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+    right: 0;
+    
+    
+    /*-webkit-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);*/
+    /*-moz-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+    box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);*/
     overflow: auto;
     -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
 }
 
+.pushy-shop {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    top: 59px;
+    z-index: 9999;
+    background: #646464;
+    font-size: 2vmin;
+    font-weight: bold;
+    right: 0;
+
+}
+
 .pushy a{
     display: block;
-    color: #b3b3b1;
-    padding: 15px 30px;
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
-    border-top: 1px solid rgba(255, 255, 255, .1);
+    color: #FFF;
+    padding: 15px 0px;
+    /*border-bottom: 1px solid rgba(0, 0, 0, .1);*/
+    /*border-top: 1px solid rgba(255, 255, 255, .1);*/
     text-decoration: none;
 }
 
 .pushy a:hover{
-    background: #00b4ff;
-    color: #FFF;
+   
+    color: #d28b19;
 }
 
 /* Menu Movement */
@@ -45,20 +61,24 @@
     transform: translate3d(-200px,0,0);
 }
 
+.pushy-right {
+    transform: translate3d(320px, 0, 0);
+}
+
 .pushy-open{
-    -webkit-transform: translate3d(0,0,0);
+    /*-webkit-transform: translate3d(0,0,0);
     -moz-transform: translate3d(0,0,0);
     -ms-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);*/
+    transform: translate3d(0px,0,0);
 }
 
 .container-push, .push-push{
-    -webkit-transform: translate3d(200px,0,0);
+    /*-webkit-transform: translate3d(200px,0,0);
     -moz-transform: translate3d(200px,0,0);
     -ms-transform: translate3d(200px,0,0);
-    -o-transform: translate3d(200px,0,0);
-    transform: translate3d(200px,0,0);
+    -o-transform: translate3d(200px,0,0);*/
+    transform: translate3d(-200px,0,0);
 }
 
 /* Menu Transitions */
@@ -115,6 +135,13 @@
 
 @media screen and (max-width: 768px){
     .pushy{
-        font-size: 1.0em;
+        font-size: 1.25em;
     }
+}
+
+#pushyBtn {
+    background-color:#d28b19;
+    border-width:0px;
+    border-radius:0;
+    color:white;
 }

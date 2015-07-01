@@ -47,6 +47,7 @@
                 $('#logo-sprite').css('margin-right', 0);
             }
 
+            
             var h = $('.navbar').height() - 5;
             $('#main-body').css('margin-top', (h));
             
@@ -64,6 +65,8 @@
                 }
                
             });
+
+           
 
             $('#Profile-Link').click(function () {
                 
@@ -98,9 +101,8 @@
                 $(this).css("color", "#64635e");
             });
 
-          
-          
-           
+
+            
         });
         
        
@@ -108,7 +110,7 @@
     </script>
 </head>
 <body>
-
+  
     
      @*<div class="navbar navbar-fixed-top" role='navigation' style="margin-bottom:0px;">
         <div class="navbar-inner">
@@ -302,66 +304,109 @@
       </div>           
      </div>*@
 
-    
-    <nav class="navbar navbar-default navbar-fixed-top"> 
         
-        <div class="container-fluid shadow" style="background-color:white;padding-left:35px;padding-right:35px;">
-        <div class="container no-gutter" style="padding-left:35px;padding-right:35px;">
+   
+
+    <nav class="pushy-shop pushy-right visible-xs" id="pushy-shop" style="display:none;">
+        <ul>
+            <li><a href="#" id="shop">Shop <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:90px;" aria-hidden="true"></span></a></li>
+            <li><a href="#">Profile <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:81px;" aria-hidden="true"></span></a></li>
+            <li><a href="#">The Mirror <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:54px;" aria-hidden="true"></span></a></li>
+            <li><a href="#">Where To Buy <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:28px;" aria-hidden="true"></span></a></li>
+        </ul>
+
+    </nav>
+
+     <nav class="pushy pushy-right visible-xs" id="main-pushy">
+        <ul>
+            <li><a href="#">Shop <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:90px;" aria-hidden="true"></span></a></li>
+            <li><a href="#">Profile <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:81px;" aria-hidden="true"></span></a></li>
+            <li><a href="#">The Mirror <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:54px;" aria-hidden="true"></span></a></li>
+            <li><a href="#">Where To Buy <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:28px;" aria-hidden="true"></span></a></li>
+        </ul>
+
+        <div class="col-xs-12 text-center">
+            <button type="button" id="pushyBtn" class="btn btn-default">LOGIN</button>
+        </div>
+        <div class="col-xs-12 text-center"style="margin-top:10px;">
+            <span style="font-weight:normal;color:white;">or </span>
+            <span style="font-weight:normal; color:#d28b19">Create Account</span>
+        </div>
+    </nav>
+  
+   
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#eeebdf;"> 
+         
+         <div class="container shadow" style="padding-left:0px;padding-right:0px;">
+        @*<div class="shadow" style="background-color:white;padding-left:35px;padding-right:35px;">*@
+        @*<div class="container no-gutter" style="padding-left:35px;padding-right:35px;">*@
             <div class="row">
                 <div class="nav navbar-right hidden-xs">
                     <a href="#" class="nav-link">Create Account</a>
                     <a href="#" class="nav-link" style="margin-left:30px;margin-right:20px;">Log in</a>
+                </div><br />
+                <div class="nav navbar-right visible-sm" style="margin-right:20px;">
+                    <a class="facebook-sprite" href="https://www.facebook.com/kenmarkeyewear" style="margin-right:5px;"></a>
+                    <a class="twitter-sprite" href="https://twitter.com/kenmarkeyewear" style="margin-right:5px;"></a>
+                    <a class="instagram-sprite" href="https://www.pinterest.com/kenmarkeyewear/" style="margin-right:5px;"></a>
+                    <a class="pinterest-sprite" href="https://instagram.com/kenmarkeyewear"></a>
                 </div>
             </div>
-            <div class="container-fuid" style="background-color:white">
-            <div class="row"><!-- KENMARK ROW -->
-                <a class="navbar-brand" id="logo-sprite"></a>
-                <div class="navbar-header"> <!-- XS SCREEN BUTTON -->
+            <div class="container" style="background-color:white">
+            <div class="row no-gutter"><!-- KENMARK ROW -->
+                
+                <div class="col-xs-4 col-sm-4 col-md-3 text-center">
+                    <a id="logo-sprite"></a>
+                </div>
+                @*<div class="navbar-header"> <!-- XS SCREEN BUTTON -->*@
+                
                       <button type="button" class="navbar-toggle menu-btn" data-toggle="collapse" 
                          data-target="#" style="margin-top:0px;">
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
                       </button>
-                </div>
-                
+              @*  </div>*@
+                <div class="col-sm-8 col-md-7">
                 <div class="collapse navbar-collapse"> 
                     <ul class="nav navbar-nav" style="margin-left:0;margin-right:0px;">                              
-                        <li><a class="navBtn" id="Brands-Link" href="#">SHOP</a></li>   
+                        <li><a class="navBtn" id="Brands-Link" href="#"><span>SHOP</span></a></li>   
                         <li><a class="navBtn" id="Profile-Link" href="#">PROFILE</a></li>   
                         <li><a href="#">THE MIRROR</a></li>
                         <li><a href="/WhereToBuy">WHERE TO BUY</a></li>
-                        <li><a id="icon-sprite" href="#"><span></span></a></li>
+                        <li><span><a id="icon-sprite" href="#"></a></span></li>
                     </ul>
-                
-                    <div class="navbar-right" style="margin-right:20px;">
+                </div>
+                     </div>
+                <div class="col-md-2  hidden-sm">
+                    <div class="collapse navbar-collapse">
+                    <div class="navbar-right">
                         <a class="facebook-sprite" href="https://www.facebook.com/kenmarkeyewear" style="margin-right:5px;"></a>
                         <a class="twitter-sprite" href="https://twitter.com/kenmarkeyewear" style="margin-right:5px;"></a>
                         <a class="instagram-sprite" href="https://www.pinterest.com/kenmarkeyewear/" style="margin-right:5px;"></a>
                         <a class="pinterest-sprite" href="https://instagram.com/kenmarkeyewear"></a>
                     </div>
-                </div>
+                        </div>
+               </div>
            </div>
            </div>
-        </div> 
-        </div>
+     @*   </div> *@
+        @*</div>*@
+             </div> 
     </nav>
+          
 
-    <nav class="pushy pushy-left">
-        <ul>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">The Mirror</a></li>
-            <li><a href="#">Where To Buy</a></li>
-        </ul>
-    </nav>
-      
-            
-                          
-    <div id="main-body" class="container" style="background-color:white;padding-top:0px; padding-bottom:15px;">     
-        @RenderBody()
-    </div>
    
+            
+ <div id="container"> <!-- container to push page -->                 
+    <div id="main-body" class="container" style="padding-top:0px; padding-bottom:15px;">  
+         
+        @RenderBody()
+            
+    </div>
+ </div> <!-- container to push page -->
+
+
     <div class="container" style="background-color:#eeebdf;margin-top:30px; margin-bottom:10px;">
         <div class="row" style="padding-left:35px; padding-right:35px;">
             <div class="col-xs-6">
