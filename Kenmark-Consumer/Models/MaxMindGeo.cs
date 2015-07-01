@@ -33,7 +33,7 @@ namespace Kenmark_Consumer.Models
             }
 
             string ip = context.Request.ServerVariables["REMOTE_ADDR"];
-            if (ip == "::1")
+            if (ip == "::1" ||ip.Contains("10.100"))
             {
                 ip = "66.147.2.61";
             }
