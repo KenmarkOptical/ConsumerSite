@@ -967,6 +967,7 @@
     <Content Include="Content\images\all_pages\icons\icon_pinterest.png" />
     <Content Include="Content\images\all_pages\icons\icon_search.png" />
     <Content Include="Content\images\all_pages\icons\icon_twitter.png" />
+    <Content Include="Content\images\all_pages\logo\logo-nav.png" />
     <Content Include="Content\images\all_pages\logo\logo.png" />
     <Content Include="Content\images\all_pages\logo\logo_retina.png" />
     <Content Include="Content\images\all_pages\nav\logo_danabuchman.jpg" />

@@ -16,7 +16,8 @@ $(function() {
 		containerClass = "container-push", //container open class
 		pushClass = "push-push", //css class to add pushy capability
 		menuBtn = $('.menu-btn'), //css classes to toggle the menu
-
+        
+        state = true; //keep track of menu state (open/close)
 		menuSpeed = 200, //jQuery fallback menu speed
 		menuWidth = pushy.width() + "px"; //jQuery fallback menu width
 
@@ -68,12 +69,26 @@ $(function() {
 		return (supported !== undefined && supported.length > 0 && supported !== "none");
 	})();
 
+	
 	if(cssTransforms3d){
-		//toggle menu
+	    //toggle menu
 	    menuBtn.click(function () {
+	        
 	        togglePushy();
-		});
-		//close menu when clicking site overlay
+	        //hide Kenmark logo on main nav when pushy is open
+	        //show Kenmark logo on main nav when pushy is closed
+	        //if (state) {
+	           
+	        //        $('#logo-sprite').hide();
+	        //        state = false;
+	            
+	        //} else {
+	        //    $('#logo-sprite').show();
+	        //state = true;
+	        //}
+	    });
+
+       //close menu when clicking site overlay
 		siteOverlay.click(function(){ 
 			togglePushy();
 		});
@@ -83,8 +98,7 @@ $(function() {
 		pushy.css({left: "-" + menuWidth}); //hide menu by default
 		container.css({"overflow-x": "hidden"}); //fixes IE scrollbar issue
 
-		//keep track of menu state (open/close)
-		var state = true;
+		
 
 		//toggle menu
 		menuBtn.click(function () {
@@ -114,4 +128,5 @@ $(function() {
 			}
 		});
 	}
+	
 });
