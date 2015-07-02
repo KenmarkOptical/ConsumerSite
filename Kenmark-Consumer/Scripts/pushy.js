@@ -1,12 +1,14 @@
 /*! Pushy - v0.9.2 - 2014-9-13
 * Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions.
 * https://github.com/christophery/pushy/
-* by Christopher Yee */
+* by Christopher Yee 
+*
+* Modified by Travis Elkins*/
 
 $(function() {
 	var pushy = $('.pushy'), //menu css class
 		body = $('body'),
-		container = $('#container'), //container css class
+		container = $('.pushy-container'), //container css class
 		push = $('.push'), //css class to add pushy capability
 		siteOverlay = $('.site-overlay'), //site overlay
 		pushyClass = "pushy-left pushy-open", //menu position & menu open class
@@ -68,14 +70,15 @@ $(function() {
 
 	if(cssTransforms3d){
 		//toggle menu
-		menuBtn.click(function() {
-			togglePushy();
+	    menuBtn.click(function () {
+	        togglePushy();
 		});
 		//close menu when clicking site overlay
 		siteOverlay.click(function(){ 
 			togglePushy();
 		});
-	}else{
+
+	 }else{
 		//jQuery fallback
 		pushy.css({left: "-" + menuWidth}); //hide menu by default
 		container.css({"overflow-x": "hidden"}); //fixes IE scrollbar issue
@@ -84,7 +87,8 @@ $(function() {
 		var state = true;
 
 		//toggle menu
-		menuBtn.click(function() {
+		menuBtn.click(function () {
+		    
 			if (state) {
 				openPushyFallback();
 				state = false;
@@ -93,6 +97,11 @@ $(function() {
 				state = true;
 			}
 		});
+
+
+        
+
+		
 
 		//close menu when clicking site overlay
 		siteOverlay.click(function(){ 

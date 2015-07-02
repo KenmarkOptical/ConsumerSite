@@ -110,7 +110,7 @@
     </script>
 </head>
 <body>
-  
+   
     
      @*<div class="navbar navbar-fixed-top" role='navigation' style="margin-bottom:0px;">
         <div class="navbar-inner">
@@ -307,7 +307,7 @@
         
    
     <!-- PUSHY NAV -->
-    <nav class="pushy-shop pushy-right visible-xs" id="pushy-shop" style="display:none;">
+    @*<nav class="pushy-shop pushy-right visible-xs" id="pushy-shop" style="display:none;">
         <ul>
             <li><a href="#" id="shop">Shop <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:90px;" aria-hidden="true"></span></a></li>
             <li><a href="#">Profile <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:81px;" aria-hidden="true"></span></a></li>
@@ -315,7 +315,7 @@
             <li><a href="#">Where To Buy <span class="glyphicon glyphicon-chevron-right"style="color:#FFF;margin-left:28px;" aria-hidden="true"></span></a></li>
         </ul>
 
-    </nav>
+    </nav>*@
 
      <nav class="pushy pushy-right visible-xs" id="main-pushy">
         <ul>
@@ -334,12 +334,11 @@
         </div>
     </nav>
   <!-- END OF PUSHY NAV -->
-   
+     
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#eeebdf;"> 
-         
+         <div class="pushy-container"> <!-- container to push page -->
          <div class="container shadow" style="padding-left:0px;padding-right:0px;">
-        @*<div class="shadow" style="background-color:white;padding-left:35px;padding-right:35px;">*@
-        @*<div class="container no-gutter" style="padding-left:35px;padding-right:35px;">*@
+      
             <div class="row">
                 <div class="nav navbar-right hidden-xs">
                     <a href="#" class="nav-link">Create Account</a>
@@ -358,7 +357,7 @@
                 <div class="col-xs-4 col-sm-4 col-md-3 text-center">
                     <a id="logo-sprite"></a>
                 </div>
-                @*<div class="navbar-header"> <!-- XS SCREEN BUTTON -->*@
+               
                 
                       <button type="button" class="navbar-toggle menu-btn" data-toggle="collapse" 
                          data-target="#" style="margin-top:0px;">
@@ -366,7 +365,7 @@
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
                       </button>
-              @*  </div>*@
+              
                 <div class="col-sm-8 col-md-7">
                 <div class="collapse navbar-collapse"> 
                     <ul class="nav navbar-nav" style="margin-left:0;margin-right:0px;">                              
@@ -390,8 +389,7 @@
                </div>
            </div>
            </div>
-     @*   </div> *@
-        @*</div>*@
+  
 
                 
                 <!-- Shop Dropdown -->
@@ -528,20 +526,20 @@
           </div>
             
       </div> 
-
+</div>
 
     </nav>
           
 
    
             
- <div id="container"> <!-- container to push page -->                 
+<div class="pushy-container"> <!-- container to push page -->                 
     <div id="main-body" class="container" style="padding-top:0px; padding-bottom:15px;">  
          
         @RenderBody()
             
     </div>
- </div> <!-- container to push page -->
+
 
 
     <div class="container" style="background-color:#eeebdf;margin-top:30px; margin-bottom:10px;">
@@ -560,6 +558,7 @@
     </div>
 
     @RenderSection("scripts", required: false)
+</div> <!-- container to push page -->
     
          <!-- Latest compiled and minified JavaScript -->
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>    
