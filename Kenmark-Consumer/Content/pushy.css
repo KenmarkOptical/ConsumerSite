@@ -6,6 +6,9 @@
 * Modified by Travis Elkins*/
 
 /* Menu Appearance */
+.pushy-container {
+    z-index: 9999;
+}
 
 .pushy{
     position: fixed;
@@ -26,19 +29,6 @@
     -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
 }
 
-/*.pushy {
-    position: fixed;
-    width: 200px;
-    height: 100%;
-    top: 0px;
-    z-index: 9999;
-    background: #646464;
-    font-size: 2vmin;
-    font-weight: bold;
-    right: 0;
-
-}*/
-
 .pushy a{
     display: block;
     color: #FFF;
@@ -51,6 +41,53 @@
 .pushy a:hover{
    
     color: #d28b19;
+}
+
+.pushy-shop {
+    position: fixed;
+    width: 228px;
+    height: 100%;
+    top: 0px;
+    z-index: 9999;
+    background: #646464;
+    font-size: 1.50em;
+    font-weight: bold;
+    right: 0;
+
+}
+
+.pushy-shop a{
+    display: block;
+    color: #FFF;
+    padding: 15px 0px;
+    text-decoration: none;
+}
+
+.pushy-shop a:hover {
+        color: #d28b19;
+}
+
+.pushy-profile {
+    position: fixed;
+    width: 228px;
+    height: 100%;
+    top: 0px;
+    z-index: 9999;
+    background: #646464;
+    font-size: 1.50em;
+    font-weight: bold;
+    right: 0;
+}
+
+.pushy-profile a {
+    display: block;
+    color: #FFF;
+    padding: 15px 0px;
+    text-decoration: none;
+}
+
+.pushy-profile a:hover {
+        color: #d28b19;
 }
 
 /* Menu Movement */

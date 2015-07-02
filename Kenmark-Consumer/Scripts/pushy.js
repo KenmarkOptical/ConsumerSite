@@ -6,7 +6,7 @@
 * Modified by Travis Elkins*/
 
 $(function() {
-	var pushy = $('.pushy'), //menu css class
+    var pushy = $('.pushy'), //menu css class
 		body = $('body'),
 		container = $('.pushy-container'), //container css class
 		push = $('.push'), //css class to add pushy capability
@@ -16,7 +16,8 @@ $(function() {
 		containerClass = "container-push", //container open class
 		pushClass = "push-push", //css class to add pushy capability
 		menuBtn = $('.menu-btn'), //css classes to toggle the menu
-        
+        pushyShop = $('.pushy-shop'), //css class to toggle shop menu
+        pushyProfile = $('.pushy-profile'), //css class to toggle profile menu
         state = true; //keep track of menu state (open/close)
 		menuSpeed = 200, //jQuery fallback menu speed
 		menuWidth = pushy.width() + "px"; //jQuery fallback menu width
@@ -28,7 +29,7 @@ $(function() {
 		push.toggleClass(pushClass); //css class to add pushy capability
 	}
 
-	function openPushyFallback(){
+    function openPushyFallback(){
 		body.addClass(pushyActiveClass);
 		pushy.animate({left: "0px"}, menuSpeed);
 		container.animate({left: menuWidth}, menuSpeed);
@@ -42,7 +43,34 @@ $(function() {
 		push.animate({left: "0px"}, menuSpeed); //css class to add pushy capability
 	}
 
-	//checks if 3d transforms are supported removing the modernizr dependency
+	$('#shop').click(function () {
+	    $('#main-pushy-wrapper').hide();
+	    $('#pushy-shop-wrapper').fadeIn(200);
+	    
+	});
+
+	$('#shopBack').click(function () {
+	    $('#pushy-shop-wrapper').hide();
+	    $('#pushy-profile-wrapper').hide();
+	    $('#main-pushy-wrapper').fadeIn(200);
+        
+	});
+
+	$('#profileBack').click(function () {
+	    $('#pushy-shop-wrapper').hide();
+	    $('#pushy-profile-wrapper').hide();
+	    $('#main-pushy-wrapper').fadeIn(200);
+
+
+	});
+
+	$('#profile').click(function () {
+	    $('#main-pushy-wrapper').hide();
+	    $('#pushy-profile-wrapper').fadeIn(200);
+
+	});
+
+    //checks if 3d transforms are supported removing the modernizr dependency
 	cssTransforms3d = (function csstransforms3d(){
 		var el = document.createElement('p'),
 		supported = false,
@@ -73,20 +101,14 @@ $(function() {
 	if(cssTransforms3d){
 	    //toggle menu
 	    menuBtn.click(function () {
-	        
-	        togglePushy();
-	        //hide Kenmark logo on main nav when pushy is open
-	        //show Kenmark logo on main nav when pushy is closed
-	        //if (state) {
-	           
-	        //        $('#logo-sprite').hide();
-	        //        state = false;
+	        $('#pushy-shop-wrapper').hide();/////
+	        $('#pushy-profile-wrapper').hide();// This resets menu back to the main menu page on close
+	        $('#main-pushy-wrapper').show();/////
+	       
+	            togglePushy();
 	            
-	        //} else {
-	        //    $('#logo-sprite').show();
-	        //state = true;
-	        //}
 	    });
+
 
        //close menu when clicking site overlay
 		siteOverlay.click(function(){ 
@@ -98,13 +120,12 @@ $(function() {
 		pushy.css({left: "-" + menuWidth}); //hide menu by default
 		container.css({"overflow-x": "hidden"}); //fixes IE scrollbar issue
 
-		
-
 		//toggle menu
 		menuBtn.click(function () {
 		    
 			if (state) {
-				openPushyFallback();
+			    openPushyFallback();
+                
 				state = false;
 			} else {
 				closePushyFallback();
@@ -112,12 +133,7 @@ $(function() {
 			}
 		});
 
-
-        
-
-		
-
-		//close menu when clicking site overlay
+        //close menu when clicking site overlay
 		siteOverlay.click(function(){ 
 			if (state) {
 				openPushyFallback();
@@ -128,5 +144,5 @@ $(function() {
 			}
 		});
 	}
-	
+
 });
