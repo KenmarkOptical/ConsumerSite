@@ -101,12 +101,7 @@ $(function() {
 	if(cssTransforms3d){
 	    //toggle menu
 	    menuBtn.click(function () {
-	        $('#pushy-shop-wrapper').hide();/////
-	        $('#pushy-profile-wrapper').hide();// This resets menu back to the main menu page on close
-	        $('#main-pushy-wrapper').show();/////
-	       
-	            togglePushy();
-	            
+            togglePushy();
 	    });
 
 
