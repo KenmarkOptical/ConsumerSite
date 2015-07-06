@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model Kenmark_Consumer.Models.Home
+
+@{
+    ViewBag.Title = "Kenmark Optical";
 }
 
 <script type="text/javascript">
@@ -59,14 +61,18 @@
 
 <div class="row" style="max-width: 936px;margin: auto; margin-top:19px;">
     <div class="row no-gutter">
-        <div class="col-xs-6 col-sm-8" style="padding:5px;">
+        <div class="col-xs-12 col-sm-8" style="padding:5px;">
+            <a href="~/">
             <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/craft.jpg")" />
             <span class="div-text-center collection-link-text">
                 <span style="display: block;text-align: center;">CRAFTSMANSHIP</span>
                 <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">THE MARK OF A GREAT FRAME</span>
             </span>
+                </a>
         </div>
-        <div class="col-xs-6 col-sm-4"  style="padding:5px;">
+   
+  
+        <div class="col-xs-6 col-sm-4 hidden-xs"  style="padding:5px;">
              <a href="~/">
                 <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/brand.jpg")" />
                  <span class="div-text-center collection-link-text">
@@ -75,32 +81,89 @@
                 </span>
              </a>
         </div>
-    </div>
-    <div class="row no-gutter">
-        <div class="col-xs-6 col-sm-4" style="padding:5px;">
-            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/insta.jpg")" />
-             <span class="div-text-center collection-link-text">
+   </div>
+
+
+    <div class="col-xs-6 visible-xs"  style="padding:5px;">
+             <a href="~/">
+                <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/brand.jpg")" />
+                 <span class="div-text-center collection-link-text">
+                    <span style="display: block;text-align: center;">KENMARK</span>
+                    <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">ABOUT OUR BRAND</span>
+                </span>
+             </a>
+        </div>
+
+    <div class="col-xs-6 col-sm-4" style="padding:5px;">
+            <a href="~/">
+                <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/insta.jpg")" />
+                 <span class="div-text-center collection-link-text">
                     <span style="display: block;text-align: center;">INSTAGRAM</span>
                     <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">PHOTOS FROM</span>
                     <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">AROUND THE WORLD</span>
                 </span>
+            </a>
         </div>
-        <div class="col-xs-6 col-sm-4"  style="padding:5px;">
-            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/face.jpg")" />
-            <span class="div-text-center collection-link-text">
-                <span style="display: block;text-align: center;">ABOUT FACE</span>
-                <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">WHAT'S THE RIGHT FRAME</span>
+        
+    <div class="col-xs-6 col-sm-4"  style="padding:5px;">
+            <a href="~/">
+                <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/face.jpg")" />
+                 <span class="div-text-center collection-link-text">
+                    <span style="display: block;text-align: center;">ABOUT FACE</span>
+                    <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">WHAT'S THE RIGHT FRAME</span>
              </span>
+            </a>
         </div>
+
         <div class="col-xs-6 col-sm-4"  style="padding:5px;">
-            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/jason.jpg")" />
-            <span class="div-text-center collection-link-text">
-                <span style="display: block;text-align: center;">JASON</span>
-                <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">A DESIGNER PROFILE</span>
-            </span>
+            <a href="~/">
+                <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/jason.jpg")" />
+                 <span class="div-text-center collection-link-text">
+                    <span style="display: block;text-align: center;">JASON</span>
+                    <span class="collection-link-sub" style="margin-top: -4px;display: block;font-weight: normal;text-align: center;">A DESIGNER PROFILE</span>
+                </span>
+            </a>
         </div>
-    </div>
+
+    <div class="col-xs-12 text-center">
+    <span style="display:inline-block;font-size:22px;font-weight:bold;margin-top:30px;margin-bottom:20px;">NEW RELEASES</span>
 </div>
+  
+</div>
+
+
+
+<div class="row">
+    <div id="carousel-new-releases" class="carousel slide" data-ride="carousel">
+       <ol class="carousel-indicators">
+           <li data-target="#carousel-new-releases" data-slide-to="0" class="active"></li>
+           <li data-target="#carousel-new-releases" data-slide-to="1"></li>
+           <li data-target="#carousel-new-releases" data-slide-to="2"></li>
+           <li data-target="#carousel-new-releases" data-slide-to="3"></li>
+           <li data-target="#carousel-new-releases" data-slide-to="4"></li>
+       </ol>
+  
+       
+    <div class="carousel-inner" role="listbox">
+        @{Html.RenderPartial("_Grid", Model);}   
+        
+    </div>
+
+    <!-- CONTROLS -->
+    <a class="left carousel-control" href="#carousel-new-releases" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="right carousel-control" href="#carousel-new-releases" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+   </div>
+</div>
+
+
 
 <div class="col-xs-12" style="margin-top:19px;">
      <img class="img-responsive" src="@Url.Content("~/Content/images/home/viewall.jpg")" />

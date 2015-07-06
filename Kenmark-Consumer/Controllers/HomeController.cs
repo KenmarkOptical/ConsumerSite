@@ -19,7 +19,7 @@ namespace Kenmark_Consumer.Controllers
         {
             Home h = new Home().GetData();
 
-            return View();
+            return View(h);// return h when ready
         }
 
         [Authorize]

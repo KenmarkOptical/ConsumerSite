@@ -1,0 +1,96 @@
+﻿@model Kenmark_Consumer.Models.Home
+
+
+ @{int i = 1;}
+
+@foreach (var p in Model.NewFrames){
+    
+   
+    
+    
+        <div class="item active" id="pg1">
+            @if(i <= 4){
+            <div class="col-xs-12 col-sm-6 text-center"> 
+              <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p.Image)&w=350"/><br />
+                <span style="font-size:16px;">@p.Style - @p.Collection</span><br />
+            </div>
+                }
+        </div>
+
+
+    
+        <div class="item pg2">
+            @if(i >= 5 && i <= 8){
+            <div class="col-xs-12 col-sm-6 text-center"> 
+              <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p.Image)&w=350"/><br />
+                <span style="font-size:16px;">@p.Style - @p.Collection</span><br />
+            </div> 
+            }
+        </div>
+    
+        <div class="item" id="pg3">
+            @if(i >= 9 && i <= 12){
+            <div class="col-xs-12 col-sm-6 text-center"> 
+              <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p.Image)&w=350"/><br />
+                <span style="font-size:16px;">@p.Style - @p.Collection</span><br />
+            </div>
+            }
+        </div>
+        
+    <div class="item" id="pg4">
+        @if(i >= 13 && i <= 16){
+              <div class="col-xs-12 col-sm-6 text-center"> 
+              <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p.Image)&w=350"/><br />
+                <span style="font-size:16px;">@p.Style - @p.Collection</span><br />
+            </div>
+        }
+        </div>
+        
+    <div class="item" id="pg5">
+         @if(i >= 17 && i <= 20){
+            <div class="col-xs-12 col-sm-6 text-center"> 
+              <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p.Image)&w=350"/><br />
+                <span style="font-size:16px;">@p.Style - @p.Collection</span><br />
+            </div>
+         }
+        </div>
+         
+    i++;
+}
+
+@*<div class="col-xs-12">
+
+   
+        
+    @{int i = 0;}
+    
+    @foreach (var p in Model.NewFrames) {
+
+        if (i < 4) { 
+            @:
+            <div class="col-xs-12 col-sm-6 text-center"> 
+              <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p.Image)&w=350"/><br />
+                <span style="font-size:16px;">@p.Style - @p.Collection</span><br />
+            </div>
+        }
+        
+
+         if(i > 4 && i < 9){
+            @:
+            
+            <div class="col-xs-12 col-sm-6 text-center"> 
+              <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p.Image)&w=350"/><br />
+                <span style="font-size:16px;">@p.Style - @p.Collection</span><br />
+            </div>
+        }
+        
+        
+        i++;
+      
+    }
+         
+    
+    
+        
+        
+</div>*@
