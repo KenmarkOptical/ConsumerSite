@@ -17,6 +17,7 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index()
         {
+            //test
             return View();
         }
 
