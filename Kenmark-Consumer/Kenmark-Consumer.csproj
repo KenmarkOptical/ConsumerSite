@@ -514,6 +514,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Filters.cs" />
+    <Compile Include="Models\Home.cs" />
     <Compile Include="Models\MaxMindGeo.cs" />
     <Compile Include="Models\MyBaseController.cs" />
     <Compile Include="Models\Person.cs" />
@@ -1190,7 +1191,6 @@
     </Content>
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Shared\_Filter.cshtml" />
-    <Content Include="Views\Home\Person.cshtml" />
     <Content Include="Views\PressClipping\Index.cshtml" />
     <Content Include="Views\PressClipping\_Grid.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />

@@ -17,7 +17,8 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index()
         {
-            //test
+            Home h = new Home().GetData();
+
             return View();
         }
 
