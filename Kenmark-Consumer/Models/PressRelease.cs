@@ -7,7 +7,7 @@ namespace Kenmark_Consumer.Models
 {
     public class PressRelease
     {
-        List<press_releases> Items { get; set; }
+       public List<press_releases> Items { get; set; }
 
         public PressRelease GetItems()
         {
