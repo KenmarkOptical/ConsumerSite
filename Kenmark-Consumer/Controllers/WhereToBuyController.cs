@@ -22,8 +22,25 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult GetZipGEO()
         {
-            MaxMindGeo m = new MaxMindGeo();
-            string zip = m.UserLocation().Postal.Code;
+            string zip = "";
+            if (HttpContext.Request.Cookies["geo_loc_zip"] == null)
+            {
+                MaxMindGeo m = new MaxMindGeo();
+                zip = m.UserLocation().Postal.Code;
+
+                //store the cookie value
+                HttpCookie cookie = new HttpCookie("geo_loc_zip");
+                cookie.Value = zip;
+                HttpContext.Response.SetCookie(cookie);
+            }
+            else
+            {
+                HttpCookie cookie = HttpContext.Request.Cookies.Get("geo_loc_zip");
+                zip = cookie.Value;
+            }
+
+           
+
             WhereToBuy data = new WhereToBuy();
             data.Zip = zip;
             data.Radius = 25;
@@ -41,14 +58,26 @@ namespace Kenmark_Consumer.Controllers
         {
             data = data.GetCustomers(data);
 
+            if (HttpContext.Request.Cookies["geo_loc_zip"] == null)
+            {              
+                //store the cookie value
+                HttpCookie cookie = new HttpCookie("geo_loc_zip");
+                cookie.Value = data.Zip;
+                HttpContext.Response.SetCookie(cookie);
+            }
+            else
+            {
+                HttpCookie cookie = HttpContext.Request.Cookies.Get("geo_loc_zip");
+                HttpContext.Response.Cookies.Remove("geo_loc_zip");
+                cookie.Value = data.Zip;
+                HttpContext.Response.SetCookie(cookie);
+            }
+
+
             var serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
             var resultData = data.Customers;
-            //var result = new ContentResult
-            //{
-            //    Content = serializer.Serialize(resultData),
-            //    ContentType = "application/json"
-            //};
+
 
             string html = RenderPartialViewToString("_Grid", data);
             return Json(new { html = html, GooglePoints = serializer.Serialize(resultData)}, JsonRequestBehavior.AllowGet); 
