@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kenmark_Consumer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,8 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            PressRelease p = new PressRelease().GetItems();
+            return View(p);
         }
 
     }

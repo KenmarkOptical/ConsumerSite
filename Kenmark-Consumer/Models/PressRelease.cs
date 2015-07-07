@@ -16,7 +16,7 @@ namespace Kenmark_Consumer.Models
 
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
-                pr.Items = db.press_releases.Where(m => m.active == true).ToList();
+                pr.Items = db.press_releases.Where(m => m.active == true).OrderByDescending(m => m.release_date).Take(5).ToList();
             }
 
             return pr;

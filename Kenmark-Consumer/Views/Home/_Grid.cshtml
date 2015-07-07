@@ -2,17 +2,17 @@
 
 
 
-<div class="item active">
+<div class="item active" style="margin-top:30px;">
     @for (int i = 0; i < Model.NewFrames.Count; i++ )
     {
         if (i % 4 == 0 && i != 0)  { 
             @:</div>
-            @:<div class="item">
+            @:<div class="item" style="margin-top:20px;">
                  
         }
         <div class="col-xs-12 col-sm-6 text-center"> 
-             <img src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.NewFrames[i].Image)&w=350"/><br />
-             <span style="font-size:16px;">@Model.NewFrames[i].Style - @Model.NewFrames[i].Collection</span><br />
+             <img class="center-block img-responsive" style="padding-top:50px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.NewFrames[i].Image)&w=450"/><br />
+             <span style="font-size:16px;display:inline-block; margin-bottom:50px; padding-bottom:30px;">@Model.NewFrames[i].Style <br /> @Model.NewFrames[i].Collection</span><br />
         </div>
     
     }

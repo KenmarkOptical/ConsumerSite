@@ -670,8 +670,15 @@ img.saturate-2:hover{
 }
 
 .carousel-indicators li {
-  background-color: #669966;
+  background-color: lightGray;
 }
 .carousel-indicators .active {
-  background-color: #FF7600;
+  background-color: gray;
+}
+
+.carousel-control.right {
+    background-image:none;
+}
+.carousel-control.left {
+    background-image:none;
 }
