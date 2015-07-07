@@ -8,9 +8,13 @@
     $(function () {
         $('.feature').delay(3000).removeClass('desaturate').addClass('saturate');
 
-        $('.carousel').carousel({
+        $('#image-carousel').carousel({
             interval: 6000
-        });             
+        });
+
+        $('#carousel-new-releases').carousel({
+            interval: 10000
+        });
     });
 </script>
 
@@ -18,12 +22,12 @@
 <div class="row">
    
 
- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+ <div id="image-carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#image-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#image-carousel" data-slide-to="1"></li>
+    <li data-target="#image-carousel" data-slide-to="2"></li>
   </ol>
  
   <!-- Wrapper for slides -->
@@ -49,10 +53,10 @@
   </div>
  
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#image-carousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+  <a class="right carousel-control" href="#image-carousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div> 
