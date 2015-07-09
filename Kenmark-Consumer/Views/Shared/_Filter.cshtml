@@ -202,8 +202,10 @@
             $('#FramesDiv').html(data.html);
             $('#FilterDiv').html(data.htmlfilter);
 
-            //un-disable the first item checked
+            //update query string
+            window.location.href = window.location.href + data.query;
 
+            //un-disable the first item checked
             if ($('#FirstElement').val() != 'none') {
                 var id = $('#FirstElement').val();
                 $('#' + id).parent().siblings().attr('style', 'margin-left:5px;');

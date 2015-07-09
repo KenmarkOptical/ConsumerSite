@@ -520,6 +520,7 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PressClipping.cs" />
     <Compile Include="Models\PressRelease.cs" />
+    <Compile Include="Models\QueryStringExtensions.cs" />
     <Compile Include="Models\ShowSchedule.cs" />
     <Compile Include="Models\WhereToBuy.cs" />
     <Compile Include="MyDateTable.cs">

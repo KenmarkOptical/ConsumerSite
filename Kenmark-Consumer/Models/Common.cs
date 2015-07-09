@@ -9,6 +9,8 @@ using System.IO;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Web.UI;
+using System.Web.Script.Serialization;
 
 
 namespace Kenmark_Consumer.Models
@@ -161,6 +163,10 @@ namespace Kenmark_Consumer.Models
             return result;
         }
 
+        public static string ToJson(this Object obj)
+        {
+            return new JavaScriptSerializer().Serialize(obj);
+        }
 
         public static string JavaScriptArrayString(IList<string> values)
         {
