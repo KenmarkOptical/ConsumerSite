@@ -1,6 +1,37 @@
-﻿@{
+﻿@model Kenmark_Consumer.Models.PressRelease
+@{
     ViewBag.Title = "Press Release";
 }
+
+<script type="text/javascript">
+
+    $(function () {
+        
+
+
+        $('.title').click(function () {
+
+             var sideStory = this.id;
+            var sideStory = sideStory.replace("side", "");
+
+            $('#titleDiv').hide();
+            $('#story-' + sideStory).fadeIn(200);
+            $('.sidePressTitles').fadeIn(200);
+        })
+
+        $('.sideTitle').click(function () {
+
+            //var story = this.id;
+            var sideStory = this.id;
+            var sideStory = sideStory.replace("side", "");
+
+            $('.storyContainer').hide();
+            $('#story-' + sideStory).fadeOut(200);
+            $('#story-' + sideStory).fadeIn(200);
+
+        })
+    });
+</script>
 
 <div class="row">
     <img class="img-responsive" src="~/Content/images/ShowSchedule/header.jpg" /> 
@@ -11,37 +42,63 @@
 
 <div class="row">
     
-    <div class="col-xs-12 col-sm-3" style="padding-left:50px;" >
+    <div class="col-xs-12 col-sm-4 col-md-3" style="padding-left:50px;margin-bottom:30px;" >
 
         
             <div  style="margin-bottom:20px;letter-spacing:1px;font-weight:bold;font-size:18px;">PRESS<br /> RELEASES</div> <br />
-
+       
             <span style="font-weight:bold;">PRESS CONTACT</span><br />
             <span>Dawn Ruiz, Marketing</span><br />
             <span>502-267-4486 ext. 1149</span><br />
-            <span>dawnruiz@kenmarkoptical.com</span>
+            <span style="display:inline-block;margin-bottom:30px;">dawnruiz@kenmarkoptical.com</span>
 
-        <hr class="visible-xs no-gutter" style="margin-top:20px; border-color:#808080;" />
+        <hr class="visible-xs no-gutter" style="margin-top:10px; border-color:#808080;" />
+  
         
-    </div>
-
-
-    <div class="col-xs-12 col-sm-9">
-
-        <span style="font-weight:bold;font-size:14px;">
-            Zac Posen and Kenmark Sign Exclusive Eyewear Partnership
-        </span><br />
-        <span>OCT 4, 2013</span><br />
-
-        <div style="margin-top:20px;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit nulla non porttitor consequat. Fusce aliquet dolor efficitur odio scelerisque tristique. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent ut scelerisque diam. Pellentesque in sapien et turpis mattis feugiat. Curabitur ut felis bibendum, viverra est at, rutrum erat. Vestibulum et tellus convallis, facilisis risus eget, mattis metus.<br /><br />
-
-            In augue sem, tempor at posuere ac, placerat non ex. Fusce sed viverra purus. Vestibulum condimentum, sapien eget volutpat molestie, mauris erat posuere augue, non rhoncus nisl enim vestibulum dui. Aliquam metus tortor, consectetur et justo et, rutrum mollis velit. In dignissim lobortis ante, id tempor tortor auctor vitae. Ut in pulvinar dolor. Cras eu lacus vitae massa mattis fermentum. Maecenas vitae varius justo. Curabitur in purus malesuada nisl elementum dictum. Ut vestibulum consequat lorem varius suscipit.<br /><br />
-
-            Praesent nunc nulla, pretium non tempus at, porttitor sed libero. Nunc sodales dictum lorem at pretium. Suspendisse ultricies venenatis nunc, sit amet rhoncus nisi gravida sed. Nullam malesuada dui nec libero bibendum, dignissim ullamcorper ipsum vehicula. Cras tempor porttitor vulputate. Nam sit amet elit nibh. Proin non metus luctus ipsum faucibus ornare ac et odio. Ut id magna nec urna mattis rutrum. Vivamus faucibus nec risus vel sollicitudin.<br /><br />
-
-            Curabitur tincidunt magna nec convallis vehicula. Pellentesque rhoncus lacinia sodales. Quisque est sapien, bibendum eget rhoncus eget, pharetra pulvinar nulla. Nullam vitae venenatis lorem. Vestibulum quis sem id mauris lacinia volutpat. Maecenas vel pharetra diam. Cras dolor ligula, tempor eget laoreet volutpat, ullamcorper in dui. Aliquam rhoncus accumsan metus, et dapibus dolor finibus sed. Morbi eu ligula eu metus interdum vestibulum. Nam ac lacus non felis porta placerat nec a sapien.<br /><br />
+        @foreach (var p in Model.Items) { 
+            
+               <div class="sidePressTitles" style="display:none;margin-bottom:15px;font-size:14px;">
+                <ul class="no-gutter">
+                    <li>
+                       <a id="side@(p.press_release_id)" class="sideTitle"style="color:black;" href="#"> @p.release_title</a>
+                    </li>
+                </ul>
+            </div>
+            
+        }
+        
+    
         </div>
+  
+
+
+    <div class="col-xs-12 col-sm-8 col-md-9">
+
+        <div class="col-xs-12" id="titleDiv">
+        
+            @foreach (var t in Model.Items) { 
+            <div style="margin-bottom:15px;font-size:14px;">
+                <ul>
+                    <li>
+                       <a id="@(t.press_release_id)" class="title"style="color:black;" href="#"> @t.release_title</a>
+                    </li>
+                </ul>
+            </div>
+            }
+        </div>
+        
+        <div id="storyWrapper">
+       @foreach (var s in Model.Items) { 
+           <div class="storyContainer" id="story-@(s.press_release_id)" style="display:none;">
+                <div style="font-size:20px; font-weight:bold;">@s.release_title</div><br />
+                <div style="font-size:16px;">@s.release_date.ToShortDateString()</div><br />
+           
+                <div style="margin-bottom:30px;">@Html.Raw(@s.release_text)</div>
+           </div>
+           
+       }
+
+</div>
 
     </div>
-</div>
+    </div>
