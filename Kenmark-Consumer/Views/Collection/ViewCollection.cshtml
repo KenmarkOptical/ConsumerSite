@@ -25,8 +25,10 @@
             if (!$.trim($('#FilterDiv').html()).length) {  //only load the filter and frames once
                 $('#FilterDiv').html('<img src="@Url.Content("~/content/images/loader.gif")"  style="margin-left:5px;"/>');
 
+                var myObj = @(Html.Raw(ViewBag.Filter));
+        
                 //get filters
-                $.get("/Collection/GetFilters", { coll: _coll, group: _collGroup, sort: sort }, function (result) {
+                $.get("/Collection/GetFilters", { coll: _coll, group: _collGroup, sort: sort, f: JSON.stringify(myObj) }, function (result) {
                     if ($('#mobile-nav').is(":visible")) {
                         $('#FilterDiv2').html(result);
                     }
@@ -93,7 +95,16 @@
     });
 
 
-
+    function updateQueryStringParameter(uri, key, value) {
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            return uri.replace(re, '$1' + key + "=" + value + '$2');
+        }
+        else {
+            return uri + separator + key + "=" + value;
+        }
+    }
 </script>
 
 <input type="hidden" id="FirstElement" value="none" />

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Kenmark_Consumer.Controllers
 {
@@ -17,18 +18,17 @@ namespace Kenmark_Consumer.Controllers
             return View();
         }
 
-        public ActionResult ViewCollection(string collection, string sub, int page, int sort = 1)
-        {
-            Filters f = new Filters();
+        public ActionResult ViewCollection(string collection, string sub, int page, int sort = 1, Filters filter = null)
+        {         
 
             //get the filter from session
-            if (HttpContext.Session["Filter"] != null)
+            if (filter == null)
             {
-                f = (Filters)HttpContext.Session["Filter"];
+                 filter = new Filters();
             }
             else
             {
-                f.sort = sort;
+                filter.sort = sort;
             }
 
 
@@ -48,11 +48,11 @@ namespace Kenmark_Consumer.Controllers
                 if (pageSize > (totalCount - count))
                 {
                     //we are at the end, so we do not need a full page
-                    c = c.GetFrames(collection, sub, page, (totalCount - count), sort, f);
+                    c = c.GetFrames(collection, sub, page, (totalCount - count), sort, filter);
                 }
                 else
                 {//return full page                
-                    c = c.GetFrames(collection, sub, page, pageSize, sort, f);
+                    c = c.GetFrames(collection, sub, page, pageSize, sort, filter);
                     if (page == 0 && c.Frames.Count == 0)
                     {
                         ViewBag.NoResults = "1";
@@ -70,6 +70,8 @@ namespace Kenmark_Consumer.Controllers
             c.CollectionCode = "PEO";
             c.CollectionGroup = "RX";
             ViewBag.Sort = sort;
+            ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
+
             return View(c);
         }
 
@@ -107,23 +109,20 @@ namespace Kenmark_Consumer.Controllers
             return null;
         }
 
-        public ActionResult GetFilters(string coll, string group, int sort)
+        public ActionResult GetFilters(string coll, string group, int sort, string f)
         {
-            Filters f = new Filters();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Filters filter = (Filters)js.Deserialize(f, typeof(Filters));
 
             //get the filter from session
-            if (HttpContext.Session["Filter"] != null)
+            if (filter == null)
             {
-                f = (Filters)HttpContext.Session["Filter"];
+                filter = new Filters().GetFilters(coll, group);
+                filter.sort = sort;
             }
-            else
-            {
-                f = new Filters().GetFilters(coll, group);
-                f.sort = sort;
-            }
-            
+                        
 
-            return PartialView("_Filter", f);
+            return PartialView("_Filter", filter);
         }
 
         public ActionResult FilterChange(Filters f)
@@ -139,10 +138,11 @@ namespace Kenmark_Consumer.Controllers
             c.CollectionCode = "PEO";
             c.CollectionGroup = "RX";
 
-            //add the filter to session for this user
-            HttpContext.Session.Add("Filter", f);
+            //create a query string from the filter model
+            string query = QueryStringExtensions.ToQueryString<Filters>(f);      
+       
             ViewBag.Sort = f.sort;
-            return Json(new { html = RenderPartialViewToString("_Grid", c), filterChange = f.Reload == true ? 1 : 0, htmlfilter = RenderPartialViewToString("_Filter", f), count = c.Frames.Count() });
+            return Json(new { html = RenderPartialViewToString("_Grid", c), filterChange = f.Reload == true ? 1 : 0, htmlfilter = RenderPartialViewToString("_Filter", f), count = c.Frames.Count(), query = query });
         }
 
     }
