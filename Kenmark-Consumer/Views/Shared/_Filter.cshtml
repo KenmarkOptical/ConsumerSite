@@ -270,13 +270,13 @@
 
     <div id="FilterList" class="row" >  
         <div class="col-xs-12">
-            <span><b>FILTER</b></span>
+            <span style="font-size:13px;"><b>Filter</b></span>
         </div>  
 
-        <div class="col-xs-12">
+        <div class="col-xs-4 col-sm-12"style="margin-bottom:10px;">
              @if (Model.Colors != null)
             {
-                <span onclick="$('#color-items').toggle();" style="cursor:pointer; margin-top:5px; display:inline-block;">+ COLOR</span><br />
+                <span onclick="$('#color-items').toggle();" style="cursor:pointer; margin-top:5px; display:inline-block;font-size:14px;">+ COLOR</span><br />
                    if (Model.Colors.Where(m => m.Value == true).Count() > 0)
                    {
                     <span id="ColorToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
@@ -300,10 +300,10 @@
 
 
    
-       <div class="col-xs-12">
+       <div class="col-xs-4 col-sm-12"style="margin-bottom:10px;">
         @if (Model.Genders != null)
         {
-            <span onclick="$('#gender-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ GENDER</span><br />
+            <span onclick="$('#gender-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ GENDER</span><br />
             if (Model.Genders.Where(m => m.Value == true).Count() > 0)
             {
                 <span id="GenderToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
@@ -322,10 +322,10 @@
         }
         </div>
 
-        <div class="col-xs-12">
+        <div class="col-xs-4 col-sm-12"style="margin-bottom:10px;">
         @if (Model.Material != null)
         {
-            <span onclick="$('#material-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ MATERIAL</span><br />
+            <span onclick="$('#material-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ MATERIAL</span><br />
             if (Model.Material.Where(m => m.Value == true).Count() > 0)
             {
                 <span id="MaterialToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
@@ -345,10 +345,10 @@
          </div>
 
 
-        <div class="col-xs-12">
+        <div class="col-xs-4 col-sm-12"style="margin-bottom:10px;">
         @if (Model.Shape != null)
         {
-           <span onclick="$('#shape-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ SHAPE</span><br />
+           <span onclick="$('#shape-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ SHAPE</span><br />
             if (Model.Shape.Where(m => m.Value == true).Count() > 0)
             {
                 <span id="ShapeToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
@@ -367,10 +367,10 @@
         }
          </div>
 
-        <div class="col-xs-12">
+        <div class="col-xs-4 col-sm-12"style="margin-bottom:10px;">
          @if (Model.MinEyeSize != null && Model.MaxEyeSize != null)
          {
-            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;">+ EYE SIZE</span><br />
+            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ EYE SIZE</span><br />
             <div id="eye-items" style="display:none;">
              <span id="EyeToggle" class="link" style="padding:4px;">clear</span><br />
              
@@ -390,9 +390,9 @@
          }
          </div>
 
-        <div class="col-xs-12" style="margin-top:30px;">
-            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block; vertical-align:top;">+</span>
-            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;max-width:120px">BACK TO PENGUIN COLLECTIONS</span><br />
+        <div class="col-xs-4 col-sm-12" style="margin-bottom:10px;">
+            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block; vertical-align:top;font-size:14px;">+</span>
+            <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;max-width:120px;font-size:14px;">BACK TO PENGUIN COLLECTIONS</span><br />
         </div>
     
    </div>

@@ -7,9 +7,7 @@
 
     $(function () {
         
-
-
-        $('.title').click(function () {
+         $('.title').click(function () {
 
              var sideStory = this.id;
             var sideStory = sideStory.replace("side", "");
@@ -88,17 +86,13 @@
         </div>
         
         <div id="storyWrapper">
-       @foreach (var s in Model.Items) { 
-           <div class="storyContainer" id="story-@(s.press_release_id)" style="display:none;">
-                <div style="font-size:20px; font-weight:bold;">@s.release_title</div><br />
-                <div style="font-size:16px;">@s.release_date.ToShortDateString()</div><br />
-           
-                <div style="margin-bottom:30px;">@Html.Raw(@s.release_text)</div>
-           </div>
-           
-       }
-
+            @foreach (var s in Model.Items) { 
+                <div class="storyContainer" id="story-@(s.press_release_id)" style="display:none;">
+                    <div style="font-size:20px; font-weight:bold;">@s.release_title</div><br />
+                    <div style="font-size:16px;">@s.release_date.ToShortDateString()</div><br />
+                    <div style="margin-bottom:30px;">@Html.Raw(@s.release_text)</div>
+                </div>
+            }
+        </div>
+   </div>
 </div>
-
-    </div>
-    </div>
