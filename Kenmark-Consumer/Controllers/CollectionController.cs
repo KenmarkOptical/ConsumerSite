@@ -19,19 +19,10 @@ namespace Kenmark_Consumer.Controllers
         }
 
         public ActionResult ViewCollection(string collection, string sub, int page, int sort = 1, Filters filter = null)
-        {         
+        {        
 
-            //get the filter from session
-            if (filter == null)
-            {
-                 filter = new Filters();
-            }
-            else
-            {
-                filter.sort = sort;
-            }
-
-
+            filter.sort = sort;
+      
             Collections c = new Collections();          
             collection = "PEO";
             sub = "RX";
@@ -70,8 +61,9 @@ namespace Kenmark_Consumer.Controllers
             c.CollectionCode = "PEO";
             c.CollectionGroup = "RX";
             ViewBag.Sort = sort;
-            ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
-
+           
+                ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
+            
             return View(c);
         }
 
@@ -115,7 +107,7 @@ namespace Kenmark_Consumer.Controllers
             Filters filter = (Filters)js.Deserialize(f, typeof(Filters));
 
             //get the filter from session
-            if (filter == null)
+            if (filter.Colors == null)
             {
                 filter = new Filters().GetFilters(coll, group);
                 filter.sort = sort;
