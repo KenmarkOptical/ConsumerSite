@@ -145,7 +145,7 @@ header, footer, nav, section {
     width: 20px;
     height: 20px;
     background-position: 0 -20px;
-    margin-top:9px;
+    /*margin-top:9px;*/
     background-size: 20px 40px;
     
 }
@@ -176,7 +176,7 @@ header, footer, nav, section {
     width: 20px;
     height: 20px;
     background-position: 0 -20px;
-    margin-top:9px;
+    /*margin-top:9px;*/
     background-size: 20px 40px;
 }
 
@@ -206,7 +206,7 @@ header, footer, nav, section {
     width: 20px;
     height: 20px;
     background-position: 0 -20px;
-    margin-top:9px;
+    /*margin-top:9px;*/
     background-size: 20px 40px;
 }
 
