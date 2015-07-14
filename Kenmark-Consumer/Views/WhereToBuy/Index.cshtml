@@ -63,9 +63,6 @@
             var email = $("input#email").val();
             var zip = $("input#Zip").val();
             var radius = $("#Radius option:selected").val();
-            alert(radius);
-            alert(zip);
-            alert(email);
             $.post("/WhereToBuy/Email",  {email: email, zip: zip, radius: radius});
         });
 
@@ -242,7 +239,7 @@
 </div>
 
 <div class="row" style="margin-top:50px;">
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-xs-12 col-sm-3 topRow">
         
         <div class="col-xs-12 no-gutter text-center" style="margin-bottom:30px;">
             <div style="font-size:14px; font-weight:bold;">SAVE YOUR LISTINGS</div><br />

@@ -2,12 +2,26 @@
     ViewBag.Title = "Index";
 }
 
+<script type="text/javascript">
+
+    $('.navText').mouseenter(function () {
+                $(this).css("color", "#64635e");
+            })
+
+            .mouseleave(function () {
+                $(this).css("color", "black");
+            });
+</script>
+
+
+
+
 <div class="row" style="margin-bottom:20px;">
     <div class="col-xs-12 no-gutter">
         <span style="display:inline-block;font-size:22px;margin-top:40px;margin-left:30px;">THE <strong>MIRROR</strong></span><br />
         <span style="display:inline-block;font-size:18px;margin-left:30px;margin-bottom:15px;">what we're looking at now</span><br />
-            <div class="container">
-                <img class="img-responsive"src="~/Content/images/Brand/Penguin/feature.jpg" />
+            <div class="row img-row">
+                <img class="img-responsive"src="~/Content/images/Brand/Penguin/feature.jpg"/>
             </div>
     </div>
 </div>
@@ -27,13 +41,17 @@
              hendrerit ultrices velit, et cursus ipsum varius non. Donec vel consequat justo, eget vestibulum 
              odio.</span>
     </div>
-    <div class="hidden-xs col-sm-3 text-right">
-        <span class="text-center" style="font-size:14px;font-weight:bold;color:#adadad">SHARE</span>
-        <span>
-            <a class="facebook-sprite" href="#"></a>
-            <a class="twitter-sprite" href="#"></a>
-            <a class="pinterest-sprite" href="#"></a>
-        </span>
+    <div class="hidden-xs col-sm-3 no-gutter">
+        <div class="col-sm-6 no-gutter text-right">
+            <span style="display:inline-block;margin-top:11px;margin-right:7px;font-size:14px;font-weight:bold;color:#adadad">SHARE</span>
+        </div>   
+        <div class="col-sm-6 no-gutter">
+            <span>
+                <a class="facebook-sprite" href="#" style="margin-right:7px;"><span></span></a>
+                <a class="twitter-sprite" href="#" style="margin-right:7px;"><span></span></a>
+                <a class="pinterest-sprite" href="#" style="margin-right:7px;"><span></span></a>
+            </span>
+        </div> 
         
     </div>
     <div class="col-xs-12 col-sm-8 col-sm-offset-3">
@@ -47,7 +65,7 @@
 
 
 <div class="row">
-    <div class="container" style="margin-bottom:20px;">
+    <div class="row img-row" style="margin-bottom:20px;">
         <img class="img-responsive"src="~/Content/images/home/feature.png" />
     </div>
     <div class="col-xs-12 col-sm-3">
@@ -64,13 +82,17 @@
              hendrerit ultrices velit, et cursus ipsum varius non. Donec vel consequat justo, eget vestibulum 
              odio.</span>
     </div>
-    <div class="hidden-xs col-sm-3 text-right">
-        <span class="text-center" style="font-size:14px;font-weight:bold;color:#adadad">SHARE</span>
-        <span>
-            <a class="facebook-sprite" href="#"><span></span></a>
-            <a class="twitter-sprite" href="#"><span></span></a>
-            <a class="pinterest-sprite" href="#"><span></span></a>
-        </span>
+    <div class="hidden-xs col-sm-3 no-gutter">
+        <div class="col-sm-6 no-gutter text-right">
+            <span style="display:inline-block;margin-top:11px;margin-right:7px;font-size:14px;font-weight:bold;color:#adadad">SHARE</span>
+        </div>   
+        <div class="col-sm-6 no-gutter">
+            <span>
+                <a class="facebook-sprite" href="#" style="margin-right:7px;"><span></span></a>
+                <a class="twitter-sprite" href="#" style="margin-right:7px;"><span></span></a>
+                <a class="pinterest-sprite" href="#" style="margin-right:7px;"><span></span></a>
+            </span>
+        </div> 
         
     </div>
      <div class="col-xs-12 col-sm-8 col-sm-offset-3">
@@ -84,7 +106,7 @@
 
 
 <div class="row">
-    <div class="container" style="margin-bottom:20px;">
+    <div class="row img-row" style="margin-bottom:20px;">
         <img class="img-responsive"src="~/Content/images/Profile/profile_feature.jpg" />
     </div>
     <div class="col-xs-12 col-sm-3">
@@ -101,16 +123,20 @@
              hendrerit ultrices velit, et cursus ipsum varius non. Donec vel consequat justo, eget vestibulum 
              odio.</span>
     </div>
-    <div class="hidden-xs col-sm-3 text-right">
-        <span class="text-center" style="font-size:14px;font-weight:bold;color:#adadad">SHARE</span>
-        <span>
-            <a class="facebook-sprite" href="#"><span></span></a>
-            <a class="twitter-sprite" href="#"><span></span></a>
-            <a class="pinterest-sprite" href="#"><span></span></a>
-        </span>
+    <div class="hidden-xs col-sm-3 no-gutter">
+        <div class="col-sm-6 no-gutter text-right">
+            <span style="display:inline-block;margin-top:11px;margin-right:7px;font-size:14px;font-weight:bold;color:#adadad">SHARE</span>
+        </div>   
+        <div class="col-sm-6 no-gutter">
+            <span>
+                <a class="facebook-sprite" href="#" style="margin-right:7px;"><span></span></a>
+                <a class="twitter-sprite" href="#" style="margin-right:7px;"><span></span></a>
+                <a class="pinterest-sprite" href="#" style="margin-right:7px;"><span></span></a>
+            </span>
+        </div> 
         
     </div>
-     <div class="col-xs-12 col-sm-8 col-sm-offset-3">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-3">
         <span style="display:inline-block;color:red;margin-bottom:50px;margin-top:30px;font-weight:bold;font-size:14px;">+ MORE</span>
     </div>
     
