@@ -655,13 +655,14 @@ img.saturate-2:hover{
     }
 }
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
     .img-row {
         margin-left:15px;
         margin-right:15px;
         
     }
-}
+}*/
+
 
 
 
