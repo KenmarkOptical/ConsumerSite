@@ -45,7 +45,7 @@ namespace Kenmark_Consumer.Models
             s.Temples = data2.Select(m => m.T).FirstOrDefault();
             s.Bridge = data2.Select(m => m.V).FirstOrDefault();
 
-            s.Colors = data1.Select(m => m.sku.Substring(0,6)).Distinct().ToList();
+            s.Colors = data1.Select(m => m.sku.Substring(0, 6) + ".jpg").Distinct().ToList();
             s.Measurements = (from d in data2
                               select new Style_Measurements()
                               {
