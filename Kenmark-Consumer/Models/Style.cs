@@ -42,8 +42,8 @@ namespace Kenmark_Consumer.Models
             s.Main_Color = data1.Select(m=> m.sku.Substring(0,4)).FirstOrDefault() + ".jpg";
             s.Material = data1.Select(m => m.material).FirstOrDefault();
             s.Material = s.Material == "M" ? "Metal" : "Plastic";
-            s.Temples = data2.Select(m => m.T).FirstOrDefault();
-            s.Bridge = data2.Select(m => m.V).FirstOrDefault();
+            s.Temples = data2.Select(m => m.AS).FirstOrDefault();
+            s.Bridge = data2.Select(m => m.AG).FirstOrDefault();
 
             s.Colors = data1.Select(m => m.sku.Substring(0, 6) + ".jpg").Distinct().ToList();
             s.Measurements = (from d in data2
