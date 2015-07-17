@@ -20,12 +20,15 @@ namespace Kenmark_Consumer.Models
         //measurement
         public List<Style_Measurements> Measurements { get; set; }
 
+        //where to buy 
+        public WhereToBuy customers { get; set; }
 
         public Style GetStyle(string sku)
         {
             Style s = new Style();
             s.Colors = new List<string>();
             s.Measurements = new List<Style_Measurements>();
+            s.customers = new WhereToBuy();
             KenmarkTestDBEntities db = new KenmarkTestDBEntities();
             InquiryEntities db2 = new InquiryEntities();
 
@@ -42,7 +45,7 @@ namespace Kenmark_Consumer.Models
             s.Temples = data2.Select(m => m.T).FirstOrDefault();
             s.Bridge = data2.Select(m => m.V).FirstOrDefault();
 
-            s.Colors = data1.Select(m => m.sku.Substring(0,6)).Distinct().ToList();
+            s.Colors = data1.Select(m => m.sku.Substring(0, 6) + ".jpg").Distinct().ToList();
             s.Measurements = (from d in data2
                               select new Style_Measurements()
                               {

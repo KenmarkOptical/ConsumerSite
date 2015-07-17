@@ -18,13 +18,23 @@ namespace Kenmark_Consumer.Models
 
         public string Comments { get; set; }
         public string Email { get; set; }
-
+        public string Style {get;set;}
 
         public void SaveFeedback(Feedback f)
         {
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
-                //if(Modelstate
+                Frame_Feedback fb = new Frame_Feedback()
+                {
+                    color_rating = f.Color,
+                    shape_rating = f.Design,
+                    comment = f.Comments,
+                    date = DateTime.Now,
+                    email = f.Email,
+                    style = f.Style
+                };
+                db.Frame_Feedback.Add(fb);
+                db.SaveChanges();                         
             }
         }
     }

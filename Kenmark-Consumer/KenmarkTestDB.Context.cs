@@ -16,7 +16,6 @@ namespace Kenmark_Consumer
     using System.Data.Objects.DataClasses;
     using System.Linq;
 
-    
     public partial class KenmarkTestDBEntities : DbContext
     {
         public KenmarkTestDBEntities()

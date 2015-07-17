@@ -22,5 +22,6 @@ namespace Kenmark_Consumer
         public Nullable<int> security_id { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public string email { get; set; }
+        public string style { get; set; }
     }
 }

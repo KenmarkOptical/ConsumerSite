@@ -224,6 +224,7 @@
     </Compile>
     <Compile Include="Controllers\CollectionController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PressClippingController.cs" />
     <Compile Include="Controllers\PressReleaseController.cs" />
