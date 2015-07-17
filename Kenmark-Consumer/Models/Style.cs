@@ -20,12 +20,15 @@ namespace Kenmark_Consumer.Models
         //measurement
         public List<Style_Measurements> Measurements { get; set; }
 
+        //where to buy 
+        public WhereToBuy customers { get; set; }
 
         public Style GetStyle(string sku)
         {
             Style s = new Style();
             s.Colors = new List<string>();
             s.Measurements = new List<Style_Measurements>();
+            s.customers = new WhereToBuy();
             KenmarkTestDBEntities db = new KenmarkTestDBEntities();
             InquiryEntities db2 = new InquiryEntities();
 

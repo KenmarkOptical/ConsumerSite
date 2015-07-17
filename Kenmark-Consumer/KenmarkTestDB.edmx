@@ -1499,6 +1499,7 @@
           <Property Name="security_id" Type="int" />
           <Property Name="date" Type="datetime" />
           <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="style" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="frame_parts">
           <Key>
@@ -4237,6 +4238,7 @@
           <Property Type="Int32" Name="security_id" />
           <Property Type="DateTime" Name="date" Precision="3" />
           <Property Type="String" Name="email" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="style" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="frame_parts">
           <Key>
@@ -6338,6 +6340,7 @@
           <EntitySetMapping Name="Frame_Feedback">
             <EntityTypeMapping TypeName="KenmarkTestDBModel.Frame_Feedback">
               <MappingFragment StoreEntitySet="Frame_Feedback">
+                <ScalarProperty Name="style" ColumnName="style" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="security_id" ColumnName="security_id" />
