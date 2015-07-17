@@ -15,7 +15,7 @@ namespace Kenmark_Consumer.Controllers
         public ActionResult Index()
         {
             Style s = new Style().GetStyle("AMBL");
-            return View();
+            return View(s);
         }
 
     }
