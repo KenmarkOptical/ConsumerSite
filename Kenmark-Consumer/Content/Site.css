@@ -346,6 +346,36 @@ header, footer, nav, section {
 }
 
 
+.measurement-sprite {
+    background:url(/Content/images/style/icon_measure.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    text-indent: -9999px;
+    width: 65px;
+    height: 32px;
+    background-position: 0 0px;
+   
+    background-size: 65px 64px;
+}
+
+.measurement-sprite span {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;  background:url(/Content/images/style/icon_measure.png) no-repeat;
+    background-position: 0 -32px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    background-size: 65px 64px;
+}
+
+.measurement-sprite:hover span {
+    opacity: 1;
+}
+
 /* Styles for basic forms
 -----------------------------------------------------------*/
 fieldset {

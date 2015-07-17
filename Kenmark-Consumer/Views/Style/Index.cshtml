@@ -6,69 +6,153 @@
 <script type="text/javascript">
     $(function () {
         $('#story').click(function () {
-            alert("hello");
+            $('#measurementsSpan').hide();
+            $('#specsSpan').hide();
+            $('#specs').css('border-top', 'none');
+            $('#measurements').css('border-top', 'none');
+            $('#story').css('border-top', '2px solid black');
+            
             $('#storySpan').show();
+        });
+
+        $('#specs').click(function () {
+            $('#measurementsSpan').hide();
+            $('#storySpan').hide();
+            $('#story').css('border-top', 'none');
+            $('#measurements').css('border-top', 'none');
+            $('#specs').css('border-top', '2px solid black');
+            $('#specsSpan').show();
+        });
+
+        $('#measurements').click(function () {
+            $('#storySpan').hide();
+            $('#specsSpan').hide();
+            $('#specs').css('border-top', 'none');
+            $('#story').css('border-top', 'none');
+
+            $('#measurements').css('border-top', '2px solid black');
+            $('#measurementsSpan').show();
         });
     });
 </script>
-<div class="row" style="padding-left: 50px; margin-top: 10px;">
+<div class="row" style="padding-left: 50px; margin-top: 20px;">
     <div class="col-md-3" style="font-size: 12px;">MEN / PENGUIN / RX / TORTOGA</div>
 </div>
 
 <div class="row">
     <div class="col-xs-12 col-sm-9">
-        <div id="carousel-style" class="carousel slide" data-ride="carousel">
+        <div id="carousel-style" class="carousel slide" data-ride="carousel" data-interval="false">
+            
             <ol class="carousel-indicators">
-                <li data-target="#carousel-new-releases" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-new-releases" data-slide-to="1"></li>
+                @for (int i = 0; i < Model.Colors.Count; i++)
+                {
+                    
+                    <li data-target="#carousel-style" data-slide-to="@i" class="active"></li>
+                }
+                    
             </ol>
 
 
-            <div class="carousel-inner" role="listbox">
-                <div class="item-active">
-                    <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Main_Color)&w=200" />
-                </div>
+            <div class="carousel-inner" role="listbox" style="margin-top: 80px; margin-bottom: 40px;">
+                <div class="item active">
+                    
 
+                @for (int i = 0; i < Model.Colors.Count; i++)
+                {
+
+                    if (i % 1 == 0 && i != 0)
+                    { 
+                        @:</div>
+                        @:<div class="item">
+                    }
+                     <div class="col-xs-12">
+                            <img class="center-block img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=600" />
+                     </div>
+                    
+                }
             </div>
+                </div>
+         
 
-            <!-- CONTROLS -->
-            <a class="left carousel-control" href="#carousel-new-releases" role="button" data-slide="prev">
+         <!-- CONTROLS -->
+            <a class="left carousel-control" href="#carousel-style" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" style="color: gray;" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
 
-            <a class="right carousel-control" href="#carousel-new-releases" role="button" data-slide="next">
+            <a class="right carousel-control" href="#carousel-style" role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" style="color: gray;" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
 
-        </div><!-- END OF CAROUSEL -->
-        <div class="col-sm-4" style="margin-top:30px;">
-            <span style="font-size:22px;">@Model.Collection</span><br />
-            <span style="font-size:20px; font-weight:bold;">@Model.Style_Name</span><br />
-            <button class="btn btn-default submitButton" style="margin-top:20px;width:150px;">Print Specs</button><br />
-            <span style="color:#adadad">Take this spec sheet to your optician for easy ordering</span>
         </div>
 
-        <div class="col-sm-8" style="margin-top:30px;">
+
+        <!-- END OF CAROUSEL -->
+
+
+        <div class="col-sm-4" style="margin-top: 30px;">
+            <span style="font-size: 22px;">@Model.Collection</span><br />
+            <span style="font-size: 20px; font-weight: bold;">@Model.Style_Name</span><br />
+            <button class="btn btn-default submitButton" style="margin-top: 20px; width: 150px;">Print Specs</button><br />
+            <span style="color: #adadad">Take this spec sheet to your optician for easy ordering</span>
+        </div>
+
+        <div class="col-sm-8" style="margin-top: 30px;">
             <table class="table table-condensed">
-                <tr style="font-weight:bold;">
-                    <td><a href="#" style="text-decoration:none;color:black;" id="story">STORY</a></td>
-                    <td>SPECS</td>
-                    <td>MEASUREMENTS</td>
-                    <td><img src="~/Content/images/Style/icon_measure.png" /></td>
+                <tr style="font-weight: bold;">
+
+                    <td style="border-top:none;" id="storyBorder"><a href="#" style="text-decoration: none; color: black;border-top:2px solid black;" id="story">STORY</a></td>
+                    <td style="border-top:none;"><a href="#" style="text-decoration: none; color: black;" id="specs">SPECS</a></td>
+                    <td style="border-top:none;"><a href="#" style="text-decoration: none; color: black;" id="measurements">MEASUREMENTS</a></td>
+                    <td style="padding:0;border-top:none;"><a class="measurement-sprite" /><span></span></td>
                 </tr>
             </table>
-            <div class="col-sm-8">
-                <span id="storySpan" style="display:none;">asj;ldkfja;lsdkfja;lskdfja;lskl;aksjdf;alksdjfa;slkfjasl;dkjfa;lsdkfjasl;fjk</span>
+            <div class="col-sm-12 no-gutter">
+                <span id="storySpan" style="font-size:14px;">asj;ldkfja;lsdkfja;lskdfja;lskl;aksjdf;alksdjfa;slkfjasl;dkjfa;lsdkfjasl;fjk</span>
+                <span id="specsSpan" style="display:none;font-size:14px;">Material: @Model.Material<br />
+                                              Temples: @Model.Temples<br />
+                                              Bridge: @Model.Bridge</span>
+                
+                <table style="display:none;" id="measurementsSpan" class="table table-condensed table-striped">
+                    <thead>
+                        <tr style="font-size:14px;">
+                            <th>Eye</th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>ED</th>
+                            <th>Temples</th>
+                            <th>Circ</th>
+                            <th>Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var c in Model.Measurements)
+                        { 
+                            <tr>
+                                <td>@(c.Eye)</td>
+                                <td>@(c.A)</td>
+                                <td>@(c.B)</td>
+                                <td>@(c.ED)</td>
+                                <td>@(c.Temples)</td>
+                                <td>@(c.Circ)</td>
+                                <td>@(c.Color)</td>
+                                
+                            </tr>
+                        }
+                    </tbody>
+                    
+                </table>
             </div>
         </div>
-    </div> <!-- END OF MAIN FRAME DIV -->
+    </div>
+    <!-- END OF MAIN FRAME DIV -->
 
-    <div class="col-xs-12 col-sm-3">
-        <span>Additional Colors</span><br />
-        @foreach(var p in Model.Colors){
-        <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p)&w=200" />
+    <div class="col-xs-12 col-sm-3 text-center">
+        <span style="font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 20px;">Additional Colors</span><br />
+        @foreach (var p in Model.Colors)
+        {
+            <img class="img-responsive center-block" style="margin-top:15px;margin-bottom:15px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p)&w=200" />
         }
     </div>
 </div>

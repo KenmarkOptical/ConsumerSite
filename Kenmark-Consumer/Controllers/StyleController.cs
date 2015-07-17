@@ -33,7 +33,7 @@ namespace Kenmark_Consumer.Controllers
 
             Style s = new Style().GetStyle(sku);
             s.customers = s.customers.GetCustomers(new WhereToBuy() { Radius = 90, Zip = zip }, 4);
-            return View();
+            return View(s);
         }
 
     }
