@@ -12,9 +12,9 @@
     var bounds;
     var markers = [];
     var infoWindow = null;
-    
-    $(function () {    
-        
+
+    $(function () {
+
         $.get("/WhereToBuy/GetZipGeo").done(function (data) {
             $('#pageLoad').hide();
 
@@ -31,13 +31,13 @@
             clearMap();
 
             $('#pageLoad').show();
-           
+
             $.get("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
                 $('#pageLoad').hide();
                 $('#customerWrapper').hide().html(data.html).fadeIn(250);
-                
+
                 buildMap(data.GooglePoints);
-                
+
             });
         });
 
@@ -48,32 +48,29 @@
             }
         }); // catches Enter press, clicks the filter button
 
-        $(".fancybox").click(function(){
+        $(".fancybox").click(function () {
 
             $.fancybox([
             {
-                href: '#emailBox',  
+                href: '#emailBox',
                 autoSize: true,
-                
+
             }
             ]);
         });
 
-        $("#emailSend").click(function(e){
+        $("#emailSend").click(function (e) {
             var email = $("input#email").val();
             var zip = $("input#Zip").val();
             var radius = $("#Radius option:selected").val();
-            alert(radius);
-            alert(zip);
-            alert(email);
-            $.post("/WhereToBuy/Email",  {email: email, zip: zip, radius: radius});
+            $.post("/WhereToBuy/Email", { email: email, zip: zip, radius: radius });
         });
 
         $("#printBtn").click(function () {
             window.print();
         });
-   
-        
+
+
     });
 
     function initialize() {
@@ -114,11 +111,11 @@
             position: location,
             map: map,
             animation: google.maps.Animation.DROP,
-                
+
         });// end marker
 
         infoWindow = new google.maps.InfoWindow({
-              content: content
+            content: content
         });
 
         bounds.extend(marker.position);
@@ -129,7 +126,7 @@
             infoWindow.open(map, marker);
         });
 
-        
+
 
     }
 
@@ -144,139 +141,138 @@
         markers = [];
     }
 
-  
+
     function buildMap(points) { // for each customer - create a bound, add marker(extend bound), add to map, fit to bounds
-        
+
         var customers = JSON.parse(points);
 
         bounds = new google.maps.LatLngBounds();
-        
-        $(customers).each(function (index, element) {
-            
-            var latLng = new google.maps.LatLng(element.latitude, element.longitude);
-            
-            var url = 'https://www.google.com/maps/dir//';
-            var route = element.address + " " +  element.city + " " + element.state + " " + element.zip;
 
-           
-            
+        $(customers).each(function (index, element) {
+
+            var latLng = new google.maps.LatLng(element.latitude, element.longitude);
+
+            var url = 'https://www.google.com/maps/dir//';
+            var route = element.address + " " + element.city + " " + element.state + " " + element.zip;
+
+
+
             var content = '<strong style="text-transform:capitalize">' + element.customer_name.toLowerCase()
                 + '</strong>' + '<br />' + '<span style="text-transform:capitalize">' + element.address.toLowerCase()
                 + '</span>' + ', ' + '<span style="text-transform:capitalize">' + element.city.toLowerCase()
                 + '</span>' + ', ' + element.state + ', ' + element.zip + '<br />' + element.phone
-                + '<br />' + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles") + " Away" 
+                + '<br />' + element.distance + " " + (element.distance == 1 ? "Mile" : "Miles") + " Away"
                 + '<br />' + '<a id="dir" target="_blank" href="changeString" style="text-decoration:none;">'
                 + "Get Directions" + '</a>'
 
 
             content = content.replace('changeString', url + route);
 
-           addMarker(latLng, content);
-           setAllMap(map);
+            addMarker(latLng, content);
+            setAllMap(map);
 
 
 
         });// end foreach loop
 
         map.fitBounds(bounds);
-        
+
     }
-  
-   // google.maps.event.addDomListener(window, 'load', initialize);
+
+    // google.maps.event.addDomListener(window, 'load', initialize);
 
     google.maps.event.addDomListener(window, 'resize', function () {
         var center = map.getCenter();
         google.maps.event.trigger(map, 'resize');
         map.setCenter(center);
-   });
-       
+    });
+
 </script>
 
 
 
 
 <div class="row topRow" style="margin-top: 50px;">
-    <div class="col-xs-12 col-sm-3" style="padding-left:50px;">
-        <span class="center-block" style="font-size:20px;font-weight:bold;">WHERE TO BUY</span><br />
-        <span style="font-size:14px;">Find retail locations where Kenmark Brands are sold.</span>
-    
+    <div class="col-xs-12 col-sm-3" style="padding-left: 50px;">
+        <span class="center-block" style="font-size: 20px; font-weight: bold;">WHERE TO BUY</span><br />
+        <span style="font-size: 14px;">Find retail locations where Kenmark Brands are sold.</span>
+
 
         @using (Html.BeginForm("GetCustomers", "WhereToBuy", FormMethod.Post, new { @id = "buyFilter" }))
         {
-           <div class="col-xs-12 no-gutter" style="margin-top:30px;">
-               @(Html.LabelFor(m => m.Zip, new { @style="font-size:16px"}))<br />
-               @(Html.TextBoxFor(m => m.Zip, new { @class="form-control" }))
-           </div>
+            <div class="col-xs-12 no-gutter" style="margin-top: 30px;">
+                @(Html.LabelFor(m => m.Zip, new { @style = "font-size:16px" }))<br />
+                @(Html.TextBoxFor(m => m.Zip, new { @class = "form-control" }))
+            </div>
             
-           <div class="col-xs-12 no-gutter" style="margin-top:30px;margin-bottom:30px;">
-              @(Html.LabelFor(m => m.Radius, new { @style="font-size:16px"}))<br />
-              
-              @(Html.DropDownListFor(m => m.Radius, new SelectListItem[]{
+            <div class="col-xs-12 no-gutter" style="margin-top: 30px; margin-bottom: 30px;">
+                @(Html.LabelFor(m => m.Radius, new { @style = "font-size:16px" }))<br />
+
+                @(Html.DropDownListFor(m => m.Radius, new SelectListItem[]{
                 new SelectListItem() {Text = "5 miles", Value="5"},
                 new SelectListItem() {Text = "10 miles", Value="10"},
                 new SelectListItem() {Text = "25 miles", Value="25"},
                 new SelectListItem() {Text = "50 miles", Value="50"},
                 new SelectListItem() {Text = "90 miles", Value="90"},
-              }, new{@class="form-control"}))
-                   
-          </div>
-       }
-    
-        <button id="rangeFilter" type="button" class="btn btn-default submitButton" style="margin-bottom:30px;">FIND DEALERS</button>
+              }, new { @class = "form-control" }))
+
+            </div>
+        }
+
+        <button id="rangeFilter" type="button" class="btn btn-default submitButton" style="margin-bottom: 30px;">FIND DEALERS</button>
         <div class="col-xs-12" id="loadingWrapper">
-
-
         </div>
     </div>
-    
+
 
     <!-- DIV FOR GOOGLE MAP -->
-    <div id="pageLoad" class="text-center" style="font-size:20px;">Loading...</div>
-        <div class="col-xs-12 col-sm-9">
-            <div id="map-canvas" class="col-xs-12 col-sm-11 no-gutter" style="height:450px;">
-            </div>
+    <div id="pageLoad" class="text-center" style="font-size: 20px;">Loading...</div>
+    <div class="col-xs-12 col-sm-9">
+        <div id="map-canvas" class="col-xs-12 col-sm-11 no-gutter" style="height: 450px;">
         </div>
-    
+    </div>
+
 
 
 </div>
 
-<div class="row" style="margin-top:50px;">
-    <div class="col-xs-12 col-sm-3">
-        
-        <div class="col-xs-12 no-gutter text-center" style="margin-bottom:30px;">
-            <div style="font-size:14px; font-weight:bold;">SAVE YOUR LISTINGS</div><br />
-                <div class="col-xs-12 col-sm-6 text-center-xs no-gutter text-right " style="padding-right:5px;">
-                   <button id="emailBtn" type="submit" class="btn btn-default wtbButton fancybox">EMAIL</button>
-                    <!-- fancybox div --> 
-                        <div id="emailBox" style="display:none;">
-                            <div class="col-xs-12 text-center" style="margin-bottom:20px;">
-                                <span style="font-size:18px;">Please enter your Email Address.</span>
-                            </div>
+<div class="row" style="margin-top: 50px;">
+    <div class="col-xs-12 col-sm-3 topRow">
 
-                            <div class="form-horizontal" style="margin-top:20px;">
-                                
-                                <div class="col-xs-12">
-                                    <input id="email" type="email" class="form-control" placeholder="Email Address" /><br />
-                                </div>
-                                
-                                <div class="col-xs-12 text-center">
-                                    <button id="emailSend" type="submit" class="btn btn-default submitButton" style="margin-top:10px;">Send</button>
-                                </div>
-                            </div>
-                        </div>  
+        <div class="col-xs-12 no-gutter text-center" style="margin-bottom: 30px;">
+            <div style="font-size: 14px; font-weight: bold;">SAVE YOUR LISTINGS</div>
+            <br />
+            <div class="col-xs-12 col-sm-6 text-center-xs no-gutter text-right " style="padding-right: 5px;">
+                <button id="emailBtn" type="submit" class="btn btn-default wtbButton fancybox">EMAIL</button>
+                <!-- fancybox div -->
+                <div id="emailBox" style="display: none;">
+                    <div class="col-xs-12 text-center" style="margin-bottom: 20px;">
+                        <span style="font-size: 18px;">Please enter your Email Address.</span>
+                    </div>
+
+                    <div class="form-horizontal" style="margin-top: 20px;">
+
+                        <div class="col-xs-12">
+                            <input id="email" type="email" class="form-control" placeholder="Email Address" /><br />
+                        </div>
+
+                        <div class="col-xs-12 text-center">
+                            <button id="emailSend" type="submit" class="btn btn-default submitButton" style="margin-top: 10px;">Send</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-6 no-gutter text-left hidden-xs" style="padding-left:5px;">
-                    <button id="printBtn" type="submit" class="btn btn-default wtbButton">PRINT</button>
-                </div>
+            </div>
+            <div class="col-xs-6 no-gutter text-left hidden-xs" style="padding-left: 5px;">
+                <button id="printBtn" type="submit" class="btn btn-default wtbButton">PRINT</button>
+            </div>
 
         </div>
     </div>
 
-<div class="col-xs-12 col-sm-9">
-      <div id="customerWrapper">
-                 <!-- Wrapper for partial view to update customers --> 
-      </div>
-  </div>
-           
+    <div class="col-xs-12 col-sm-9">
+        <div id="customerWrapper">
+            <!-- Wrapper for partial view to update customers -->
+        </div>
+    </div>
+
 </div>

@@ -56,14 +56,14 @@
 </script>
 
 @if (Model.Items.Count > 0) { 
-
-    foreach (var s in Model.Items)
+    <div class="row row-eq-height">
+     @foreach (var s in Model.Items)
          {
 
              
               
-          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4 magazine" style="margin-bottom:10px;">
-            <a class="fancybox" href="#insideImage"><img class="img-responsive fancyboxPicture" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" /></a>
+          <div id="magazine-@s.press_clipping.id" class="col-xs-6 col-sm-4 magazine text-center" style="margin-bottom:10px;">
+            <a class="fancybox" href="#insideImage"><img class="img-responsive fancyboxPicture" src="~/Content/images/Press_Clippings/@s.press_clipping.main_image" style="margin:auto;"/></a>
 
             <br />
                 <span>
@@ -80,11 +80,10 @@
               <input type="hidden" value="@(((DateTime)s.press_clipping.release_date).Year.ToString())" id="release_year@(s.press_clipping.id)" />
               <input type="hidden" value="@(s.press_clipping.frame)" id="inside_frame@(s.press_clipping.id)" />
               <input type="hidden" value="@(s.press_clipping.pdf)" id="inside_pdf@(s.press_clipping.id)" />
-              
-              
-              
-          </div>
-         }    
+         </div>
+                  
+         } 
+   </div>   
      
 }else{
 
