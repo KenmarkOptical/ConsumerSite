@@ -515,6 +515,7 @@
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Filters.cs" />
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\MaxMindGeo.cs" />

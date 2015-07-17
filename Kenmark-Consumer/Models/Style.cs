@@ -17,7 +17,7 @@ namespace Kenmark_Consumer.Models
         public string Temples { get; set; }
         public string Bridge { get; set; }
 
-        //measurementst
+        //measurement
         public List<Style_Measurements> Measurements { get; set; }
 
 
