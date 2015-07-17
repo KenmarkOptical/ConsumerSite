@@ -203,7 +203,8 @@
             $('#FilterDiv').html(data.htmlfilter);
 
             //update query string
-            window.location.href = window.location.href + data.query;
+            //window.location.href = window.location.href + data.query;
+            window.history.pushState('Kenmark View Frames', 'Kenmark View Frames', window.location.href + data.query);
 
             //un-disable the first item checked
             if ($('#FirstElement').val() != 'none') {

@@ -19,10 +19,19 @@ namespace Kenmark_Consumer.Controllers
         }
 
         public ActionResult ViewCollection(string collection, string sub, int page, int sort = 1, Filters filter = null)
-        {        
+        {         
 
-            filter.sort = sort;
-      
+            //get the filter from session
+            if (filter == null)
+            {
+                 filter = new Filters();
+            }
+            else
+            {
+                filter.sort = sort;
+            }
+
+
             Collections c = new Collections();          
             collection = "PEO";
             sub = "RX";
@@ -61,14 +70,13 @@ namespace Kenmark_Consumer.Controllers
             c.CollectionCode = "PEO";
             c.CollectionGroup = "RX";
             ViewBag.Sort = sort;
-           
-                ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
-            
+            ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
+
             return View(c);
         }
 
         [HttpGet]
-        public ActionResult GetFrames(Filters fm, string coll, string group, int page, int count, int sort )
+        public ActionResult GetFrames(Filters fm, string coll, string group, int count, int sort, int page)
         {
                 Collections c = new Collections();
                 int pageSize = c.PageCount;      
@@ -131,10 +139,12 @@ namespace Kenmark_Consumer.Controllers
             c.CollectionGroup = "RX";
 
             //create a query string from the filter model
-            string query = QueryStringExtensions.ToQueryString<Filters>(f);      
-       
+            string query = QueryStringExtensions.ToQueryString<Filters>(f);
+
+            string grid_html = RenderPartialViewToString("_Grid", c);
+            string filter_html = RenderPartialViewToString("_Filter", f);
             ViewBag.Sort = f.sort;
-            return Json(new { html = RenderPartialViewToString("_Grid", c), filterChange = f.Reload == true ? 1 : 0, htmlfilter = RenderPartialViewToString("_Filter", f), count = c.Frames.Count(), query = query });
+            return Json(new { html = grid_html, filterChange = f.Reload == true ? 1 : 0, htmlfilter = filter_html, count = c.Frames.Count(), query = query });
         }
 
     }
