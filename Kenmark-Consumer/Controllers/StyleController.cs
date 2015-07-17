@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kenmark_Consumer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index()
         {
+            Style s = new Style().GetStyle("AMBL");
             return View();
         }
 

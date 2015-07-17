@@ -53,7 +53,8 @@ namespace Kenmark_Consumer.Models
                                   Eye = d.O,
                                   Color = d.J,
                                   Temples = d.T
-                              }).ToList();
+                              }).OrderBy(x => x.Eye)
+                              .ToList();
 
             db.Database.Connection.Close();
             db2.Database.Connection.Close();
