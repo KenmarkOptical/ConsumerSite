@@ -229,6 +229,7 @@
     <Compile Include="Controllers\PressReleaseController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ShowScheduleController.cs" />
+    <Compile Include="Controllers\StyleController.cs" />
     <Compile Include="Controllers\TheMirrorController.cs" />
     <Compile Include="Controllers\WhereToBuyController.cs" />
     <Compile Include="country.cs">
@@ -1203,6 +1204,7 @@
     <Content Include="Views\WhereToBuy\_Grid.cshtml" />
     <Content Include="Views\Home\_Grid.cshtml" />
     <Content Include="Views\TheMirror\Index.cshtml" />
+    <Content Include="Views\Style\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
