@@ -18,7 +18,7 @@ namespace Kenmark_Consumer.Models
 
         public List<usp_where_to_buy_Result> Customers{ get; set; }
 
-        public WhereToBuy GetCustomers(WhereToBuy data)
+        public WhereToBuy GetCustomers(WhereToBuy data, int Max_Results = 0)
         {
             WhereToBuy wtb = new WhereToBuy();
             wtb.Zip = data.Zip;
@@ -33,6 +33,10 @@ namespace Kenmark_Consumer.Models
             {
                 var cust_List = db.usp_where_to_buy(data.Zip, data.Radius);
                 wtb.Customers = cust_List.ToList();
+                if (Max_Results != 0)
+                {
+                    wtb.Customers = wtb.Customers.Take(Max_Results).ToList();
+                }
             }
             return wtb;
         }

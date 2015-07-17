@@ -524,6 +524,7 @@
     <Compile Include="Models\PressRelease.cs" />
     <Compile Include="Models\QueryStringExtensions.cs" />
     <Compile Include="Models\ShowSchedule.cs" />
+    <Compile Include="Models\Style.cs" />
     <Compile Include="Models\WhereToBuy.cs" />
     <Compile Include="MyDateTable.cs">
       <DependentUpon>Inquiry.tt</DependentUpon>
