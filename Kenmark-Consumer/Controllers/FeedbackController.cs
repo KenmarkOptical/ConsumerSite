@@ -19,5 +19,11 @@ namespace Kenmark_Consumer.Controllers
             return View(f);
         }
 
+        [HttpPost]
+        public ActionResult SaveFeedback(Feedback f)
+        {
+            f.SaveFeedback(f);
+            return View();
+        }
     }
 }

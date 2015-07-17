@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Kenmark_Consumer.Models.Style
+
+@{
     ViewBag.Title = "Style";
 }
 
@@ -17,7 +19,7 @@
 
             <div class="carousel-inner" role="listbox">
                 <div class="item-active">
-                    <img class="img-responsive" src="~/Content/images/home/feature.png" />
+                    <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Main_Color)" />
                 </div>
 
             </div>
@@ -35,8 +37,8 @@
 
         </div><!-- END OF CAROUSEL -->
         <div class="col-sm-4" style="margin-top:30px;">
-            <span style="font-size:22px;">Original Penguin</span><br />
-            <span style="font-size:20px; font-weight:bold;">Frame Name</span><br />
+            <span style="font-size:22px;">@Model.Collection</span><br />
+            <span style="font-size:20px; font-weight:bold;">@Model.Style_Name</span><br />
             <button class="btn btn-default submitButton" style="margin-top:20px;width:150px;">Print Specs</button><br />
             <span style="color:#adadad">Take this spec sheet to your optician for easy ordering</span>
         </div>
@@ -55,8 +57,8 @@
 
     <div class="col-xs-12 col-sm-3">
         <span>Additional Colors</span><br />
-        <img class="img-responsive" src="~/Content/images/home/insta.jpg" />
-        <img class="img-responsive" src="~/Content/images/home/insta.jpg" />
-        <img class="img-responsive" src="~/Content/images/home/insta.jpg" />
+        @foreach(var p in Model.Colors){
+        <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Main_Color)" />
+        }
     </div>
 </div>
