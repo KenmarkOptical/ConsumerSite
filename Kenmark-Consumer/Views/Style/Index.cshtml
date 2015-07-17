@@ -3,7 +3,14 @@
 @{
     ViewBag.Title = "Style";
 }
-
+<script type="text/javascript">
+    $(function () {
+        $('#story').click(function () {
+            alert("hello");
+            $('#storySpan').show();
+        });
+    });
+</script>
 <div class="row" style="padding-left: 50px; margin-top: 10px;">
     <div class="col-md-3" style="font-size: 12px;">MEN / PENGUIN / RX / TORTOGA</div>
 </div>
@@ -19,7 +26,7 @@
 
             <div class="carousel-inner" role="listbox">
                 <div class="item-active">
-                    <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Main_Color)" />
+                    <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Main_Color)&w=200" />
                 </div>
 
             </div>
@@ -46,19 +53,22 @@
         <div class="col-sm-8" style="margin-top:30px;">
             <table class="table table-condensed">
                 <tr style="font-weight:bold;">
-                    <td>STORY</td>
+                    <td><a href="#" style="text-decoration:none;color:black;" id="story">STORY</a></td>
                     <td>SPECS</td>
                     <td>MEASUREMENTS</td>
                     <td><img src="~/Content/images/Style/icon_measure.png" /></td>
                 </tr>
             </table>
+            <div class="col-sm-8">
+                <span id="storySpan" style="display:none;">asj;ldkfja;lsdkfja;lskdfja;lskl;aksjdf;alksdjfa;slkfjasl;dkjfa;lsdkfjasl;fjk</span>
+            </div>
         </div>
     </div> <!-- END OF MAIN FRAME DIV -->
 
     <div class="col-xs-12 col-sm-3">
         <span>Additional Colors</span><br />
         @foreach(var p in Model.Colors){
-        <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Main_Color)" />
+        <img class="img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p)&w=200" />
         }
     </div>
 </div>
