@@ -1054,6 +1054,10 @@
     <Content Include="Content\images\ShowSchedule\banner_1.jpg" />
     <Content Include="Content\images\ShowSchedule\banner_2.jpg" />
     <Content Include="Content\images\ShowSchedule\header.jpg" />
+    <Content Include="Content\images\Style\icon_measure.png" />
+    <Content Include="Content\images\Style\product_color_fpo.jpg" />
+    <Content Include="Content\images\Style\product_large_fpo.jpg" />
+    <Content Include="Content\images\Style\product_viewbrand.jpg" />
     <Content Include="Content\images\ViewCollection\peo.jpg" />
     <Content Include="Content\images\Where_To_Buy\icon_link.png" />
     <Content Include="Content\images\Where_To_Buy\icon_map.png" />
