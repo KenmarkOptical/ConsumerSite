@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Style";
+}
+
+<div class="row" style="padding-left: 50px; margin-top: 10px;">
+    <div class="col-md-3" style="font-size: 12px;">MEN / PENGUIN / RX / TORTOGA</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-9">
+        <div id="carousel-style" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-new-releases" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-new-releases" data-slide-to="1"></li>
+            </ol>
+
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item-active">
+                    <img class="img-responsive" src="~/Content/images/home/feature.png" />
+                </div>
+
+            </div>
+
+            <!-- CONTROLS -->
+            <a class="left carousel-control" href="#carousel-new-releases" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" style="color: gray;" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="right carousel-control" href="#carousel-new-releases" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" style="color: gray;" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div><!-- END OF CAROUSEL -->
+        <div class="col-sm-4" style="margin-top:30px;">
+            <span style="font-size:22px;">Original Penguin</span><br />
+            <span style="font-size:20px; font-weight:bold;">Frame Name</span><br />
+            <button class="btn btn-default submitButton" style="margin-top:20px;width:150px;">Print Specs</button><br />
+            <span style="color:#adadad">Take this spec sheet to your optician for easy ordering</span>
+        </div>
+
+        <div class="col-sm-8"></div>
+    </div> <!-- END OF MAIN FRAME DIV -->
+
+    <div class="col-xs-12 col-sm-3">
+        <span>Additional Colors</span><br />
+        <img class="img-responsive" src="~/Content/images/home/insta.jpg" />
+        <img class="img-responsive" src="~/Content/images/home/insta.jpg" />
+        <img class="img-responsive" src="~/Content/images/home/insta.jpg" />
+    </div>
+</div>
