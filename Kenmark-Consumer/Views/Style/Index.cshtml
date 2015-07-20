@@ -51,6 +51,8 @@
             $('#carousel-style').carousel(id);
            
         });
+
+      
     });
 </script>
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
@@ -135,7 +137,7 @@
 
                     <td style="border-top:none;" id="storyBorder"><a href="#" style="text-decoration: none; color: black;border-top:1px solid black;" id="story">STORY</a></td>
                     <td style="border-top:none;"><span style="cursor:pointer;text-decoration: none; color: black;" id="specs">SPECS</span></td>
-                    <td style="border-top:none;"><span style="text-decoration: none; color: black;" id="measurements">MEASUREMENTS</span></td>
+                    <td style="border-top:none;"><span style="text-decoration: none; color: black; cursor:pointer;" id="measurements">MEASUREMENTS</span></td>
                     <td style="padding:0;border-top:none;"><a class="measurement-sprite" /><span></span></td>
                 </tr>
             </table>
@@ -192,7 +194,7 @@
         {
             *@
         @for(int i = 0; i < Model.Colors.Count; i++){
-        <img id="@i" class="img-responsive center-block additionalColors" style="margin-top:15px;margin-bottom:15px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=200" />
+        <img id="@i" class="img-responsive center-block additionalColors" style="margin-top:15px;margin-bottom:15px; cursor:pointer;" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=200" />
         }
     </div>
 </div>
