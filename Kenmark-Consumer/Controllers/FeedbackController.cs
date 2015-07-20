@@ -22,7 +22,7 @@ namespace Kenmark_Consumer.Controllers
         [HttpPost]
         public ActionResult SaveFeedback(Feedback f)
         {
-            f.SaveFeedback(f);
+            //f.SaveFeedback(f);
             return View();
         }
     }

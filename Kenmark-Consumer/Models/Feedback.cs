@@ -16,8 +16,13 @@ namespace Kenmark_Consumer.Models
         [Required(ErrorMessage = "Please Rate the Design")]
         public int Design { get; set; }
 
+        [Display(Name = "Any other Comments?")]
         public string Comments { get; set; }
+
+        [Display(Name = "Your Email (Optional)")]
+        [EmailAddress]
         public string Email { get; set; }
+
         public string Style {get;set;}
 
         public void SaveFeedback(Feedback f)

@@ -10,7 +10,7 @@
             $('#specsSpan').hide();
             $('#specs').css('border-top', 'none');
             $('#measurements').css('border-top', 'none');
-            $('#story').css('border-top', '2px solid black');
+            $('#story').css('border-top', '1px solid black');
             
             $('#storySpan').show();
         });
@@ -20,7 +20,7 @@
             $('#storySpan').hide();
             $('#story').css('border-top', 'none');
             $('#measurements').css('border-top', 'none');
-            $('#specs').css('border-top', '2px solid black');
+            $('#specs').css('border-top', '1px solid black');
             $('#specsSpan').show();
         });
 
@@ -30,8 +30,26 @@
             $('#specs').css('border-top', 'none');
             $('#story').css('border-top', 'none');
 
-            $('#measurements').css('border-top', '2px solid black');
+            $('#measurements').css('border-top', '1px solid black');
             $('#measurementsSpan').show();
+        });
+
+        $('.fancybox').click(function () {
+            $.fancybox([
+                {
+                    href: '#feedback',
+                    autoSize: true, 
+                }
+            ]);
+        });
+
+        $('.carousel').carousel();
+        $('.additionalColors').click(function () {
+            var id = $(this).attr("id");
+            
+            id = parseInt(id);
+            $('#carousel-style').carousel(id);
+           
         });
     });
 </script>
@@ -41,9 +59,9 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-9">
-        <div id="carousel-style" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div id="carousel-style" class="carousel slide" @*data-ride="carousel"*@ data-interval="false">
             
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" style="bottom:-30px;">
                 @for (int i = 0; i < Model.Colors.Count; i++)
                 {
                     
@@ -95,21 +113,41 @@
             <span style="font-size: 22px;">@Model.Collection</span><br />
             <span style="font-size: 20px; font-weight: bold;">@Model.Style_Name</span><br />
             <button class="btn btn-default submitButton" style="margin-top: 20px; width: 150px;">Print Specs</button><br />
-            <span style="color: #adadad">Take this spec sheet to your optician for easy ordering</span>
+            <span style="display:inline-block;margin-top:10px;color: #adadad">Take this spec sheet to<br /> your optician for easy ordering</span><br />
+
+            <span style="display:inline-block;margin-top:40px;">
+            <a class="facebook-sprite-large" href="https://www.facebook.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
+            <a class="twitter-sprite-large" href="https://twitter.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
+            <a class="instagram-sprite-large" href="https://instagram.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
+            <a class="pinterest-sprite-large" href="https://www.pinterest.com/kenmarkeyewear/" target="_blank" style="margin-right: 15px;"><span></span></a>
+            </span><br />
+
+            <a class="fancybox" href="#" style="display:inline-block;margin-top:25px;color:#adadad;font-weight:bold;font-size:14px;text-decoration:none;">FEEDBACK</a>
+            <!-- Fancybox Div -->
+            <div id="feedback" style="display:none">
+               @{Html.RenderPartial("~/Views/Feedback/_Grid.cshtml", new Kenmark_Consumer.Models.Feedback() { Style = Model.Style_Name });}
+            </div>
         </div>
 
-        <div class="col-sm-8" style="margin-top: 30px;">
+        <div class="col-sm-8" style="margin-top: 30px;margin-bottom:30px;">
             <table class="table table-condensed">
                 <tr style="font-weight: bold;">
 
-                    <td style="border-top:none;" id="storyBorder"><a href="#" style="text-decoration: none; color: black;border-top:2px solid black;" id="story">STORY</a></td>
-                    <td style="border-top:none;"><a href="#" style="text-decoration: none; color: black;" id="specs">SPECS</a></td>
-                    <td style="border-top:none;"><a href="#" style="text-decoration: none; color: black;" id="measurements">MEASUREMENTS</a></td>
+                    <td style="border-top:none;" id="storyBorder"><a href="#" style="text-decoration: none; color: black;border-top:1px solid black;" id="story">STORY</a></td>
+                    <td style="border-top:none;"><span style="cursor:pointer;text-decoration: none; color: black;" id="specs">SPECS</span></td>
+                    <td style="border-top:none;"><span style="text-decoration: none; color: black;" id="measurements">MEASUREMENTS</span></td>
                     <td style="padding:0;border-top:none;"><a class="measurement-sprite" /><span></span></td>
                 </tr>
             </table>
             <div class="col-sm-12 no-gutter">
-                <span id="storySpan" style="font-size:14px;">asj;ldkfja;lsdkfja;lskdfja;lskl;aksjdf;alksdjfa;slkfjasl;dkjfa;lsdkfjasl;fjk</span>
+                <span id="storySpan" style="font-size:14px;display:inline-block;margin-bottom:45px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum lectus sit 
+                    amet lorem congue facilisis. Praesent porttitor metus metus, sed auctor nibh tincidunt 
+                    in. Duis quis mi placerat, tincidunt odio sit amet, elementum justo. Ut non sodales dolor,
+                     id aliquam dui. Donec euismod ut enim ac suscipit. Aenean elementum magna nunc, non 
+                    aliquam dolor dapibus ac. Sed malesuada aliquet ex, viverra egestas lacus placerat in. 
+                    Nunc consectetur nulla ac nunc efficitur iaculis. </span>
+
                 <span id="specsSpan" style="display:none;font-size:14px;">Material: @Model.Material<br />
                                               Temples: @Model.Temples<br />
                                               Bridge: @Model.Bridge</span>
@@ -148,11 +186,22 @@
     </div>
     <!-- END OF MAIN FRAME DIV -->
 
-    <div class="col-xs-12 col-sm-3 text-center">
+    <div class="col-xs-12 col-sm-3 text-center" style="margin-bottom:30px;">
         <span style="font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 20px;">Additional Colors</span><br />
-        @foreach (var p in Model.Colors)
+       @* @foreach (var p in Model.Colors)
         {
-            <img class="img-responsive center-block" style="margin-top:15px;margin-bottom:15px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(p)&w=200" />
+            *@
+        @for(int i = 0; i < Model.Colors.Count; i++){
+        <img id="@i" class="img-responsive center-block additionalColors" style="margin-top:15px;margin-bottom:15px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=200" />
         }
     </div>
+</div>
+
+<div class="col-xs-12 col-sm-9 col-sm-offset-3">
+    <span style="display:inline-block;margin-bottom:20px;font-size:14px;font-weight:bold;">Where To Buy</span>
+    @{Html.RenderPartial("_Grid", Model);}
+</div>
+
+<div class="row" style="margin-top:15px;">
+    <img class="img-responsive" src="~/Content/images/Style/product_viewbrand.jpg" />
 </div>
