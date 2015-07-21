@@ -11,7 +11,7 @@
             $('#specs').css('border-top', 'none');
             $('#measurements').css('border-top', 'none');
             $('#story').css('border-top', '1px solid black');
-            
+
             $('#storySpan').show();
         });
 
@@ -38,7 +38,7 @@
             $.fancybox([
                 {
                     href: '#feedback',
-                    autoSize: true, 
+                    autoSize: true,
                 }
             ]);
         });
@@ -46,33 +46,33 @@
         $('.carousel').carousel();
         $('.additionalColors').click(function () {
             var id = $(this).attr("id");
-            
+
             id = parseInt(id);
             $('#carousel-style').carousel(id);
-           
+
         });
 
         //var zommNum =
         $('.frameImg').hover(function () {
             var frameId = this.id;
             var frameNum = frameId.replace("zoom_", "");
-            
+
             var zoomFrame = ('#zoom_' + frameNum);
-           
-            
+
+
 
             $(zoomFrame).elevateZoom({
-
+                //zoomWindowPosition: "img-container",
                 cursor: "crosshair",
                 zoomWindowFadeIn: 500,
                 zoomWindowFadeOut: 750,
-                zoomWindowWidth: 300,
-                zoomWindowHeight: 300,
+                zoomWindowPosition: 6,
+                
             });
 
         });
-        
-      
+
+
     });
 </script>
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
@@ -108,9 +108,7 @@
                      <div class="col-xs-12">
                             <img id="zoom_@i" class="center-block img-responsive frameImg" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=600" data-zoom-image="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=1300" />
                      </div>
-                     <div class="zoomWindow" style="display:none;">
-                         
-                     </div>
+                    
                 }
             </div>
                 </div>
@@ -215,7 +213,8 @@
        @* @foreach (var p in Model.Colors)
         {
             *@
-        @for(int i = 0; i < Model.Colors.Count; i++){
+        @for (int i = 0; i < Model.Colors.Count; i++)
+        {
         <img id="@i" class="img-responsive center-block additionalColors" style="margin-top:15px;margin-bottom:15px; cursor:pointer;" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=200" />
         }
     </div>
