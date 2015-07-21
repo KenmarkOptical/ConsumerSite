@@ -38,24 +38,24 @@
              <div class="hidden-sm hidden-md hidden-lg"><br /></div>
             
              @if((Model.FrameCount / Model.PageCount) > 0 && (Model.Page -1 != 0)){
-               @: <span style="margin-right:4px; color:black;"><a style="color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&page=@(Model.Page - 1)&sort=@(ViewBag.sort)"><</a></span> <span>
+               @: <span style="margin-right:4px; color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&page=@(Model.Page - 1)&sort=@(ViewBag.sort)"><</a></span> <span>
              }           
                   
                 @for (int i = 0; i < ((Model.FrameCount % Model.PageCount) == 0 && (Model.FrameCount > Model.PageCount) ? (Model.FrameCount / Model.PageCount) : (Model.FrameCount / Model.PageCount) + 1); i++)
                 {
                     if ((Model.Page - 1) == i)
                     {
-                        <a style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=RX&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=RX&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                     }
                     else
                     {   
-                        <a style="margin-right:4px; color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                        <a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                     }
                 }
              </span>
 
               @if((Model.FrameCount / (Model.PageCount * Model.Page)) > 0){
-                @:<span style="color:black;"><a style="color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
+                @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
               } 
         </div>          
     </div>    

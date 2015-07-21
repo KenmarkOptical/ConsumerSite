@@ -18,6 +18,7 @@ namespace Kenmark_Consumer.Models
 
 
         //Filters
+        public List<BoolSetting> Collection_Like { get; set; }
         public List<BoolSetting> Colors { get; set; }
         public List<BoolSetting> Genders { get; set; }
         public List<BoolSetting> Material { get; set; }
@@ -39,6 +40,7 @@ namespace Kenmark_Consumer.Models
         public Filters GetFilters(string Group, string SubGroup)
         {
             KenmarkTestDBEntities db = new KenmarkTestDBEntities();
+            List<BoolSetting> CollectionFilter = new List<BoolSetting>();
             List<BoolSetting> ColorFilter = new List<BoolSetting>();
             List<BoolSetting> GenderFilter = new List<BoolSetting>();
             List<BoolSetting> MaterialFilter = new List<BoolSetting>();
@@ -64,6 +66,13 @@ namespace Kenmark_Consumer.Models
                                where codes.Contains(i.coll_sub)
                                && i.customerportal_display == true
                                select i.sku).ToList();
+
+                CollectionFilter = db.Kenmark_Collections_like
+                                .Where(m => m.Enabled == true)
+                                .Select(m => new BoolSetting { DisplayName = m.Site_Display, Value = false })
+                                .Distinct()
+                                .OrderBy(m => m.DisplayName)
+                                .ToList();
                 
                 ColorFilter = di.INQInventories
                                 .Where(m => skuList.Contains(m.Item) && m.J != null)
@@ -116,6 +125,7 @@ namespace Kenmark_Consumer.Models
 
             return new Filters()
             {
+                Collection_Like = CollectionFilter,
                 Colors = ColorFilter,
                 Genders = GenderFilter,
                 Material = MaterialFilter,

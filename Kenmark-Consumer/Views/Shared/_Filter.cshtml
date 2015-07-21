@@ -125,7 +125,9 @@
         $('#ColorToggle').click(function () {
             if ($(this).html() == "clear") {
                 $('.ColorCB').removeAttr('checked');
-    }          
+            }
+
+
             
             _Page = 0;
             $('#height').val($(window).height());
@@ -134,7 +136,21 @@
             $('#Reload').val(true);
             $('#CurrPage').val(_Page);
             $('#FilterForm').submit();
-    });
+        });
+
+        $('#CollectionToggle').click(function () {
+            if ($(this).html() == "clear") {
+                $('.CollectionCB').removeAttr('checked');
+            }
+
+            _Page = 0;
+            $('#height').val($(window).height());
+            $('#width').val($(window).width());
+
+            $('#Reload').val(true);
+            $('#CurrPage').val(_Page);
+            $('#FilterForm').submit();
+        });
 
         $('#GenderToggle').click(function () {
             if ($(this).html() == "clear") {
@@ -204,7 +220,15 @@
 
             //update query string
             //window.location.href = window.location.href + data.query;
-            window.history.pushState('Kenmark View Frames', 'Kenmark View Frames', window.location.href + data.query);
+            var qs = updateQueryStringParameter(window.location.href + '&' + data.query, 'page', '1');
+            window.history.pushState('Kenmark View Frames', 'Kenmark View Frames', qs);
+
+            //update the paging links
+            $('.filter-nav-link').each(function (index,value) {
+               var num = $(this).html();
+               var u = updateQueryStringParameter(window.location.href + '&' + data.query, 'page', num);
+               $(this).attr('href', u);
+            });
 
             //un-disable the first item checked
             if ($('#FirstElement').val() != 'none') {
@@ -214,8 +238,7 @@
 
             $('#FilterList').show();
         }
-        else {
-
+        else {          
             if (data.count != '0') {                                   
                 $('#grid').append(data.html);
             }
@@ -225,6 +248,17 @@
         }
 
         
+    }
+
+    function updateQueryStringParameter(uri, key, value) {
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            return uri.replace(re, '$1' + key + "=" + value + '$2');
+        }
+        else {
+            return uri + separator + key + "=" + value;
+        }
     }
 
     function loadFrames() {
@@ -276,7 +310,37 @@
             <span style="font-size:13px;"><b>Filter</b></span>
         </div>  
 
-        <div class="col-xs-4 col-sm-12 text-center"style="margin-bottom:10px;">
+
+         <div class="col-xs-4 col-sm-12 "style="margin-bottom:10px;">
+             @if (Model.Collection_Like != null)
+            {
+                <span onclick="$('#collection-items').toggle();" style="cursor:pointer; margin-top:5px; display:inline-block;font-size:14px;">+ BRANDS</span><br />
+                    if (Model.Collection_Like.Where(m => m.Value == true).Count() > 0)
+                   {
+                    <span id="CollectionToggle" style="cursor: pointer;  margin-top: 3px;  display: inline-block;  margin-bottom: 7px;  margin-left: 2px;">clear</span><br />
+                    <script>$('#collection-items').show();</script>
+                   }
+                 
+                <div id="collection-items" style="display:none;">              
+                @for (int i = 0; i < Model.Collection_Like.Count; i++)
+                {
+                    <div style="@(Model.Collection_Like[i].Disabled == true ? "pointer-events:none; color:#999;" : ""); margin-left:5px;" class="row">
+                    @Html.CheckBoxFor(x => x.Collection_Like[i].Value, new { @class = "filterAttribute CollectionCB" })
+                    @Html.LabelFor(x => x.Collection_Like[i].Value, Model.Collection_Like[i].DisplayName)
+                    @Html.HiddenFor(x => x.Collection_Like[i].DisplayName, new { @class = "CollectionCBHF" })
+                    <br />
+                    </div>
+                }
+                </div>
+            }
+        </div>
+
+
+
+
+
+
+        <div class="col-xs-4 col-sm-12"style="margin-bottom:10px;">
              @if (Model.Colors != null)
             {
                 <span onclick="$('#color-items').toggle();" style="cursor:pointer; margin-top:5px; display:inline-block;font-size:14px;">+ COLOR</span><br />
@@ -303,7 +367,7 @@
 
 
    
-       <div class="col-xs-4 col-sm-12 text-center"style="margin-bottom:10px;">
+       <div class="col-xs-4 col-sm-12 "style="margin-bottom:10px;">
         @if (Model.Genders != null)
         {
             <span onclick="$('#gender-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ GENDER</span><br />
@@ -325,7 +389,7 @@
         }
         </div>
 
-        <div class="col-xs-4 col-sm-12 text-center"style="margin-bottom:10px;">
+        <div class="col-xs-4 col-sm-12 "style="margin-bottom:10px;">
         @if (Model.Material != null)
         {
             <span onclick="$('#material-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ MATERIAL</span><br />
@@ -348,7 +412,7 @@
          </div>
 
 
-        <div class="col-xs-4 col-sm-12 text-center"style="margin-bottom:10px;">
+        <div class="col-xs-4 col-sm-12 "style="margin-bottom:10px;">
         @if (Model.Shape != null)
         {
            <span onclick="$('#shape-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ SHAPE</span><br />
@@ -370,7 +434,7 @@
         }
          </div>
 
-        <div class="col-xs-4 col-sm-12 text-center"style="margin-bottom:10px;">
+        <div class="col-xs-4 col-sm-12 "style="margin-bottom:10px;">
          @if (Model.MinEyeSize != null && Model.MaxEyeSize != null)
          {
             <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ EYE SIZE</span><br />
@@ -393,7 +457,7 @@
          }
          </div>
 
-        <div class="col-xs-4 col-sm-12 text-center" style="margin-bottom:10px;">
+        <div class="col-xs-4 col-sm-12 " style="margin-bottom:10px;">
             @*<span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block; vertical-align:top;font-size:14px;text-align:right;">+</span>*@
             <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;max-width:120px;font-size:14px;"> + BACK TO PENGUIN COLLECTIONS</span><br />
         </div>
