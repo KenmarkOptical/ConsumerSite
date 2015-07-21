@@ -1167,6 +1167,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="Scripts\jquery.elevatezoom.js" />
     <Content Include="Scripts\jquery.fancybox-buttons.js" />
     <Content Include="Scripts\jquery.fancybox.js" />
     <Content Include="Scripts\jquery.fancybox.pack.js" />
