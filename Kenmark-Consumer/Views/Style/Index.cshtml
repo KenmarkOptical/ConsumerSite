@@ -52,6 +52,26 @@
            
         });
 
+        //var zommNum =
+        $('.frameImg').hover(function () {
+            var frameId = this.id;
+            var frameNum = frameId.replace("zoom_", "");
+            
+            var zoomFrame = ('#zoom_' + frameNum);
+           
+            
+
+            $(zoomFrame).elevateZoom({
+
+                cursor: "crosshair",
+                zoomWindowFadeIn: 500,
+                zoomWindowFadeOut: 750,
+                zoomWindowWidth: 300,
+                zoomWindowHeight: 300,
+            });
+
+        });
+        
       
     });
 </script>
@@ -86,9 +106,11 @@
                         @:<div class="item">
                     }
                      <div class="col-xs-12">
-                            <img class="center-block img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=600" />
+                            <img id="zoom_@i" class="center-block img-responsive frameImg" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=600" data-zoom-image="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Colors[i])&w=1300" />
                      </div>
-                    
+                     <div class="zoomWindow" style="display:none;">
+                         
+                     </div>
                 }
             </div>
                 </div>
