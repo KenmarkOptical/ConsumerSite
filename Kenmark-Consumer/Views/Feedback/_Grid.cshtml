@@ -1,12 +1,12 @@
 ﻿@model Kenmark_Consumer.Models.Feedback
 
 
-@using (Ajax.BeginForm("SaveFeedback", "Feedback", new AjaxOptions { HttpMethod = "Post"}))
+@using (Ajax.BeginForm("SaveFeedback", "Feedback", new AjaxOptions { HttpMethod = "Post" }))
 {
     
     <div class="col-xs-12">
-        @Html.LabelFor(m => m.Color, new {  @style = "font-size:11px; color:#64635e;" })
-        @*@Html.TextBoxFor(m => m.Color, new {@class = "form-control" })*@
+        @Html.LabelFor(m => m.Color, new { @style = "font-size:11px; color:#64635e;" })
+
         @Html.DropDownListFor(m => m.Color, new SelectList(
         new List<Object> { 
             new{ value = 1, text = "1"},
@@ -16,14 +16,14 @@
             new{ value = 5, text = "5 (Best)"},
         }, "value", "text", 2
 
-       ), new { @class="form-control"})
-        
+       ), new { @class = "form-control" })
+
         @Html.ValidationMessageFor(m => m.Color)<br />
-  
-    
-    
+
+
+
         @Html.LabelFor(m => m.Design, new { @style = "font-size:11px; color:#64635e;" })
-        @*@Html.TextBoxFor(m => m.Design, new { @class = "form-control" })*@
+
 
         @Html.DropDownListFor(m => m.Design, new SelectList(
         new List<Object> { 
@@ -34,29 +34,29 @@
             new{ value = 5, text = "5 (Best)"},
         }, "value", "text", 2
 
-       ), new { @class="form-control"})
+       ), new { @class = "form-control" })
 
 
         @Html.ValidationMessageFor(m => m.Design)<br />
-    
-     
-    
-        @Html.LabelFor(m => m.Comments, new {  @class="col-xs-12 no-gutter", @style = "font-size:11px; color:#64635e" })<br />
-        @Html.TextAreaFor(m => m.Comments, 10, 10, new { @class="form-control",  @style = "font-size:11px; color:#64635e;" })<br />
-    
-     
-    
-        @Html.LabelFor(m => m.Email, new {  @style = "font-size:11px; color:#64635e" })
+
+
+
+        @Html.LabelFor(m => m.Comments, new { @class = "col-xs-12 no-gutter", @style = "font-size:11px; color:#64635e" })<br />
+        @Html.TextAreaFor(m => m.Comments, 10, 10, new { @class = "form-control", @style = "font-size:11px; color:#64635e;" })<br />
+
+
+
+        @Html.LabelFor(m => m.Email, new { @style = "font-size:11px; color:#64635e" })
         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })<br />
-   
 
-   
+
+
         <button id="feedbackButton" type="submit" class="btn btn-default submitButton" style="margin-top: 10px; margin-bottom: 10px;">Submit</button>
-    
-    
-    @Html.HiddenFor(m => m.Style)
 
-   </div>
+
+        @Html.HiddenFor(m => m.Style)
+
+    </div>
     
     
 }

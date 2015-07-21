@@ -93,6 +93,15 @@
                 $(this).prev().removeClass('saturate').addClass('desaturate');
             })
 
+
+            $('.collection-link-sub').hover(function (e) {
+                $(this).prev().removeClass('desaturate').addClass('saturate');
+            })
+
+            $('.collection-link-sub').mouseleave(function (e) {
+                $(this).prev().removeClass('saturate').addClass('desaturate');
+            })
+
             $('.browseText').mouseenter(function () {
                 $(this).css("color", "black");
             })
@@ -370,34 +379,38 @@
                             <div class="col-xs-10 no-gutter">
                                 <div class="col-xs-3">
                                     <a href="/profile">
-                                        <img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/home/insta.jpg")" /></a>
-                                    <span class="div-text-center collection-link-sub">
-                                        <a href="/profile" style="text-decoration: none; color: white;"><span style="display: block; text-align: center">OUR STORY</span></a>
-                                    </span>
+                                        <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/insta.jpg")" />
+                                        <span class="div-text-center collection-link-sub">
+                                            <span style="display: block; text-align: center">OUR STORY</span>
+                                        </span>
+                                    </a>
                                 </div>
 
                                 <div class="col-xs-3">
                                     <a href="#">
-                                        <img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/home/jason.jpg")" /></a>
-                                    <span class="div-text-center collection-link-sub">
-                                        <a href="#" style="text-decoration: none; color: white;"><span style="display: block; text-align: center">TEAM</span></a>
-                                    </span>
+                                        <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/jason.jpg")" />
+                                        <span class="div-text-center collection-link-sub">
+                                            <span style="display: block; text-align: center">TEAM</span>
+                                        </span>
+                                    </a>
                                 </div>
 
                                 <div class="col-xs-3">
                                     <a href="/showschedule">
-                                        <img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/home/brand.jpg")" /></a>
-                                    <span class="div-text-center collection-link-sub">
-                                        <a href="/showschedule" style="text-decoration: none; color: white;"><span style="display: block; text-align: center">SHOW SCHEDULE</span></a>
-                                    </span>
+                                        <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/brand.jpg")" />
+                                        <span class="div-text-center collection-link-sub">
+                                            <span style="display: block; text-align: center">SHOW SCHEDULE</span>
+                                        </span>
+                                    </a>
                                 </div>
 
                                 <div class="col-xs-3">
                                     <a href="/pressclipping">
-                                        <img class="img-responsive  saturate-2" src="@Url.Content("~/Content/images/home/insta.jpg")" /></a>
-                                    <span class="div-text-center collection-link-sub">
-                                        <a href="pressclipping" style="text-decoration: none; color: white;"><span style="display: block; text-align: center">PRESS</span></a>
-                                    </span>
+                                        <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/insta.jpg")" />
+                                        <span class="div-text-center collection-link-sub">
+                                            <span style="display: block; text-align: center">PRESS</span>
+                                        </span>
+                                    </a>
                                 </div>
 
                             </div>
