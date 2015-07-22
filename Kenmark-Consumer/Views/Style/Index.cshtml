@@ -39,7 +39,7 @@
                 {
                     href: '#feedback',
                     autoSize: true,
-                    
+
                 }
             ]);
         });
@@ -54,45 +54,39 @@
         });
 
         if (is_mobile) {
-            
+
             $('.zoomContainer').css('height', '300px');
             $('.zoomWindowContainer').css('height', '300px');
             $('.zoomWindow').css('height', '300px');
 
 
             $('.frameImg').hover(function () {
-                
+
                 var frameId = this.id;
                 var frameNum = frameId.replace("zoom_", "");
 
                 var zoomFrame = ('#zoom_' + frameNum);
-               // $('.zoomContainer').hide();
 
+                $('.carousel-indicators').css("z-index", "0");
 
                 $(zoomFrame).elevateZoom({
                     zoomType: "inner",
-                    //cursor: "crosshair",
-                    //zoomWindowPosition: "demo-container",
-                    
-                    //zoomWindowWidth: 300,
-                    //zoomWindowHeight: 300,
-                    
-                    
-                    
-
                 });
 
             });
+
+
         }
 
         if (!is_mobile) {
-            
+
             $('.frameImg').hover(function () {
                 var frameId = this.id;
                 var frameNum = frameId.replace("zoom_", "");
 
                 var zoomFrame = ('#zoom_' + frameNum);
                 $('.zoomContainer').hide();
+                $('.carousel-indicators').css("z-index", "0");
 
 
                 $(zoomFrame).elevateZoom({
@@ -100,7 +94,7 @@
                     cursor: "crosshair",
                     zoomWindowFadeIn: 400,
                     zoomWindowFadeOut: 400,
-                    
+
                     zoomWindowPosition: 6,
                     borderSize: 2,
 
@@ -118,17 +112,22 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-9">
-        <div id="carousel-style" class="carousel slide" @*data-ride="carousel"*@ data-interval="false">
+        <div id="carousel-style" class="carousel slide" data-interval="false">
             
             <ol class="carousel-indicators" style="bottom:-30px;">
                 @for (int i = 0; i < Model.Colors.Count; i++)
                 {
-                    
-                    <li data-target="#carousel-style" data-slide-to="@i" class="active"></li>
+                    if (@i == 0)
+                    {
+                        @: <li data-target="#carousel-style" data-slide-to="@i"class="active"></li>
+                    }
+                    else
+                    {
+                        @: <li data-target="#carousel-style" data-slide-to="@i"></li>
+                    }
                 }
                     
             </ol>
-
 
             <div class="carousel-inner" role="listbox" style="margin-top: 80px; margin-bottom: 40px;">
                 <div class="item active">
@@ -170,7 +169,7 @@
 
         <!-- END OF CAROUSEL -->
 
-        <div id="demo-container" class="col-xs-12"></div>
+        
 
 
         <div class="col-sm-4" style="margin-top: 30px;">

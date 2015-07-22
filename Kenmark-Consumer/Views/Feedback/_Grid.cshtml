@@ -9,6 +9,7 @@
 
         @Html.DropDownListFor(m => m.Color, new SelectList(
         new List<Object> { 
+            new{ value = 0, text = "Select"},
             new{ value = 1, text = "1"},
             new{ value = 2, text = "2"},
             new{ value = 3, text = "3"},
@@ -27,6 +28,7 @@
 
         @Html.DropDownListFor(m => m.Design, new SelectList(
         new List<Object> { 
+            new{ value = 0, text= "Select" },
             new{ value = 1, text = "1"},
             new{ value = 2, text = "2"},
             new{ value = 3, text = "3"},
