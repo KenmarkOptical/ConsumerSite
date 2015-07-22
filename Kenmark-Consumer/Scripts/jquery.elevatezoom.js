@@ -172,13 +172,15 @@ if ( typeof Object.create !== 'function' ) {
 						+ "margin-top: " + String(borderWidth) + ";"         
 						+ "background-position: 0px 0px;"
 						+ "width: " + String(self.nzWidth) + "px;"
-						+ "height: " + String(self.nzHeight) + "px;"
+						+ "height: 320px;"
 						+ "px;float: left;"
 						+ "display: none;"
 						+ "cursor:"+(self.options.cursor)+";"
 						+ "px solid " + self.options.borderColour 
 						+ ";background-repeat: no-repeat;"
 						+ "position: absolute;";
+
+					//" + String(self.nzHeight) + "
 				}    
 
 
