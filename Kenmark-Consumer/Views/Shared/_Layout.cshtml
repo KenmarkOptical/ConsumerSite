@@ -32,6 +32,7 @@
                 if (is_mobile) {
                     $('.navbar-inner div').css('padding', 0);
                     $('#logo-sprite').css('margin-right', 0);
+                    
                 }
                 var h = $('.navbar').height() - 5;
                 $('#main-body').css('margin-top', (h));
@@ -52,6 +53,7 @@
             $('#main-body').css('margin-top', (h));
 
             $('#Brands-Link').click(function () {
+                $('.carousel-control').toggle();
                 if ($('#brand-links-div').is(':visible')) {
                     $('.navbar-inner .container').addClass('shadow');
                 }
