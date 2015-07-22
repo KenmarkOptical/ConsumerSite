@@ -20,14 +20,22 @@ namespace Kenmark_Consumer.Controllers
             return View(w);
         }
 
-        public ActionResult GetZipGEO()
+        public ActionResult GetZipGEO(string latitude = "", string longitude = "")
         {
-            string zip = "";
+            string zip = "";            
+
             if (HttpContext.Request.Cookies["geo_loc_zip"] == null)
             {
-                MaxMindGeo m = new MaxMindGeo();
-                zip = m.UserLocation().Postal.Code;
-
+                if (!String.IsNullOrEmpty(latitude) && !String.IsNullOrEmpty(longitude))
+                {
+                    MaxMindGeo m = new MaxMindGeo();
+                    zip = m.GetZipFromLatLong(latitude, longitude);
+                }
+                else
+                {
+                    MaxMindGeo m = new MaxMindGeo();
+                    zip = m.UserLocation().Postal.Code;
+                }
                 //store the cookie value
                 HttpCookie cookie = new HttpCookie("geo_loc_zip");
                 cookie.Value = zip;
@@ -39,7 +47,6 @@ namespace Kenmark_Consumer.Controllers
                 zip = cookie.Value;
             }
 
-           
 
             WhereToBuy data = new WhereToBuy();
             data.Zip = zip;

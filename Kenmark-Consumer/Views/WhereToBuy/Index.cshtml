@@ -15,15 +15,33 @@
 
     $(function () {
 
-        $.get("/WhereToBuy/GetZipGeo").done(function (data) {
-            $('#pageLoad').hide();
+        $.get("/WhereToBuy/GetZipGeo").done(function (data) {            
 
-            $('#Zip').val(data.zip);
-            $('#customerWrapper').hide().html(data.html).fadeIn(250);
-            initialize();
+            if (data.zip == '') {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        $.get("/WhereToBuy/GetZipGeo", { latitude: position.coords.latitude, longitude: position.coords.longitude }).done(function (data2) {
+                            $('#Zip').val(data2.zip);
+                            $('#customerWrapper').hide().html(data2.html).fadeIn(250);
+                            initialize();
 
-            buildMap(data.GooglePoints);
+                            buildMap(data2.GooglePoints);
+                            $('#pageLoad').hide();
+                        });
+                    });
+                }
+            }
+            else {
+                $('#pageLoad').hide();
 
+                alert('fired');
+                $('#Zip').val(data.zip);
+                $('#customerWrapper').hide().html(data.html).fadeIn(250);
+                initialize();
+
+                buildMap(data.GooglePoints);
+
+            }
         });
 
         $("#rangeFilter").click(function (e) {
