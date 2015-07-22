@@ -53,26 +53,49 @@
 
         });
 
-       
-        $('.frameImg').hover(function () {
-            var frameId = this.id;
-            var frameNum = frameId.replace("zoom_", "");
+        if (is_mobile) {
+            $('.frameImg').hover(function () {
+                var frameId = this.id;
+                var frameNum = frameId.replace("zoom_", "");
 
-            var zoomFrame = ('#zoom_' + frameNum);
-            $('.zoomContainer').hide();
+                var zoomFrame = ('#zoom_' + frameNum);
+                $('.zoomContainer').hide();
 
 
-            $(zoomFrame).elevateZoom({
-                //zoomWindowPosition: "img-container",
-                cursor: "crosshair",
-                zoomWindowFadeIn: 400,
-                zoomWindowFadeOut: 400,
-                zoomWindowPosition: 6,
-                borderSize: 2,
-                
+                $(zoomFrame).elevateZoom({
+                    zoomType: "inner",
+                    cursor: "crosshair",
+                    //zoomWindowFadeIn: 400,
+                    //zoomWindowFadeOut: 400,
+                    //zoomWindowPosition: 6,
+                    //borderSize: 2,
+
+                });
+
             });
+        }
 
-        });
+        if (!is_mobile) {
+            $('.frameImg').hover(function () {
+                var frameId = this.id;
+                var frameNum = frameId.replace("zoom_", "");
+
+                var zoomFrame = ('#zoom_' + frameNum);
+                $('.zoomContainer').hide();
+
+
+                $(zoomFrame).elevateZoom({
+
+                    cursor: "crosshair",
+                    zoomWindowFadeIn: 400,
+                    zoomWindowFadeOut: 400,
+                    zoomWindowPosition: 6,
+                    borderSize: 2,
+
+                });
+
+            });
+        }
 
 
     });
