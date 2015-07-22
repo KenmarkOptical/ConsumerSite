@@ -32,6 +32,7 @@
                 if (is_mobile) {
                     $('.navbar-inner div').css('padding', 0);
                     $('#logo-sprite').css('margin-right', 0);
+                    
                 }
                 var h = $('.navbar').height() - 5;
                 $('#main-body').css('margin-top', (h));
@@ -52,6 +53,7 @@
             $('#main-body').css('margin-top', (h));
 
             $('#Brands-Link').click(function () {
+                $('.carousel-control').toggle();
                 if ($('#brand-links-div').is(':visible')) {
                     $('.navbar-inner .container').addClass('shadow');
                 }
@@ -489,7 +491,7 @@
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.mousewheel-3.0.6.pack.js"))"></script>
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.fancybox-buttons.js"))"></script>
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.elevatezoom.js"))"></script>
-    <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.elevateZoom-3.0.8.min.js"))"></script>
+    
 
     <div id="mobile-test" class="hidden-sm hidden-md hidden-lg"></div>
 </body>
