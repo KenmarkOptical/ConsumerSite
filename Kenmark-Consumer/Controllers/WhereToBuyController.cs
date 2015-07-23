@@ -29,17 +29,21 @@ namespace Kenmark_Consumer.Controllers
                 if (!String.IsNullOrEmpty(latitude) && !String.IsNullOrEmpty(longitude))
                 {
                     MaxMindGeo m = new MaxMindGeo();
-                    zip = m.GetZipFromLatLong(latitude, longitude);
+                    zip = m.GetZipFromLatLong(latitude, longitude);             
                 }
                 else
                 {
                     MaxMindGeo m = new MaxMindGeo();
                     zip = m.UserLocation().Postal.Code;
                 }
-                //store the cookie value
-                HttpCookie cookie = new HttpCookie("geo_loc_zip");
-                cookie.Value = zip;
-                HttpContext.Response.SetCookie(cookie);
+
+                //store the cookie value if not empty
+                if (!String.IsNullOrEmpty(zip))
+                {
+                    HttpCookie cookie = new HttpCookie("geo_loc_zip");
+                    cookie.Value = zip;
+                    HttpContext.Response.SetCookie(cookie);
+                }
             }
             else
             {

@@ -940,13 +940,10 @@
     <Content Include="bin\Kenmark-Consumer.dll" />
     <Content Include="bin\Kenmark-Consumer.pdb" />
     <Content Include="bin\MaxMind.Db.dll" />
-    <Content Include="bin\MaxMind.Db.xml" />
     <Content Include="bin\MaxMind.GeoIP2.dll" />
-    <Content Include="bin\MaxMind.GeoIP2.xml" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="bin\Microsoft.Web.Mvc.FixedDisplayModes.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\Newtonsoft.Json.xml" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
     <Content Include="bin\System.Net.Http.WebRequest.dll" />
     <Content Include="bin\System.Web.dll" />

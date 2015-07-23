@@ -40,16 +40,18 @@ namespace Kenmark_Consumer.Models
             return ip;
         }
 
-        public string GetZipFromLatLong(string lattitude, string longitude)
+        public string GetZipFromLatLong(string latitude, string longitude)
         {
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
-               var result = db.Database.SqlQuery<GetZipFromLatLong_Result>(@"
+                string query = @"
                     SELECT zip, latitude, longitude, SQRT(
-                        POWER(69.1 * (latitude - " + lattitude + @"), 2) +
-                        POWER(69.1 * (-85.5369432 - " + longitude + @") * COS(latitude / 57.3), 2)) AS distance
+                        POWER(69.1 * (latitude - " + latitude + @"), 2) +
+                        POWER(69.1 * (" + longitude + @" - longitude) * COS(latitude / 57.3), 2)) AS distance
                     FROM us_zipcodes
-                    ORDER BY distance;").FirstOrDefault();
+                    ORDER BY distance;";
+
+               var result = db.Database.SqlQuery<GetZipFromLatLong_Result>(query).FirstOrDefault();
 
                return result.zip;
              }
