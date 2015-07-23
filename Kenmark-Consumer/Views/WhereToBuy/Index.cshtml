@@ -20,8 +20,11 @@
             if (data.zip == '') {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
+                        alert(position.coords.latitude);
+                        alert(position.coords.longitude);
                         $.get("/WhereToBuy/GetZipGeo", { latitude: position.coords.latitude, longitude: position.coords.longitude }).done(function (data2) {
                             $('#Zip').val(data2.zip);
+                            alert(data2.zip);
                             $('#customerWrapper').hide().html(data2.html).fadeIn(250);
                             initialize();
 
@@ -32,9 +35,7 @@
                 }
             }
             else {
-                $('#pageLoad').hide();
-
-                alert('fired');
+                $('#pageLoad').hide();           
                 $('#Zip').val(data.zip);
                 $('#customerWrapper').hide().html(data.html).fadeIn(250);
                 initialize();
