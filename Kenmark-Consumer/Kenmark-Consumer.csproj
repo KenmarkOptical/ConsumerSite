@@ -1152,7 +1152,7 @@
     </Content>
     <Content Include="Content\images\Press_Clippings\Vogue-Paris-PDF.pdf" />
     <Content Include="Content\images\Press_Clippings\VW-Elle-PDF.pdf" />
-    <None Include="Properties\PublishProfiles\Dev.pubxml" />
+    <None Include="Properties\PublishProfiles\Kenmark_Consumer.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

@@ -18,13 +18,12 @@
         $.get("/WhereToBuy/GetZipGeo").done(function (data) {            
 
             if (data.zip == '') {
+                alert("empty");
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
-                        alert(position.coords.latitude);
-                        alert(position.coords.longitude);
-                        $.get("/WhereToBuy/GetZipGeo", { latitude: position.coords.latitude, longitude: position.coords.longitude }).done(function (data2) {
+                        $.get("/WhereToBuy/GetZipGEO", { latitude: position.coords.latitude, longitude: position.coords.longitude }).done(function (data2) {
                             $('#Zip').val(data2.zip);
-                            alert(data2.zip);
+                            alert('#Zip');
                             $('#customerWrapper').hide().html(data2.html).fadeIn(250);
                             initialize();
 
@@ -35,12 +34,19 @@
                 }
             }
             else {
-                $('#pageLoad').hide();           
-                $('#Zip').val(data.zip);
-                $('#customerWrapper').hide().html(data.html).fadeIn(250);
-                initialize();
+                $('#pageLoad').hide();
 
-                buildMap(data.GooglePoints);
+                alert('fired');
+                
+                $('#Zip').val(data.zip);
+
+
+                $.get("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
+                    $('#customerWrapper').hide().html(data.html).fadeIn(250);
+                    initialize();
+
+                    buildMap(data.GooglePoints);
+                });
 
             }
         });

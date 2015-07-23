@@ -375,7 +375,7 @@ if ( typeof Object.create !== 'function' ) {
 					self.zoomLens.bind('touchend', function(e){ 
 						self.showHideWindow("hide");
 						if(self.options.showLens) {self.showHideLens("hide");}
-						if(self.options.tint && self.options.zoomType != "inner") {self.showHideTint("hide");}
+					    if(self.options.tint && self.options.zoomType != "inner") {self.showHideTint("hide");}
 					});  
 				}
 				//Needed to work in IE
