@@ -232,6 +232,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ShowScheduleController.cs" />
     <Compile Include="Controllers\StyleController.cs" />
+    <Compile Include="Controllers\TestCMSController.cs" />
     <Compile Include="Controllers\TheMirrorController.cs" />
     <Compile Include="Controllers\WhereToBuyController.cs" />
     <Compile Include="country.cs">
@@ -1204,6 +1205,7 @@
     <Content Include="Views\Style\Index.cshtml" />
     <Content Include="Views\Feedback\_Grid.cshtml" />
     <Content Include="Views\Style\_Grid.cshtml" />
+    <Content Include="Views\TestCMS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
