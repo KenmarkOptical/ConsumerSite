@@ -187,12 +187,22 @@
     }
 }
 
-#pushyBtn {
+.pushyBtn {
     background-color:#d28b19;
     border-width:0px;
     border-radius:0;
     color:white;
     width:100px;
+    height:32px;
+    font-weight:bold;
+}
+
+.createAcctBtn {
+    background-color:#797979;
+    border-width:0px;
+    border-radius:0;
+    color:white;
+    /*width:100px;*/
     height:32px;
     font-weight:bold;
 }

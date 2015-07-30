@@ -24,6 +24,15 @@
         var is_mobile = false;
         $(function () {
 
+            $('.fancybox').fancybox({
+                autoSize: true,
+
+
+            });
+
+
+
+
             $(window).on('resize', function () {
                 if ($('#mobile-test').is(':visible')) {
                     is_mobile = true;
@@ -32,7 +41,7 @@
                 if (is_mobile) {
                     $('.navbar-inner div').css('padding', 0);
                     $('#logo-sprite').css('margin-right', 0);
-                    
+
                 }
                 var h = $('.navbar').height() - 5;
                 $('#main-body').css('margin-top', (h));
@@ -120,13 +129,33 @@
                 $(this).css("color", "black");
             });
 
+            $('#modalBtn').hover(function(){
+                $(this).css("background-color", "white");
+            });
 
-
+           
         });
 
 
 
     </script>
+
+    <style type="text/css">
+        .fancybox-skin {
+            background-color: #cbcbcb;
+        }
+
+        .modal-content {
+            background:rgb(203,203,203);
+            background:rgba(203,203,203,0.9);
+            padding:30px;
+            border-radius:0;
+        }
+
+        .modal-backdrop {
+            background-color:transparent;
+        }
+    </style>
 </head>
 <body>
 
@@ -147,12 +176,12 @@
             </ul>
 
             <div class="col-xs-12 text-center">
-                <button type="button" id="pushyBtn" class="btn btn-default">LOGIN</button>
+                <button type="button" class="btn btn-default pushyBtn">LOGIN</button>
             </div>
-            <div class="col-xs-12 text-center" style="margin-top: 10px;">
+            @*<div class="col-xs-12 text-center" style="margin-top: 10px;">
                 <span style="font-weight: normal; color: white; font-size: .90em;">or </span>
                 <span style="font-weight: normal; color: #d28b19; font-size: .90em;">Create Account</span>
-            </div>
+            </div>*@
         </div>
         <!-- END OF MAIN PUSHY WRAPPER -->
 
@@ -209,8 +238,7 @@
 
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-sm-12 text-right hidden-xs" style="margin-right: 15px;">
-                        <a href="#" class="nav-link" style="font-size: 13px;">CREATE ACCOUNT</a>
-                        <a href="#" class="nav-link navText" style="color: black; margin-left: 15px; margin-right: 20px; font-size: 13px;">LOGIN</a>
+                        <button id="modalBtn" type="button" class="btn btn-default navText" data-toggle="modal" data-target="#modalContainer" style="border:none;margin-left: 15px;margin-right:10px; font-size: 13px; font-weight:bold;">LOGIN</button>
                     </div>
                     <div class="col-sm-12 text-right visible-sm" style="margin-right: 20px;">
                         <a class="facebook-sprite" href="https://www.facebook.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
@@ -437,6 +465,31 @@
 
 
 
+    <div id="modalContainer" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="opacity:1;">
+                    <div class="container-fluid">
+                        <div class="row">
+                        <div class="col-xs-7" style="border-right: 2px solid black; ">
+                            <span class="modal-title" style="display: inline-block; font-size: 20px; font-weight: bold; color: black;">FOR OPTICAL<br />
+                                PROFESSIONALS</span><br />
+                            <button type="button" class="btn btn-default pushyBtn" style="margin-top: 30px;">LOGIN</button><br />
+                            <button type="button" class="btn btn-default createAcctBtn" style="margin-top: 15px; margin-bottom: 15px;">CREATE ACCOUNT</button>
+                        </div>
+                        <div class="col-xs-5 no-gutter" style="padding-left:20px;">
+                            <span style="font-weight:bold;font-size:15px;display:inline-block">A NOTE TO CONSUMERS</span>
+                            <span style="display:inline-block;margin-top:15px;font-size:14px;">Sorry, but Kenmark does not sell directly to consumers</span>
+                            <span style="display:inline-block;margin-top:15px;font-size:14px;">Please visit <a href="/wheretobuy" style="text-decoration:none;color:#d28b19">Where to Buy</a>
+                                to find a retailer near you who stocks Kenmark frames.
+                            </span>
+                        </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="pushy-container">
         <!-- container to push page -->
@@ -491,7 +544,7 @@
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.mousewheel-3.0.6.pack.js"))"></script>
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.fancybox-buttons.js"))"></script>
     <script type="text/javascript" src="@(Url.Content("~/Scripts/jquery.elevatezoom.js"))"></script>
-    
+
 
     <div id="mobile-test" class="hidden-sm hidden-md hidden-lg"></div>
 </body>
