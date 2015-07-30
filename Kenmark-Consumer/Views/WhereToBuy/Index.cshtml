@@ -213,12 +213,12 @@
 
         @using (Html.BeginForm("GetCustomers", "WhereToBuy", FormMethod.Post, new { @id = "buyFilter" }))
         {
-            <div class="col-xs-12 no-gutter" style="margin-top: 30px;">
+            <div class="col-xs-12 no-gutter" style="margin-top: 30px;margin-bottom:30px;">
                 @(Html.LabelFor(m => m.Zip, new { @style = "font-size:16px" }))<br />
                 @(Html.TextBoxFor(m => m.Zip, new { @class = "form-control" }))
             </div>
             
-            <div class="col-xs-12 no-gutter" style="margin-top: 30px; margin-bottom: 30px;">
+            <div class="col-xs-12 no-gutter" style="display:none; margin-top: 30px; margin-bottom: 30px;">
                 @(Html.LabelFor(m => m.Radius, new { @style = "font-size:16px" }))<br />
 
                 @(Html.DropDownListFor(m => m.Radius, new SelectListItem[]{
