@@ -15,10 +15,10 @@
 
     $(function () {
 
-        $.get("/WhereToBuy/GetZipGeo").done(function (data) {           
-            if (!data.zip) {           
+        $.get("/WhereToBuy/GetZipGeo").done(function (data) {
+            if (!data.zip) {
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {                      
+                    navigator.geolocation.getCurrentPosition(function (position) {
                         $.get("/WhereToBuy/GetZipGEO", { latitude: position.coords.latitude, longitude: position.coords.longitude }).done(function (data2) {
                             $('#Zip').val(data2.zip);
                             $('#customerWrapper').hide().html(data2.html).fadeIn(250);
@@ -30,11 +30,11 @@
                 }
             }
             else {
-                $('#pageLoad').hide();          
+                $('#pageLoad').hide();
                 $('#Zip').val(data.zip);
                 $('#customerWrapper').hide().html(data.html).fadeIn(250);
                 initialize();
-                buildMap(data.GooglePoints);           
+                buildMap(data.GooglePoints);
 
             }
         });
@@ -61,7 +61,7 @@
             }
         }); // catches Enter press, clicks the filter button
 
-        $(".fancybox").click(function () {
+        $('.fancybox').click(function () {
 
             $.fancybox([
             {
@@ -213,12 +213,12 @@
 
         @using (Html.BeginForm("GetCustomers", "WhereToBuy", FormMethod.Post, new { @id = "buyFilter" }))
         {
-            <div class="col-xs-12 no-gutter" style="margin-top: 30px;margin-bottom:30px;">
+            <div class="col-xs-12 no-gutter" style="margin-top: 30px; margin-bottom: 30px;">
                 @(Html.LabelFor(m => m.Zip, new { @style = "font-size:16px" }))<br />
                 @(Html.TextBoxFor(m => m.Zip, new { @class = "form-control" }))
             </div>
             
-            <div class="col-xs-12 no-gutter" style="display:none; margin-top: 30px; margin-bottom: 30px;">
+            <div class="col-xs-12 no-gutter" style="display: none; margin-top: 30px; margin-bottom: 30px;">
                 @(Html.LabelFor(m => m.Radius, new { @style = "font-size:16px" }))<br />
 
                 @(Html.DropDownListFor(m => m.Radius, new SelectListItem[]{
@@ -256,7 +256,7 @@
             <div style="font-size: 14px; font-weight: bold;">SAVE YOUR LISTINGS</div>
             <br />
             <div class="col-xs-12 col-sm-6 text-center-xs no-gutter text-right " style="padding-right: 5px;">
-                <button id="emailBtn" type="submit" class="btn btn-default wtbButton fancybox">EMAIL</button>
+                <a href="#emailBox" class="btn btn-default fancybox wtbButton">EMAIL</a>
                 <!-- fancybox div -->
                 <div id="emailBox" style="display: none;">
                     <div class="col-xs-12 text-center" style="margin-bottom: 20px;">
@@ -274,6 +274,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
             <div class="col-xs-6 no-gutter text-left hidden-xs" style="padding-left: 5px;">
                 <button id="printBtn" type="submit" class="btn btn-default wtbButton">PRINT</button>

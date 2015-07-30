@@ -15,7 +15,7 @@
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jqueryval")
-
+    <script src="../ckeditor/ckeditor.js"></script>
 
     <script src="//use.typekit.net/pxt7sgq.js"></script>
     <script>try { Typekit.load(); } catch (e) { }</script>
@@ -56,6 +56,8 @@
                 $('.navbar-inner div').css('padding', 0);
                 $('#logo-sprite').css('margin-right', 0);
             }
+
+            
 
 
             var h = $('.navbar').height() - 5;
@@ -133,6 +135,16 @@
                 $(this).css("background-color", "white");
             });
 
+            
+            $('#logInBtn').click(function () {
+                location.href = "http://customer.kenmarkoptical.com/";
+            });
+            
+            $('#accountBtn').click(function () {
+                location.href = "http://customer.kenmarkoptical.com/Home/NewAccount";
+            });
+
+
            
         });
 
@@ -141,10 +153,7 @@
     </script>
 
     <style type="text/css">
-        .fancybox-skin {
-            background-color: #cbcbcb;
-        }
-
+        
         .modal-content {
             background:rgb(203,203,203);
             background:rgba(203,203,203,0.9);
@@ -154,6 +163,25 @@
 
         .modal-backdrop {
             background-color:transparent;
+        }
+
+        @@media (min-width: 768px) {
+            #borderDiv {
+                border-right: 1px solid black; 
+            }
+        }
+
+        @@media (max-width: 767px) {
+            #customerBorderDiv {
+                border-top: 1px solid black;
+                margin-top:20px;
+            }
+        }
+
+         @@media (max-width: 767px) {
+            #customerNote {
+                margin-top:30px;
+            }
         }
     </style>
 </head>
@@ -176,7 +204,7 @@
             </ul>
 
             <div class="col-xs-12 text-center">
-                <button type="button" class="btn btn-default pushyBtn">LOGIN</button>
+                <button  type="button" class="btn btn-default pushyBtn menu-btn" data-toggle="modal" data-target="#modalContainer">LOGIN</button>
             </div>
             @*<div class="col-xs-12 text-center" style="margin-top: 10px;">
                 <span style="font-weight: normal; color: white; font-size: .90em;">or </span>
@@ -471,15 +499,15 @@
                 <div class="modal-body" style="opacity:1;">
                     <div class="container-fluid">
                         <div class="row">
-                        <div class="col-xs-7" style="border-right: 2px solid black; ">
+                        <div class="col-xs-12 col-sm-7" id="borderDiv" >
                             <span class="modal-title" style="display: inline-block; font-size: 20px; font-weight: bold; color: black;">FOR OPTICAL<br />
                                 PROFESSIONALS</span><br />
-                            <button type="button" class="btn btn-default pushyBtn" style="margin-top: 30px;">LOGIN</button><br />
-                            <button type="button" class="btn btn-default createAcctBtn" style="margin-top: 15px; margin-bottom: 15px;">CREATE ACCOUNT</button>
+                            <button type="button" class="btn btn-default pushyBtn" style="margin-top: 30px;" id="logInBtn">LOGIN</button><br />
+                            <button type="button" class="btn btn-default createAcctBtn" style="margin-top: 15px; margin-bottom: 15px;" id="accountBtn">CREATE ACCOUNT</button>
                         </div>
-                        <div class="col-xs-5 no-gutter" style="padding-left:20px;">
-                            <span style="font-weight:bold;font-size:15px;display:inline-block">A NOTE TO CONSUMERS</span>
-                            <span style="display:inline-block;margin-top:15px;font-size:14px;">Sorry, but Kenmark does not sell directly to consumers</span>
+                        <div class="col-xs-12 col-sm-5 no-gutter" id="customerBorderDiv" style="padding-left:20px;">
+                            <span id="customerNote" style="font-weight:bold;font-size:15px;display:inline-block">A NOTE TO CONSUMERS</span><br />
+                            <span style="display:inline-block;margin-top:15px;font-size:14px;">Sorry, but Kenmark does not sell directly to consumers</span><br />
                             <span style="display:inline-block;margin-top:15px;font-size:14px;">Please visit <a href="/wheretobuy" style="text-decoration:none;color:#d28b19">Where to Buy</a>
                                 to find a retailer near you who stocks Kenmark frames.
                             </span>

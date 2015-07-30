@@ -21,6 +21,9 @@ $(function() {
         state = true; //keep track of menu state (open/close)
 		menuSpeed = 200, //jQuery fallback menu speed
 		menuWidth = pushy.width() + "px"; //jQuery fallback menu width
+		
+
+		
 
 	function togglePushy(){
 		body.toggleClass(pushyActiveClass); //toggle site overlay
@@ -29,7 +32,8 @@ $(function() {
 		push.toggleClass(pushClass); //css class to add pushy capability
 	}
 
-    function openPushyFallback(){
+	function openPushyFallback() {
+	    
 		body.addClass(pushyActiveClass);
 		pushy.animate({left: "0px"}, menuSpeed);
 		container.animate({left: menuWidth}, menuSpeed);
@@ -43,6 +47,7 @@ $(function() {
 		push.animate({left: "0px"}, menuSpeed); //css class to add pushy capability
 	}
 
+	
 	$('#shop').click(function () {
 	    $('#main-pushy-wrapper').hide();
 	    $('#pushy-shop-wrapper').fadeIn(200);
@@ -101,7 +106,8 @@ $(function() {
 	if(cssTransforms3d){
 	    //toggle menu
 	    menuBtn.click(function () {
-            togglePushy();
+	        
+	       togglePushy();
 	    });
 
 
@@ -109,6 +115,8 @@ $(function() {
 		siteOverlay.click(function(){ 
 			togglePushy();
 		});
+
+		
 
 	 }else{
 		//jQuery fallback
@@ -138,6 +146,9 @@ $(function() {
 				state = true;
 			}
 		});
+
+		
 	}
+
 
 });
