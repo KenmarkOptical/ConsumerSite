@@ -2,4 +2,46 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+
+
+
+<div style="margin-top: 50px;"></div>
+
+<div class="col-xs-12">
+    <span style="font-size: 25px; display: inline-block; margin-bottom: 30px;" class="text-center">Create a new blog!</span>
+</div>
+
+<div class="col-xs-12" style="margin-bottom: 50px;">
+    <div class="col-xs-4 no-gutter">
+        @Html.Label("Enter your blog title here", new { @style="font-size:14px;"})<br />
+        @Html.TextBox("blogTitle", "", new { @class = "form-control" })
+    </div>
+</div>
+
+
+<div class="col-xs-12" style="margin-bottom: 50px;">
+    <div class="col-xs-4 no-gutter">
+        @Html.Label("Enter today's date here", new { @style = "font-size:14px;" })<br />
+        @Html.TextBox("date", "", new { @class = "form-control" })
+    </div>
+</div>
+
+
+<div class="col-xs-12" style="margin-bottom:50px;">
+    <span style="display:inline-block;margin-bottom:5px;font-weight:bold; font-size:14px;">Enter your blog content below</span>
+    <form>
+        <textarea name="editor1" id="editor1" rows="10" cols="80">
+         This is my textarea to be replaced with CKEditor.
+    </textarea>
+        <script>
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1', {
+                filebrowserBrowseUrl: '/browser/browse.php?type=Images',
+                filebrowserUploadUrl: '/uploader/upload.php?type=Files'
+            });
+
+        </script>
+    </form>
+</div>
