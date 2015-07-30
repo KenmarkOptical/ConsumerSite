@@ -33,6 +33,18 @@ namespace Kenmark_Consumer.Models
             {
                 var cust_List = db.usp_where_to_buy(data.Zip, data.Radius);
                 wtb.Customers = cust_List.ToList();
+
+                //check for x142
+                var test = wtb.Customers.Where(m => m.kenmark_id == "X142").FirstOrDefault();
+                if (test != null)
+                {
+                    if (test.distance < 10)
+                    {
+                        wtb.Customers.Remove(test);
+                        wtb.Customers.Insert(0, test);
+                    }
+                }
+
                 if (Max_Results != 0)
                 {
                     wtb.Customers = wtb.Customers.Take(Max_Results).ToList();
