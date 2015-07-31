@@ -6,15 +6,20 @@
 
 
 <script type="text/javascript">
+
     $(function () {
-    //    $('#submit').click(function () {
-    //        var data = CKEDITOR.instances.editor1.getData();
-    //        var title = $('#blogTitle').val();
-    //        var date = $('#datepicker').val();
-    //});
+        $('#submit').click(function () {
+            //CKupdate();
+
+
+            var data = CKEDITOR.instances.editor1.getData();
+            alert(data);
+        });
 
         $('#datepicker').datepicker();
     });
+
+
 </script>
 
 
@@ -25,23 +30,24 @@
 </div>
 
 
-@using(Ajax.BeginForm("UpdateContent","TestCMS", new AjaxOptions{ HttpMethod = "Post"})){
-<div class="col-xs-12" style="margin-bottom: 50px;">
-    <div class="col-xs-12 col-sm-4">
-        @Html.LabelFor(m => m.Title, new { @style = "font-size:14px;" })<br />
-        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post" }))
+{
+    <div class="col-xs-12" style="margin-bottom: 50px;">
+        <div class="col-xs-12 col-sm-4">
+            @Html.LabelFor(m => m.Title, new { @style = "font-size:14px;" })<br />
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        </div>
+
     </div>
 
-</div>
-
-<div class="col-xs-12">
-    <div class="col-xs-12 col-sm-4" style="margin-bottom:100px;">
-        <p style="font-size: 14px; font-weight: bold;">
-            @Html.LabelFor(m => m.Date)
-            @Html.TextBoxFor(m => m.Date,  new {@class="form-control", @type="text", @id="datepicker"})
-        </p>
+    <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-4" style="margin-bottom: 100px;">
+            <p style="font-size: 14px; font-weight: bold;">
+                @Html.LabelFor(m => m.Date)
+                @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @type = "text", @id = "datepicker" })
+            </p>
+        </div>
     </div>
-</div>
 
 
 
@@ -49,26 +55,47 @@
 
 
 
-<div class="col-xs-12" style="margin-bottom: 50px;">
-    <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
-    @*<form>
-        
-        <textarea name="editor1" id="editor1" rows="10" cols="80">
-         This is my textarea to be replaced with CKEditor.
-    </textarea>
-        
-    </form>*@
+    <div class="col-xs-12" style="margin-bottom: 50px;">
+        <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
+  
+           <textarea id="editor1" name="Contact" rows="10" cols="80">
+             
+            
+            </textarea>
 
-    @Html.TextAreaFor(m => m.Content, 10, 80, new{@id="editor1"})
-    <script>
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        CKEDITOR.replace('editor1', {
-            filebrowserBrowseUrl: '/browser/browse.php?type=Images',
-            filebrowserUploadUrl: '/uploader/upload.php?type=Files'
-        });
-        CKEDITOR.instances.editor1.getData();
-        </script>
-    <button id="submit" type="submit">Submit</button>
-</div>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('editor1', {
+                    filebrowserBrowseUrl: '/browser/browse.php?type=Images',
+                    filebrowserUploadUrl: '/uploader/upload.php?type=Files'
+                });
+
+
+            </script>
+
+   
+        <div class="col-xs-12 no-gutter" style="margin-top:20px;">
+            <button id="submit" type="submit">Submit</button>
+        </div>
+    </div>
+    
+    
+       
 }
+
+
+@*<div class="col-xs-12">
+    <form>
+            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('editor1');
+            </script>
+         
+        </form>
+     <button type="submit" id="submit">Submit</button>
+</div>*@

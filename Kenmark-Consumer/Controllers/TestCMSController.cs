@@ -17,6 +17,7 @@ namespace Kenmark_Consumer.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult UpdateContent(TestCMS t)
         {
             return View();

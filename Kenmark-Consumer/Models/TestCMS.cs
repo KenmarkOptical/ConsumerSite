@@ -17,6 +17,7 @@ namespace Kenmark_Consumer.Models
         [Required(ErrorMessage = "Please Set The Date")]
         public DateTime Date { get; set; }
 
+       
         public string Content { get; set; }
     }
 }
