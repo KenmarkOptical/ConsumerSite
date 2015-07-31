@@ -1,21 +1,19 @@
-﻿@{
+﻿@model Kenmark_Consumer.Models.TestCMS
+
+@{
     ViewBag.Title = "Index";
 }
-
-<link rel="stylesheet" type="text/css" media="all"
-      href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css"    />
 
 
 <script type="text/javascript">
     $(function () {
-        $('#submit').click(function () {
-            var data = CKEDITOR.instances.editor1.getData();
-            alert(data);
-        });
+    //    $('#submit').click(function () {
+    //        var data = CKEDITOR.instances.editor1.getData();
+    //        var title = $('#blogTitle').val();
+    //        var date = $('#datepicker').val();
+    //});
 
         $('#datepicker').datepicker();
-
-        
     });
 </script>
 
@@ -26,22 +24,24 @@
     <span style="font-size: 25px; display: inline-block; margin-bottom: 30px;" class="text-center">Create a new blog!</span>
 </div>
 
+
+@using(Ajax.BeginForm("UpdateContent","TestCMS", new AjaxOptions{ HttpMethod = "Post"})){
 <div class="col-xs-12" style="margin-bottom: 50px;">
     <div class="col-xs-12 col-sm-4">
-        @Html.Label("Enter your blog title here", new { @style = "font-size:14px;" })<br />
-        @Html.TextBox("blogTitle", "", new { @class = "form-control" })
+        @Html.LabelFor(m => m.Title, new { @style = "font-size:14px;" })<br />
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
     </div>
 
 </div>
 
 <div class="col-xs-12">
-    <div class="col-xs-12 col-sm-4">
-        
-            <div id="datepicker"></div>
-       
+    <div class="col-xs-12 col-sm-4" style="margin-bottom:100px;">
+        <p style="font-size: 14px; font-weight: bold;">
+            @Html.LabelFor(m => m.Date)
+            @Html.TextBoxFor(m => m.Date,  new {@class="form-control", @type="text", @id="datepicker"})
+        </p>
     </div>
 </div>
-
 
 
 
@@ -51,19 +51,24 @@
 
 <div class="col-xs-12" style="margin-bottom: 50px;">
     <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
-    <form>
+    @*<form>
+        
         <textarea name="editor1" id="editor1" rows="10" cols="80">
          This is my textarea to be replaced with CKEditor.
     </textarea>
-        <script>
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
-            CKEDITOR.replace('editor1', {
-                filebrowserBrowseUrl: '/browser/browse.php?type=Images',
-                filebrowserUploadUrl: '/uploader/upload.php?type=Files'
-            });
+        
+    </form>*@
 
+    @Html.TextAreaFor(m => m.Content, 10, 80, new{@id="editor1"})
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace('editor1', {
+            filebrowserBrowseUrl: '/browser/browse.php?type=Images',
+            filebrowserUploadUrl: '/uploader/upload.php?type=Files'
+        });
+        CKEDITOR.instances.editor1.getData();
         </script>
-    </form>
     <button id="submit" type="submit">Submit</button>
 </div>
+}
