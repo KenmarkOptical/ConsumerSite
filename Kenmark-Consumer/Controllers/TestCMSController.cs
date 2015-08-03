@@ -1,9 +1,12 @@
-﻿using Kenmark_Consumer.Models;
+﻿
+
+using Kenmark_Consumer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace Kenmark_Consumer.Controllers
 {
@@ -18,8 +21,11 @@ namespace Kenmark_Consumer.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult UpdateContent(TestCMS t)
         {
+          
+            
             return View();
         }
 

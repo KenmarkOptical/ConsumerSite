@@ -9,11 +9,21 @@
 
     $(function () {
         $('#submit').click(function () {
-            //CKupdate();
+        //    //CKupdate();
+         
+      var data = CKEDITOR.instances.editor1.editable().getText();
 
+       alert(data);
 
-            var data = CKEDITOR.instances.editor1.getData();
-            alert(data);
+        //    //$('#editor1').val(data);
+
+        //    //alert($('#editor1').val());
+
+            
+            
+
+            
+
         });
 
         $('#datepicker').datepicker();
@@ -30,7 +40,7 @@
 </div>
 
 
-@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post" }))
+@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post",  }))
 {
     <div class="col-xs-12" style="margin-bottom: 50px;">
         <div class="col-xs-12 col-sm-4">
@@ -58,19 +68,23 @@
     <div class="col-xs-12" style="margin-bottom: 50px;">
         <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
   
-           <textarea id="editor1" name="Contact" rows="10" cols="80">
+           @*<textarea id="editor1" name="Contact" rows="10" cols="80">
              
             
-            </textarea>
+            </textarea>*@
 
+        @Html.TextAreaFor(m => m.Content, new {@id="editor1", @name="Content"})
+        
+            
             <script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
                 CKEDITOR.replace('editor1', {
+                    
                     filebrowserBrowseUrl: '/browser/browse.php?type=Images',
                     filebrowserUploadUrl: '/uploader/upload.php?type=Files'
                 });
-
+               
 
             </script>
 
