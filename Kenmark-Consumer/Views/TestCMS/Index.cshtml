@@ -8,27 +8,33 @@
 <script type="text/javascript">
 
     $(function () {
-        $('#submit').click(function () {
-        //    //CKupdate();
+        //$('#submit').click(function (e) {
+        ////    //CKupdate();
          
-      var data = CKEDITOR.instances.editor1.editable().getText();
+      
 
-       alert(data);
-
-        //    //$('#editor1').val(data);
-
-        //    //alert($('#editor1').val());
-
+      
             
             
 
             
 
-        });
+        //});
 
         $('#datepicker').datepicker();
     });
 
+
+    function OnBegin() {
+        var data = CKEDITOR.instances.editor1.editable().getText();
+
+        alert(data);
+
+        $('#editor1').val(data);
+
+        alert($('#editor1').val());
+
+    }
 
 </script>
 
@@ -40,7 +46,7 @@
 </div>
 
 
-@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post",  }))
+@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post",  OnBegin="OnBegin"}))
 {
     <div class="col-xs-12" style="margin-bottom: 50px;">
         <div class="col-xs-12 col-sm-4">
