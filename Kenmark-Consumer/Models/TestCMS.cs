@@ -19,5 +19,11 @@ namespace Kenmark_Consumer.Models
 
        
         public string Content { get; set; }
+
+        [Display(Name = "Upload Photo: ")]
+        public string Photo { get; set; }
+
+        
+        public HttpPostedFileBase UploadedFile { get; set; }
     }
 }

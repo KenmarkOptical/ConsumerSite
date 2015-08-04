@@ -1211,6 +1211,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\" />
+    <Folder Include="Content\images\TheMirror\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

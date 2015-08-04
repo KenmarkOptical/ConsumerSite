@@ -39,4 +39,6 @@ CKEDITOR.editorConfig = function( config ) {
 	config.extraPlugins = 'popup';
 
 	config.extraPlugins = 'filebrowser';
+
+	
  };
