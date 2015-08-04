@@ -38,45 +38,54 @@
              <div class="hidden-sm hidden-md hidden-lg"><br /></div>
             
              @if((Model.FrameCount / Model.PageCount) > 0 && (Model.Page -1 != 0)){
-               @: <span style="margin-right:4px; color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&page=@(Model.Page - 1)&sort=@(ViewBag.sort)"><</a></span> <span>
+               @: <span style="margin-right:4px; color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?collection=@(Model.CollectionCode)&Sub=Rx&page=@(Model.Page - 1)&sort=@(ViewBag.sort)&Type=@(Model.Type)"><</a></span> <span>
              }           
                   
                 @for (int i = 0; i < ((Model.FrameCount % Model.PageCount) == 0 && (Model.FrameCount > Model.PageCount) ? (Model.FrameCount / Model.PageCount) : (Model.FrameCount / Model.PageCount) + 1); i++)
                 {
                     if ((Model.Page - 1) == i)
                     {
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=RX&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?collection=@(Model.CollectionCode)&Sub=RX&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                     }
                     else
                     {   
-                        <a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                        <a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?collection=@(Model.CollectionCode)&Sub=Rx&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                     }
                 }
              </span>
 
               @if((Model.FrameCount / (Model.PageCount * Model.Page)) > 0){
-                @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?collection=Original%20Penguin&Sub=Rx&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
+                @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?collection=@(Model.CollectionCode)&Sub=Rx&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
               } 
         </div>          
     </div>    
 </div>
 
 <div class="col-xs-12 no-gutter" style="margin-bottom:50px; margin-top:25px;">
+    @if(String.IsNullOrEmpty(Model.Type))
+    {
     <div class="col-xs-12 text-center no-gutter">
        <span style="font-size: 3vmax;">PENGUIN RX COLLECTION  </span>
     </div> 
+    }
+    else if (Model.Type == "MEN")
+    {
+     <div class="col-xs-12 text-center no-gutter">
+       <span style="font-size: 3vmax;">MEN'S FRAMES  </span>
+    </div> 
+    }
 </div>
 
 <div id="grid">
         @if (ViewBag.NoResults != "1" && Model.Frames.Count() != 0)
         {
-            
+
             foreach (var item in Model.Frames)
             {
            
                 <div class="col-xs-12 col-sm-6" style="padding-bottom:70px;"> 
                     <div class="col-xs-12 no-gutter">
-                        <a href ="/Style?sku=@(item.SKU.Substring(0,4))">
+                        <a href ="/Style?sku=@(item.SKU.Substring(0, 4))">
                             <img id="@(item.SKU.Trim())" class="center-block img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(item.Image)&w=350" style="visibility:hidden; cursor:pointer;" onload="$(this).css('visibility','visible');"/>
                         </a>
                             @*@if(item.NewRelease == true)
@@ -86,18 +95,18 @@
                     </div>
                       
                     <div class="col-xs-12 no-gutter text-center">
-                         @if(item.NewRelease == true)
-                        {
+                         @if (item.NewRelease == true)
+                         {
                            <span style="color:#e53f57;font-weight:bold;">NEW</span><br />
-                        }
+                         }
                          <span style="font-size:1.2em; ">@(item.Style)</span>
                     </div>                
                     <div class="col-xs-12 no-gutter  text-center" style="display:inline-block; padding-left:5px;">       
                         @for (int i = 0; i < (item.Colors.Count > 8 ? 8 : item.Colors.Count); i++)
-			            {
+                        {
 			               <img id="@(item.Colors[i].Image)" class="subColor" src="@Url.Content("~/content/images/color icons/" + item.Colors[i].LikeColor + ".jpg")" style="width:12px; cursor:pointer; margin-left:3px; margin-right:3px;" title="@(item.Colors[i].Color)" /> 
-			            }
-                        @if(item.Colors.Count > 8)
+                        }
+                        @if (item.Colors.Count > 8)
                         {
                             <br />
                             <span style="color:#a5a5a5; font-size:.9em;">MORE COLORS ></span>                 
@@ -107,7 +116,7 @@
                     </div>            
                 </div>                 
             }
-              
+
         }
         else
         {

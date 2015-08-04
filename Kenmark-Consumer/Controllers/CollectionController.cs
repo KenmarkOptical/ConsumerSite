@@ -17,8 +17,9 @@ namespace Kenmark_Consumer.Controllers
         {
             return View();
         }
+         
 
-        public ActionResult ViewCollection(string collection, string sub, int page, int sort = 1, Filters filter = null)
+        public ActionResult ViewCollection(string collection, int page, int sort = 1,string sub = "", Filters filter = null, string Type = "")
         {         
 
             //get the filter from session
@@ -33,11 +34,17 @@ namespace Kenmark_Consumer.Controllers
 
 
             Collections c = new Collections();          
-            collection = "PEO";
-            sub = "RX";
-          
+            //collection = "PEO";
+            //sub = "RX";
 
-            int totalCount = c.GetFramesCount(collection, sub);
+            if (!String.IsNullOrEmpty(Type))
+            {
+                collection = "ALL";
+                sub = "ALL";               
+            }
+         
+
+            int totalCount = c.GetFramesCount(collection, sub, Type);
            
 
             int pageSize = c.PageCount;
@@ -48,11 +55,11 @@ namespace Kenmark_Consumer.Controllers
                 if (pageSize > (totalCount - count))
                 {
                     //we are at the end, so we do not need a full page
-                    c = c.GetFrames(collection, sub, page, (totalCount - count), sort, filter);
+                    c = c.GetFrames(collection, sub, page, (totalCount - count), sort, filter, Type);
                 }
                 else
                 {//return full page                
-                    c = c.GetFrames(collection, sub, page, pageSize, sort, filter);
+                    c = c.GetFrames(collection, sub, page, pageSize, sort, filter, Type);
                     if (page == 0 && c.Frames.Count == 0)
                     {
                         ViewBag.NoResults = "1";
@@ -67,8 +74,10 @@ namespace Kenmark_Consumer.Controllers
 
          
             c.Page = page;
-            c.CollectionCode = "PEO";
-            c.CollectionGroup = "RX";
+            c.CollectionCode = collection;
+            c.CollectionGroup = sub;
+            c.Type = Type;
+            
             ViewBag.Sort = sort;
             ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
 
@@ -76,7 +85,7 @@ namespace Kenmark_Consumer.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetFrames(Filters fm, string coll, string group, int count, int sort, int page)
+        public ActionResult GetFrames(Filters fm, string coll, string group, int count, int sort, int page, string Type = "")
         {
                 Collections c = new Collections();
                 int pageSize = c.PageCount;      
@@ -88,11 +97,11 @@ namespace Kenmark_Consumer.Controllers
                     if (pageSize > (totalCount - count))
                     {
                         //we are at the end, so we do not need a full page
-                        c = c.GetFrames(coll, group, page, (totalCount - count), sort, fm);
+                        c = c.GetFrames(coll, group, page, (totalCount - count), sort, fm, Type);
                     }
                     else
                     {//return full page                
-                    c = c.GetFrames(coll, group, page, pageSize, sort, fm);
+                        c = c.GetFrames(coll, group, page, pageSize, sort, fm, Type);
                         if (page == 0 && c.Frames.Count == 0)
                         {
                             ViewBag.NoResults = "1";
@@ -109,7 +118,7 @@ namespace Kenmark_Consumer.Controllers
             return null;
         }
 
-        public ActionResult GetFilters(string coll, string group, int sort, string f)
+        public ActionResult GetFilters(string coll, string group, int sort, string f, string s_type)
         {
             JavaScriptSerializer js = new JavaScriptSerializer();
             Filters filter = (Filters)js.Deserialize(f, typeof(Filters));
@@ -117,10 +126,11 @@ namespace Kenmark_Consumer.Controllers
             //get the filter from session
             if (filter.Colors == null)
             {
-                filter = new Filters().GetFilters(coll, group);
+                filter = new Filters().GetFilters(coll, group, s_type);
                 filter.sort = sort;
             }
-                        
+
+            filter.Type = s_type;
 
             return PartialView("_Filter", filter);
         }
@@ -130,13 +140,14 @@ namespace Kenmark_Consumer.Controllers
             Collections c = new Collections();
             int pageSize = c.PageCount;
             
-            c = c.GetFrames(f.coll, f.group,f.CurrPage, pageSize, f.sort, f);
+            c = c.GetFrames(f.coll, f.group,f.CurrPage, pageSize, f.sort, f, f.Type);
 
-            int totalCount = c.GetFramesCount(f.coll, f.group);
-           
+                   
             c.Page = 1;
-            c.CollectionCode = "PEO";
-            c.CollectionGroup = "RX";
+            c.CollectionCode = f.coll;
+            c.CollectionGroup = f.group;
+            c.Type = f.Type;                
+            
 
             //create a query string from the filter model
             string query = QueryStringExtensions.ToQueryString<Filters>(f);
