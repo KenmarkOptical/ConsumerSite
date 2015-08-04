@@ -10,7 +10,7 @@
 <script type="text/javascript">
 
     $(function () {
-        $('#datepicker').datepicker();
+        $('.date-picker').datepicker();
 
         
     });
@@ -48,7 +48,7 @@
         <div class="col-xs-12 col-sm-4" style="margin-bottom: 100px;">
             <p style="font-size: 14px; font-weight: bold;">
                 @Html.LabelFor(m => m.Date)
-                @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @type = "text", @id = "datepicker" })
+                @Html.TextBoxFor(m => m.Date, new { @class = "date-picker form-control", @type = "text" })
             </p>
         </div>
     </div>
@@ -62,16 +62,15 @@
             // Replace the <textarea id="editor1"> with a CKEditor
             // instance, using default configuration.
             CKEDITOR.replace('editor1', {
-
-                filebrowserBrowseUrl: '/browser/browse.php?type=Images',
-                filebrowserUploadUrl: '/uploader/upload.php?type=Files'
+                
+               
             });
 
 
         </script>
 
         <div class="col-xs-12 no-gutter" style="margin-top: 20px;">
-            <button id="submit" type="submit">Submit</button>
+            <button class="btn btn-default" id="submit" type="submit">Submit</button>
         </div>
     </div>
 }
@@ -89,7 +88,7 @@
 <form action="/TestCMS/Upload" method="post" enctype="multipart/form-data">
 
     <label for="photo">Upload image: </label>
-    <input type="file" name="photo" id="photo" />
+    <input type="file" name="photo" id="photo" class="btn btn-default" />
 
-    <input type="submit" value="Upload" />
+    <input type="submit" value="Upload" class="btn btn-default" />
 </form>

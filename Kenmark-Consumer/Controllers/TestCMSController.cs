@@ -40,14 +40,20 @@ namespace Kenmark_Consumer.Controllers
 
             if (photo != null && photo.ContentLength > 0)
             {
-
-                
-                var fileName = Path.GetFileName(photo.FileName);
                
-                photo.SaveAs(Path.Combine(directory, fileName));
 
-                //Image image = Image.FromFile("~/Content/images/TheMirror/" + fileName);
+               Image image = Image.FromStream(photo.InputStream);
 
+               var fileName = Path.GetFileName(photo.FileName);
+
+               var imageDimension = image.PhysicalDimension;
+               var imageHeight = image.Height;
+               var imageWidth = image.Width;
+              
+               photo.SaveAs(Path.Combine(directory, fileName));
+
+              
+              
             }
 
 
