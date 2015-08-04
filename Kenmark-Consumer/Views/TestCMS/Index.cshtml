@@ -1,39 +1,22 @@
 ﻿@model Kenmark_Consumer.Models.TestCMS
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Test CMS";
 }
 
 
 <script type="text/javascript">
 
     $(function () {
-        //$('#submit').click(function (e) {
-        ////    //CKupdate();
-         
-      
-
-      
-            
-            
-
-            
-
-        //});
-
         $('#datepicker').datepicker();
-    });
 
+        
+    });
 
     function OnBegin() {
         var data = CKEDITOR.instances.editor1.editable().getText();
-
-        alert(data);
-
         $('#editor1').val(data);
-
         alert($('#editor1').val());
-
     }
 
 </script>
@@ -46,7 +29,7 @@
 </div>
 
 
-@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post",  OnBegin="OnBegin"}))
+@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post", OnBegin = "OnBegin" }))
 {
     <div class="col-xs-12" style="margin-bottom: 50px;">
         <div class="col-xs-12 col-sm-4">
@@ -65,57 +48,26 @@
         </div>
     </div>
 
-
-
-
-
-
-
     <div class="col-xs-12" style="margin-bottom: 50px;">
         <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
-  
-           @*<textarea id="editor1" name="Contact" rows="10" cols="80">
-             
-            
-            </textarea>*@
 
-        @Html.TextAreaFor(m => m.Content, new {@id="editor1", @name="Content"})
-        
-            
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace('editor1', {
-                    
-                    filebrowserBrowseUrl: '/browser/browse.php?type=Images',
-                    filebrowserUploadUrl: '/uploader/upload.php?type=Files'
-                });
-               
+        @Html.TextAreaFor(m => m.Content, new { @id = "editor1", @name = "Content" })
 
-            </script>
+        <script>
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1', {
 
-   
-        <div class="col-xs-12 no-gutter" style="margin-top:20px;">
+                filebrowserBrowseUrl: '/browser/browse.php?type=Images',
+                filebrowserUploadUrl: '/uploader/upload.php?type=Files'
+            });
+
+
+        </script>
+
+        <div class="col-xs-12 no-gutter" style="margin-top: 20px;">
             <button id="submit" type="submit">Submit</button>
         </div>
     </div>
-    
-    
-       
-}
+  }
 
-
-@*<div class="col-xs-12">
-    <form>
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
-            </textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace('editor1');
-            </script>
-         
-        </form>
-     <button type="submit" id="submit">Submit</button>
-</div>*@
