@@ -12,7 +12,7 @@
     $(function () {
         $('.date-picker').datepicker();
 
-        
+
     });
 
     function OnBegin() {
@@ -20,7 +20,7 @@
         $('#editor1').val(data);
         alert($('#editor1').val());
 
-        
+
     }
 
 </script>
@@ -28,54 +28,70 @@
 
 <div style="margin-top: 50px;"></div>
 
-<div class="col-xs-12">
-    <span style="font-size: 25px; display: inline-block; margin-bottom: 30px;" class="text-center">Create a new blog!</span>
+<div class="col-xs-12 text-center">
+    <span style="font-size: 25px; display: inline-block; margin-bottom: 30px;" class="text-center">Kenmark CMS - The Mirror</span>
 </div>
 
-
-
-@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post", OnBegin = "OnBegin" }))
-{
-    <div class="col-xs-12" style="margin-bottom: 50px;">
-        <div class="col-xs-12 col-sm-4">
-            @Html.LabelFor(m => m.Title, new { @style = "font-size:14px;" })<br />
-            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
-        </div>
-
-    </div>
-
-    <div class="col-xs-12">
-        <div class="col-xs-12 col-sm-4" style="margin-bottom: 100px;">
-            <p style="font-size: 14px; font-weight: bold;">
-                @Html.LabelFor(m => m.Date)
-                @Html.TextBoxFor(m => m.Date, new { @class = "date-picker form-control", @type = "text" })
-            </p>
+<div class="row">
+    <div class="col-xs-2 text-center">
+        <span style="display: inline-block; margin-bottom: 20px; font-size: 14px;"><u>Edit Page</u></span>
+        <div class="text-left">
+            <ul>
+                <li style="margin-bottom:10px;">Home</li>
+                <li style="margin-bottom:10px;">Our Story</li>
+                <li style="margin-bottom:10px;">Shop</li>
+                <li style="margin-bottom:10px;">Collection</li>
+                <li style="margin-bottom:10px;">Inside Page</li>
+                <li style="margin-bottom:10px;">The Mirror</li>
+            </ul>
         </div>
     </div>
 
-    <div class="col-xs-12" style="margin-bottom: 50px;">
-        <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
 
-        @Html.TextAreaFor(m => m.Content, new { @id = "editor1", @name = "Content" })
-      
-        <script>
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
-            CKEDITOR.replace('editor1', {
-                
-               
-            });
+    <div class="col-xs-10">
+
+        @using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post", OnBegin = "OnBegin" }))
+        {
+            <div class="col-xs-12" style="margin-bottom: 50px;">
+                <div class="col-xs-12 col-sm-4">
+                    @Html.LabelFor(m => m.Title, new { @style = "font-size:14px;" })<br />
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <div class="col-xs-12">
+                <div class="col-xs-12 col-sm-4" style="margin-bottom: 100px;">
+                    <p style="font-size: 14px; font-weight: bold;">
+                        @Html.LabelFor(m => m.Date)
+                        @Html.TextBoxFor(m => m.Date, new { @class = "date-picker form-control", @type = "text" })
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-xs-12" style="margin-bottom: 50px;">
+                <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
+
+                @Html.TextAreaFor(m => m.Content, new { @id = "editor1", @name = "Content" })
+
+                <script>
+                    // Replace the <textarea id="editor1"> with a CKEditor
+                    // instance, using default configuration.
+                    CKEDITOR.replace('editor1', {
 
 
-        </script>
+                    });
 
-        <div class="col-xs-12 no-gutter" style="margin-top: 20px;">
-            <button class="btn btn-default" id="submit" type="submit">Submit</button>
-        </div>
-    </div>
-}
 
-@*@using (Ajax.BeginForm("Upload", "TestCMS", new AjaxOptions{HttpMethod = "Post"}, new { @role="form" @enctype="multipart/form-data"}))
+                </script>
+
+                <div class="col-xs-12 no-gutter" style="margin-top: 20px;">
+                    <button class="btn btn-default" id="submit" type="submit">Submit</button>
+                </div>
+            </div>
+        }
+
+        @*@using (Ajax.BeginForm("Upload", "TestCMS", new AjaxOptions{HttpMethod = "Post"}, new { @role="form" @enctype="multipart/form-data"}))
 {
     @Html.LabelFor(m => m.Photo)<br />
     @Html.TextBoxFor(m => m.Photo, new { @type="file", @id="photo"})
@@ -85,10 +101,13 @@
     </div>
 } *@
 
-<form action="/TestCMS/Upload" method="post" enctype="multipart/form-data">
+        <form action="/TestCMS/Upload" method="post" enctype="multipart/form-data">
 
-    <label for="photo">Upload image: </label>
-    <input type="file" name="photo" id="photo" class="btn btn-default" />
+            <label for="photo">Upload image: </label>
+            <input type="file" name="photo" id="photo" class="btn btn-default" />
 
-    <input type="submit" value="Upload" class="btn btn-default" />
-</form>
+            <input type="submit" value="Upload" class="btn btn-default" />
+        </form>
+    </div>
+</div>
+

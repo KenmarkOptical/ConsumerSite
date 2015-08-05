@@ -2,7 +2,7 @@
 
 
 
-<div class="item active" style="margin-top:30px;">
+<div class="item active">
     @for (int i = 0; i < Model.NewFrames.Count; i++ )
     {
         if (i % 4 == 0 && i != 0)  { 
@@ -12,8 +12,8 @@
         }
         <div class="col-xs-6 col-sm-6 text-center"> 
            <a href="/style?sku=@Model.NewFrames[i].SKU" style="text-decoration:none;color:black;">
-             <img class="center-block img-responsive" style="padding-top:50px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.NewFrames[i].Image)&w=450"/><br />
-             <span style="font-size:16px;display:inline-block; margin-bottom:50px; padding-bottom:30px;"><strong>@Model.NewFrames[i].Style</strong> <br /> @Model.NewFrames[i].Collection</span><br />
+             <img class="center-block img-responsive" style="padding-top:20px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.NewFrames[i].Image)&w=450"/><br />
+             <span style="font-size:16px;display:inline-block; margin-bottom:20px; padding-bottom:10px;"><strong>@Model.NewFrames[i].Style</strong> <br /> @Model.NewFrames[i].Collection</span><br />
           </a>
         </div>
     
