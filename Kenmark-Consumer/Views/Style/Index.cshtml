@@ -6,7 +6,7 @@
 <script type="text/javascript">
     $(function () {
 
-       $('.divTitle').click(function () {
+        $('.divTitle').click(function () {
             var content = this.id;
             $('.divContent').hide();
             $('.divTitle').css('border-top', 'none');
@@ -49,7 +49,7 @@
 
                 $(zoomFrame).elevateZoom({
                     zoomType: "inner",
-                    
+
                 });
             });
         }
@@ -167,7 +167,7 @@
                     <td style="border-top:none;" id="storyBorder"><span style="cursor:pointer;text-decoration: none; color: black;border-top:1px solid black;" id="story" class="divTitle">STORY</span></td>
                     <td style="border-top:none;"><span style="cursor:pointer;text-decoration: none; color: black;" id="specs" class="divTitle">SPECS</span></td>
                     <td style="border-top:none;"><span style="text-decoration: none; color: black; cursor:pointer;" id="measurements" class="divTitle">MEASUREMENTS</span></td>
-                    <td style="padding:0;border-top:none;"><a class="measurement-sprite" /><span></span></td>
+                    <td style="padding:0;border-top:none;"><a class="measurement-sprite divTitle" id="frame" style="cursor:pointer" /><span></span></td>
                 </tr>
             </table>
             <div class="col-sm-12 no-gutter">
@@ -212,6 +212,17 @@
                     </tbody>
                     
                 </table>
+
+
+                <span style="display:none" class="divContent" id="frameSpan">
+                    <img src="~/Content/images/Style/diagram_measure.png" />
+                    
+                    <span style="display:inline-block;margin-top:20px;font-size:14px">Wondering what all these numbers mean?
+                        There are three common measurements - horizontal lense width (<strong>"Eye"</strong>),
+                        bridge width (<strong>"DBL"</strong>) and Temple length. See the diagram for details.
+                    </span>
+
+               </span>
             </div>
         </div>
     </div>

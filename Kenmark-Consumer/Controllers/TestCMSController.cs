@@ -49,6 +49,7 @@ namespace Kenmark_Consumer.Controllers
                var imageDimension = image.PhysicalDimension;
                var imageHeight = image.Height;
                var imageWidth = image.Width;
+               
               
                photo.SaveAs(Path.Combine(directory, fileName));
 

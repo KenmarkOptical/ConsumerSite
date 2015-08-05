@@ -1024,6 +1024,7 @@
     <Content Include="Content\images\color icons\Tortoise.jpg" />
     <Content Include="Content\images\color icons\White.jpg" />
     <Content Include="Content\images\color icons\Yellow.jpg" />
+    <Content Include="Content\images\Contact\BuildingPhotoContact.jpg" />
     <Content Include="Content\images\home\brand.jpg" />
     <Content Include="Content\images\home\craft.jpg" />
     <Content Include="Content\images\home\face.jpg" />
@@ -1045,6 +1046,7 @@
     <Content Include="Content\images\ShowSchedule\banner_1.jpg" />
     <Content Include="Content\images\ShowSchedule\banner_2.jpg" />
     <Content Include="Content\images\ShowSchedule\header.jpg" />
+    <Content Include="Content\images\Style\diagram_measure.png" />
     <Content Include="Content\images\Style\icon_measure.png" />
     <Content Include="Content\images\Style\product_color_fpo.jpg" />
     <Content Include="Content\images\Style\product_large_fpo.jpg" />
