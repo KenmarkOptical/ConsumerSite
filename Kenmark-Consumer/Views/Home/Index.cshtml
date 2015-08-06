@@ -37,19 +37,19 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img class="img-responsive desaturate feature" src="@Url.Content("~/Content/images/home/feature.png")" />
+                <img class="img-responsive desaturate feature" id="image-0" src="@Url.Content("~/Content/images/home/feature.png")" />
                 @*<div class="carousel-caption">
           <h3>Caption Text</h3>
       </div>*@
             </div>
             <div class="item">
-                <img class="img-responsive desaturate feature" src="@Url.Content("~/Content/images/home/feature.png")" />
+                <img class="img-responsive desaturate feature" id="image-1" src="@Url.Content("~/Content/images/home/feature.png")" />
                 @* <div class="carousel-caption">
           <h3>Caption Text</h3>
       </div>*@
             </div>
             <div class="item">
-                <img class="img-responsive desaturate feature" src="@Url.Content("~/Content/images/home/feature.png")" />
+                <img class="img-responsive desaturate feature" id="image-2" src="@Url.Content("~/Content/images/home/feature.png")" />
                 @*<div class="carousel-caption">
           <h3>Caption Text</h3>
       </div>*@
@@ -71,10 +71,10 @@
     <div class="row no-gutter">
         <div class="col-xs-12 col-sm-8" style="padding: 5px;">
             <a href="~/">
-                <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/craft.jpg")" />
+                <img class="img-responsive desaturate" id="image-3" src="@Url.Content("~/Content/images/home/craft.jpg")" />
                 <span class="div-text-center collection-link-text">
-                    <span style="display: block; text-align: center;">CRAFTSMANSHIP</span>
-                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;">THE MARK OF A GREAT FRAME</span>
+                    <span style="display: block; text-align: center;" id="text-0">CRAFTSMANSHIP</span>
+                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-0">THE MARK OF A GREAT FRAME</span>
                 </span>
             </a>
         </div>
@@ -82,10 +82,10 @@
 
         <div class="col-xs-6 col-sm-4 hidden-xs" style="padding: 5px;">
             <a href="~/">
-                <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/brand.jpg")" />
+                <img class="img-responsive desaturate" id="image-4-desktop" src="@Url.Content("~/Content/images/home/brand.jpg")" />
                 <span class="div-text-center collection-link-text">
-                    <span style="display: block; text-align: center;">KENMARK</span>
-                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;">ABOUT OUR BRAND</span>
+                    <span style="display: block; text-align: center;" id="text-1-desktop">KENMARK</span>
+                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-desktop">ABOUT OUR BRAND</span>
                 </span>
             </a>
         </div>
@@ -94,41 +94,41 @@
 
     <div class="col-xs-6 visible-xs" style="padding: 5px;">
         <a href="~/">
-            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/brand.jpg")" />
+            <img class="img-responsive desaturate" id="image-4-mobile" src="@Url.Content("~/Content/images/home/brand.jpg")" />
             <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;">KENMARK</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;">ABOUT OUR BRAND</span>
+                <span style="display: block; text-align: center;" id="text-1-mobile">KENMARK</span>
+                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-mobile">ABOUT OUR BRAND</span>
             </span>
         </a>
     </div>
 
     <div class="col-xs-6 col-sm-4" style="padding: 5px;">
         <a href="https://instagram.com/kenmarkeyewear" target="_blank">
-            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/insta.jpg")" />
+            <img class="img-responsive desaturate" id="image-5" src="@Url.Content("~/Content/images/home/insta.jpg")" />
             <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;">INSTAGRAM</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;">PHOTOS FROM</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;">AROUND THE WORLD</span>
+                <span style="display: block; text-align: center;" id="text-2">INSTAGRAM</span>
+                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2">PHOTOS FROM</span>
+                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2-0">AROUND THE WORLD</span>
             </span>
         </a>
     </div>
 
     <div class="col-xs-6 col-sm-4" style="padding: 5px;">
         <a href="~/">
-            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/face.jpg")" />
+            <img class="img-responsive desaturate" id="image-6" src="@Url.Content("~/Content/images/home/face.jpg")" />
             <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;">ABOUT FACE</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;">WHAT'S THE RIGHT FRAME</span>
+                <span style="display: block; text-align: center;" id="text-3">ABOUT FACE</span>
+                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-3">WHAT'S THE RIGHT FRAME</span>
             </span>
         </a>
     </div>
 
     <div class="col-xs-6 col-sm-4" style="padding: 5px;">
         <a href="~/">
-            <img class="img-responsive desaturate" src="@Url.Content("~/Content/images/home/jason.jpg")" />
+            <img class="img-responsive desaturate" id="image-7" src="@Url.Content("~/Content/images/home/jason.jpg")" />
             <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;">JASON</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;">A DESIGNER PROFILE</span>
+                <span style="display: block; text-align: center;" id="text-4">JASON</span>
+                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-4">A DESIGNER PROFILE</span>
             </span>
         </a>
     </div>
@@ -175,9 +175,9 @@
 
 <div class="row" style="margin-top: 19px;">
     <div class="col-xs-12 no-gutter">
-        <img class="img-responsive" src="@Url.Content("~/Content/images/home/viewall.jpg")" />
+        <img class="img-responsive" id="image-8" src="@Url.Content("~/Content/images/home/viewall.jpg")" />
         <span class="div-text-center collection-link-static">
-            <span style="display: block; text-align: center;">VIEW ALL BRANDS</span>
+            <span style="display: block; text-align: center;" id="text-5">VIEW ALL BRANDS</span>
         </span>
     </div>
 </div>

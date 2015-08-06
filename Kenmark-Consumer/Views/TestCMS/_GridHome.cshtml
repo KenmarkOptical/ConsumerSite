@@ -1,1 +1,133 @@
-﻿
+﻿@model Kenmark_Consumer.Models.TestCMS
+
+
+<script type="text/javascript">
+    $(function(){
+        $('.fancybox').fancybox({
+            autoSize: false,
+            "width": 600,
+        });
+
+    });
+</script>
+
+<div class="col-xs-12 text-center">
+    <span style="font-size: 25px; display: inline-block; margin-bottom: 30px;" class="text-center">Kenmark CMS - Home</span>
+    <a class="fancybox" href="#insideImage">Help</a>
+</div>
+
+<div id="insideImage" style="display:none;">
+    <img src="~/Content/images/TestCMS/home-1.jpg" />
+    <img src="~/Content/images/TestCMS/home-2.jpg" />
+</div>
+
+@*@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post" }))
+{ 
+    
+    
+  
+}*@
+
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload"  method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 0</label>
+        <input type="file" name="photo" id="image-0" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+    
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 1</label>
+        <input type="file" name="photo" id="image-1" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+    
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 2</label>
+        <input type="file" name="photo" id="image-2" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 3</label>
+        <input type="file" name="photo" id="image-3" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 4</label>
+        <input type="file" name="photo" id="image-4" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 5</label>
+        <input type="file" name="photo" id="image-5" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 6</label>
+        <input type="file" name="photo" id="image-6" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 7</label>
+        <input type="file" name="photo" id="image-7" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+    
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 8</label>
+        <input type="file" name="photo" id="image-8" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+
+<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+    <form action="/TestCMS/Upload" class="pageContent homeUpload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">Upload image: 9</label>
+        <input type="file" name="photo" id="image-9" class="btn btn-default" />
+
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+ 

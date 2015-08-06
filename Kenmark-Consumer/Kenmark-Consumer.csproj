@@ -1051,6 +1051,8 @@
     <Content Include="Content\images\Style\product_color_fpo.jpg" />
     <Content Include="Content\images\Style\product_large_fpo.jpg" />
     <Content Include="Content\images\Style\product_viewbrand.jpg" />
+    <Content Include="Content\images\TestCMS\home-1.jpg" />
+    <Content Include="Content\images\TestCMS\home-2.jpg" />
     <Content Include="Content\images\ViewCollection\peo.jpg" />
     <Content Include="Content\images\Where_To_Buy\icon_link.png" />
     <Content Include="Content\images\Where_To_Buy\icon_map.png" />
@@ -1211,6 +1213,9 @@
     <Content Include="Views\TestCMS\Index.cshtml" />
     <Content Include="Views\TestCMS\_GridTheMirror.cshtml" />
     <Content Include="Views\TestCMS\_GridHome.cshtml" />
+    <Content Include="Views\TestCMS\_GridOurStory.cshtml" />
+    <Content Include="Views\TestCMS\_GridShop.cshtml" />
+    <Content Include="Views\TestCMS\_GridCollection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

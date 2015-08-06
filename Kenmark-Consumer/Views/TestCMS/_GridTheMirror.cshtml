@@ -1,6 +1,11 @@
 ﻿@model Kenmark_Consumer.Models.TestCMS
 
-@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post", OnBegin = "OnBegin" }))
+<div class="col-xs-12 text-center">
+    <span style="font-size: 25px; display: inline-block; margin-bottom: 30px;" class="text-center">Kenmark CMS - The Mirror</span>
+</div>
+
+
+@using (Ajax.BeginForm("UpdateContent", "TestCMS", new AjaxOptions { HttpMethod = "Post"}))
         {
             <div class="col-xs-12" style="margin-bottom: 50px;">
                 <div class="col-xs-12 col-sm-4">
@@ -41,7 +46,7 @@
             </div>
         }
 
-<form action="/TestCMS/Upload" class="pageContent" method="post" enctype="multipart/form-data">
+<form action="/TestCMS/Upload" class="pageContent theMirrorUpload" method="post" enctype="multipart/form-data">
 
             <label for="photo">Upload image: </label>
             <input type="file" name="photo" id="photo" class="btn btn-default" />
