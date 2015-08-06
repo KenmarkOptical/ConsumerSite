@@ -26,8 +26,8 @@ namespace Kenmark_Consumer.Controllers
         [ValidateInput(false)]
         public ActionResult UpdateContent(TestCMS t)
         {
-          
-            
+
+
             return View();
         }
 
@@ -36,30 +36,39 @@ namespace Kenmark_Consumer.Controllers
         public ActionResult Upload(HttpPostedFileBase photo)
         {
             string directory = Server.MapPath("~/Content/images/TheMirror");
-            
+
 
             if (photo != null && photo.ContentLength > 0)
             {
-               
+                Image image = Image.FromStream(photo.InputStream);
 
-               Image image = Image.FromStream(photo.InputStream);
+                var fileName = Path.GetFileName(photo.FileName);
+                var imageDimension = image.PhysicalDimension;
+                var imageHeight = image.Height;
+                var imageWidth = image.Width;
 
-               var fileName = Path.GetFileName(photo.FileName);
+                photo.SaveAs(Path.Combine(directory, fileName));
 
-               var imageDimension = image.PhysicalDimension;
-               var imageHeight = image.Height;
-               var imageWidth = image.Width;
-               
-              
-               photo.SaveAs(Path.Combine(directory, fileName));
-
-              
-              
             }
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult UpdateHome(TestCMS home)
+        {
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult UpdateOurStory(TestCMS ourstory)
+        {
 
             return RedirectToAction("Index");
         }
 
     }
+
+
 }

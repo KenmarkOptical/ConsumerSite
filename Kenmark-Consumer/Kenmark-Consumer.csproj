@@ -1209,6 +1209,8 @@
     <Content Include="Views\Feedback\_Grid.cshtml" />
     <Content Include="Views\Style\_Grid.cshtml" />
     <Content Include="Views\TestCMS\Index.cshtml" />
+    <Content Include="Views\TestCMS\_GridTheMirror.cshtml" />
+    <Content Include="Views\TestCMS\_GridHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
