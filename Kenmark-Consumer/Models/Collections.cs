@@ -244,7 +244,8 @@ namespace Kenmark_Consumer.Models
                 Filter.Genders.Where(m => !FilteredFrames.Select(x => x.Gender).Contains(m.DisplayName)).Select(c => { c.Disabled = true; return c; }).ToList();
                 Filter.Material.Where(m => !FilteredFrames.Select(x => x.Material).Contains(m.DisplayName)).Select(c => { c.Disabled = true; return c; }).ToList();
                 Filter.Shape.Where(m => !FilteredFrames.Select(x => x.Shape).Contains(m.DisplayName)).Select(c => { c.Disabled = true; return c; }).ToList();
-                if (FilteredFrames.Count > 0)
+                
+                if (FilteredFrames.Count > 0 || Filter.EyeSizeChange == false)
                 {
                     Filter.SelectedMinEyeSize = FilteredFrames.Min(x => Convert.ToInt16(x.Eye));
                     Filter.SelectedMaxEyeSize = FilteredFrames.Max(x => Convert.ToInt16(x.Eye));

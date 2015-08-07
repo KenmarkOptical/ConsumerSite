@@ -194,6 +194,7 @@
         stop: function (event, ui) {
                 $('#SelectedMinEyeSize').val(ui.values[0]);
                 $('#SelectedMaxEyeSize').val(ui.values[1]);
+                $('#EyeSizeChange').val('true');
 
                 _Page = 0;
                 $('#height').val($(window).height());
@@ -305,6 +306,7 @@
      @Html.HiddenFor(m => m.Reload)
      @Html.HiddenFor(m => m.sort)
      @Html.HiddenFor(m => m.Type)
+     @Html.HiddenFor(m => m.EyeSizeChange)
 
     <div id="FilterList" class="row" >  
         <div class="col-xs-12">
