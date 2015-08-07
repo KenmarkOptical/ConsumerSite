@@ -26,6 +26,7 @@ namespace Kenmark_Consumer.Models
         public int SelectedMaxEyeSize { get; set; }
         public int MinEyeSize { get; set; }
         public int MaxEyeSize { get; set; }
+        public bool EyeSizeChange { get; set; }
         public List<BoolSetting> CloseOut { get; set; }
         public int Qty { get; set; }
 
@@ -48,6 +49,7 @@ namespace Kenmark_Consumer.Models
             List<int?> EyeSize = new List<int?>();
             int MinEye = 0;
             int MaxEye = 0;
+            
 
             List<string> codes = new List<string>();
 

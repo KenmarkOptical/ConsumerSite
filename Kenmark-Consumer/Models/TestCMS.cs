@@ -25,5 +25,13 @@ namespace Kenmark_Consumer.Models
 
         
         public HttpPostedFileBase UploadedFile { get; set; }
+        public List<TestCarouselPhoto> Carousel_Photos { get; set; }
+    }
+
+    public class TestCarouselPhoto
+    {
+        public string Name { get; set; }
+        public int Order { get; set; }
+       // public string
     }
 }

@@ -194,6 +194,7 @@
         stop: function (event, ui) {
                 $('#SelectedMinEyeSize').val(ui.values[0]);
                 $('#SelectedMaxEyeSize').val(ui.values[1]);
+                $('#EyeSizeChange').val('true');
 
                 _Page = 0;
                 $('#height').val($(window).height());
@@ -305,6 +306,7 @@
      @Html.HiddenFor(m => m.Reload)
      @Html.HiddenFor(m => m.sort)
      @Html.HiddenFor(m => m.Type)
+     @Html.HiddenFor(m => m.EyeSizeChange)
 
     <div id="FilterList" class="row" >  
         <div class="col-xs-12">
@@ -439,8 +441,15 @@
          @if (Model.MinEyeSize != null && Model.MaxEyeSize != null)
          {
             <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ EYE SIZE</span><br />
-            <div id="eye-items" style="display:none;">
-             <span id="EyeToggle" class="link" style="padding:4px;">clear</span><br />
+            if (Model.EyeSizeChange == true)
+            {
+                <span id="EyeToggle" class="link" style="padding:4px;cursor: pointer;">clear</span><br />
+                <script>$('#eye-items').show();</script>
+            }           
+             
+             
+             <div id="eye-items" style="display:none;">
+            
              
 
              

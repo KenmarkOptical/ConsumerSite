@@ -19,7 +19,21 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            TestCMS cm = new TestCMS()
+            {
+                Carousel_Photos = new List<TestCarouselPhoto>(){
+                       new TestCarouselPhoto(){ Name = "IMAGE 1", Order = 1},
+                       new TestCarouselPhoto(){ Name = "IMAGE 2", Order = 2},
+                       new TestCarouselPhoto(){ Name = "IMAGE 3", Order = 3},
+                       new TestCarouselPhoto(){ Name = "IMAGE 4", Order = 4},
+                       new TestCarouselPhoto(){ Name = "IMAGE 5", Order = 5},
+                       new TestCarouselPhoto(){ Name = "IMAGE 6", Order = 6},
+                       new TestCarouselPhoto(){ Name = "IMAGE 7", Order = 7},
+                       new TestCarouselPhoto(){ Name = "IMAGE 8", Order = 8}
+                  }
+            };
+
+            return View("Index", cm);
         }
 
         [HttpPost]
