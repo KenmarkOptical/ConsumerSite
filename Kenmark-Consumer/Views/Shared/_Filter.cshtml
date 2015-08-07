@@ -441,8 +441,15 @@
          @if (Model.MinEyeSize != null && Model.MaxEyeSize != null)
          {
             <span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block;font-size:14px;">+ EYE SIZE</span><br />
-            <div id="eye-items" style="display:none;">
-             <span id="EyeToggle" class="link" style="padding:4px;">clear</span><br />
+            if (Model.EyeSizeChange == true)
+            {
+                <span id="EyeToggle" class="link" style="padding:4px;cursor: pointer;">clear</span><br />
+                <script>$('#eye-items').show();</script>
+            }           
+             
+             
+             <div id="eye-items" style="display:none;">
+            
              
 
              
