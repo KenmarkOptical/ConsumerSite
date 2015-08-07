@@ -2,7 +2,7 @@
 
 
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         $('.fancybox').fancybox({
             autoSize: false,
             "width": 600,
@@ -16,12 +16,61 @@
     <a class="fancybox" href="#insideImage">Help</a>
 </div>
 
-<div id="insideImage" style="display:none;">
+<div id="insideImage" style="display: none;">
     <img src="~/Content/images/TestCMS/home-1.jpg" />
     <img src="~/Content/images/TestCMS/home-2.jpg" />
 </div>
+<script type="text/javascript">
 
-@foreach(var img in Model.
+    $(function () {
+        $('.textOrder').change(function () {
+            var id = this.id;
+            var val = parseInt($('#' + id).val(), 10);
+            var newVal = (val + 1);
+           
+           
+        });
+
+        
+    });
+
+    //function ChangeIndexes() {
+
+    //    $('.textOrder').each(
+    
+    //}
+</script>
+@for (int i = 1; i < Model.Carousel_Photos.Count; i++)
+{ 
+    <div class="col-xs-12">
+        @Html.LabelFor(m => m.Carousel_Photos[i].Name)
+       @* @Html.TextBoxFor(m => m.Carousel_Photos[i].Order)*@
+        
+        <input type="text" class="textOrder" id = "text_@i" value = "@i" />
+
+
+
+
+    </div>
+}
+
+@*@foreach (var img in Model.Carousel_Photos)
+{ 
+    @Html.LabelFor(m => img.Name)
+    @Html.DropDownListFor(m => img.Order, new SelectList(
+        new List<Object> { 
+            new{ value = 1, text = 1},
+            new{ value = 2, text = 2},
+            new{ value = 3, text = 3},
+            new{ value = 4, text = 4},
+            new{ value = 5, text = 5},
+            new{ value = 6, text = 6},
+            new{ value = 7, text = 7},
+            new{ value = 8, text = 8},
+        }, "value", "text", img.Order
+
+       ), new { @class = "form-control" })
+}*@
 
 @*<div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
     <form action="/TestCMS/Upload" class="pageContent homeUpload"  method="post" enctype="multipart/form-data">
