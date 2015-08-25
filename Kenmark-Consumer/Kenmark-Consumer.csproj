@@ -202,6 +202,9 @@
     <Compile Include="career.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CMS_Like_Collection.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="collection.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
@@ -527,6 +530,7 @@
     <Compile Include="Models\PressClipping.cs" />
     <Compile Include="Models\PressRelease.cs" />
     <Compile Include="Models\QueryStringExtensions.cs" />
+    <Compile Include="Models\ShopMenu.cs" />
     <Compile Include="Models\ShowSchedule.cs" />
     <Compile Include="Models\Style.cs" />
     <Compile Include="Models\TestCMS.cs" />

@@ -13,6 +13,7 @@
           <EntitySet Name="AdminExceptionDecision" EntityType="KenmarkTestDBModel.Store.AdminExceptionDecision" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BBX_Order_Log" EntityType="KenmarkTestDBModel.Store.BBX_Order_Log" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="careers" EntityType="KenmarkTestDBModel.Store.careers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CMS_Like_Collection" EntityType="KenmarkTestDBModel.Store.CMS_Like_Collection" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="collection_codes" EntityType="KenmarkTestDBModel.Store.collection_codes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Collection_POP" EntityType="KenmarkTestDBModel.Store.Collection_POP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="collections" EntityType="KenmarkTestDBModel.Store.collections" store:Type="Tables" Schema="dbo" />
@@ -1000,6 +1001,17 @@
           <Property Name="job_description" Type="varchar" MaxLength="750" />
           <Property Name="url" Type="varchar" MaxLength="150" />
           <Property Name="seq_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CMS_Like_Collection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="like_id" Type="int" Nullable="false" />
+          <Property Name="icon_image" Type="varchar" MaxLength="500" />
+          <Property Name="icon_hover" Type="varchar" MaxLength="500" />
+          <Property Name="about" Type="varchar(max)" />
+          <Property Name="about_image" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="collection_codes">
           <Key>
@@ -3674,6 +3686,7 @@
             <End Role="collection" EntitySet="collections" />
             <End Role="address_to_collections" EntitySet="address_to_collections" />
           </AssociationSet>
+          <EntitySet Name="CMS_Like_Collection" EntityType="KenmarkTestDBModel.CMS_Like_Collection" />
         </EntityContainer>
         <ComplexType Name="usp_where_to_buy_Result">
           <Property Type="String" Name="kenmark_id" Nullable="false" MaxLength="6" />
@@ -5755,6 +5768,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CMS_Like_Collection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="like_id" Nullable="false" />
+          <Property Type="String" Name="icon_image" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="icon_hover" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="about" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="about_image" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7850,6 +7874,18 @@
                 <ScalarProperty Name="SKU" ColumnName="SKU" />
                 <ScalarProperty Name="UPC" ColumnName="UPC" />
                 <ScalarProperty Name="lUPCLink_sk" ColumnName="lUPCLink_sk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_Like_Collection">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Like_Collection">
+              <MappingFragment StoreEntitySet="CMS_Like_Collection">
+                <ScalarProperty Name="about_image" ColumnName="about_image" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="icon_hover" ColumnName="icon_hover" />
+                <ScalarProperty Name="icon_image" ColumnName="icon_image" />
+                <ScalarProperty Name="like_id" ColumnName="like_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

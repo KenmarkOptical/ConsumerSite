@@ -41,8 +41,8 @@ namespace Kenmark_Consumer.Controllers
         }
 
         public ActionResult GetBrandsData() {
-
-            return PartialView("/Views/Shared/_ShopMenu.cshtml");
+            ShopMenu s = new ShopMenu().GetItems();
+            return PartialView("/Views/Shared/_ShopMenu.cshtml", s);
         }
 
         public ActionResult GetProfileData() {
