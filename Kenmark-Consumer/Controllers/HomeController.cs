@@ -44,5 +44,9 @@ namespace Kenmark_Consumer.Controllers
 
             return PartialView("/Views/Shared/_ShopMenu.cshtml");
         }
+
+        public ActionResult GetProfileData() {
+            return PartialView("/Views/Shared/_ProfileMenu.cshtml");
+        }
     }
 }
