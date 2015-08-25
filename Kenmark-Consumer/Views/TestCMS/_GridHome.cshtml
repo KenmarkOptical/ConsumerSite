@@ -24,6 +24,7 @@
 
     $(function () {
         $('.textOrder').change(function () {
+            
             var id = this.id;
             var val = parseInt($('#' + id).val(), 10);  // possibly make this function one not done on page load and call it when
             var newVal = (val + 1);                     // change picture method is called
