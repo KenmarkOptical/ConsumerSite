@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Kenmark_Consumer.Models.CollectionMain
+
+@{
     ViewBag.Title = "Index";
 }
 
@@ -16,7 +18,7 @@
 </script>
 
 <div class="row">
-      <img class="img-responsive" src="@Url.Content("~/Content/images/brand/penguin/feature.jpg")" />
+      <img class="img-responsive" src="@Model.main_image" />
 </div>
 
 <div class="row text-center" style="margin-top:32px;margin-bottom:32px;">
