@@ -42,7 +42,7 @@
     
     @foreach (var s in Model.Items.OrderBy(s => s.order)) { 
         <div class="col-xs-6 col-sm-3">
-            <a href="/Collection/@s.site_display.Replace(" ", "-")">
+            <a href="/Eyewear/@s.site_display.Replace(" ", "-")">
                 <img class="img-responsive saturate-2" src="@Url.Content(@s.icon_image)"/>
             </a>
         </div>
