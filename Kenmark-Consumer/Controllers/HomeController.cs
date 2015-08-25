@@ -39,5 +39,10 @@ namespace Kenmark_Consumer.Controllers
             
             return View("Person", p);
         }
+
+        public ActionResult GetBrandsData() {
+
+            return PartialView("/Views/Shared/_ShopMenu.cshtml");
+        }
     }
 }

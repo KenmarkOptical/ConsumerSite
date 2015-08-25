@@ -1216,6 +1216,7 @@
     <Content Include="Views\TestCMS\_GridOurStory.cshtml" />
     <Content Include="Views\TestCMS\_GridShop.cshtml" />
     <Content Include="Views\TestCMS\_GridCollection.cshtml" />
+    <Content Include="Views\Shared\_ShopMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
