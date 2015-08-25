@@ -19,6 +19,13 @@ namespace Kenmark_Consumer
                 defaults: new { controller = "Collection", action = "Index", id = "Penguin" }
             );
 
+
+            routes.MapRoute(
+                name: "ViewCollection",
+                url: "Collection/{id}",
+                defaults: new { controller = "Collection", action = "Index", id = UrlParameter.Optional }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
