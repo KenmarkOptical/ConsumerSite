@@ -22,7 +22,7 @@ namespace Kenmark_Consumer
 
             routes.MapRoute(
                 name: "ViewCollection",
-                url: "Collection/{id}",
+                url: "Eyewear/{id}",
                 defaults: new { controller = "Collection", action = "Index", id = UrlParameter.Optional }
             );
 
