@@ -14,6 +14,7 @@ namespace Kenmark_Consumer.Models
 
         public CollectionMain GetMain(string collection)
         {
+            collection = collection.Replace("-", " ");
             CollectionMain c = new CollectionMain();
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
