@@ -7,7 +7,7 @@ namespace Kenmark_Consumer.Models
 {
     public class ShopMenu
     {
-        List<ShopItem> Items = new List<ShopItem>();
+        public List<ShopItem> Items = new List<ShopItem>();
 
         public ShopMenu GetItems()
         {
