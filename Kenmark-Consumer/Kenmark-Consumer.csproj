@@ -517,6 +517,7 @@
     <Compile Include="Mobile_Feedback.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CollectionMain.cs" />
     <Compile Include="Models\Collections.cs" />
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\Contact.cs" />

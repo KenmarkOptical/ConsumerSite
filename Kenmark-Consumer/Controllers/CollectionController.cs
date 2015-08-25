@@ -15,7 +15,8 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult Index(string id)
         {
-            return View();
+            CollectionMain cm = new CollectionMain().GetMain(id);
+            return View(cm);
         }
          
 
