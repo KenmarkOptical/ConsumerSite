@@ -120,6 +120,7 @@ namespace Kenmark_Consumer.Controllers
             return null;
         }
 
+        [ValidateInput(false)]
         public ActionResult GetFilters(string coll, string group, int sort, string f, string s_type)
         {
             JavaScriptSerializer js = new JavaScriptSerializer();
