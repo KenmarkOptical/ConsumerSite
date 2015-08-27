@@ -29,12 +29,14 @@ namespace Kenmark_Consumer.Controllers
                 if (!String.IsNullOrEmpty(latitude) && !String.IsNullOrEmpty(longitude))
                 {
                     MaxMindGeo m = new MaxMindGeo();
-                    zip = m.GetZipFromLatLong(latitude, longitude);             
+                   // zip = m.GetZipFromLatLong(latitude, longitude);
+                    zip = "40299";
                 }
                 else
                 {
                     MaxMindGeo m = new MaxMindGeo();
-                    zip = m.UserLocation().Postal.Code;
+                   // zip = m.UserLocation().Postal.Code;
+                    zip = "40299";
                 }
 
                 //store the cookie value if not empty
