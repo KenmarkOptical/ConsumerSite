@@ -80,8 +80,12 @@
 </script>
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
     <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ","-")"
-         style="text-decoration:none;color:black;">@(Model.Collection.ToUpper())</a> 
-        <a>@Model</a>/ @(Model.Style_Name)
+         style="text-decoration:none;color:black;">@(Model.Collection.ToUpper())</a> / 
+        
+        <a href="~/Eyewear/@Model.Collection.Replace(" ","-")/@(Model.Group)">
+            @(Model.Group)</a>
+        
+        / @(Model.Style_Name)
 </div>
 </div>
 
