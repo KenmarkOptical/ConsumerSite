@@ -112,7 +112,7 @@
 
 <div id="mobile-nav" class="row visible-xs" style="margin-top:10px;">     
     <div class="col-xs-6 no-gutter">
-        <span style="font-size:12px;display:inline-block;margin-top:10px;margin-left:20px;">PENGUIN / RX</span>
+        <span style="font-size:12px;display:inline-block;margin-top:10px;margin-left:20px;"><a href="~/Eyewear/@Model.CollectionName.Replace(" ","-")">@(Model.CollectionName.ToUpper())</a> / @(Model.CollectionGroup)</span>
     </div>
      <div class="col-xs-6 no-gutter text-right">
         <span onclick="$('#FilterDiv2').slideToggle();" style="cursor:pointer;font-size: 13px;display:inline-block;margin-bottom:10px;margin-top:10px;margin-right:30px;font-weight:bold;">Filter</span>        
@@ -123,14 +123,14 @@
 </div>
 
 <div class="row">
-    <img class="img-responsive" src="@Url.Content("~/Content/images/viewcollection/peo.jpg")" />
+    <img class="img-responsive" src="@Url.Content("~/Content/images/Brand/" + @Model.CollectionName.Replace(" ","").Replace("Eye", "").Replace("Original","") + "/" + @Model.CollectionGroup.Replace(" ", "") + ".jpg")" />
 </div>
 
 
 
 <div class="col-xs-3 hidden-xs">
     <div class="col-xs-12 no-gutter" style="margin-top:15px; margin-bottom:20px;">
-       @(Model.CollectionName.ToUpper()) / @(Model.CollectionGroup)
+      <a href="~/Eyewear/@Model.CollectionName.Replace(" ","-")" style="text-decoration:none;color:black;">@(Model.CollectionName.ToUpper())</a> / @(Model.CollectionGroup)
     </div>    
     <div id="FilterDiv" class="col-xs-12"></div>
 </div>

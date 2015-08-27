@@ -65,7 +65,7 @@
     @if(String.IsNullOrEmpty(Model.Type))
     {
     <div class="col-xs-12 text-center no-gutter">
-       <span style="font-size: 3vmax;">@(Model.CollectionName) / COLLECTION  </span>
+       <span style="font-size: 3vmax;">@(Model.CollectionName.ToUpper()) @(Model.CollectionGroup) COLLECTION  </span>
     </div> 
     }
     else if (Model.Type == "MEN")

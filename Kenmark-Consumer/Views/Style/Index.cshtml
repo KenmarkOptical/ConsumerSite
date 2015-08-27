@@ -79,7 +79,10 @@
     });
 </script>
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
-    <div class="col-md-3" style="font-size: 12px;">MEN / PENGUIN / RX / TORTOGA</div>
+    <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ","-")"
+         style="text-decoration:none;color:black;">@(Model.Collection.ToUpper())</a> 
+        <a>@Model</a>/ @(Model.Style_Name)
+</div>
 </div>
 
 <div class="row">
@@ -246,5 +249,5 @@
 </div>
 
 <div class="row" style="margin-top:15px;">
-    <img class="img-responsive" src="~/Content/images/Style/product_viewbrand.jpg" />
+    <img class="img-responsive" src= "@Url.Content("~/Content/images/Brand/"+ @Model.Collection.Replace(" ", "").Replace("Eye", "").Replace("Original","") + "/bottom.jpg")"  />
 </div>
