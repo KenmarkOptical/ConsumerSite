@@ -997,9 +997,15 @@
     <Content Include="Content\images\all_pages\nav\logo_wolverine_hover.jpg" />
     <Content Include="Content\images\all_pages\nav\logo_zac.jpg" />
     <Content Include="Content\images\all_pages\nav\logo_zac_hover.jpg" />
+    <Content Include="Content\images\Brand\DanaBuchman\feature.jpg" />
+    <Content Include="Content\images\Brand\JhaneBarnes\feature.jpg" />
+    <Content Include="Content\images\Brand\LillyPulitzer\feature.jpg" />
     <Content Include="Content\images\Brand\Penguin\feature.jpg" />
     <Content Include="Content\images\Brand\Penguin\rx.jpg" />
     <Content Include="Content\images\Brand\Penguin\sun.jpg" />
+    <Content Include="Content\images\Brand\Timex\feature.jpg" />
+    <Content Include="Content\images\Brand\VeraWang\feature.jpg" />
+    <Content Include="Content\images\Brand\Zac\feature.jpg" />
     <Content Include="Content\images\color icons\Antique_Gold.jpg" />
     <Content Include="Content\images\color icons\Antique_Silver.jpg" />
     <Content Include="Content\images\color icons\Black.jpg" />
