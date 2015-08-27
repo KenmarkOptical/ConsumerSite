@@ -9,6 +9,7 @@ namespace Kenmark_Consumer.Models
     {
         public string main_image { get; set; }
         public string collection { get; set; }
+        public string collection_name { get; set; }
         public string about { get; set; }
         public List<CollectionLink> Links = new List<CollectionLink>();
 
@@ -20,6 +21,7 @@ namespace Kenmark_Consumer.Models
             {
                 var lc = db.Kenmark_Collections_like.Where(m => m.Site_Display == collection).FirstOrDefault();
                 c.collection = lc.Group;
+                c.collection_name = lc.Site_Display;
 
                 var cm = db.CMS_Like_Collection.Where(m => m.like_id == lc.ID).FirstOrDefault();
                 c.main_image = cm.about_image;
