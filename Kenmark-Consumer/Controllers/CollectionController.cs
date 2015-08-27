@@ -138,6 +138,7 @@ namespace Kenmark_Consumer.Controllers
             return PartialView("_Filter", filter);
         }
 
+        [ValidateInput(false)]
         public ActionResult FilterChange(Filters f)
         {           
             Collections c = new Collections();
@@ -149,7 +150,7 @@ namespace Kenmark_Consumer.Controllers
             c.Page = 1;
             c.CollectionCode = f.coll;
             c.CollectionGroup = f.group;
-            c.Type = f.Type;                
+            c.Type = f.Type;           
             
 
             //create a query string from the filter model

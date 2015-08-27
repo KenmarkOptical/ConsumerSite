@@ -11,6 +11,7 @@ namespace Kenmark_Consumer.Models
         public string Collection { get; set; }
         public List<String> Colors { get; set; }
         public string Main_Color { get; set; }
+        public string Group { get; set; }
 
         //specs
         public string Material { get; set; }
@@ -44,6 +45,7 @@ namespace Kenmark_Consumer.Models
             s.Material = s.Material == "M" ? "Metal" : "Plastic";
             s.Temples = data2.Select(m => m.AS).FirstOrDefault();
             s.Bridge = data2.Select(m => m.AG).FirstOrDefault();
+            s.Group = data1.Select(m => m.coll_group).FirstOrDefault();
 
             s.Colors = data1.Select(m => m.sku.Substring(0, 6) + ".jpg").Distinct().ToList();
             s.Measurements = (from d in data2
