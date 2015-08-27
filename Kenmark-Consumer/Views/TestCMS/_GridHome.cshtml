@@ -5,7 +5,7 @@
     $(function () {
         $('.fancybox').fancybox({
             autoSize: false,
-            "width": 600,
+            "width": 800,
         });
 
     });
@@ -48,7 +48,7 @@
 @for (int i = 0; i < Model.Carousel_Photos.Count; i++)
 { 
     <div class="col-xs-12">
-        @Html.LabelFor(m => m.Carousel_Photos[i].Name)
+       <span>@Model.Carousel_Photos[i].Name</span>
         @Html.TextBoxFor(m => m.Carousel_Photos[i].Order)
         
         @*<input type="text" class="textOrder" id = "text_@i" value = "@i" />*@
