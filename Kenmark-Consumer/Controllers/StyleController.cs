@@ -18,7 +18,8 @@ namespace Kenmark_Consumer.Controllers
             if (HttpContext.Request.Cookies["geo_loc_zip"] == null)
             {
                 MaxMindGeo m = new MaxMindGeo();
-                zip = m.UserLocation().Postal.Code;
+               // zip = m.UserLocation().Postal.Code;
+                zip = "40299";
 
                 //store the cookie value
                 HttpCookie cookie = new HttpCookie("geo_loc_zip");

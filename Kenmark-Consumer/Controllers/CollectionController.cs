@@ -20,7 +20,7 @@ namespace Kenmark_Consumer.Controllers
         }
          
 
-        public ActionResult ViewCollection(string collection, int page, int sort = 1,string sub = "", Filters filter = null, string Type = "")
+        public ActionResult ViewCollection(string n, string collection, int page, int sort = 1,string sub = "", Filters filter = null, string Type = "")
         {         
 
             //get the filter from session
@@ -78,6 +78,7 @@ namespace Kenmark_Consumer.Controllers
             c.CollectionCode = collection;
             c.CollectionGroup = sub;
             c.Type = Type;
+            c.CollectionName = n;
             
             ViewBag.Sort = sort;
             ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
