@@ -1010,6 +1010,11 @@
     <Content Include="Content\images\Brand\JhaneBarnes\feature.jpg" />
     <Content Include="Content\images\Brand\JhaneBarnes\RX.jpg" />
     <Content Include="Content\images\Brand\JhaneBarnes\SUN.jpg" />
+    <Content Include="Content\images\Brand\Kensie\bottom.jpg" />
+    <Content Include="Content\images\Brand\Kensie\feature.jpg" />
+    <Content Include="Content\images\Brand\Kensie\GIRLSRX.jpg" />
+    <Content Include="Content\images\Brand\Kensie\RX.jpg" />
+    <Content Include="Content\images\Brand\Kensie\SUN.jpg" />
     <Content Include="Content\images\Brand\LillyPulitzer\bottom.jpg" />
     <Content Include="Content\images\Brand\LillyPulitzer\feature.jpg" />
     <Content Include="Content\images\Brand\LillyPulitzer\GIRLSRX.jpg" />
@@ -1019,6 +1024,10 @@
     <Content Include="Content\images\Brand\Penguin\feature.jpg" />
     <Content Include="Content\images\Brand\Penguin\RX.jpg" />
     <Content Include="Content\images\Brand\Penguin\SUN.jpg" />
+    <Content Include="Content\images\Brand\Republica\bottom.jpg" />
+    <Content Include="Content\images\Brand\Republica\feature.jpg" />
+    <Content Include="Content\images\Brand\Republica\RX.jpg" />
+    <Content Include="Content\images\Brand\Republica\SUN.jpg" />
     <Content Include="Content\images\Brand\Timex\bottom.jpg" />
     <Content Include="Content\images\Brand\Timex\feature.jpg" />
     <Content Include="Content\images\Brand\VeraWang\ASIAFIT.jpg" />
@@ -1030,6 +1039,9 @@
     <Content Include="Content\images\Brand\VeraWang\RX.jpg" />
     <Content Include="Content\images\Brand\VeraWang\SALON.jpg" />
     <Content Include="Content\images\Brand\VeraWang\SUN.jpg" />
+    <Content Include="Content\images\Brand\Wolverine\bottom.jpg" />
+    <Content Include="Content\images\Brand\Wolverine\feature.jpg" />
+    <Content Include="Content\images\Brand\Wolverine\SAFETYEYEWEAR.jpg" />
     <Content Include="Content\images\Brand\ZacPosen\bottom.jpg" />
     <Content Include="Content\images\Brand\ZacPosen\feature.jpg" />
     <Content Include="Content\images\Brand\ZacPosen\MEN%27SRX.jpg" />
