@@ -202,6 +202,9 @@
     <Compile Include="career.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CMS_Blogs.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="CMS_Like_Collection.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
@@ -517,6 +520,8 @@
     <Compile Include="Mobile_Feedback.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CMS_Blog.cs" />
+    <Compile Include="Models\CMS_Menu.cs" />
     <Compile Include="Models\CollectionMain.cs" />
     <Compile Include="Models\Collections.cs" />
     <Compile Include="Models\Common.cs" />

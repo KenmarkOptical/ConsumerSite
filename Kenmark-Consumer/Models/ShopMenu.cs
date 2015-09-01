@@ -11,8 +11,7 @@ namespace Kenmark_Consumer.Models
 
         public ShopMenu GetItems()
         {
-            ShopMenu m = new ShopMenu();
-            
+            ShopMenu m = new ShopMenu();            
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
                 m.Items = (from c in db.CMS_Like_Collection

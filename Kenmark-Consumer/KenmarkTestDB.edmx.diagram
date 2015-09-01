@@ -4,135 +4,136 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="06c7ce7629e64e2291f76498e01e8ab0" Name="Diagram1" ZoomLevel="32" >
-        <EntityTypeShape EntityType="KenmarkTestDBModel.address" Width="1.5" PointX="2.4367432996801766" PointY="9.2062686575605852" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.address_to_collections" Width="1.5" PointX="0.43266630937935147" PointY="23.310570757515062" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.address_to_country" Width="1.5" PointX="1.4563392034994156" PointY="6.05900521858549" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.admin_values" Width="1.5" PointX="5.88821147097657" PointY="2.0937774042104267" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.AdminExceptionDecision" Width="1.5" PointX="11.533109966448095" PointY="20.359045664015714" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.BBX_Order_Log" Width="1.5" PointX="11.798657381813349" PointY="26.082607847676897" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.career" Width="1.5" PointX="5.042871820294704" PointY="15.393757141844256" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.CMS_Like_Collection" Width="1.5" PointX="0.59332091761441941" PointY="16.660577215561911" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.collection_codes" Width="1.5" PointX="10.378154753883441" PointY="10.844156210703847" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Collection_POP" Width="1.5" PointX="11.335024416137031" PointY="9.7049509481084311" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.collection" Width="1.5" PointX="1.3133137940025488" PointY="18.802080029063895" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.companyProfile" Width="1.5" PointX="4.0193202514291366" PointY="28.119622675757679" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.contact_us" Width="1.5" PointX="10.767303255743954" PointY="2.187461347406479" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.content" Width="1.5" PointX="6.58724488997238" PointY="30.429744973047519" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.country" Width="1.5" PointX="5.805464339351964" PointY="18.229463481451134" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.customer_coll_buy" Width="1.5" PointX="7.5960687564667628" PointY="3.7747571485930855" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Customer_Inventory" Width="1.5" PointX="2.1427680841380581" PointY="13.291857487192312" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Customer_Note" Width="1.5" PointX="0.59892938872749424" PointY="10.540523548862209" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Customer_Price" Width="1.5" PointX="1.2692743024180058" PointY="1.8893003323531246" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.customer_purchased" Width="1.5" PointX="2.7514900838730343" PointY="6.9201068165340027" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.customer_shiptos" Width="1.5" PointX="4.4971937520882079" PointY="28.782933486990135" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.customer" Width="1.5" PointX="8.9943932318102533" PointY="15.973919250058904" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.customersTest" Width="1.5" PointX="1.9706457415458958" PointY="15.79900976261078" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.customersTEST2" Width="1.5" PointX="4.2199932896625221" PointY="3.3817736969244545" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.designer_image_order" Width="1.5" PointX="5.4332306689737511" PointY="10.880659242570708" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Drawing" Width="1.5" PointX="7.3502383042826489" PointY="18.966351503024974" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.dtproperty" Width="1.5" PointX="0.19889036389016096" PointY="30.06732576995498" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.employee" Width="1.5" PointX="2.4905732453291183" PointY="19.695902103416575" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.event" Width="1.5" PointX="11.433030495156082" PointY="5.0341541492539248" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Event1" Width="1.5" PointX="9.9741607783241939" PointY="1.6961098619252955" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.exception_order_items" Width="1.5" PointX="7.6848820669971794" PointY="17.272152282890005" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.fcdFrameColor" Width="1.5" PointX="6.9797021872269465" PointY="12.525496429077116" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.fcdFrame" Width="1.5" PointX="0.038573367539128919" PointY="27.688329202909177" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.fcdFrameUPC" Width="1.5" PointX="7.6382098587407778" PointY="0.15580070026023346" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Frame_Feedback" Width="1.5" PointX="5.1737295394641016" PointY="23.041665564776242" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.frame_parts" Width="1.5" PointX="4.9784421534177108" PointY="25.785779011336054" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.image_test" Width="1.5" PointX="1.3150684951409084" PointY="23.306624959831417" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_customer_coll_buy" Width="1.5" PointX="11.142162853452453" PointY="6.7192366303499957" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_customers" Width="1.5" PointX="10.056386779088708" PointY="26.744268087085462" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_frame_parts" Width="1.5" PointX="8.5742127618632349" PointY="12.913798919373098" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inv" Width="1.5" PointX="8.6003047156149073" PointY="14.184212676335225" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inv_admin" Width="1.5" PointX="5.9779236959190687" PointY="4.6005789957011949" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_Inventory_Admin_Info" Width="1.5" PointX="11.485810501261526" PointY="1.289831847553063" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inventoryBestSellers" Width="1.5" PointX="1.216643566832246" PointY="7.6467224544131769" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inventorySale" Width="1.5" PointX="2.4938733123679988" PointY="13.901242933190074" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_invstock" Width="1.5" PointX="4.5196658356672454" PointY="30.350577323860758" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_ob_inv" Width="1.5" PointX="2.7343268463082273" PointY="5.6411970284027966" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_ob_qty_breaks" Width="1.5" PointX="6.9101579892030713" PointY="26.720364389345221" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_Prospect_Customers" Width="1.5" PointX="3.8138978703943538" PointY="11.459552189083562" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_shipto" Width="1.5" PointX="5.9516463512329594" PointY="9.56672610787988" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_ShipVia_Allowed" Width="1.5" PointX="10.286418802238265" PointY="11.097514738839825" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_stmt_aging" Width="1.5" PointX="8.094435596882569" PointY="23.446949552487094" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_stmts" Width="1.5" PointX="11.101805062546305" PointY="25.814856466751014" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.import_VSB_inv" Width="1.5" PointX="5.7973133184934564" PointY="9.22374934387568" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory" Width="1.5" PointX="0.13308431028066403" PointY="31.922292023860987" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory_admin" Width="1.5" PointX="9.3295765096925081" PointY="3.743813233330759" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Inventory_Admin_Info" Width="1.5" PointX="5.3135950441069877" PointY="13.683963156158088" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory_info" Width="1.5" PointX="4.0357364826070778" PointY="6.3088061689905848" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory_temp" Width="1.5" PointX="0.49913341016468282" PointY="14.011960170237328" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.inventoryBestSeller" Width="1.5" PointX="5.211250659642392" PointY="30.813030465884616" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.inventoryBestSellersImport" Width="1.5" PointX="9.1664798842586954" PointY="12.721837168895563" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.inventorySale" Width="1.5" PointX="9.564551950229589" PointY="31.895369172047531" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Kenmark_Collections" Width="1.5" PointX="4.1209587511238448" PointY="14.925268418586473" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Kenmark_Collections_like" Width="1.5" PointX="6.9353402829427928" PointY="29.86565229197296" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Kenmark_Collections_Sub" Width="1.5" PointX="1.8298263707337092" PointY="2.9920698865279882" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.login" Width="1.5" PointX="10.705815865986896" PointY="15.357479221819657" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.lookup_type" Width="1.5" PointX="4.0774541814240877" PointY="13.297841257088743" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Mobile_Feedback" Width="1.5" PointX="6.5562557925266471" PointY="11.836631169466596" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.new_registrations" Width="1.5" PointX="9.22464415674314" PointY="24.494180303297089" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.ob_inv" Width="1.5" PointX="2.6234120608416442" PointY="4.8139715366130567" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.ob_qty_breaks" Width="1.5" PointX="6.6863736243389429" PointY="26.020633501010309" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_cases" Width="1.5" PointX="2.734436610124277" PointY="6.7280368091203444" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_items" Width="1.5" PointX="7.8833895902537687" PointY="8.30862899511523" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_items_deleted" Width="1.5" PointX="6.0678714523407962" PointY="25.607575100663851" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_note" Width="1.5" PointX="10.07971240304397" PointY="12.118281802217608" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_number" Width="1.5" PointX="9.5210032358397747" PointY="28.15843415081428" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_POP" Width="1.5" PointX="11.086081411263944" PointY="17.058026470736614" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_POP_Combination" Width="1.5" PointX="6.4210424061962605" PointY="14.708612970406476" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order_status" Width="1.5" PointX="6.5970160768353452" PointY="21.689792419639318" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.order" Width="1.5" PointX="4.6716473310588142" PointY="14.679545081537006" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.outofstock_skus" Width="1.5" PointX="2.7452308920888373" PointY="17.593849890676257" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.payment_logs" Width="1.5" PointX="1.6290796332196702" PointY="29.362821607553784" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.payment_options" Width="1.5" PointX="1.2650436429609746" PointY="9.5213914706937" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.payment" Width="1.5" PointX="9.3264757810749472" PointY="0.87174552719655707" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Press_Clippings" Width="1.5" PointX="10.575230391032635" PointY="30.925332784152278" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.press_releases" Width="1.5" PointX="5.1411581566283289" PointY="8.8368421238087311" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.PressReleasePreview" Width="1.5" PointX="2.6310730029973541" PointY="9.0826968890999886" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Promo_Codes" Width="1.5" PointX="4.868512800367788" PointY="30.423312857012874" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Prospect_Customers" Width="1.5" PointX="2.036252328211559" PointY="18.777435058158559" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Prospect_CustomersBAK" Width="1.5" PointX="4.0773738492640543" PointY="2.680594341215023" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Publicity" Width="1.5" PointX="11.529104204629132" PointY="24.886665653850262" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.publicity_items" Width="1.5" PointX="1.1199072064458893" PointY="24.761255186405617" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.regional_manager" Width="1.5" PointX="3.6010229716082214" PointY="0.39040815848410509" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Rep_Map_Remove" Width="1.5" PointX="6.6729732969184283" PointY="25.815184679727622" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.role" Width="1.5" PointX="10.56564806521202" PointY="2.7747358096645844" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.SaleFrame" Width="1.5" PointX="9.8417206117146279" PointY="2.9092586650090566" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.secret_question" Width="1.5" PointX="4.5136702826775936" PointY="24.316220414040714" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.security" Width="1.5" PointX="11.060008434141059" PointY="0.23647977422758926" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.securityBAK" Width="1.5" PointX="8.1286579296591963" PointY="9.9290093527776229" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Shipping_Methods" Width="1.5" PointX="1.2579701604591544" PointY="11.500980769983018" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.ShipVia_Allowed" Width="1.5" PointX="5.7892600920932651" PointY="15.3092450123789" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Show_Codes" Width="1.5" PointX="11.027610271716309" PointY="27.953900290631644" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Show_ScansVEW2013" Width="1.5" PointX="11.403197519203275" PointY="16.552499838430666" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.staff" Width="1.5" PointX="7.9283398035580017" PointY="20.480186874270526" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Statement" Width="1.5" PointX="1.5282471261584418" PointY="18.699466892843819" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.statement_register_log" Width="1.5" PointX="3.4794775356908687" PointY="30.814607813402361" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.StatementCheck" Width="1.5" PointX="4.05629830810069" PointY="9.7771318749418157" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.StatementOpenItem" Width="1.5" PointX="5.9757252009472461" PointY="14.433950058386637" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.status" Width="1.5" PointX="5.4777865025577075" PointY="11.582957168846837" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.stmt_aging" Width="1.5" PointX="7.410035131224447" PointY="2.9830415560784944" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.stmt_details90" Width="1.5" PointX="8.89754850459171" PointY="31.055417403138904" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.survey" Width="1.5" PointX="1.76125650748669" PointY="25.425878566422444" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.team" Width="1.5" PointX="1.7552791823424767" PointY="10.800496419333152" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Temporary_Customers" Width="1.5" PointX="10.80014551375068" PointY="14.699974260618898" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Temporary_ShipTo" Width="1.5" PointX="4.3460028992714372" PointY="12.746221026753178" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Term" Width="1.5" PointX="3.2800843917206324" PointY="27.500996855786536" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.TextAlert_Numbers" Width="1.5" PointX="5.7835679863503051" PointY="31.372016161387794" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Used_Promo_Codes" Width="1.5" PointX="7.2159627858623692" PointY="15.435032866632115" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.User_Tracking" Width="1.5" PointX="10.30488934847754" PointY="7.0325189265573949" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.virtualbag_user_values" Width="1.5" PointX="9.8822731756988329" PointY="25.05022808585792" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.VSB_inventory" Width="1.5" PointX="4.2180632558735383" PointY="29.314408584178615" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.Zip_Map_Location" Width="1.5" PointX="8.152447128739416" PointY="9.4755946143882319" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameColor" Width="1.5" PointX="9.5610483929333512" PointY="27.429980484503311" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameLensColor" Width="1.5" PointX="9.034673691277705" PointY="2.2593222121984335" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrames" Width="1.5" PointX="3.1428574543180217" PointY="15.059405765989519" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameSize" Width="1.5" PointX="6.6108934127776386" PointY="10.09346397691102" />
-        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameUPC" Width="1.5" PointX="8.3133433760671611" PointY="0.37154553847925065" />
+      <Diagram DiagramId="06c7ce7629e64e2291f76498e01e8ab0" Name="Diagram1" ZoomLevel="62" >
+        <EntityTypeShape EntityType="KenmarkTestDBModel.address" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.address_to_collections" Width="1.5" PointX="3" PointY="0.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.address_to_country" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.admin_values" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.AdminExceptionDecision" Width="1.5" PointX="4.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.BBX_Order_Log" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.career" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.CMS_Like_Collection" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.collection_codes" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Collection_POP" Width="1.5" PointX="6.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.collection" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.companyProfile" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.contact_us" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.content" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.country" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.customer_coll_buy" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Customer_Inventory" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Customer_Note" Width="1.5" PointX="8.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Customer_Price" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.customer_purchased" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.customer_shiptos" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.customer" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.customersTest" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.customersTEST2" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.designer_image_order" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Drawing" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.dtproperty" Width="1.5" PointX="10.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.employee" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.event" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Event1" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.exception_order_items" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.fcdFrameColor" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.fcdFrame" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.fcdFrameUPC" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Frame_Feedback" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.frame_parts" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.image_test" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_customer_coll_buy" Width="1.5" PointX="12.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_customers" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_frame_parts" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inv" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inv_admin" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_Inventory_Admin_Info" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inventoryBestSellers" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_inventorySale" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_invstock" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_ob_inv" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_ob_qty_breaks" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_Prospect_Customers" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_shipto" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_ShipVia_Allowed" Width="1.5" PointX="14.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_stmt_aging" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_stmts" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.import_VSB_inv" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory_admin" Width="1.5" PointX="6.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Inventory_Admin_Info" Width="1.5" PointX="14.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory_info" Width="1.5" PointX="8.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.inventory_temp" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.inventoryBestSeller" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.inventoryBestSellersImport" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.inventorySale" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Kenmark_Collections" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Kenmark_Collections_like" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Kenmark_Collections_Sub" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.login" Width="1.5" PointX="16.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.lookup_type" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Mobile_Feedback" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.new_registrations" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.ob_inv" Width="1.5" PointX="16.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.ob_qty_breaks" Width="1.5" PointX="6.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_cases" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_items" Width="1.5" PointX="8.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_items_deleted" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_note" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_number" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_POP" Width="1.5" PointX="12.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_POP_Combination" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order_status" Width="1.5" PointX="14.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.order" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.outofstock_skus" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.payment_logs" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.payment_options" Width="1.5" PointX="18.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.payment" Width="1.5" PointX="2.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Press_Clippings" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.press_releases" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.PressReleasePreview" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Promo_Codes" Width="1.5" PointX="6.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Prospect_Customers" Width="1.5" PointX="18.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Prospect_CustomersBAK" Width="1.5" PointX="8.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Publicity" Width="1.5" PointX="18.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.publicity_items" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.regional_manager" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Rep_Map_Remove" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.role" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.SaleFrame" Width="1.5" PointX="14.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.secret_question" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.security" Width="1.5" PointX="16.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.securityBAK" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Shipping_Methods" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.ShipVia_Allowed" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Show_Codes" Width="1.5" PointX="20.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Show_ScansVEW2013" Width="1.5" PointX="2.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.staff" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Statement" Width="1.5" PointX="4.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.statement_register_log" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.StatementCheck" Width="1.5" PointX="6.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.StatementOpenItem" Width="1.5" PointX="20.75" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.status" Width="1.5" PointX="8.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.stmt_aging" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.stmt_details90" Width="1.5" PointX="10.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.survey" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.team" Width="1.5" PointX="12.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Temporary_Customers" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Temporary_ShipTo" Width="1.5" PointX="14.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Term" Width="1.5" PointX="20.75" PointY="16.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.TextAlert_Numbers" Width="1.5" PointX="16.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Used_Promo_Codes" Width="1.5" PointX="20.75" PointY="18.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.User_Tracking" Width="1.5" PointX="18.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.virtualbag_user_values" Width="1.5" PointX="20.75" PointY="20.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.VSB_inventory" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.Zip_Map_Location" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameColor" Width="1.5" PointX="22.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameLensColor" Width="1.5" PointX="2.75" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrames" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameSize" Width="1.5" PointX="4.75" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.zz_fcdFrameUPC" Width="1.5" PointX="22.75" PointY="6.75" IsExpanded="false" />
         <AssociationConnector Association="KenmarkTestDBModel.FK_address_to_collections_collections" />
+        <EntityTypeShape EntityType="KenmarkTestDBModel.CMS_Blogs" Width="1.5" PointX="6.75" PointY="22.75" IsExpanded="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

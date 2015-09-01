@@ -36,6 +36,8 @@ namespace Kenmark_Consumer.Models
             return c;
         }
 
+       
+
     }
 
     public class CollectionLink
