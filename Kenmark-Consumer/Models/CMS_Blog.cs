@@ -8,7 +8,7 @@ namespace Kenmark_Consumer.Models
 {
     public class CMS_Blog
     {
-        List<SingleBlog> Items { get; set; }
+       public List<SingleBlog> Items { get; set; }
 
         public CMS_Blog GetBlogs()
         {
@@ -38,7 +38,7 @@ namespace Kenmark_Consumer.Models
             using(KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
                 db.CMS_Blogs.Add(blog.data);
-                db.SaveChanges();
+                //db.SaveChanges();
             }
         }
 

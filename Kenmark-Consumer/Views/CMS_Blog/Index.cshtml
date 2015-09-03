@@ -1,0 +1,40 @@
+﻿@model Kenmark_Consumer.Models.SingleBlog
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $('.pageTitle').click(function () {
+
+        var page = this.id;
+
+        $('.pageContent').hide();
+
+        $('#' + page + "Span").show();
+
+        $('.' + page + 'Upload').show();
+    });
+</script>
+
+
+
+<div class="col-xs-12" style="font-size:30px;text-align:center;margin-top:50px;">
+    WELCOME TO THE WORLD OF BLOGS
+</div>
+<div class="col-xs-12" style="font-size:18px;text-align:center;margin-bottom:30px;">
+    What would you like to do?
+</div>
+
+<div class="row" >
+    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="add"><span style="cursor:pointer">Add</span></div>
+    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="edit"><span style="cursor:pointer">Edit</span></div>
+    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="delete"><span style="cursor:pointer">Delete</span></div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 pageContent" id="addSpan">@{Html.RenderPartial("_GridAddBlog", Model);}</div>
+    <div class="col-xs-12 pageContent" id="editSpan">@{Html.RenderPartial("_GridEditBlog", Model);}</div>
+    <div class="col-xs-12 pageContent" id="deleteSpan">@{Html.RenderPartial("_GridDeleteBlog", Model);}</div>
+
+
+</div>

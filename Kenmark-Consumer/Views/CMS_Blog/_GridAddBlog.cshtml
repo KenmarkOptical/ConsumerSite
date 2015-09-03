@@ -1,0 +1,108 @@
+﻿@model Kenmark_Consumer.Models.SingleBlog
+
+<script type="text/javascript">
+
+    $(function () {
+        $('.date-picker').datepicker();
+        $('.pageContent').hide();
+
+
+        $('.pageTitle').click(function () {
+
+            var page = this.id;
+
+            $('.pageContent').hide();
+
+            $('#' + page + "Span").show();
+
+            $('.' + page + 'Upload').show();
+        });
+
+        //$('#submit').click(function (e) {
+        //    e.preventDefault();
+        //    alert("hello");
+        //    $('#main_image_upload').click();
+        //    alert("this has been clicked");
+        //    $('#blog_submit').submit(e);
+        //});
+    });
+
+</script>
+
+
+@using (Html.BeginForm("AddBlog", "CMS_Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-xs-12" style="margin-bottom: 50px; margin-top: 50px;">
+        <div class="col-xs-12 col-sm-4">
+            @Html.LabelFor(m => m.data.title, new { @style = "font-size:14px;" })<br />
+            @Html.TextBoxFor(m => m.data.title, new { @class = "form-control" })
+           
+            
+        </div>
+
+    </div>
+
+    <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-4" style="margin-bottom: 100px;">
+            <p style="font-size: 14px; font-weight: bold;">
+                @Html.LabelFor(m => m.data.date)
+                @Html.TextBoxFor(m => m.data.date, new { @class = "date-picker form-control", @type = "text" })
+            </p>
+        </div>
+    </div>
+
+    <div class="col-xs-12" style="margin-bottom: 50px;">
+        <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
+
+        @Html.TextAreaFor(m => m.data.text, new { @id = "editor1", @name = "Content" })
+
+        <script>
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1', {
+
+
+            });
+
+
+        </script>
+
+
+        <label for="photo">Upload Main Image: </label>
+        <input type="file" name="main_image" class="btn btn-default" />
+       
+
+        <label for="photo">Upload Text Image: </label>
+        <input type="file" name="sub_image" class="btn btn-default" />
+        
+
+
+        <div class="col-xs-12 no-gutter" style="margin-top: 20px;">
+            <button class="btn btn-default" id="submit" type="submit">Submit</button>
+        </div>
+
+    </div>
+}
+
+
+@*
+<form action="/CMS_Blog/AddBlog" id="main_image_form" class=" theMirrorUpload" method="post" enctype="multipart/form-data" style="margin-bottom: 40px;">
+
+    <label for="photo">Upload Main Image: </label>
+    <input type="file" name="main_image" id="main_image" class="btn btn-default" />
+    
+
+    
+</form>*@
+
+@*<form action="/CMS_Blog/UploadSubImage" id="sub_image_form" class=" theMirrorUpload" method="post" enctype="multipart/form-data" style="margin-bottom: 40px;">
+
+    <label for="photo">Upload Text Image: </label>
+    <input type="file" name="sub_image" id="sub_image" class="btn btn-default" />
+    @(Html.HiddenFor(m => m.data.title))
+
+    <input type="submit" value="Upload" class="btn btn-default" id="sub_image_upload" />
+</form>
+
+*@
+

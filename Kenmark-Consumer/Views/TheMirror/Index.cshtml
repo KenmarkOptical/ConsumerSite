@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Kenmark_Consumer.Models.CMS_Blog
+
+@{
     ViewBag.Title = "The Mirror";
 }
 
@@ -27,6 +29,9 @@
 
 
 
+
+@foreach (var m in Model.Items) { 
+
 <div class="row" style="margin-bottom: 20px;">
     <div class="col-xs-12 no-gutter">
         <span style="display: inline-block; font-size: 22px; margin-top: 40px; margin-left: 30px;">THE <strong>MIRROR</strong></span><br />
@@ -38,19 +43,13 @@
 </div>
 
 <div class="row">
+    
     <div class="col-xs-12 col-sm-3">
-        <span style="font-size: 20px;">SUMMER MEANS FRIENDS AND NEW SUNGLASSES</span><br />
-        <span style="display: inline-block; margin-bottom: 20px;">JUNE 12, 2014</span>
+        <span style="font-size: 20px;">@m.data.title</span><br />
+        <span style="display: inline-block; margin-bottom: 20px;">@m.data.date</span>
     </div>
     <div class="col-xs-12 col-sm-6">
-        <span style="display: inline-block; font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius massa eget nisi pulvinar,
-             non luctus metus luctus. Quisque luctus suscipit nisl, a cursus purus consequat vitae. Vivamus 
-             vehicula, nibh vel laoreet venenatis, arcu velit eleifend metus, eu euismod libero elit sit amet 
-             elit. Cras hendrerit magna et dui feugiat, nec laoreet nulla faucibus. Sed malesuada lobortis neque
-             vitae posuere. Praesent et lacus sit amet lacus maximus feugiat. Donec ut dolor sit amet mauris 
-             luctus accumsan eu at augue. Praesent et sapien eu orci feugiat rutrum ac at sem. Vestibulum 
-             hendrerit ultrices velit, et cursus ipsum varius non. Donec vel consequat justo, eget vestibulum 
-             odio.</span>
+        <span style="display: inline-block; font-size: 14px;">@m.data.text</span>
     </div>
     <div class="hidden-xs col-sm-3 no-gutter">
         <div class="col-sm-6 no-gutter text-right">
@@ -73,85 +72,4 @@
         <hr style="border-color: #bbb;" />
     </div>
 </div>
-
-
-<div class="row">
-    <div class="col-xs-12 img-row" style="margin-bottom: 20px;">
-        <img class="img-responsive" src="~/Content/images/home/feature.png" />
-    </div>
-    <div class="col-xs-12 col-sm-3">
-        <span style="font-size: 20px;">CHRONICLING INSPIRATION</span><br />
-        <span style="display: inline-block; margin-bottom: 20px;">JUNE 12, 2014</span>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        <span style="display: inline-block; font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius massa eget nisi pulvinar,
-             non luctus metus luctus. Quisque luctus suscipit nisl, a cursus purus consequat vitae. Vivamus 
-             vehicula, nibh vel laoreet venenatis, arcu velit eleifend metus, eu euismod libero elit sit amet 
-             elit. Cras hendrerit magna et dui feugiat, nec laoreet nulla faucibus. Sed malesuada lobortis neque
-             vitae posuere. Praesent et lacus sit amet lacus maximus feugiat. Donec ut dolor sit amet mauris 
-             luctus accumsan eu at augue. Praesent et sapien eu orci feugiat rutrum ac at sem. Vestibulum 
-             hendrerit ultrices velit, et cursus ipsum varius non. Donec vel consequat justo, eget vestibulum 
-             odio.</span>
-    </div>
-    <div class="hidden-xs col-sm-3 no-gutter">
-        <div class="col-sm-6 no-gutter text-right">
-            <span style="display: inline-block; margin-top: 11px; margin-right: 7px; font-size: 14px; font-weight: bold; color: #adadad">SHARE</span>
-        </div>
-        <div class="col-sm-6 no-gutter">
-            <span>
-                <a class="facebook-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-                <a class="twitter-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-                <a class="pinterest-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-            </span>
-        </div>
-
-    </div>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-3">
-        <span style="display: inline-block; color: red; margin-bottom: 50px; margin-top: 30px; font-weight: bold; font-size: 14px;">+ MORE</span>
-    </div>
-
-    <div class="hidden-xs col-sm-12">
-        <hr style="border-color: #bbb;" />
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-xs-12 img-row" style="margin-bottom: 20px;">
-        <img class="img-responsive" src="~/Content/images/Profile/profile_feature.jpg" />
-    </div>
-    <div class="col-xs-12 col-sm-3">
-        <span style="font-size: 20px;">BEHIND THE SCENES WITH ZAC POSEN</span><br />
-        <span style="display: inline-block; margin-bottom: 20px;">JUNE 12, 2014</span>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        <span style="display: inline-block; font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius massa eget nisi pulvinar,
-             non luctus metus luctus. Quisque luctus suscipit nisl, a cursus purus consequat vitae. Vivamus 
-             vehicula, nibh vel laoreet venenatis, arcu velit eleifend metus, eu euismod libero elit sit amet 
-             elit. Cras hendrerit magna et dui feugiat, nec laoreet nulla faucibus. Sed malesuada lobortis neque
-             vitae posuere. Praesent et lacus sit amet lacus maximus feugiat. Donec ut dolor sit amet mauris 
-             luctus accumsan eu at augue. Praesent et sapien eu orci feugiat rutrum ac at sem. Vestibulum 
-             hendrerit ultrices velit, et cursus ipsum varius non. Donec vel consequat justo, eget vestibulum 
-             odio.</span>
-    </div>
-    <div class="hidden-xs col-sm-3 no-gutter">
-        <div class="col-sm-6 no-gutter text-right">
-            <span style="display: inline-block; margin-top: 11px; margin-right: 7px; font-size: 14px; font-weight: bold; color: #adadad">SHARE</span>
-        </div>
-        <div class="col-sm-6 no-gutter">
-            <span>
-                <a class="facebook-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-                <a class="twitter-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-                <a class="pinterest-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-            </span>
-        </div>
-
-    </div>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-3">
-        <span style="display: inline-block; color: red; margin-bottom: 50px; margin-top: 30px; font-weight: bold; font-size: 14px;">+ MORE</span>
-    </div>
-
-    <div class="hidden-xs col-sm-12">
-        <hr style="border-color: #bbb;" />
-    </div>
-</div>
+}
