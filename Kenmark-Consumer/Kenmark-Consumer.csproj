@@ -1107,6 +1107,8 @@
     <Content Include="Content\images\Style\product_viewbrand.jpg" />
     <Content Include="Content\images\TestCMS\home-1.jpg" />
     <Content Include="Content\images\TestCMS\home-2.jpg" />
+    <Content Include="Content\images\TheMirror\brand_feature_fpo.jpg" />
+    <Content Include="Content\images\TheMirror\home_grid_jason_bw.jpg" />
     <Content Include="Content\images\ViewCollection\peo.jpg" />
     <Content Include="Content\images\Where_To_Buy\icon_link.png" />
     <Content Include="Content\images\Where_To_Buy\icon_map.png" />
@@ -1280,7 +1282,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\" />
-    <Folder Include="Content\images\TheMirror\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 
+
 namespace Kenmark_Consumer.Models
 {
     public class CMS_Blog
@@ -13,12 +14,15 @@ namespace Kenmark_Consumer.Models
         public CMS_Blog GetBlogs()
         {
             CMS_Blog cb = new CMS_Blog();
+            cb.Items = new List<SingleBlog>();
+           
             using(KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
                 cb.Items = db.CMS_Blogs.Where(m => m.enabled == true && m.date <= DateTime.Now)
                     .OrderByDescending(m => m.date)
-                    .Select(m => new SingleBlog{ data = m})
+                    .Select(m => new SingleBlog { data = m })
                     .ToList();
+
             }
             return cb;
         }
@@ -33,13 +37,15 @@ namespace Kenmark_Consumer.Models
             }
         }
 
-        public void AddBlog(SingleBlog blog)
+        public bool AddBlog(SingleBlog blog)
         {
             using(KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
+                var test = db.CMS_Blogs.ToList();
                 db.CMS_Blogs.Add(blog.data);
                 //db.SaveChanges();
             }
+            return true;
         }
 
         public void DeleteBlog(int id)
@@ -73,7 +79,7 @@ namespace Kenmark_Consumer.Models
     public class SingleBlog
     {
         public CMS_Blogs data { get; set; }
-        public Image main_image { get; set; }
-        public Image sub_image { get; set; }
+        public HttpPostedFileBase main_image { get; set; }
+        public HttpPostedFileBase sub_image { get; set; }
     }
 }

@@ -6,11 +6,11 @@
 
 <script type="text/javascript">
 
-    $(function () { 
-    if (is_mobile) {
-       
-        $('.img-row').addClass("no-gutter");
-    }
+    $(function () {
+        if (is_mobile) {
+
+            $('.img-row').addClass("no-gutter");
+        }
     });
 
 
@@ -23,53 +23,65 @@
             });
 
 
-   
+
 </script>
 
-
-
-
-
-@foreach (var m in Model.Items) { 
 
 <div class="row" style="margin-bottom: 20px;">
     <div class="col-xs-12 no-gutter">
         <span style="display: inline-block; font-size: 22px; margin-top: 40px; margin-left: 30px;">THE <strong>MIRROR</strong></span><br />
         <span style="display: inline-block; font-size: 18px; margin-left: 30px; margin-bottom: 15px;">what we're looking at now</span><br />
-        <div class="col-xs-12 img-row">
-            <img class="img-responsive" src="~/Content/images/Brand/Penguin/feature.jpg" />
-        </div>
+
     </div>
 </div>
 
-<div class="row">
-    
-    <div class="col-xs-12 col-sm-3">
-        <span style="font-size: 20px;">@m.data.title</span><br />
-        <span style="display: inline-block; margin-bottom: 20px;">@m.data.date</span>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        <span style="display: inline-block; font-size: 14px;">@m.data.text</span>
-    </div>
-    <div class="hidden-xs col-sm-3 no-gutter">
-        <div class="col-sm-6 no-gutter text-right">
-            <span style="display: inline-block; margin-top: 11px; margin-right: 7px; font-size: 14px; font-weight: bold; color: #adadad">SHARE</span>
-        </div>
-        <div class="col-sm-6 no-gutter">
-            <span>
-                <a class="facebook-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-                <a class="twitter-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-                <a class="pinterest-sprite" href="#" style="margin-right: 7px;"><span></span></a>
-            </span>
-        </div>
 
-    </div>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-3">
-        <span style="display: inline-block; color: red; margin-bottom: 50px; margin-top: 30px; font-weight: bold; font-size: 14px;">+ MORE</span>
+
+
+@foreach (var m in Model.Items)
+{ 
+    <div class="col-xs-12 img-row">
+        <img class="img-responsive" src="@m.data.main_image.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer","")" />
     </div>
 
-    <div class="hidden-xs col-sm-12">
-        <hr style="border-color: #bbb;" />
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-3">
+            <span style="font-size: 20px;">@m.data.title</span><br />
+            <span style="display: inline-block; margin-bottom: 20px;">@m.data.date</span>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <span style="display: inline-block; font-size: 14px;">@Html.Raw(@m.data.text)</span>
+        </div>
+        <div class="hidden-xs col-sm-3 no-gutter">
+            <div class="col-sm-6 no-gutter text-right">
+                <span style="display: inline-block; margin-top: 11px; margin-right: 7px; font-size: 14px; font-weight: bold; color: #adadad">SHARE</span>
+            </div>
+            <div class="col-sm-6 no-gutter">
+                <span>
+                    <a class="facebook-sprite" href="#" style="margin-right: 7px;"><span></span></a>
+                    <a class="twitter-sprite" href="#" style="margin-right: 7px;"><span></span></a>
+                    <a class="pinterest-sprite" href="#" style="margin-right: 7px;"><span></span></a>
+                </span>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-8 col-sm-offset-3">
+            <span style="display: inline-block; color: red; margin-bottom: 50px; margin-top: 30px; font-weight: bold; font-size: 14px;">+ MORE</span>
+        </div>
+
+        <div class="hidden-xs col-sm-12">
+            <hr style="border-color: #bbb;" />
+        </div>
     </div>
-</div>
+
 }
+
+@*<div class="col-xs-12 img-row">
+        <img class="img-responsive" src="@Model.Items" />
+    </div>
+    *@
+
+
+
+

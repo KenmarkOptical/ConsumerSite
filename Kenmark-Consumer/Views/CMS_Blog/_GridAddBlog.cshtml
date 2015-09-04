@@ -37,7 +37,7 @@
             @Html.LabelFor(m => m.data.title, new { @style = "font-size:14px;" })<br />
             @Html.TextBoxFor(m => m.data.title, new { @class = "form-control" })
            
-            
+           
         </div>
 
     </div>
@@ -67,17 +67,23 @@
 
         </script>
 
-
-        <label for="photo">Upload Main Image: </label>
-        <input type="file" name="main_image" class="btn btn-default" />
-       
-
-        <label for="photo">Upload Text Image: </label>
-        <input type="file" name="sub_image" class="btn btn-default" />
+        <div class="col-xs-12 col-sm-6" style="margin-top:20px;">
+            <label for="photo">Upload Main Image: </label>
+            <input type="file" name="main_image" class="btn btn-default" />
+        </div>
         
+        <div class="col-xs-12 col-sm-6" style="margin-top:20px;">
+            <label for="photo">Upload Text Image: </label>
+            <input type="file" name="sub_image" class="btn btn-default" />
+        </div>
+       
+        <div class="col-xs-12 col-sm-6 " style="margin-top:20px;">
+            @Html.Label("Add a caption to your Text image here")
+            @Html.TextBoxFor(m => m.data.sub_image_caption, new { @class="form-control"})
+        </div>
 
 
-        <div class="col-xs-12 no-gutter" style="margin-top: 20px;">
+        <div class="col-xs-12" style="margin-top: 20px;">
             <button class="btn btn-default" id="submit" type="submit">Submit</button>
         </div>
 
