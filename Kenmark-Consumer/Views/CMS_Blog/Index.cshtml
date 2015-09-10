@@ -1,6 +1,7 @@
 ﻿@model Kenmark_Consumer.Models.SingleBlog
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "What To Do?";
 }
 
 <script type="text/javascript">
@@ -27,14 +28,14 @@
 
 <div class="row" >
     <div class="col-xs-12 col-sm-4 text-center pageTitle" id="add"><span style="cursor:pointer">Add</span></div>
-    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="edit"><span style="cursor:pointer">Edit</span></div>
-    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="delete"><span style="cursor:pointer">Delete</span></div>
+    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="edit"><a href="~/CMS_Blog_Edit/Index">Edit</a></div>
+    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="delete"><a href="~/CMS_Blog_Delete/Index">Delete</a></div>
 </div>
 
 <div class="row">
     <div class="col-xs-12 pageContent" id="addSpan">@{Html.RenderPartial("_GridAddBlog", Model);}</div>
-    <div class="col-xs-12 pageContent" id="editSpan">@{Html.RenderPartial("_GridEditBlog", Model);}</div>
-    <div class="col-xs-12 pageContent" id="deleteSpan">@{Html.RenderPartial("_GridDeleteBlog", Model }</div>
+    
+   
 
 
 </div>

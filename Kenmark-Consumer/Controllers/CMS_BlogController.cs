@@ -18,6 +18,7 @@ namespace Kenmark_Consumer.Controllers
         {
             
             return View();
+           
         }
 
         [HttpPost]
@@ -89,20 +90,9 @@ namespace Kenmark_Consumer.Controllers
             //return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult EditBlog(SingleBlog blog)
-        {
+        
 
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public ActionResult DeleteBlog(SingleBlog Blog)
-        {
-            
-
-            return RedirectToAction("Index");
-        }
+        
 
  
     }

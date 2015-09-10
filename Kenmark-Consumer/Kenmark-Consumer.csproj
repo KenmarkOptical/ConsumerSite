@@ -229,7 +229,10 @@
     <Compile Include="content.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BlogStoryController.cs" />
     <Compile Include="Controllers\CMS_BlogController.cs" />
+    <Compile Include="Controllers\CMS_Blog_DeleteController.cs" />
+    <Compile Include="Controllers\CMS_Blog_EditController.cs" />
     <Compile Include="Controllers\CollectionController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -1278,10 +1281,13 @@
     <Content Include="Views\CMS_Blog\_GridAddBlog.cshtml" />
     <Content Include="Views\CMS_Blog\_GridDeleteBlog.cshtml" />
     <Content Include="Views\CMS_Blog\_GridEditBlog.cshtml" />
+    <Content Include="Views\CMS_Blog_Delete\Index.cshtml" />
+    <Content Include="Views\CMS_Blog_Edit\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\" />
+    <Folder Include="Views\BlogStory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
