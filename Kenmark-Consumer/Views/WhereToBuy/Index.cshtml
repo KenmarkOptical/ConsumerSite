@@ -46,6 +46,7 @@
             $('#pageLoad').show();
 
             $.get("/WhereToBuy/GetCustomers", $("#buyFilter").serialize()).done(function (data) {
+                
                 $('#pageLoad').hide();
                 $('#customerWrapper').hide().html(data.html).fadeIn(250);
 

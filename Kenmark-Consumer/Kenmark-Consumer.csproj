@@ -1006,6 +1006,10 @@
     <Content Include="Content\images\all_pages\nav\logo_wolverine_hover.jpg" />
     <Content Include="Content\images\all_pages\nav\logo_zacposen.jpg" />
     <Content Include="Content\images\all_pages\nav\logo_zacposen_hover.jpg" />
+    <Content Include="Content\images\all_pages\nav\profile\our_story.jpg" />
+    <Content Include="Content\images\all_pages\nav\profile\press.jpg" />
+    <Content Include="Content\images\all_pages\nav\profile\show_schedule.jpg" />
+    <Content Include="Content\images\all_pages\nav\profile\team.jpg" />
     <Content Include="Content\images\Brand\DanaBuchman\bottom.jpg" />
     <Content Include="Content\images\Brand\DanaBuchman\feature.jpg" />
     <Content Include="Content\images\Brand\DanaBuchman\RX.jpg" />
@@ -1094,11 +1098,10 @@
     <Content Include="Content\images\Press_Clippings\Vogue-Paris.jpg" />
     <Content Include="Content\images\Press_Clippings\VW-Elle-Inside.jpg" />
     <Content Include="Content\images\Press_Clippings\VW-Elle.jpg" />
-    <Content Include="Content\images\Profile\profile_feature.jpg" />
     <Content Include="Content\images\Profile\profile_horizontal.jpg" />
-    <Content Include="Content\images\Profile\profile_sidebar_fpo_1.jpg" />
     <Content Include="Content\images\Profile\profile_sidebar_fpo_2.jpg" />
-    <Content Include="Content\images\Profile\profile_sidebar_fpo_3.jpg" />
+    <Content Include="Content\images\Profile\profile_sidebar_fpo_1.jpg" />
+    <Content Include="Content\images\Profile\profile_feature.jpg" />
     <Content Include="Content\images\search.png" />
     <Content Include="Content\images\ShowSchedule\banner_1.jpg" />
     <Content Include="Content\images\ShowSchedule\banner_2.jpg" />
@@ -1283,6 +1286,7 @@
     <Content Include="Views\CMS_Blog\_GridEditBlog.cshtml" />
     <Content Include="Views\CMS_Blog_Delete\Index.cshtml" />
     <Content Include="Views\CMS_Blog_Edit\Index.cshtml" />
+    <Content Include="Views\CMS_Blog_Edit\_Grid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -27,113 +27,58 @@
             $('.' + page + 'Upload').show();
         });
 
-        $('#whichBlog').click(function () {
-            alert("yo");
-            var id = this.id;
-            $.get("/EditBlog/CMS_Blog_Edit", {data: 'id = id'}).done(function (data) {
-                $("#title").val(data.title);
-               
+        $('#whichBlog').click(function (e) {
+            
+            $.get("/GetBlog/CMS_Blog_Edit", $("#editFilter").serialize()).done(function (data) {
+                alert(data.html);
+                $('#editWrapper').hide().html(data.html).fadeIn(250);
+
             });
         });
+
+
     });
 
 </script>
 
 
-<div class="col-xs-12" style="margin-top:50px;"></div>
 
-@using (Html.BeginForm("GetBlog", "CMS_Blog_Edit", FormMethod.Post))
+<div class="col-xs-12" style="margin-top: 50px;"></div>
+
+@using (Html.BeginForm("GetBlog", "CMS_Blog_Edit", FormMethod.Post, new { @id = "editFilter" }))
 { 
     <div class="col-xs-12">
-        <span style="font-size:22px;display:inline-block;margin-bottom:20px;">Which blog would you like to edit?</span>
+        <span style="font-size: 22px; display: inline-block; margin-bottom: 20px;">Which blog would you like to edit?</span>
     </div>
     
     <div class="col-xs-12 col-sm-4">
-    <select id="id" name="id" class=" form-control">
-    
-    @for(int i = 0; i < Model.Items.Count; i++)
-    { 
+        <select id="id" name="id" class="form-control">
+
+            @for (int i = 0; i < Model.Items.Count; i++)
+            { 
       
-       <option value ="@Model.Items[i].data.id">@Model.Items[i].data.id - @Model.Items[i].data.title</option> 
+                <option value ="@Model.Items[i].data.id">@Model.Items[i].data.id - @Model.Items[i].data.title</option> 
            
       
-    }
-   </select>
-        </div>
+            }
+        </select>
 
-    <div class="col-xs-12" style="margin-top: 20px; margin-bottom:20px;">
-        <button class="btn btn-default" id="whichBlog" type="submit">Submit</button>
+
+
+        
     </div>
-    
+   
+
+
 }
 
-
-    <div class="col-xs-12" style="margin-bottom: 50px; margin-top: 50px;">
-        <div class="col-xs-12 col-sm-4">
-             
-                    @(Html.Label("Blog Title"))<br />
-                    @Html.TextBox("title", "", new { @class = "form-control" })
-                 
-        </div>    
-        
-        <div class="col-xs-12 col-sm-4">
-             
-                    @(Html.Label("Blog Date"))<br />
-                    @Html.TextBox("date", "", new { @class = "form-control" })
-                 
-        </div>  
-
-        <div class="col-xs-12 col-sm-4">
-             
-                @Html.TextArea("content","", new { @id = "editor1", @name = "Content" })
-
-        <script>
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
-            CKEDITOR.replace('editor1', {
+<div class="col-xs-12" style="margin-top: 20px; margin-bottom: 20px;">
+    <button id="whichBlog" type="button" class="btn btn-default submitButton" style="margin-bottom: 30px;">SUBMIT</button>
+</div>
 
 
-            });
 
-
-        </script>
-                 
-        </div>  
-           
-           
-        
-
+<div class="col-xs-12">
+    <div id="editWrapper">
     </div>
-
-@*    <div class="col-xs-12">
-        <div class="col-xs-12 col-sm-4" style="margin-bottom: 100px;">
-            <p style="font-size: 14px; font-weight: bold;">
-                @Html.LabelFor(m => m.data.date)
-                @Html.TextBoxFor(m => m.data.date, new { @class = "date-picker form-control", @type = "text" })
-            </p>
-        </div>
-    </div>
-
-    <div class="col-xs-12" style="margin-bottom: 50px;">
-        <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
-
-        @Html.TextAreaFor(m => m.data.text, new { @id = "editor1", @name = "Content" })
-
-        <script>
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
-            CKEDITOR.replace('editor1', {
-
-
-            });
-
-
-        </script>
-
-      
-        <div class="col-xs-12" style="margin-top: 20px;">
-            <button class="btn btn-default" id="submit" type="submit">Submit</button>
-        </div>
-
-    </div>
-*@
+</div>
