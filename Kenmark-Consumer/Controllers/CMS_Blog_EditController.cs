@@ -19,20 +19,15 @@ namespace Kenmark_Consumer.Controllers
             return View(b);
         }
 
-        
-        public ActionResult GetBlog(int id)
-        {
-
-            
+     
+        public ActionResult GetBlog(int blog_id)
+        {            
             CMS_Blog a = new CMS_Blog();
             SingleBlog b = new SingleBlog();
-            b = a.GetBlog(id);
-
-            var serializer = new JavaScriptSerializer();
-            serializer.MaxJsonLength = Int32.MaxValue;
-            var resultData = b.data;
+            b = a.GetBlog(blog_id);
+                     
             string html = RenderPartialViewToString("_Grid", b);
-            return Json(new { html = html, blogData = serializer.Serialize(resultData) }, JsonRequestBehavior.AllowGet);
+            return Json(new { html = html }, JsonRequestBehavior.AllowGet);
         }
 
        
