@@ -64,14 +64,24 @@ namespace Kenmark_Consumer.Models
             {
                 var item = db.CMS_Blogs.Where(m => m.id == blog.data.id).FirstOrDefault();
                 item.date = blog.data.date;
-                item.main_image = blog.data.main_image;
+                if (item.main_image == null)
+                {
+                    item.main_image = blog.data.main_image;
+                }
+                
                 item.title = blog.data.title;
-                item.sub_image = blog.data.sub_image;
+
+                if (item.sub_image == null)
+                {
+                    item.sub_image = blog.data.sub_image;
+                }
+                
                 item.sub_image_caption = blog.data.sub_image_caption;
                 item.text = blog.data.text;
                 item.enabled = blog.data.enabled;
                 //db.SaveChanges();
             }
+            
         }
 
     }
