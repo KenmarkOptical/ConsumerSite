@@ -364,7 +364,16 @@ namespace Kenmark_Consumer.Models
                 }
             }
 
-            var ct = db.Kenmark_Collections_like.Where(m => m.Group == Group).Select(m => m.Type).FirstOrDefault();
+          
+            var cl = db.Kenmark_Collections_like.Where(m => m.Group == Group).FirstOrDefault();
+            string ct = "";
+            string cn = "";
+
+            if (cl != null)
+            {
+                ct = cl.Type;
+                cn = cl.Site_Display;
+            } 
 
             //get the sub colors of each frame
             List<FrameColor> fcList = db.inventory_info.Select(m => new FrameColor { Color = m.Color, LikeColor = m.Like_Color.Replace(" ", "_"), Style = m.style, Image = m.sku.Substring(0, 6), Sku = m.sku.Substring(0, 4) }).Distinct().ToList();
@@ -374,7 +383,7 @@ namespace Kenmark_Consumer.Models
             }
 
 
-            return new Collections { Frames = f, CollectionType = ct, FrameCount = total_frames };
+            return new Collections { Frames = f, CollectionType = ct, CollectionName = cn, FrameCount = total_frames };
         }
 
         public int GetFramesCount(string Group, string SubGroup, string Type = "")

@@ -21,8 +21,7 @@ namespace Kenmark_Consumer.Controllers
          
 
         public ActionResult ViewCollection(string n, string collection, int page, int sort = 1,string sub = "", Filters filter = null, string Type = "")
-        {         
-
+        {          
             //get the filter from session
             if (filter == null)
             {
