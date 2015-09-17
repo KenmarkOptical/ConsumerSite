@@ -1,15 +1,15 @@
 ﻿@model Kenmark_Consumer.Models.Collections
 
 <script type="text/javascript">
-    $(function () {       
+    $(function () {
 
         $("#sortingOrder").val("@(ViewBag.sort)");
 
         $("#sortingOrder").change(function () {
             var s = $(this).val();
-           var url = updateQueryStringParameter(window.location.href, 'sort', s);         
-           window.location.href = updateQueryStringParameter(url, 'page', 1);
-        });  
+            var url = updateQueryStringParameter(window.location.href, 'sort', s);
+            window.location.href = updateQueryStringParameter(url, 'page', 1);
+        });
     });
 
     function updateQueryStringParameter(uri, key, value) {
@@ -24,121 +24,115 @@
     }
 </script>
 
-<div class="col-xs-12" style="margin-top:15px;">
+<div class="col-xs-12" style="margin-top: 15px;">
     <div class="col-xs-12 text-right no-gutter">
-        
 
-         <div class="col-xs-12 no-gutter">    
-             <select id="sortingOrder" style="margin-right:15px;">
+
+        <div class="col-xs-12 no-gutter">
+            <select id="sortingOrder" style="margin-right: 15px;">
                 <option value="1">NEWEST FIRST</option>
                 <option value="2">A to Z</option>
                 <option value="3">Z to A</option>
             </select>
-                  
-             <div class="hidden-sm hidden-md hidden-lg"><br /></div>
-            
-             @if ((Model.FrameCount / Model.PageCount) > 0 && (Model.Page - 1 != 0))
-             {
-               @: <span style="margin-right:4px; color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&page=@(Model.Page - 1)&sort=@(ViewBag.sort)&Type=@(Model.Type)"><</a></span> <span>
-             }           
-                  
-                @for (int i = 0; i < ((Model.FrameCount % Model.PageCount) == 0 && (Model.FrameCount > Model.PageCount) ? (Model.FrameCount / Model.PageCount) : (Model.FrameCount / Model.PageCount) + 1); i++)
+
+            <div class="hidden-sm hidden-md hidden-lg">
+                <br />
+            </div>
+
+            @if ((Model.FrameCount / Model.PageCount) > 0 && (Model.Page - 1 != 0))
+            {
+                @: <span style="margin-right:4px; color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&page=@(Model.Page - 1)&sort=@(ViewBag.sort)&Type=@(Model.Type)"><</a></span> <span>
+             }
+
+            @for (int i = 0; i < ((Model.FrameCount % Model.PageCount) == 0 && (Model.FrameCount > Model.PageCount) ? (Model.FrameCount / Model.PageCount) : (Model.FrameCount / Model.PageCount) + 1); i++)
+            {
+                if ((Model.Page - 1) == i)
                 {
-                    if ((Model.Page - 1) == i)
-                    {
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
-                    }
-                    else
-                    {   
-                        <a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
-                    }
+<a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                 }
-             </span>
+                else
+                {   
+<a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                }
+            }
+            </span>
 
               @if ((Model.FrameCount / (Model.PageCount * Model.Page)) > 0)
               {
-                @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
-              } 
-        </div>          
-    </div>    
+                  @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
+              }
+        </div>
+    </div>
 </div>
 
-<div class="col-xs-12 no-gutter" style="margin-bottom:50px; margin-top:25px;">
+<div class="col-xs-12 no-gutter" style="margin-bottom: 50px; margin-top: 25px;">
     @if (String.IsNullOrEmpty(Model.Type))
     {
-    <div class="col-xs-12 text-center no-gutter">
-       <span style="font-size: 3vmax;">@(Model.CollectionName.ToUpper()) @(Model.CollectionGroup) COLLECTION  </span>
-    </div> 
+        <div class="col-xs-12 text-center no-gutter">
+            <span style="font-size: 3vmax;">@(Model.CollectionName.ToUpper()) @(Model.CollectionGroup) COLLECTION  </span>
+        </div> 
     }
     else if (Model.Type == "MEN")
     {
-     <div class="col-xs-12 text-center no-gutter">
-       <span style="font-size: 3vmax;">MEN'S FRAMES  </span>
-    </div> 
+        <div class="col-xs-12 text-center no-gutter">
+            <span style="font-size: 3vmax;">MEN'S FRAMES  </span>
+        </div> 
     }
 </div>
 
 
 <div id="grid">
-     
-        @if (ViewBag.NoResults != "1" && Model.Frames.Count() != 0)
+    @if (ViewBag.NoResults != "1" && Model.Frames.Count() != 0)
+    {
+
+        for (int i = 0; i < Model.Frames.Count; i++)
         {
-            
-            for (int i = 0; i < Model.Frames.Count; i++)
+
+
+            if (i % 2 == 0 || i == 0)
             {
-
-
-                if ( i % 2 == 0 || i == 0)
-                {
-             
                 @:<div class="row row-eq-height">
-                }
+            }
              
-                <div class="col-xs-12 col-sm-6" style="padding-bottom:70px;"> 
-                   
-                    <div class="col-xs-12 no-gutter">
-                        <a href ="/Style?sku=@(Model.Frames[i].SKU.Substring(0, 4))">
-                            <img id="@(Model.Frames[i].SKU.Trim())" class="center-block img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Frames[i].Image)&w=350" style="visibility:hidden; cursor:pointer;" onload="$(this).css('visibility','visible');"/>
-                        </a>
-                          
-                    </div>
+            <div class="col-xs-12 col-sm-6" style="padding-bottom:70px;"> 
+                <div class="col-xs-12 no-gutter">
+                    <a href ="/Style?sku=@(Model.Frames[i].SKU.Substring(0, 4))">
+                        <img id="@(Model.Frames[i].SKU.Trim())" class="center-block img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Frames[i].Image)&w=350" style="visibility:hidden; cursor:pointer;" onload="$(this).css('visibility','visible');"/>
+                    </a>
+                </div>
                       
-                    <div class="col-xs-12 no-gutter text-center">
-                         @if (@Model.Frames[i].NewRelease == true)
-                         {
-                           <span style="color:#e53f57;font-weight:bold;">NEW</span><br />
-                             
-                         }
-                         <span style="font-size:1.2em; ">@(@Model.Frames[i].Style)</span>
+                <div class="col-xs-12 no-gutter text-center">
+                    @if (@Model.Frames[i].NewRelease == true)
+                    {
+                        <span style="color:#e53f57;font-weight:bold;">NEW</span><br />
+                    }
+                        <span style="font-size:1.2em; ">@(@Model.Frames[i].Style)</span>
                             
-                    <div class="col-xs-12 no-gutter  text-center" style="display:inline-block; padding-left:5px;">       
-                        @for (int j = 0; j < (@Model.Frames[j].Colors.Count > 8 ? 8 : @Model.Frames[j].Colors.Count); j++)
+                <div class="col-xs-12 no-gutter  text-center" style="display:inline-block; padding-left:5px;">       
+                    @for (int j = 0; j < (@Model.Frames[j].Colors.Count > 8 ? 8 : @Model.Frames[j].Colors.Count); j++)
                         {
 			               <img id="@(@Model.Frames[j].Colors[j].Image)" class="subColor" src="@Url.Content("~/content/images/color icons/" + @Model.Frames[j].Colors[j].LikeColor + ".jpg")" style="width:12px; cursor:pointer; margin-left:3px; margin-right:3px;" title="@(Model.Frames[j].Colors[j].Color)" /> 
                         }
-                        @if (@Model.Frames[i].Colors.Count > 8)
+                        
+                    @if (@Model.Frames[i].Colors.Count > 8)
                         {
                             <br />
                             <span style="color:#a5a5a5; font-size:.9em;">MORE COLORS ></span>                 
                         }
-                    
-                                              
                     </div> 
-                      </div>           
-                </div>  
+                </div>           
+           </div>  
          
-                if ( i % 2 == 1)
-                {
+            if (i % 2 == 1)
+            {
                @:</div>
             }
-
-
-            }
         }
-        else
-        {
-            <span style="font-size: 2em;width: 100%;text-align: center;display: block; margin-top:15px;">No Results Found.</span>
-        }
+    }
+    else
+    {
+        <span style="font-size: 2em; width: 100%; text-align: center; display: block; margin-top: 15px;">No Results Found.</span>
+    }
 </div>
 
 
@@ -146,11 +140,11 @@
 
 <script type="text/javascript">
 
-        $('.subColor').click(function () {
-            var img = this.id;
-            var id = img.substr(0, 4).trim();
-            $('#' + id).css({ "visibility": "hidden" }).attr('src', "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + img.replace(' ', '%20') + ".jpg&w=350").css({ "visibility": "visible" })
-        });
+    $('.subColor').click(function () {
+        var img = this.id;
+        var id = img.substr(0, 4).trim();
+        $('#' + id).css({ "visibility": "hidden" }).attr('src', "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + img.replace(' ', '%20') + ".jpg&w=350").css({ "visibility": "visible" })
+    });
 
 
 </script>
