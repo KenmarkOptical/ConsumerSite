@@ -37,7 +37,8 @@
                   
              <div class="hidden-sm hidden-md hidden-lg"><br /></div>
             
-             @if((Model.FrameCount / Model.PageCount) > 0 && (Model.Page -1 != 0)){
+             @if ((Model.FrameCount / Model.PageCount) > 0 && (Model.Page - 1 != 0))
+             {
                @: <span style="margin-right:4px; color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&page=@(Model.Page - 1)&sort=@(ViewBag.sort)&Type=@(Model.Type)"><</a></span> <span>
              }           
                   
@@ -54,7 +55,8 @@
                 }
              </span>
 
-              @if((Model.FrameCount / (Model.PageCount * Model.Page)) > 0){
+              @if ((Model.FrameCount / (Model.PageCount * Model.Page)) > 0)
+              {
                 @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
               } 
         </div>          
@@ -62,7 +64,7 @@
 </div>
 
 <div class="col-xs-12 no-gutter" style="margin-bottom:50px; margin-top:25px;">
-    @if(String.IsNullOrEmpty(Model.Type))
+    @if (String.IsNullOrEmpty(Model.Type))
     {
     <div class="col-xs-12 text-center no-gutter">
        <span style="font-size: 3vmax;">@(Model.CollectionName.ToUpper()) @(Model.CollectionGroup) COLLECTION  </span>
@@ -78,13 +80,99 @@
 
 
 <div id="grid">
-
+     
         @if (ViewBag.NoResults != "1" && Model.Frames.Count() != 0)
         {
-
             
-            foreach (var item in Model.Frames)
+            for (int i = 0; i < Model.Frames.Count; i++)
             {
+
+
+                if ( i % 2 == 0 || i == 0)
+                {
+             
+                @:<div class="row row-eq-height">
+                }
+             
+                <div class="col-xs-12 col-sm-6" style="padding-bottom:70px;"> 
+                   
+                    <div class="col-xs-12 no-gutter">
+                        <a href ="/Style?sku=@(Model.Frames[i].SKU.Substring(0, 4))">
+                            <img id="@(Model.Frames[i].SKU.Trim())" class="center-block img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.Frames[i].Image)&w=350" style="visibility:hidden; cursor:pointer;" onload="$(this).css('visibility','visible');"/>
+                        </a>
+                          
+                    </div>
+                      
+                    <div class="col-xs-12 no-gutter text-center">
+                         @if (@Model.Frames[i].NewRelease == true)
+                         {
+                           <span style="color:#e53f57;font-weight:bold;">NEW</span><br />
+                             
+                         }
+                         <span style="font-size:1.2em; ">@(@Model.Frames[i].Style)</span>
+                            
+                    <div class="col-xs-12 no-gutter  text-center" style="display:inline-block; padding-left:5px;">       
+                        @for (int j = 0; j < (@Model.Frames[j].Colors.Count > 8 ? 8 : @Model.Frames[j].Colors.Count); j++)
+                        {
+			               <img id="@(@Model.Frames[j].Colors[j].Image)" class="subColor" src="@Url.Content("~/content/images/color icons/" + @Model.Frames[j].Colors[j].LikeColor + ".jpg")" style="width:12px; cursor:pointer; margin-left:3px; margin-right:3px;" title="@(Model.Frames[j].Colors[j].Color)" /> 
+                        }
+                        @if (@Model.Frames[i].Colors.Count > 8)
+                        {
+                            <br />
+                            <span style="color:#a5a5a5; font-size:.9em;">MORE COLORS ></span>                 
+                        }
+                    
+                                              
+                    </div> 
+                      </div>           
+                </div>  
+         
+                if ( i % 2 == 1)
+                {
+               @:</div>
+            }
+
+
+            }
+        }
+        else
+        {
+            <span style="font-size: 2em;width: 100%;text-align: center;display: block; margin-top:15px;">No Results Found.</span>
+        }
+</div>
+
+
+
+
+<script type="text/javascript">
+
+        $('.subColor').click(function () {
+            var img = this.id;
+            var id = img.substr(0, 4).trim();
+            $('#' + id).css({ "visibility": "hidden" }).attr('src', "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + img.replace(' ', '%20') + ".jpg&w=350").css({ "visibility": "visible" })
+        });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* foreach (var item in Model.Frames)
+            {
+            
            
                 <div class="col-xs-12 col-sm-6" style="padding-bottom:70px;"> 
                    
@@ -92,21 +180,17 @@
                         <a href ="/Style?sku=@(item.SKU.Substring(0, 4))">
                             <img id="@(item.SKU.Trim())" class="center-block img-responsive" src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(item.Image)&w=350" style="visibility:hidden; cursor:pointer;" onload="$(this).css('visibility','visible');"/>
                         </a>
-                            @*@if(item.NewRelease == true)
-                        {
-                           <img src="@Url.Content("~/Content/images/all_pages/icons/icon_new.png")" style="position: absolute; bottom: 0px; right: 0%;" />
-                        }*@
+                          
                     </div>
                       
                     <div class="col-xs-12 no-gutter text-center">
                          @if (item.NewRelease == true)
                          {
                            <span style="color:#e53f57;font-weight:bold;">NEW</span><br />
-                             <span style="font-size:1.2em; ">@(item.Style)</span>
-                         }else{
-                         <span></span><br />
+                             
+                         }
                          <span style="font-size:1.2em; ">@(item.Style)</span>
-                        }     
+                            
                     <div class="col-xs-12 no-gutter  text-center" style="display:inline-block; padding-left:5px;">       
                         @for (int i = 0; i < (item.Colors.Count > 8 ? 8 : item.Colors.Count); i++)
                         {
@@ -122,25 +206,4 @@
                     </div> 
                       </div>           
                 </div>                 
-            }
-               
-        }
-        else
-        {
-            <span style="font-size: 2em;width: 100%;text-align: center;display: block; margin-top:15px;">No Results Found.</span>
-        }
-</div>
-
-</div>   
-
-
-<script type="text/javascript">
-
-        $('.subColor').click(function () {
-            var img = this.id;
-            var id = img.substr(0, 4).trim();
-            $('#' + id).css({ "visibility": "hidden" }).attr('src', "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + img.replace(' ', '%20') + ".jpg&w=350").css({ "visibility": "visible" })
-        });
-
-
-</script>
+            } *@

@@ -33,6 +33,7 @@ namespace Kenmark_Consumer.Controllers
        
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult EditBlog(SingleBlog blog)
         {
             return RedirectToAction("Index");

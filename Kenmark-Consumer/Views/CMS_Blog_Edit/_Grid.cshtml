@@ -4,13 +4,14 @@
 
     $(function () {
         $('.date-picker').datepicker();
-         
+        
     });
 
 </script>
 
 
-
+@using (Html.BeginForm("EditBlog", "CMS_Blog_Edit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{   
     <div class="col-xs-12" style="margin-bottom: 50px; margin-top: 50px;">
         <div class="col-xs-12 col-sm-4">
             @Html.LabelFor(m => m.data.title, new { @style = "font-size:14px;" })<br />
@@ -61,10 +62,13 @@
             @Html.TextBoxFor(m => m.data.sub_image_caption, new { @class="form-control"})
         </div>
 
+        @Html.HiddenFor(m => m.data.id);
+        @Html.HiddenFor(m => m.data.enabled);
 
         <div class="col-xs-12" style="margin-top: 20px;">
-            <button class="btn btn-default" id="submit" type="submit">Submit</button>
+            <button class="btn btn-default" id="editBlogButton" type="submit">Submit</button>
         </div>
 
     </div>
 
+}
