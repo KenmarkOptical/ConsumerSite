@@ -20,6 +20,11 @@ namespace Kenmark_Consumer.Controllers
             return View();
         }
 
+        public ActionResult AddBlogIndex()
+        {
+            return View("Add");
+        }
+
         public ActionResult DeleteBlogIndex()
         {
             CMS_Blog b = new CMS_Blog().GetBlogs();
