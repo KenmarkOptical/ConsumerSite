@@ -7,9 +7,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Kenmark_Consumer.Controllers
 {
-    public class CMS_BlogController : Controller
+    public class CMS_BlogController : MyBaseController
     {
         //
         // GET: /CMS_Blog/
@@ -17,6 +18,29 @@ namespace Kenmark_Consumer.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult DeleteBlogIndex()
+        {
+            CMS_Blog b = new CMS_Blog().GetBlogs();
+            return View("Index", b);
+        }
+
+        public ActionResult EditBlogIndex()
+        {
+            CMS_Blog b = new CMS_Blog().GetBlogs();
+            return View("Index", b);
+        }
+
+
+        public ActionResult GetBlog(int blog_id)
+        {
+            CMS_Blog a = new CMS_Blog();
+            SingleBlog b = new SingleBlog();
+            b = a.GetBlog(blog_id);
+
+            string html = RenderPartialViewToString("_Grid", b);
+            return Json(new { html = html }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -71,6 +95,49 @@ namespace Kenmark_Consumer.Controllers
                 var errors = ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList();
                 return Json(new { success = false });
             }
-         }
+         }// end addBlog
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult EditBlog(HttpPostedFileBase main_image, HttpPostedFileBase sub_image, SingleBlog blog)
+        {
+            CMS_Blog a = new CMS_Blog();
+
+            string directory = Server.MapPath("~/Content/images/TheMirror");
+
+
+            if (main_image != null && main_image.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(main_image.FileName);
+                var imagePath = (Path.Combine(directory, fileName));
+                main_image.SaveAs(imagePath);
+                blog.data.main_image = imagePath.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer", "");
+                blog.main_image = main_image;
+            }
+
+            if (sub_image != null && sub_image.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(sub_image.FileName);
+                var imagePath = (Path.Combine(directory, fileName));
+                sub_image.SaveAs(imagePath);
+                blog.data.sub_image = imagePath;
+                blog.sub_image = sub_image;
+            }
+
+            if (ModelState.IsValid)
+            {
+                a.EditBlog(blog);
+            }
+
+            return RedirectToAction("Index");
+        }// end editBlog
+
+        [HttpPost]
+        public ActionResult DeleteBlog(int id)
+        {
+            CMS_Blog a = new CMS_Blog();
+            a.DeleteBlog(id);
+            return RedirectToAction("Index");
+        }
     }
 }

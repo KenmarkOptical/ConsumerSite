@@ -7,9 +7,7 @@
 <script type="text/javascript">
 
     
-    $(function () {
-        $('.feature').delay(3000).removeClass('desaturate').addClass('saturate');
-
+    $(function () {       
         $('#image-carousel').carousel({
             interval: 6000
         });
@@ -17,14 +15,11 @@
         $('#carousel-new-releases').carousel({
             interval: 10000
         });
-
-
     });
 </script>
 
 
 <div class="row">
-
 
     <div id="image-carousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -37,19 +32,19 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img class="img-responsive desaturate feature" id="image-0" src="@Url.Content("~/Content/images/home/feature.png")" />
+                <img class="img-responsive feature" id="image-0" src="@Url.Content("~/Content/images/home/feature.png")" />
                 @*<div class="carousel-caption">
           <h3>Caption Text</h3>
       </div>*@
             </div>
             <div class="item">
-                <img class="img-responsive desaturate feature" id="image-1" src="@Url.Content("~/Content/images/home/feature.png")" />
+                <img class="img-responsive feature" id="image-1" src="@Url.Content("~/Content/images/home/feature.png")" />
                 @* <div class="carousel-caption">
           <h3>Caption Text</h3>
       </div>*@
             </div>
             <div class="item">
-                <img class="img-responsive desaturate feature" id="image-2" src="@Url.Content("~/Content/images/home/feature.png")" />
+                <img class="img-responsive feature" id="image-2" src="@Url.Content("~/Content/images/home/feature.png")" />
                 @*<div class="carousel-caption">
           <h3>Caption Text</h3>
       </div>*@
@@ -68,67 +63,46 @@
 </div>
 
 <div class="row" style="max-width: 936px; margin: auto; margin-top: 19px;">
-    <div class="row no-gutter">
-        <div class="col-xs-12 col-sm-8" style="padding: 5px;">
+    @*<div class="row no-gutter">*@
+        <div class="col-xs-12 col-sm-12 col-md-8" style="padding: 5px;">
             <a href="~/">
-                <img class="img-responsive desaturate" id="image-3" src="@Url.Content("~/Content/images/home/craft.jpg")" />
+                <img class="img-responsive" id="image-3" src="@Url.Content("~/Content/images/home/calif_1.jpg")" />
                 <span class="div-text-center collection-link-text">
-                    <span style="display: block; text-align: center;" id="text-0">CRAFTSMANSHIP</span>
-                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-0">THE MARK OF A GREAT FRAME</span>
+                    <span style="display: block; text-align: center;" id="text-0">ROADTRIPPIN'</span>
+                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-0">CALIFORNIA PT. 1</span>
                 </span>
             </a>
         </div>
 
 
-        <div class="col-xs-6 col-sm-4 hidden-xs" style="padding: 5px;">
+        <div class="col-xs-6 col-sm-6 col-md-4" style="padding: 5px;">
             <a href="~/">
-                <img class="img-responsive desaturate" id="image-4-desktop" src="@Url.Content("~/Content/images/home/brand.jpg")" />
+                <img class="img-responsive" id="image-4-desktop" src="@Url.Content("~/Content/images/home/process.jpg")" />
                 <span class="div-text-center collection-link-text">
-                    <span style="display: block; text-align: center;" id="text-1-desktop">KENMARK</span>
-                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-desktop">ABOUT OUR BRAND</span>
+                    <span style="display: block; text-align: center;" id="text-1-desktop">PROCESS</span>
+                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-desktop">OUR STORY</span>
                 </span>
             </a>
         </div>
-    </div>
+    @*</div>*@
 
-
-    <div class="col-xs-6 visible-xs" style="padding: 5px;">
-        <a href="~/">
-            <img class="img-responsive desaturate" id="image-4-mobile" src="@Url.Content("~/Content/images/home/brand.jpg")" />
-            <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;" id="text-1-mobile">KENMARK</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-mobile">ABOUT OUR BRAND</span>
-            </span>
-        </a>
-    </div>
-
-    <div class="col-xs-6 col-sm-4" style="padding: 5px;">
+    <div class="col-xs-6 col-sm-6 col-md-4" style="padding: 5px;">
         <a href="https://instagram.com/kenmarkeyewear" target="_blank">
-            <img class="img-responsive desaturate" id="image-5" src="@Url.Content("~/Content/images/home/insta.jpg")" />
+            <img class="img-responsive" id="image-4-mobile" src="@Url.Content("~/Content/images/home/instagram.jpg")" />
             <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;" id="text-2">INSTAGRAM</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2">PHOTOS FROM</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2-0">AROUND THE WORLD</span>
+                <span style="display: block; text-align: center;" id="text-1-mobile">INSTAGRAM</span>
+                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-mobile">A LOOK INTO OUR WORLD</span>
             </span>
         </a>
     </div>
 
-    <div class="col-xs-6 col-sm-4" style="padding: 5px;">
+    <div class="col-xs-12 col-sm-12 col-md-8" style="padding: 5px;">
         <a href="~/">
-            <img class="img-responsive desaturate" id="image-6" src="@Url.Content("~/Content/images/home/face.jpg")" />
+            <img class="img-responsive" id="image-5" src="@Url.Content("~/Content/images/home/calif_2.jpg")" />
             <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;" id="text-3">ABOUT FACE</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-3">WHAT'S THE RIGHT FRAME</span>
-            </span>
-        </a>
-    </div>
-
-    <div class="col-xs-6 col-sm-4" style="padding: 5px;">
-        <a href="~/">
-            <img class="img-responsive desaturate" id="image-7" src="@Url.Content("~/Content/images/home/jason.jpg")" />
-            <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;" id="text-4">JASON</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-4">A DESIGNER PROFILE</span>
+                <span style="display: block; text-align: center;" id="text-2">ROADTRIPPIN'</span>
+                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2">CALIFORNIA PT. 2</span>
+                @*<span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2-0">AROUND THE WORLD</span>*@
             </span>
         </a>
     </div>
@@ -138,8 +112,6 @@
     </div>
 
 </div>
-
-
 
 <div class="row">
     <div id="carousel-new-releases" class="carousel slide" data-ride="carousel">
@@ -170,8 +142,6 @@
 
     </div>
 </div>
-
-
 
 <div class="row" style="margin-top: 19px;">
     <div class="col-xs-12 no-gutter">

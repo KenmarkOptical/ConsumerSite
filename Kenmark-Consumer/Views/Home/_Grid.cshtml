@@ -10,12 +10,21 @@
             @:<div class="item" style="margin-top:20px;">
                  
         }
-        <div class="col-xs-6 col-sm-6 text-center"> 
+        
+        if(i % 2 == 0 || i == 0){
+            @:<div class="row row-eq-height">
+        }
+              
+        <div class="col-xs-6 text-center"> 
            <a href="/style?sku=@Model.NewFrames[i].SKU" style="text-decoration:none;color:black;">
              <img class="center-block img-responsive" style="padding-top:20px;"src="http://kenmark.kenmarkoptical.com/showimage.aspx?img=@(Model.NewFrames[i].Image)&w=450"/><br />
              <span style="font-size:16px;display:inline-block; margin-bottom:20px; padding-bottom:10px;"><strong>@Model.NewFrames[i].Style</strong> <br /> @Model.NewFrames[i].Collection</span><br />
           </a>
         </div>
+        
+        if (i % 2 == 1) { 
+            @:</div>
+        }
     
     }
 </div>

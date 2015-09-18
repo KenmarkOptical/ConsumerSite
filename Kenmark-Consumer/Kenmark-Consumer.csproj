@@ -1087,11 +1087,15 @@
     <Content Include="Content\images\color icons\Yellow.jpg" />
     <Content Include="Content\images\Contact\BuildingPhotoContact.jpg" />
     <Content Include="Content\images\home\brand.jpg" />
+    <Content Include="Content\images\home\calif_1.jpg" />
+    <Content Include="Content\images\home\calif_2.jpg" />
     <Content Include="Content\images\home\craft.jpg" />
     <Content Include="Content\images\home\face.jpg" />
     <Content Include="Content\images\home\feature.png" />
     <Content Include="Content\images\home\insta.jpg" />
+    <Content Include="Content\images\home\instagram.jpg" />
     <Content Include="Content\images\home\jason.jpg" />
+    <Content Include="Content\images\home\process.jpg" />
     <Content Include="Content\images\home\viewall.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\Press_Clippings\Vogue-Paris-Inside.jpg" />
