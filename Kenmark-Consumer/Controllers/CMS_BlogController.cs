@@ -23,13 +23,13 @@ namespace Kenmark_Consumer.Controllers
         public ActionResult DeleteBlogIndex()
         {
             CMS_Blog b = new CMS_Blog().GetBlogs();
-            return View("Index", b);
+            return View("Delete", b);
         }
 
         public ActionResult EditBlogIndex()
         {
             CMS_Blog b = new CMS_Blog().GetBlogs();
-            return View("Index", b);
+            return View("Edit", b);
         }
 
 
@@ -39,7 +39,7 @@ namespace Kenmark_Consumer.Controllers
             SingleBlog b = new SingleBlog();
             b = a.GetBlog(blog_id);
 
-            string html = RenderPartialViewToString("_Grid", b);
+            string html = RenderPartialViewToString("_GridEdit", b);
             return Json(new { html = html }, JsonRequestBehavior.AllowGet);
         }
 
