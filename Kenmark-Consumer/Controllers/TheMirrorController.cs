@@ -17,5 +17,18 @@ namespace Kenmark_Consumer.Controllers
             return View(b);
         }
 
+        public ActionResult SingleBlog(int id)
+        {
+            CMS_Blog a = new CMS_Blog();
+            SingleBlog b = new SingleBlog();
+
+            b = a.GetBlog(id);
+            b.main_image = b.main_image;
+            b.sub_image = b.sub_image;
+            
+
+            return View("SingleBlog", b);
+        }
+
     }
 }

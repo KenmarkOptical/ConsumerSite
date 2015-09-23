@@ -1,0 +1,15 @@
+﻿@model Kenmark_Consumer.Models.SingleBlog
+@{
+    ViewBag.Title = @Model.data.title;
+}
+<div style="margin-top:20px;"></div>
+<div><img src="@Model.data.main_image.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer","")" /></div>
+
+<div>@Model.data.title</div>
+
+<div>@Model.data.date</div>
+
+<div>@Html.Raw(@Model.data.text)</div>
+
+<div><img src="@Model.data.sub_image.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer","")" /></div>
+

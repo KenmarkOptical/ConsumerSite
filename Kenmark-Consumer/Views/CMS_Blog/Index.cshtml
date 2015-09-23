@@ -17,25 +17,24 @@
     });
 </script>
 
-
-
-<div class="col-xs-12" style="font-size:30px;text-align:center;margin-top:50px;">
+<div class="col-xs-12" style="font-size:30px;text-align:center;margin-top:50px;margin-bottom:70px;">
     WELCOME TO THE WORLD OF BLOGS
 </div>
-<div class="col-xs-12" style="font-size:18px;text-align:center;margin-bottom:30px;">
-    What would you like to do?
-</div>
-
-<div class="row" >
-    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="add"><span style="cursor:pointer">Add</span></div>
-    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="edit"><a href="~/CMS_Blog/EditBlogIndex">Edit</a></div>
-    <div class="col-xs-12 col-sm-4 text-center pageTitle" id="delete"><a href="~/CMS_Blog/DeleteBlogIndex">Delete</a></div>
-</div>
-
-<div class="row">
-    <div class="col-xs-12 pageContent" id="addSpan">@{Html.RenderPartial("_GridAddBlog", Model);}</div>
-    
-   
 
 
+<div class="row" style="margin-bottom:40px;">
+    <div class="col-xs-12 col-sm-4 text-center" style="margin-bottom:20px;">
+        <span style="font-size:26px;">Feeling Inspired?</span>
+        <div class="pageTitle" id="add"><a href="~/CMS_Blog/AddBlogIndex"><span style="font-size:20px">Add a Blog</span></a></div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 text-center" style="margin-bottom:20px;">
+        <span style="font-size:26px;">Change of Heart?</span>
+        <div class="pageTitle" id="edit"><a href="~/CMS_Blog/EditBlogIndex"><span style="font-size:20px">Edit a Blog</span></a></div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 text-center" style="margin-bottom:20px;">
+        <span style="font-size:26px;">Done With One?</span>
+        <div class="pageTitle" id="delete"><a href="~/CMS_Blog/DeleteBlogIndex"><span style="font-size:20px">Delete a Blog</span></a></div>
+    </div>
 </div>

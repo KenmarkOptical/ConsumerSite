@@ -1,11 +1,14 @@
 ﻿@model Kenmark_Consumer.Models.SingleBlog
 
+@{
+    ViewBag.Title = "Add Blog";
+}
+
 <script type="text/javascript">
 
     $(function () {
         $('.date-picker').datepicker();
         $('.pageContent').hide();
-
 
         $('.pageTitle').click(function () {
 
@@ -17,16 +20,7 @@
 
             $('.' + page + 'Upload').show();
         });
-
-        //$('#submit').click(function (e) {
-        //    e.preventDefault();
-        //    alert("hello");
-        //    $('#main_image_upload').click();
-        //    alert("this has been clicked");
-        //    $('#blog_submit').submit(e);
-        //});
     });
-
 </script>
 
 
@@ -36,10 +30,7 @@
         <div class="col-xs-12 col-sm-4">
             @Html.LabelFor(m => m.data.title, new { @style = "font-size:14px;" })<br />
             @Html.TextBoxFor(m => m.data.title, new { @class = "form-control" })
-           
-           
         </div>
-
     </div>
 
     <div class="col-xs-12">
@@ -61,10 +52,7 @@
             // instance, using default configuration.
             CKEDITOR.replace('editor1', {
 
-
-            });
-
-
+        });
         </script>
 
         <div class="col-xs-12 col-sm-6" style="margin-top:20px;">
@@ -82,13 +70,15 @@
             @Html.TextBoxFor(m => m.data.sub_image_caption, new { @class="form-control"})
         </div>
 
-
         <div class="col-xs-12" style="margin-top: 20px;">
-            <button class="btn btn-default" id="submit" type="submit">Submit</button>
+            <button class="btn btn-default submitButton" id="submit" type="submit">Submit</button>
         </div>
-
     </div>
 }
 
-
+<div class="col-xs-12" style="margin-bottom:20px;">
+    <span style="font-size:14px;">
+      <a href="~/cms_blog">< BACK</a>  
+    </span>
+</div>
 

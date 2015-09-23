@@ -231,8 +231,6 @@
     </Compile>
     <Compile Include="Controllers\BlogStoryController.cs" />
     <Compile Include="Controllers\CMS_BlogController.cs" />
-    <Compile Include="Controllers\CMS_Blog_DeleteController.cs" />
-    <Compile Include="Controllers\CMS_Blog_EditController.cs" />
     <Compile Include="Controllers\CollectionController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -1287,17 +1285,15 @@
     <Content Include="Views\Shared\_ShopMenu.cshtml" />
     <Content Include="Views\Shared\_ProfileMenu.cshtml" />
     <Content Include="Views\CMS_Blog\Index.cshtml" />
-    <Content Include="Views\CMS_Blog\_GridAddBlog.cshtml" />
-    <Content Include="Views\CMS_Blog\_GridDeleteBlog.cshtml" />
-    <Content Include="Views\CMS_Blog\_GridEditBlog.cshtml" />
-    <Content Include="Views\CMS_Blog_Delete\Index.cshtml" />
-    <Content Include="Views\CMS_Blog_Edit\Index.cshtml" />
-    <Content Include="Views\CMS_Blog_Edit\_Grid.cshtml" />
+    <Content Include="Views\CMS_Blog\Delete.cshtml" />
+    <Content Include="Views\CMS_Blog\Edit.cshtml" />
+    <Content Include="Views\CMS_Blog\_GridEdit.cshtml" />
+    <Content Include="Views\CMS_Blog\Add.cshtml" />
+    <Content Include="Views\TheMirror\SingleBlog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ckeditor\" />
-    <Folder Include="Views\BlogStory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
