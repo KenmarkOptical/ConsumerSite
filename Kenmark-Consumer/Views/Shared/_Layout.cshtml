@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Kenmark_Consumer.Models
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,6 +25,9 @@
     <script type="text/javascript">
         var is_mobile = false;
         $(function () {
+
+            CreateAutoDropDown();
+                      
 
             $.get("/Home/GetBrandsData").done(function (data) {
                 
@@ -158,7 +163,10 @@
         });
 
 
-
+        function CreateAutoDropDown() {
+        @(Html.Raw(Html.JavaScriptArray((List<string>)Common.GetQuickSearchFrames(), "QuickSearchArray")))
+            actb($('#QuickSearchTB').get(0), QuickSearchArray);
+        }
     </script>
 
     <style type="text/css">
@@ -242,10 +250,10 @@
             <ul style="padding: 15px; padding-bottom: 0px;">
                 <li><span style="font-size: 0.9em; color: #d28b19;">Browse</span></li>
                 <li><a href="/Collection/ViewCollection?collection=ALL&Type=MEN&Page=1" style="font-size: 0.8em; font-weight: normal;">Men</a></li>
-                <li><a href="#" style="font-size: 0.8em; font-weight: normal;">Women</a></li>
-                <li><a href="#" style="font-size: 0.8em; font-weight: normal;">Youth</a></li>
-                <li><a href="#" style="font-size: 0.8em; font-weight: normal;">RX</a></li>
-                <li><a href="#" style="font-size: 0.8em; font-weight: normal;">Sun</a></li>
+                <li><a href="/Collection/ViewCollection?collection=ALL&Type=WOMEN&Page=1" style="font-size: 0.8em; font-weight: normal;">Women</a></li>
+                <li><a href="/Collection/ViewCollection?collection=ALL&Type=YOUTH&Page=1" style="font-size: 0.8em; font-weight: normal;">Youth</a></li>
+                <li><a href="/Collection/ViewCollection?collection=ALL&Type=RX&Page=1" style="font-size: 0.8em; font-weight: normal;">RX</a></li>
+                <li><a href="/Collection/ViewCollection?collection=ALL&Type=SUN&Page=1" style="font-size: 0.8em; font-weight: normal;">Sun</a></li>
             </ul>
 
             <ul style="padding: 15px; padding-top: 0px;">
@@ -307,7 +315,13 @@
                                     <li><a class="navBtn" id="Profile-Link" href="#"><span class="navText" style="color: black;">PROFILE</span></a></li>
                                     <li><a href="/TheMirror"><span class="navText" style="color: black;">THE MIRROR</span></a></li>
                                     <li><a href="/WhereToBuy"><span class="navText" style="color: black;">WHERE TO BUY</span></a></li>
-                                    <li><span><a id="icon-sprite" href="#"></a></span></li>
+                                    <li>
+                                         @using (Html.BeginForm("ParseOrderPad", "Home", null,FormMethod.Post,new { @id = "AutoForm" }))
+                                            {  
+                                                <span><a id="icon-sprite" href="#"></a></span>
+                                                <input id="QuickSearchTB" name="QuickSearchTB" autocomplete="off" onclick="return false;" type="text" placeholder="Search for a frame..." class="input-text" style="color:black;background-color:transparent;">                            
+                                            }
+                                   </li>
                                 </ul>
                             </div>
                         </div>

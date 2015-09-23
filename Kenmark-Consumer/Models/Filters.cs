@@ -90,6 +90,44 @@ namespace Kenmark_Consumer.Models
                                && i.gender == "M"
                                select i.sku).ToList();
                 }
+                else if (Type.ToUpper() == "WOMEN")
+                {
+                    skuList = (from i in db.inventories
+                               where codes.Contains(i.coll_sub)
+                               && i.customerportal_display == true
+                               && i.gender == "W"
+                               select i.sku).ToList();
+                }
+                else if (Type.ToUpper() == "YOUTH")
+                {
+                    var youth_list = new List<string>(){
+                                "girl",
+                                "boy",
+                                "youth",
+                                "yth"
+                    };
+
+                    skuList = (from i in db.inventories
+                               where i.customerportal_display == true
+                               && youth_list.Any( s => i.coll_name.ToLower().Contains(s))
+                               select i.sku).ToList();
+                }
+                else if (Type.ToUpper() == "RX")
+                {
+                    var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("RX") && m.Enabled == true).Select(m => m.Group).ToList();
+                    skuList = (from i in db.inventories
+                                   where i.customerportal_display == true
+                                   && coll_list.Any(s => i.coll_group.ToLower().Contains(s))
+                                   select i.sku).ToList();                   
+                }
+                else if (Type.ToUpper() == "SUN")
+                {
+                    var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("SUN") && m.Enabled == true).Select(m => m.Group).ToList();
+                    skuList = (from i in db.inventories
+                               where i.customerportal_display == true
+                               && coll_list.Any(s => i.coll_group.ToLower().Contains(s))
+                               select i.sku).ToList();
+                }
                 else
                 {
                     skuList = (from i in db.inventories

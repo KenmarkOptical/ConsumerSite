@@ -24,6 +24,17 @@ header, footer, nav, section {
  box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);
 }
 
+.scrollup{
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:10px;
+    display:none;
+    text-indent:-9999px;
+    background: url('/content/images/icon_top.png') no-repeat;
+}
 
 /*Sprites*/
 #logo-sprite {

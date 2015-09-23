@@ -14,6 +14,8 @@ namespace Kenmark_Consumer
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js",
                         "~/Scripts/Slide.js",
+                        "~/Scripts/AutoComplete.js",
+                        "~/Scripts/AutoCompleteCommon.js",
                         "~/Scripts/pushy.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

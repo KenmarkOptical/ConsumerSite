@@ -48,5 +48,18 @@ namespace Kenmark_Consumer.Controllers
         public ActionResult GetProfileData() {
             return PartialView("/Views/Shared/_ProfileMenu.cshtml");
         }
+
+        public ActionResult ParseOrderPad(string QuickSearchTB)
+        {
+            if (!QuickSearchTB.Contains("-"))
+            {
+                return null;
+            }
+            string frame = QuickSearchTB.Substring(0, QuickSearchTB.IndexOf("-")).Replace("-", "").Trim();
+            string coll = QuickSearchTB.Substring(QuickSearchTB.IndexOf("-"), QuickSearchTB.Length - QuickSearchTB.IndexOf("-")).Replace("-","").Trim();
+            string sku = Common.GetSku(frame, coll);
+
+            return RedirectToAction("Index", "Style", new { @sku = sku });
+        }
     }
 }

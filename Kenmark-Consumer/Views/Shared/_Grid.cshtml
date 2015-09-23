@@ -10,6 +10,12 @@
             var url = updateQueryStringParameter(window.location.href, 'sort', s);
             window.location.href = updateQueryStringParameter(url, 'page', 1);
         });
+
+        $('.subColor').click(function () {
+            var img = this.id;
+            var id = img.substr(0, 4).trim();
+            $('#' + id).css({ "visibility": "hidden" }).attr('src', "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + img.replace(' ', '%20') + ".jpg&w=350").css({ "visibility": "visible" })
+        });
     });
 
     function updateQueryStringParameter(uri, key, value) {
@@ -48,11 +54,11 @@
             {
                 if ((Model.Page - 1) == i)
                 {
-<a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                    <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                 }
                 else
                 {   
-<a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                    <a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                 }
             }
             </span>
@@ -76,6 +82,30 @@
     {
         <div class="col-xs-12 text-center no-gutter">
             <span style="font-size: 3vmax;">MEN'S FRAMES  </span>
+        </div> 
+    }
+    else if (Model.Type == "WOMEN")
+    {
+        <div class="col-xs-12 text-center no-gutter">
+            <span style="font-size: 3vmax;">WOMEN'S FRAMES  </span>
+        </div> 
+    }
+    else if (Model.Type == "YOUTH")
+    {
+        <div class="col-xs-12 text-center no-gutter">
+            <span style="font-size: 3vmax;">YOUTH'S FRAMES  </span>
+        </div> 
+    }
+    else if (Model.Type == "RX")
+    {
+        <div class="col-xs-12 text-center no-gutter">
+            <span style="font-size: 3vmax;">RX FRAMES  </span>
+        </div> 
+    }
+     else if (Model.Type == "SUN")
+    {
+        <div class="col-xs-12 text-center no-gutter">
+            <span style="font-size: 3vmax;">SUN FRAMES  </span>
         </div> 
     }
 </div>
@@ -106,12 +136,18 @@
                     {
                         <span style="color:#e53f57;font-weight:bold;">NEW</span><br />
                     }
-                        <span style="font-size:1.2em; ">@(@Model.Frames[i].Style)</span>
+                        <span style="font-size:1.1em; ">@(@Model.Frames[i].Style)</span>
+                   
+                     @if(@Model.CollectionCode == "ALL")
+                    {
+                         <br />
+                        <span style="font-size:1em; ">@Model.Frames[i].Collection</span>
+                    }
                             
                 <div class="col-xs-12 no-gutter  text-center" style="display:inline-block; padding-left:5px;">       
-                    @for (int j = 0; j < (@Model.Frames[j].Colors.Count > 8 ? 8 : @Model.Frames[j].Colors.Count); j++)
+                    @for (int j = 0; j < (@Model.Frames[i].Colors.Count > 8 ? 8 : @Model.Frames[j].Colors.Count); j++)
                         {
-			               <img id="@(@Model.Frames[j].Colors[j].Image)" class="subColor" src="@Url.Content("~/content/images/color icons/" + @Model.Frames[j].Colors[j].LikeColor + ".jpg")" style="width:12px; cursor:pointer; margin-left:3px; margin-right:3px;" title="@(Model.Frames[j].Colors[j].Color)" /> 
+			               <img id="@(@Model.Frames[i].Colors[j].Image)" class="subColor" src="@Url.Content("~/content/images/color icons/" + @Model.Frames[i].Colors[j].LikeColor + ".jpg")" style="width:12px; cursor:pointer; margin-left:3px; margin-right:3px;" title="@(Model.Frames[i].Colors[j].Color)" /> 
                         }
                         
                     @if (@Model.Frames[i].Colors.Count > 8)
@@ -138,16 +174,6 @@
 
 
 
-<script type="text/javascript">
-
-    $('.subColor').click(function () {
-        var img = this.id;
-        var id = img.substr(0, 4).trim();
-        $('#' + id).css({ "visibility": "hidden" }).attr('src', "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + img.replace(' ', '%20') + ".jpg&w=350").css({ "visibility": "visible" })
-    });
-
-
-</script>
 
 
 

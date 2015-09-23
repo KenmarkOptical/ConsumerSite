@@ -49,6 +49,7 @@ namespace Kenmark_Consumer.Models
         {
             public string Style { get; set; }
             public string Image { get; set; }
+            public string Collection { get; set; }
             public string SKU { get; set; }
             public string ReleaseYear { get; set; }
             public string ReleaseMonth { get; set; }
@@ -139,6 +140,46 @@ namespace Kenmark_Consumer.Models
                                 .Distinct()
                                 .ToList();
             }
+            else if (Type != null && Type.ToUpper() == "WOMEN")
+            {
+                Style_List = db.inventories.Where(m => m.gender == "W" && m.consumerportal_display == true)
+                                .Select(m => m.style_name)
+                                .Distinct()
+                                .ToList();
+            }
+            else if (Type != null && Type.ToUpper() == "YOUTH")
+            {
+                 var youth_list = new List<string>(){
+                                "girl",
+                                "boy",
+                                "youth",
+                                "yth"
+                    };
+
+                Style_List = db.inventories.Where(m => youth_list.Any( s => m.coll_name.ToLower().Contains(s)) && m.consumerportal_display == true)
+                                .Select(m => m.style_name)
+                                .Distinct()
+                                .ToList();
+            }
+            else if (Type != null && Type.ToUpper() == "RX")
+            {
+                var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("RX") && m.Enabled == true).Select(m => m.Group).ToList();
+
+                Style_List = db.inventories.Where(m => coll_list.Any(s => m.coll_group.ToLower().Contains(s)) && m.consumerportal_display == true)
+                                               .Select(m => m.style_name)
+                                               .Distinct()
+                                               .ToList();
+            }
+            else if (Type != null && Type.ToUpper() == "SUN")
+            {
+                var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("SUN") && m.Enabled == true).Select(m => m.Group).ToList();
+
+                Style_List = db.inventories.Where(m => coll_list.Any(s => m.coll_group.ToLower().Contains(s)) && m.consumerportal_display == true)
+                                               .Select(m => m.style_name)
+                                               .Distinct()
+                                               .ToList();
+            }
+           
             else
             {
                 Style_List = db.inventories.Where(m => m.consumerportal_display == true)
@@ -269,10 +310,11 @@ namespace Kenmark_Consumer.Models
                         && Style_List.Contains(i.style_name)
                         && i.customerportal_display == true
                         && (ApplyFilter ? FilteredSKUS.Contains(i.sku.Substring(0, 4)) : 1 == 1)
-                     group i by new { style = i.style_name, image = i.sku.Substring(0, 4) + ".jpg", ob = o.sku, a1 = o.a_1_price, a2 = o.a_2_price, a3 = o.a_3_price } into g
+                     group i by new { style = i.style_name, collection = i.coll_name, image = i.sku.Substring(0, 4) + ".jpg", ob = o.sku, a1 = o.a_1_price, a2 = o.a_2_price, a3 = o.a_3_price } into g
                      select new Frame
                      {
                          Style = g.Key.style,
+                         Collection = g.Key.collection,
                          Image = g.Key.image,
                          Closeout = g.Key.ob == null ? false : true,
                          A1Price = g.Key.a1,
@@ -300,10 +342,11 @@ namespace Kenmark_Consumer.Models
                              && Style_List.Contains(i.style_name)
                              && i.customerportal_display == true
                              && (ApplyFilter ? FilteredSKUS.Contains(i.sku.Substring(0, 4)) : 1 == 1)
-                     group i by new { style = i.style_name, image = i.sku.Substring(0, 4) + ".jpg", ob = o.sku } into g
+                     group i by new { style = i.style_name, collection = i.coll_name, image = i.sku.Substring(0, 4) + ".jpg", ob = o.sku } into g
                      select new Frame
                      {
                          Style = g.Key.style,
+                         Collection = g.Key.collection,
                          Image = g.Key.image,
                          SKU = g.Key.image.Replace(".jpg", ""),
                          ReleaseYear = (from t2 in g select t2.sort_order).Max().Substring((from t2 in g select t2.sort_order).Max().Length - 4, 4),
@@ -326,10 +369,11 @@ namespace Kenmark_Consumer.Models
                               && Style_List.Contains(i.style_name)
                               && i.customerportal_display == true
                               && (ApplyFilter ? FilteredSKUS.Contains(i.sku.Substring(0, 4)) : 1 == 1)
-                     group i by new { style = i.style_name, image = i.sku.Substring(0, 4) + ".jpg", ob = o.sku } into g
+                     group i by new { style = i.style_name, collection = i.coll_name, image = i.sku.Substring(0, 4) + ".jpg", ob = o.sku } into g
                      select new Frame
                      {
                          Style = g.Key.style,
+                         Collection = g.Key.collection,
                          Image = g.Key.image,
                          SKU = g.Key.image.Replace(".jpg", ""),
                          ReleaseYear = (from t2 in g select t2.sort_order).Max().Substring((from t2 in g select t2.sort_order).Max().Length - 4, 4),
@@ -401,6 +445,49 @@ namespace Kenmark_Consumer.Models
                            select i.style_name).Distinct().ToList();
 
                return skuList.Count();
+            }
+            else if (Type == "WOMEN")
+            {
+
+               var skuList = (from i in db.inventories
+                           where i.customerportal_display == true
+                           && i.gender == "W"
+                           select i.style_name).Distinct().ToList();
+
+               return skuList.Count();
+            }
+            else if (Type == "YOUTH")
+            {
+                var youth_list = new List<string>(){
+                                "girl",
+                                "boy",
+                                "youth",
+                                "yth"
+                    };
+
+                var skuList = (from i in db.inventories
+                           where i.customerportal_display == true
+                           && youth_list.Any(s => i.coll_name.ToLower().Contains(s))
+                           select i.sku).ToList();
+                return skuList.Count();
+            }
+             else if (Type == "RX")
+            {
+                var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("RX") && m.Enabled == true).Select(m => m.Group).ToList();
+                var skuList = (from i in db.inventories
+                               where i.customerportal_display == true
+                               && coll_list.Any(s => i.coll_group.ToLower().Contains(s))
+                               select i.sku).ToList();
+                return skuList.Count();
+            }
+            else if (Type == "SUN")
+            {
+                var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("SUN") && m.Enabled == true).Select(m => m.Group).ToList();
+                var skuList = (from i in db.inventories
+                               where i.customerportal_display == true
+                               && coll_list.Any(s => i.coll_group.ToLower().Contains(s))
+                               select i.sku).ToList();
+                return skuList.Count();
             }
             else
             {

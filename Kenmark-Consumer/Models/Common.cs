@@ -34,6 +34,36 @@ namespace Kenmark_Consumer.Models
             }
         }
 
+        [HttpGet, OutputCache(Duration = 7200, VaryByParam = "None")]
+        public static List<string> GetQuickSearchFrames()
+        {
+            List<string> a = new List<string>();
+            KenmarkTestDBEntities db = new KenmarkTestDBEntities();
+
+            var result = db.inventories.Where(m => m.consumerportal_display == true).Select(m => new { m.style_name, sku = m.sku.Substring(0, 4), m.coll_code }).Distinct().ToList();
+
+            foreach (var frame in result)
+            {
+                a.Add(ToTitleCase(frame.style_name) + " - " + frame.coll_code);
+            }
+            return a;
+        }
+
+
+        public static string GetSku(string style, string collection)
+        {
+            using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
+            {
+                var result = db.inventories.Where(m => m.style_name == style && m.coll_code == collection).Select(m => m.sku).FirstOrDefault();
+                if (result != null)
+                {
+                    result = result.Substring(0, 4);
+                }
+                return result;
+            }
+        }
+
+
        public static List<SelectListItem> States = new List<SelectListItem>()
     {
         new SelectListItem() {Text="Alabama", Value="AL"},
@@ -90,20 +120,6 @@ namespace Kenmark_Consumer.Models
     };
         
 
-        [HttpGet, OutputCache(Duration = 7200, VaryByParam = "None")]
-        public static List<string> GetQuickSearchFrames()
-        {
-            List<string> a = new List<string>();
-            KenmarkTestDBEntities db = new KenmarkTestDBEntities();
-
-            var result = db.inventories.Where(m => m.customerportal_display == true).Select(m => new { m.style_name, sku = m.sku.Substring(0, 4), m.coll_code }).Distinct().ToList();
-
-            foreach (var frame in result)
-            {
-                a.Add(ToTitleCase(frame.style_name) + " (" + frame.sku.ToLower() + ") - " + frame.coll_code);
-            }
-            return a;
-        }
 
         public static string ToTitleCase(this string aString)
         {
