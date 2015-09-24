@@ -329,7 +329,7 @@ namespace Kenmark_Consumer.Models
                        .OrderByDescending(m => m.ReleaseSort)                          
                        .ToList();
 
-                total_frames = f.GroupBy(m => m.SKU.Substring(0,4)).Count();
+                total_frames = f.GroupBy(m => m.SKU.Substring(0,4)).Distinct().Count();
                 f = f.Skip((page == 0 ? 0 : page - 1) * pageSize).Take(pageSize).ToList();
             }
             else if (sort == 2)
