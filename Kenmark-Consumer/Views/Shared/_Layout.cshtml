@@ -44,7 +44,14 @@
 
             });
 
+            $('#icon-sprite').click(function () {
+                $("#brand-links-div").fadeToggle(100);
 
+                if ($('#profile-links-div').is(':visible')) {
+                    $('#profile-links-div').hide();
+
+                }
+            });
 
 
             $(window).on('resize', function () {
@@ -316,10 +323,13 @@
                                     <li><a href="/TheMirror"><span class="navText" style="color: black;">THE MIRROR</span></a></li>
                                     <li><a href="/WhereToBuy"><span class="navText" style="color: black;">WHERE TO BUY</span></a></li>
                                     <li>
+                                        <span><a id="icon-sprite" href="#"></a></span>
                                          @using (Html.BeginForm("ParseOrderPad", "Home", null,FormMethod.Post,new { @id = "AutoForm" }))
                                             {  
-                                                <span><a id="icon-sprite" href="#"></a></span>
+                                             
+                                                
                                                 <input id="QuickSearchTB" name="QuickSearchTB" autocomplete="off" onclick="return false;" type="text" placeholder="Search for a frame..." class="input-text" style="color:black;background-color:transparent;">                            
+                                                 
                                             }
                                    </li>
                                 </ul>
