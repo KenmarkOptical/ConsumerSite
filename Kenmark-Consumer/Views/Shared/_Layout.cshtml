@@ -26,7 +26,7 @@
         var is_mobile = false;
         $(function () {
 
-            CreateAutoDropDown();
+        
                       
 
             $.get("/Home/GetBrandsData").done(function (data) {
@@ -45,7 +45,9 @@
             });
 
             $('#icon-sprite').click(function () {
-                $("#brand-links-div").fadeToggle(100);
+                $("#brand-links-div").fadeToggle(100, function () {
+                    $('#QuickSearchTB').focus();
+                });
 
                 if ($('#profile-links-div').is(':visible')) {
                     $('#profile-links-div').hide();
@@ -170,10 +172,7 @@
         });
 
 
-        function CreateAutoDropDown() {
-        @(Html.Raw(Html.JavaScriptArray((List<string>)Common.GetQuickSearchFrames(), "QuickSearchArray")))
-            actb($('#QuickSearchTB').get(0), QuickSearchArray);
-        }
+       
     </script>
 
     <style type="text/css">
@@ -324,14 +323,7 @@
                                     <li><a href="/WhereToBuy"><span class="navText" style="color: black;">WHERE TO BUY</span></a></li>
                                     <li>
                                         <span><a id="icon-sprite" href="#"></a></span>
-                                         @using (Html.BeginForm("ParseOrderPad", "Home", null,FormMethod.Post,new { @id = "AutoForm" }))
-                                            {  
-                                             
-                                                
-                                                <input id="QuickSearchTB" name="QuickSearchTB" autocomplete="off" onclick="return false;" type="text" placeholder="Search for a frame..." class="input-text" style="color:black;background-color:transparent;">                            
-                                                 
-                                            }
-                                   </li>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

@@ -52,14 +52,33 @@
 
             @for (int i = 0; i < ((Model.FrameCount % Model.PageCount) == 0 && (Model.FrameCount > Model.PageCount) ? (Model.FrameCount / Model.PageCount) : (Model.FrameCount / Model.PageCount) + 1); i++)
             {
-                if ((Model.Page - 1) == i)
+                <!--if ((Model.Page - 1) == i)
                 {
                     <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
                 }
                 else
                 {   
                     <a class="filter-nav-link" style="margin-right:4px; color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                } -->
+                
+               
+
+                if ((Model.Page - 1) == i)
+                {
+                    if ((Model.Page - 1) != 0)
+                    {
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">1</a><span>...</span>
+                    }
+
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 2)</a><span>...</span>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(Model.FrameCount / 8)</a>
+
                 }
+
+
+
             }
             </span>
 
@@ -102,7 +121,7 @@
             <span style="font-size: 3vmax;">RX FRAMES  </span>
         </div> 
     }
-     else if (Model.Type == "SUN")
+    else if (Model.Type == "SUN")
     {
         <div class="col-xs-12 text-center no-gutter">
             <span style="font-size: 3vmax;">SUN FRAMES  </span>
@@ -138,29 +157,29 @@
                     }
                         <span style="font-size:1.1em; ">@(@Model.Frames[i].Style)</span>
                    
-                     @if(@Model.CollectionCode == "ALL")
-                    {
+                     @if (@Model.CollectionCode == "ALL")
+                     {
                          <br />
                         <span style="font-size:1em; ">@Model.Frames[i].Collection</span>
-                    }
+                     }
                             
                 <div class="col-xs-12 no-gutter  text-center" style="display:inline-block; padding-left:5px;">       
                     @for (int j = 0; j < (@Model.Frames[i].Colors.Count > 8 ? 8 : @Model.Frames[j].Colors.Count); j++)
-                        {
+                    {
 			               <img id="@(@Model.Frames[i].Colors[j].Image)" class="subColor" src="@Url.Content("~/content/images/color icons/" + @Model.Frames[i].Colors[j].LikeColor + ".jpg")" style="width:12px; cursor:pointer; margin-left:3px; margin-right:3px;" title="@(Model.Frames[i].Colors[j].Color)" /> 
-                        }
+                    }
                         
                     @if (@Model.Frames[i].Colors.Count > 8)
-                        {
+                    {
                             <br />
                             <span style="color:#a5a5a5; font-size:.9em;">MORE COLORS ></span>                 
-                        }
+                    }
                     </div> 
                 </div>           
            </div>  
          
-            if (i % 2 == 1)
-            {
+                    if (i % 2 == 1)
+                    {
                @:</div>
             }
         }

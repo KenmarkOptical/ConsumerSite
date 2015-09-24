@@ -14,13 +14,12 @@
             $('#' + content + "Span").show();
         });
 
-        $('.fancybox').click(function () {
-            $.fancybox([
-                {
-                    href: '#feedback',
-                    autoSize: true,
-                }
-            ]);
+        $(".fancybox").fancybox({
+
+            autoSize: false,
+            "width": 400,
+            "height": 500,
+
         });
 
         $('.carousel').carousel();
@@ -158,7 +157,7 @@
             <a class="pinterest-sprite-large" href="https://www.pinterest.com/kenmarkeyewear/" target="_blank" style="margin-right: 15px;"><span></span></a>
             </span><br />
 
-            <a class="fancybox" href="#" style="display:inline-block;margin-top:25px;color:#adadad;font-weight:bold;font-size:14px;text-decoration:none;">FEEDBACK</a>
+            <a class="fancybox" href="#feedback" style="display:inline-block;margin-top:25px;color:#adadad;font-weight:bold;font-size:14px;text-decoration:none;">FEEDBACK</a>
             <!-- Fancybox Div -->
             <div id="feedback" style="display:none; z-index:9999;">
                @{Html.RenderPartial("~/Views/Feedback/_Grid.cshtml", new Kenmark_Consumer.Models.Feedback() { Style = Model.Style_Name });}
@@ -171,14 +170,14 @@
             <table class="table table-condensed">
                 <tr style="font-weight: bold;">
 
-                    <td style="border-top:none;" id="storyBorder"><span style="cursor:pointer;text-decoration: none; color: black;border-top:1px solid black;" id="story" class="divTitle">STORY</span></td>
+                    <td style="border-top:none; display:none;" id="storyBorder"><span style="cursor:pointer;text-decoration: none; color: black;border-top:1px solid black;" id="story" class="divTitle">STORY</span></td>
                     <td style="border-top:none;"><span style="cursor:pointer;text-decoration: none; color: black;" id="specs" class="divTitle">SPECS</span></td>
-                    <td style="border-top:none;"><span style="text-decoration: none; color: black; cursor:pointer;" id="measurements" class="divTitle">MEASUREMENTS</span></td>
+                    <td style="border-top:none;"><span style="text-decoration: none; color: black; cursor:pointer;border-top:1px solid black;" id="measurements" class="divTitle">MEASUREMENTS</span></td>
                     <td style="padding:0;border-top:none;"><a class="measurement-sprite divTitle" id="frame" style="cursor:pointer" /><span></span></td>
                 </tr>
             </table>
             <div class="col-sm-12 no-gutter">
-                <span class="divContent" id="storySpan" style="font-size:14px;display:inline-block;margin-bottom:45px;">
+                <span class="divContent" id="storySpan" style="font-size:14px;display:none;margin-bottom:45px;">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum lectus sit 
                     amet lorem congue facilisis. Praesent porttitor metus metus, sed auctor nibh tincidunt 
                     in. Duis quis mi placerat, tincidunt odio sit amet, elementum justo. Ut non sodales dolor,
@@ -190,7 +189,7 @@
                                               Temples: @Model.Temples<br />
                                               Bridge: @Model.Bridge</span>
                 
-                <table style="display:none;" id="measurementsSpan" class="table table-condensed table-striped divContent">
+                <table  id="measurementsSpan" class="table table-condensed table-striped divContent">
                     <thead>
                         <tr style="font-size:14px;">
                             <th>Eye</th>
