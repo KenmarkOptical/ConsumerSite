@@ -37,5 +37,23 @@ namespace Kenmark_Consumer.Controllers
             return View(s);
         }
 
+        public ActionResult ChangeZip(string zip)
+        {           
+            if (HttpContext.Request.Cookies["geo_loc_zip"] == null)
+            {
+                //store the cookie value
+                HttpCookie cookie = new HttpCookie("geo_loc_zip");
+                cookie.Value = zip;
+                HttpContext.Response.SetCookie(cookie);
+            }
+            else
+            {
+                HttpCookie cookie = HttpContext.Request.Cookies.Get("geo_loc_zip");
+                zip = cookie.Value;
+            }
+
+            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
