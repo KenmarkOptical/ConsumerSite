@@ -22,6 +22,13 @@
 
         });
 
+        $('#updateZipBtn').click(function () {
+            var newZip = $('#newZip').val();
+            $.post("Style/ChangeZip", {zip : newZip},  function (data) {
+                location.reload();
+            });
+        });
+
         $('.carousel').carousel();
         $('.additionalColors').click(function () {
             var id = $(this).attr("id");
@@ -78,10 +85,10 @@
     });
 </script>
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
-    <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ","-")"
+    <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ", "-")"
          style="text-decoration:none;color:black;">@(Model.Collection.ToUpper())</a> / 
         
-        <a href="~/Eyewear/@Model.Collection.Replace(" ","-")/@(Model.Group)">
+        <a href="~/Eyewear/@Model.Collection.Replace(" ", "-")/@(Model.Group)">
             @(Model.Group)</a>
         
         / @(Model.Style_Name)
@@ -247,10 +254,36 @@
 </div>
 
 <div class="col-xs-12 col-sm-9 col-sm-offset-3">
-    <span style="display:inline-block;margin-bottom:20px;font-size:14px;font-weight:bold;">Where To Buy</span> 
+    <span style="display:inline-block;margin-bottom:20px;font-size:14px;font-weight:bold;">Where To Buy</span>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-Target="#updateCustomerZip" id="customerZip">@ViewBag.Zip</button>
     @{Html.RenderPartial("_Grid", Model);}
 </div>
 
 <div class="row" style="margin-top:15px;">
-    <img class="img-responsive" src= "@Url.Content("~/Content/images/Brand/"+ @Model.Collection.Replace(" ", "").Replace("Eye", "").Replace("Original","") + "/bottom.jpg")"  />
+    <img class="img-responsive" src= "@Url.Content("~/Content/images/Brand/" + @Model.Collection.Replace(" ", "").Replace("Eye", "").Replace("Original", "") + "/bottom.jpg")"  />
 </div>
+
+<div id="updateCustomerZip" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center" style="opacity:1;">
+                    <div class="container-fluid">
+                        
+                        <div class="col-xs-12">
+                            <span style="display: inline-block; font-size: 20px; font-weight: bold; color: black;">UPDATE ZIP CODE</span><br />
+                            
+                            <div class="text-center">
+                                <input id="newZip" type="text" class="form-control" placeholder="@ViewBag.zip" style="margin:auto;max-width:200px;margin-top:20px;"/>
+                            </div><br />
+
+                            <div class="col-xs-12 no-gutter">
+                                <button type="button" class="btn btn-default pushyBtn" style="margin-top: 20px;" id="updateZipBtn">SUBMIT</button><br />
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

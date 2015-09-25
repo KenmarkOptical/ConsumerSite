@@ -45,9 +45,13 @@
             });
 
             $('#icon-sprite').click(function () {
-                $("#brand-links-div").fadeToggle(100, function () {
+                if ($('#brand-links-div').is(':hidden')) {
+                    $("#brand-links-div").fadeToggle(100, function () {
+                        $('#QuickSearchTB').focus();
+                    });
+                } else {
                     $('#QuickSearchTB').focus();
-                });
+                }
 
                 if ($('#profile-links-div').is(':visible')) {
                     $('#profile-links-div').hide();
