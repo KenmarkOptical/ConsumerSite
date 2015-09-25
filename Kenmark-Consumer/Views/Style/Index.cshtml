@@ -14,6 +14,13 @@
             $('#' + content + "Span").show();
         });
 
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                $('#updateZipBtn').click();
+                return false;
+            }
+        }); // catches Enter press, clicks the filter button
+
         $(".fancybox").fancybox({
 
             autoSize: false,
@@ -25,7 +32,7 @@
         $('#updateZipBtn').click(function () {
             var newZip = $('#newZip').val();
             $.post("Style/ChangeZip", {zip : newZip},  function (data) {
-                location.reload();
+                location.reload();          
             });
         });
 
@@ -82,8 +89,21 @@
                 });
             });
         }
+
+       
     });
 </script>
+
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
     <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ", "-")"
          style="text-decoration:none;color:black;">@(Model.Collection.ToUpper())</a> / 
@@ -157,12 +177,12 @@
             <button class="btn btn-default submitButton" style="margin-top: 20px; width: 150px;">Print Specs</button><br />
             <span style="display:inline-block;margin-top:10px;color: #adadad">Take this spec sheet to<br /> your optician for easy ordering</span><br />
 
-            <span style="display:inline-block;margin-top:40px;">
-            <a class="facebook-sprite-large" href="https://www.facebook.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
+            <span style="display:inline-block;margin-top:40px;"></span>
+            <div class="fb-share-button" data-href="http://1181.kenmarkoptical.com/Style?sku=@Model.SKU" data-layout="button_count"></div>
             <a class="twitter-sprite-large" href="https://twitter.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
             <a class="instagram-sprite-large" href="https://instagram.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
             <a class="pinterest-sprite-large" href="https://www.pinterest.com/kenmarkeyewear/" target="_blank" style="margin-right: 15px;"><span></span></a>
-            </span><br />
+            <br />
 
             <a class="fancybox" href="#feedback" style="display:inline-block;margin-top:25px;color:#adadad;font-weight:bold;font-size:14px;text-decoration:none;">FEEDBACK</a>
             <!-- Fancybox Div -->

@@ -1095,6 +1095,7 @@
     <Content Include="Content\images\home\jason.jpg" />
     <Content Include="Content\images\home\process.jpg" />
     <Content Include="Content\images\home\viewall.jpg" />
+    <Content Include="Content\images\icon_top.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\Press_Clippings\Vogue-Paris-Inside.jpg" />
     <Content Include="Content\images\Press_Clippings\Vogue-Paris.jpg" />

@@ -1,11 +1,20 @@
 ﻿@using Kenmark_Consumer.Models
 
 <!DOCTYPE html>
+@*<html prefix="og: http://ogp.me/ns#">*@ <!-- facebook stuff -->
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    
+@*    
+    <meta property="og:url"           content="" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content=@ViewBag.title /> <!-- more facebook stuff -->
+    <meta property="og:description"   content="" />
+    <meta property="og:image"         content="~/Content/images/home/process.jpg" />*@
+    
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="@(Url.Content("~/Content/themes/base/jquery.fancybox.css"))" type="text/css" media="screen" />
     <link rel="stylesheet" href="@(Url.Content("~/Content/themes/base/jquery.fancybox-buttons.css"))" type="text/css" media="screen" />
@@ -21,6 +30,8 @@
 
     <script src="//use.typekit.net/pxt7sgq.js"></script>
     <script>try { Typekit.load(); } catch (e) { }</script>
+
+
 
     <script type="text/javascript">
         var is_mobile = false;
@@ -125,22 +136,22 @@
 
 
 
-            //$('.collection-link-text').hover(function (e) {
-            //    $(this).prev().removeClass('desaturate').addClass('saturate');
-            //})
+            $('.collection-link-text').hover(function (e) {
+                $(this).prev().removeClass('desaturate').addClass('saturate');
+            })
 
-            //$('.collection-link-text').mouseleave(function (e) {
-            //    $(this).prev().removeClass('saturate').addClass('desaturate');
-            //})
+            $('.collection-link-text').mouseleave(function (e) {
+                $(this).prev().removeClass('saturate').addClass('desaturate');
+            })
 
 
-            //$('.collection-link-sub').hover(function (e) {
-            //    $(this).prev().removeClass('desaturate').addClass('saturate');
-            //})
+            $('.collection-link-sub').hover(function (e) {
+                $(this).prev().removeClass('desaturate').addClass('saturate');
+            })
 
-            //$('.collection-link-sub').mouseleave(function (e) {
-            //    $(this).prev().removeClass('saturate').addClass('desaturate');
-            //})
+            $('.collection-link-sub').mouseleave(function (e) {
+                $(this).prev().removeClass('saturate').addClass('desaturate');
+            })
 
             $('.browseText').mouseenter(function () {
                 $(this).css("color", "black");

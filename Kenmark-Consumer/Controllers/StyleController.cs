@@ -35,6 +35,7 @@ namespace Kenmark_Consumer.Controllers
             Style s = new Style().GetStyle(sku);
             s.customers = s.customers.GetCustomers(new WhereToBuy() { Radius = 90, Zip = zip }, 4);
             ViewBag.Zip = zip;
+            
             return View(s);
         }
 
@@ -50,7 +51,8 @@ namespace Kenmark_Consumer.Controllers
             else
             {
                 HttpCookie cookie = HttpContext.Request.Cookies.Get("geo_loc_zip");
-                zip = cookie.Value;
+                cookie.Value = zip;
+                HttpContext.Response.SetCookie(cookie);
             }
 
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
