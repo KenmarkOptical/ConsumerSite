@@ -1,19 +1,32 @@
 ﻿@using Kenmark_Consumer.Models
 
 <!DOCTYPE html>
-@*<html prefix="og: http://ogp.me/ns#">*@ <!-- facebook stuff -->
+
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <meta property="og:type" content="website" />
+
+    @if (ViewBag.URL != null)
+    { 
+        <meta property="og:url" content="@ViewBag.URL" />
+    }
     
-@*    
-    <meta property="og:url"           content="" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content=@ViewBag.title /> <!-- more facebook stuff -->
-    <meta property="og:description"   content="" />
-    <meta property="og:image"         content="~/Content/images/home/process.jpg" />*@
+    @if (ViewBag.Image != null) { 
+        <meta property="og:image" content="@ViewBag.Image" />
+    }
+    
+    @if (ViewBag.Title != null) { 
+        <meta property="og:title"         content=@ViewBag.Style />
+    }
+
+   @if (ViewBag.Description != null) { 
+        <meta property="og:description"   content="@ViewBag.Description" />
+    }
+    
+    
     
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="@(Url.Content("~/Content/themes/base/jquery.fancybox.css"))" type="text/css" media="screen" />
