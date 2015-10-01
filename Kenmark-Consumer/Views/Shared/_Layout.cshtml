@@ -2,11 +2,16 @@
 
 <!DOCTYPE html>
 
-<html>
+<html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    @if (ViewBag.Style != null) { 
+        <meta property="og:title" content=@ViewBag.Style />
+    }else{
+        <title>@ViewBag.Title</title>
+    }
+
     <meta property="og:type" content="website" />
 
     @if (ViewBag.URL != null)
@@ -18,12 +23,10 @@
         <meta property="og:image" content="@ViewBag.Image" />
     }
     
-    @if (ViewBag.Title != null) { 
-        <meta property="og:title"         content=@ViewBag.Style />
-    }
+    
 
    @if (ViewBag.Description != null) { 
-        <meta property="og:description"   content="@ViewBag.Description" />
+        <meta property="og:description" content="@ViewBag.Description" />
     }
     
     
