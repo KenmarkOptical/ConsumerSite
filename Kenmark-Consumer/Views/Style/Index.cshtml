@@ -1,13 +1,8 @@
 ﻿@model Kenmark_Consumer.Models.Style
 
-@{
-    ViewBag.Title = "Style";
-   
-   
-}
 <script type="text/javascript">
-    $(function () {
 
+    $(function () {
         $('.divTitle').click(function () {
             var content = this.id;
             $('.divContent').hide();
@@ -33,8 +28,8 @@
 
         $('#updateZipBtn').click(function () {
             var newZip = $('#newZip').val();
-            $.post("Style/ChangeZip", {zip : newZip},  function (data) {
-                location.reload();          
+            $.post("Style/ChangeZip", { zip: newZip }, function (data) {
+                location.reload();
             });
         });
 
@@ -92,15 +87,11 @@
             });
         }
 
-       
+
     });
 </script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560d5a96a846b598" async="async"></script>
-
-
-
-
 
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
     <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ", "-")"
@@ -177,7 +168,8 @@
 
             <span style="display:inline-block;margin-top:40px;"></span>
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="addthis_sharing_toolbox"></div>
+           <div class="addthis_sharing_toolbox" data-title="@Model.Style_Name"></div>
+
             @*<div class="fb-share-button" data-href="http://1181.kenmarkoptical.com/Style?sku=@Model.SKU" data-layout="button_count"></div>
             <a class="twitter-sprite-large" href="https://twitter.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
             <a class="instagram-sprite-large" href="https://instagram.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>

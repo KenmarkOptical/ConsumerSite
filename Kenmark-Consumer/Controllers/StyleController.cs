@@ -39,8 +39,8 @@ namespace Kenmark_Consumer.Controllers
             s.customers = s.customers.GetCustomers(new WhereToBuy() { Radius = 90, Zip = zip }, 4);
             ViewBag.Zip = zip;
             ViewBag.Description = "Click here to go directly to this frames page!";
-            ViewBag.Image = "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + s.Main_Color + "&w=600";
-            ViewBag.Style = s.Style_Name;
+            ViewBag.Image = "http://kenmark.kenmarkoptical.com/showimage.aspx?img=" + s.Main_Color + "&w=650";
+            ViewBag.Title = HttpUtility.HtmlEncode(s.Style_Name);
             ViewBag.URL = "http://1181.kenmarkoptical.com/Style?sku=" + s.SKU;
             
             return View(s);
