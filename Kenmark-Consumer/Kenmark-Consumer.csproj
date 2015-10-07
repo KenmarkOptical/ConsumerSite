@@ -1291,6 +1291,7 @@
     <Content Include="Views\CMS_Blog\_GridEdit.cshtml" />
     <Content Include="Views\CMS_Blog\Add.cshtml" />
     <Content Include="Views\TheMirror\SingleBlog.cshtml" />
+    <Content Include="Views\WhereToBuy\_Email.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

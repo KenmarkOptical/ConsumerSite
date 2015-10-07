@@ -20,7 +20,7 @@ namespace Kenmark_Consumer.Controllers
         }
          
 
-        public ActionResult ViewCollection(string n, string collection, int page, int sort = 1,string sub = "", Filters filter = null, string Type = "")
+        public ActionResult ViewCollection(string n, string collection, int page = 1, int sort = 1,string sub = "", Filters filter = null, string Type = "")
         {          
             //get the filter from session
             if (filter == null)
@@ -49,7 +49,7 @@ namespace Kenmark_Consumer.Controllers
 
             int pageSize = c.PageCount;
 
-            int count = page * c.PageCount;
+            int count = (page - 1) * c.PageCount;
             if (count < totalCount)
             {
                 if (pageSize > (totalCount - count))
@@ -120,7 +120,7 @@ namespace Kenmark_Consumer.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult GetFilters(string coll, string group, int sort, string f, string s_type)
+        public ActionResult GetFilters(string coll, string group, int sort, string f, string s_type, string coll_name)
         {
             JavaScriptSerializer js = new JavaScriptSerializer();
             Filters filter = (Filters)js.Deserialize(f, typeof(Filters));
@@ -133,6 +133,7 @@ namespace Kenmark_Consumer.Controllers
             }
 
             filter.Type = s_type;
+            filter.coll = coll_name;
 
             return PartialView("_Filter", filter);
         }

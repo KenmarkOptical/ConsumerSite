@@ -23,7 +23,7 @@
 
 <div class="row text-center" style="margin-top: 32px; margin-bottom: 32px;">
     <span style="display: block; font-size: 18px; font-weight: bold;">@(Model.collection_name)</span>
-    <span style="display: block; font-size: 15px; max-width: 600px; margin: auto;">@(Model.about)</span>
+    <span style="display: block; font-size: 15px; max-width: 600px; margin: auto;">@Html.Raw(Model.about)</span>
 </div>
 
 <div class="col-xs-12 text-center" style="margin-top: 19px;">
@@ -33,7 +33,7 @@
         @foreach (var s in Model.Links)
         {
         
-            <a class="collectionText" href="/Collection/ViewCollection?n=@Model.collection_name&collection=@s.code&Sub=@s.sub&Page=1">
+            <a class="collectionText" href="/Eyewear/@Model.collection_name/@s.sub/@s.code">
                 <span class="collectionText" style="display: inline-block; font-size: 20px; margin-top: 5px; font-weight: bold; text-decoration: none; color: black;">@s.sub
                     <span class="glyphicon glyphicon-chevron-right" style="color: #828282; font-size: 11px;" aria-hidden="true";></span>&nbsp;
                 </span>

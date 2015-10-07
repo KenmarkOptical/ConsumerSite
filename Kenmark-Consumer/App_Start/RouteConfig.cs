@@ -27,6 +27,12 @@ namespace Kenmark_Consumer
             );
 
             routes.MapRoute(
+               name: "ViewFrames",
+               url: "Eyewear/{n}/{sub}/{collection}",
+               defaults: new { controller = "Collection", action = "ViewCollection",n = UrlParameter.Optional, sub = UrlParameter.Optional, collection = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
