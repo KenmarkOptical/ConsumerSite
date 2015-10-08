@@ -18,6 +18,11 @@ namespace Kenmark_Consumer.Models
 
         public List<usp_where_to_buy_Result> Customers{ get; set; }
 
+        public void SendEmail(string body, string to)
+        {
+            Email.SendEmail("noreply@kenmarkoptical.com", new List<string>() { to }, new List<string>(), "Kenmark-Where to Buy", body);
+        }
+
         public WhereToBuy GetCustomers(WhereToBuy data, int Max_Results = 0)
         {
             WhereToBuy wtb = new WhereToBuy();

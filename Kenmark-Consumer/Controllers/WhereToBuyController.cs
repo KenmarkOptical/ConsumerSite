@@ -97,7 +97,16 @@ namespace Kenmark_Consumer.Controllers
         }
 
         public ActionResult Email(String email, String zip, int radius) {
-            return null;
+            WhereToBuy data = new WhereToBuy();
+            data.Zip = zip;
+            data.Radius = 25;
+
+            data = data.GetCustomers(data);
+            string body = RenderPartialViewToString("_Email", data);
+
+            data.SendEmail(body, email);
+            return Json(new { success = true}, JsonRequestBehavior.AllowGet); 
+            
         }
 
     }

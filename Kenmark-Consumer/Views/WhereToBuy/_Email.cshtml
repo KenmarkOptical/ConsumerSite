@@ -1,0 +1,36 @@
+﻿@model Kenmark_Consumer.Models.WhereToBuy
+
+<div style="font-family:'Segoe UI', Arial, Verdana;">
+
+<div style="width:100%; margin-bottom:30px;">
+    <img src="@Url.Content("~/Content/logo.png")" /><br /><br />
+    <span style="font-size:16px;"><strong>@Model.Customers.Count</strong> CLOSEST RETAILERS WITHIN <strong>@(Math.Round((decimal)Model.Customers.Max(m => m.distance), 0, MidpointRounding.AwayFromZero))</strong> MILES OF <strong>@Model.Zip</strong></span> <br />
+    <span style="display:inline-block; margin-bottom:30px;">*Specific frames may not be in stock but can always be special ordered.</span>
+</div>
+
+<table style="width:100%;">
+    @{int counter = 2;}
+
+    @foreach (var item in Model.Customers)
+    {
+        if (counter % 2 == 0)
+        {
+            @:<tr>
+        }
+
+        <td>
+            <span style="font-weight:bold;">@item.customer_name</span><br />
+            <span style="">@item.address</span><br />
+            <span style="">@item.city, @item.state</span><br />
+            <span style="">@item.phone</span><br />
+            <span style="">@item.distance Miles</span><br /><br /> <br />
+        </td>
+
+        if (counter % 2 == 1)
+        {
+            @:</tr>
+        }
+        counter++;
+    }
+</table>
+</div>

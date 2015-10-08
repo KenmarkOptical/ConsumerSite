@@ -29,7 +29,7 @@
                 var myObj = @(Html.Raw(ViewBag.Filter));
         
                 //get filters
-                $.get("/Collection/GetFilters", { coll: _coll, group: _collGroup, sort: sort, s_type : _type, f: JSON.stringify(myObj) }, function (result) {
+                $.get("/Collection/GetFilters", { coll: _coll, group: _collGroup, sort: sort, s_type : _type, coll_name: '@Model.CollectionName', f: JSON.stringify(myObj) }, function (result) {
                     if ($('#mobile-nav').is(":visible")) {
                         $('#FilterDiv2').html(result);
                     }

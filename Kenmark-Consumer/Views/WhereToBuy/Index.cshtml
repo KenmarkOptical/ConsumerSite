@@ -74,10 +74,18 @@
         });
 
         $("#emailSend").click(function (e) {
+            $('#emailSend').fadeOut(250, function () {
+                $('#email-status').fadeIn(200);
+            });
+
             var email = $("input#email").val();
             var zip = $("input#Zip").val();
             var radius = $("#Radius option:selected").val();
-            $.post("/WhereToBuy/Email", { email: email, zip: zip, radius: radius });
+            $.post("/WhereToBuy/Email", { email: email, zip: zip, radius: radius }, function(data){
+                $('#email-status').hide();
+                $('#emailSend').show();
+                 $.fancybox.close();
+            });
         });
 
         $("#printBtn").click(function () {
@@ -272,6 +280,7 @@
 
                         <div class="col-xs-12 text-center">
                             <button id="emailSend" type="submit" class="btn btn-default submitButton" style="margin-top: 10px;">Send</button>
+                            <span id="email-status" style="display:none;">Sending Email...</span>
                         </div>
                     </div>
                 </div>
