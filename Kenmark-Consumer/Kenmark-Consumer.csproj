@@ -231,6 +231,7 @@
     </Compile>
     <Compile Include="Controllers\BlogStoryController.cs" />
     <Compile Include="Controllers\CMS_BlogController.cs" />
+    <Compile Include="Controllers\CMS_PressReleaseController.cs" />
     <Compile Include="Controllers\CollectionController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -524,6 +525,7 @@
     </Compile>
     <Compile Include="Models\CMS_Blog.cs" />
     <Compile Include="Models\CMS_Menu.cs" />
+    <Compile Include="Models\CMS_PressRelease.cs" />
     <Compile Include="Models\CollectionMain.cs" />
     <Compile Include="Models\Collections.cs" />
     <Compile Include="Models\Common.cs" />
@@ -1292,6 +1294,10 @@
     <Content Include="Views\CMS_Blog\Add.cshtml" />
     <Content Include="Views\TheMirror\SingleBlog.cshtml" />
     <Content Include="Views\WhereToBuy\_Email.cshtml" />
+    <Content Include="Views\CMS_PressRelease\Index.cshtml" />
+    <Content Include="Views\CMS_PressRelease\Add.cshtml" />
+    <Content Include="Views\CMS_PressRelease\Edit.cshtml" />
+    <Content Include="Views\CMS_PressRelease\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

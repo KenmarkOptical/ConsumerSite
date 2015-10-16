@@ -54,7 +54,7 @@ namespace Kenmark_Consumer.Models
             {
                 var item = db.CMS_Blogs.Where(m => m.id == id).FirstOrDefault();
                 item.enabled = false;
-                //db.SaveChanges();
+                db.SaveChanges();
             }
         }
 
