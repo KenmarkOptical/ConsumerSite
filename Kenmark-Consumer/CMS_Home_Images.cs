@@ -21,5 +21,6 @@ namespace Kenmark_Consumer
         public string image { get; set; }
         public Nullable<bool> active { get; set; }
         public Nullable<int> rank { get; set; }
+        public Nullable<int> block_size { get; set; }
     }
 }

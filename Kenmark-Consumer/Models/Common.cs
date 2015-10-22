@@ -70,7 +70,7 @@ namespace Kenmark_Consumer.Models
                 }
                 if ((width != 0 && height != 0) && (img_ratio < (ratio * (decimal).97) || img_ratio > (ratio * (decimal)1.03)))
                 {
-                    Results.Add(target_image_name +" ratio (width / height) should be " + ratio + " please resize the width and height to meet these requirements");
+                    Results.Add(target_image_name +" ratio (width / height) should be " + ratio + ". Please resize the width and height to meet these requirements");
                 }
 
 

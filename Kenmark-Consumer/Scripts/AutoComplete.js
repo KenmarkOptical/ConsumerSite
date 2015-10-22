@@ -1,4 +1,4 @@
-﻿function actb(obj, ca) {
+﻿function actb(obj, ca, form) {
     /* ---- Public Variables ---- */
     this.actb_timeOut = -1; // Autocomplete Timeout in ms (-1: autocomplete never time out)
     this.actb_lim = 15;    // Number of elements autocomplete can show (-1: no limit)
@@ -308,7 +308,7 @@
         actb_penter();
 
         //MC
-        $('#AutoForm').submit();
+        $('#' + form).submit();      
     }
     function actb_table_focus() {
         actb_mouse_on_list = 1;
@@ -416,7 +416,7 @@
                     actb_penter();
 
                     //MC
-                    $('#AutoForm').submit();
+                    $('#' + form).submit();           
                     return false;
                 } else {
                     return true;

@@ -59,13 +59,13 @@
                         if ((Model.Page - 1) != 0)
                         {
                             // always show the first page to navigate back too
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(1)">1</a><span>...</span>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(1)&@(ViewBag.FilterQuery)">1</a><span>...</span>
                         }
 
                         if ((Model.Page - 1) > 1)
                         {
                             // if you are on a page higher than 1 it will show the page right before that page, to navigate back
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i)">@(i)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i)&@(ViewBag.FilterQuery)">@(i)</a>
                         }
 
 
@@ -75,20 +75,20 @@
                             // shows the current page you are on
                             if ((i + 1) != ((Model.FrameCount / 8) + 2) && (i + 2) != ((Model.FrameCount / 8) + 1))
                             {
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)&@(ViewBag.FilterQuery)">@(i + 1)</a>
                         
                             }
 
                             // show the page directly after the page you are on, as long as you are not on the last page
                             if ((i + 2) != ((Model.FrameCount / 8) + 1) && (i + 3) != ((Model.FrameCount / 8) + 1))
                             {
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 2)">@(i + 2)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 2)&@(ViewBag.FilterQuery)">@(i + 2)</a>
                             }
 
 
                             // if number of frames on last page is exactly 8 show (model.framecount % 8) pages
                        <span>...</span>
-                       <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.FrameCount / 8)">@(Model.FrameCount / 8)</a>
+                       <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.FrameCount / 8)&@(ViewBag.FilterQuery)">@(Model.FrameCount / 8)</a>
                         }
                         else
                         {
@@ -98,24 +98,24 @@
                             if ((i + 1) != (Model.FrameCount / 8) + 2)
                             {
                             
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)">@(i + 1)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 1)&@(ViewBag.FilterQuery)">@(i + 1)</a>
             
                             }
 
                             // show the page directly after the page you are on
                             if ((i + 2) != ((Model.FrameCount / 8) + 1))
                             {
-                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 2)">@(i + 2)</a>
+                        <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 2)&@(ViewBag.FilterQuery)">@(i + 2)</a>
                             }
                             // if number of frames on last page is not 8 we know we have (model.framecount % 8) + 1 pages
                        <span>...</span>
-                       <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@((Model.FrameCount / 8) + 1)">@((Model.FrameCount / 8) + 1)</a>
+                       <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@((Model.FrameCount / 8) + 1)&@(ViewBag.FilterQuery)">@((Model.FrameCount / 8) + 1)</a>
                         }
                     }
                 }
                 else // if there are less than 8 frames you dont need more than one page
                 {
-                    <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(1)">1</a>
+                    <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(1)&@(ViewBag.FilterQuery)">1</a>
                 }
             }
              
@@ -123,7 +123,7 @@
 
               @if ((Model.FrameCount / (Model.PageCount * Model.Page)) > 0)
               {
-                  @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.Page + 1)">></a></span>
+                  @:<span style="color:black;"><a class="filter-nav-link" style="color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(Model.Page + 1)&@(ViewBag.FilterQuery)">></a></span>
               }
         </div>
     </div>

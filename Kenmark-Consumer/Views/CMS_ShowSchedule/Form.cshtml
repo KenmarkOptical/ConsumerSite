@@ -91,7 +91,7 @@
 
 @if (ViewBag.Type == "EDIT2")
 {
-    using (Html.BeginForm("SaveEditShow", "CMS_ShowSchedule", FormMethod.Post, new { id = "EditBlogFrom" }))
+    using (Html.BeginForm("SaveEditShow", "CMS_ShowSchedule", FormMethod.Post, new { enctype = "multipart/form-data",  id = "EditBlogFrom" }))
     {
         @Html.HiddenFor(m => m.Show.event_id)
         <div class="col-xs-12 col-sm-6" style="margin-bottom: 20px;">       

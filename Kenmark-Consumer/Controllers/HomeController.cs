@@ -49,8 +49,17 @@ namespace Kenmark_Consumer.Controllers
             return PartialView("/Views/Shared/_ProfileMenu.cshtml");
         }
 
-        public ActionResult ParseOrderPad(string QuickSearchTB)
+        public ActionResult ParseOrderPad(string QuickSearchTB, string QuickSearchTB2 = "")
         {
+            if (String.IsNullOrEmpty(QuickSearchTB) && String.IsNullOrEmpty(QuickSearchTB2))
+            {
+                return null;
+            }
+
+            if (String.IsNullOrEmpty(QuickSearchTB) && !String.IsNullOrEmpty(QuickSearchTB2))
+            {
+                QuickSearchTB = QuickSearchTB2;
+            }
             if (!QuickSearchTB.Contains("-"))
             {
                 return null;

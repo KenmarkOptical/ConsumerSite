@@ -100,6 +100,9 @@ namespace Kenmark_Consumer.Controllers
             ViewBag.Sort = sort;
             ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
 
+            string query = QueryStringExtensions.ToQueryString<Filters>(filter);
+            ViewBag.FilterQuery = query;
+
             return View(c);
         }
 

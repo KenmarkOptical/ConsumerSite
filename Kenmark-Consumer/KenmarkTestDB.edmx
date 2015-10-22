@@ -1030,6 +1030,7 @@
           <Property Name="image" Type="varchar" MaxLength="500" />
           <Property Name="active" Type="bit" />
           <Property Name="rank" Type="int" />
+          <Property Name="block_size" Type="int" />
         </EntityType>
         <EntityType Name="CMS_Like_Collection">
           <Key>
@@ -5832,6 +5833,7 @@
           <Property Type="String" Name="image" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="active" />
           <Property Type="Int32" Name="rank" />
+          <Property Type="Int32" Name="block_size" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -7971,6 +7973,7 @@
           <EntitySetMapping Name="CMS_Home_Images">
             <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Home_Images">
               <MappingFragment StoreEntitySet="CMS_Home_Images">
+                <ScalarProperty Name="block_size" ColumnName="block_size" />
                 <ScalarProperty Name="rank" ColumnName="rank" />
                 <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="image" ColumnName="image" />

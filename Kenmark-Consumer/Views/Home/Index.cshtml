@@ -73,7 +73,20 @@
 
 <div class="row" style="max-width: 936px; margin: auto; margin-top: 19px;">
     @*<div class="row no-gutter">*@
-        <div class="col-xs-12 col-sm-12 col-md-8" style="padding: 5px;">
+
+    @foreach (var item in Model.Images)
+    {
+         <div class="@(item.block_size == 1 ? "col-xs-6 col-sm-6 col-md-4" : "col-xs-12 col-sm-12 col-md-8")" style="padding: 5px;">
+            <a href="@item.link">
+                <img class="img-responsive desaturate" src="@item.image" />
+                <span class="div-text-center collection-link-text">
+                    <span style="display: block; text-align: center;" id="text-0">@item.main_text</span>
+                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-0">@item.sub_text</span>
+                </span>
+            </a>
+        </div>
+    }
+        @*<div class="col-xs-12 col-sm-12 col-md-8" style="padding: 5px;">
             <a href="~/">
                 <img class="img-responsive desaturate" id="image-3" src="@Url.Content("~/Content/images/home/calif_1.jpg")" />
                 <span class="div-text-center collection-link-text">
@@ -81,40 +94,9 @@
                     <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-0">CALIFORNIA PT. 1</span>
                 </span>
             </a>
-        </div>
+        </div>*@
 
 
-        <div class="col-xs-6 col-sm-6 col-md-4" style="padding: 5px;">
-            <a href="~/profile">
-                <img class="img-responsive desaturate" id="image-4-desktop" src="@Url.Content("~/Content/images/home/process.jpg")" />
-                <span class="div-text-center collection-link-text">
-                    <span style="display: block; text-align: center;" id="text-1-desktop">PROCESS</span>
-                    <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-desktop">OUR STORY</span>
-                </span>
-            </a>
-        </div>
-    @*</div>*@
-
-    <div class="col-xs-6 col-sm-6 col-md-4" style="padding: 5px;">
-        <a href="https://instagram.com/kenmarkeyewear" target="_blank">
-            <img class="img-responsive desaturate" id="image-4-mobile" src="@Url.Content("~/Content/images/home/instagram.jpg")" />
-            <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;" id="text-1-mobile">INSTAGRAM</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-1-mobile">A LOOK INTO OUR WORLD</span>
-            </span>
-        </a>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-8" style="padding: 5px;">
-        <a href="~/">
-            <img class="img-responsive desaturate" id="image-5" src="@Url.Content("~/Content/images/home/calif_2.jpg")" />
-            <span class="div-text-center collection-link-text">
-                <span style="display: block; text-align: center;" id="text-2">ROADTRIPPIN'</span>
-                <span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2">CALIFORNIA PT. 2</span>
-                @*<span class="collection-link-sub" style="margin-top: -4px; display: block; font-weight: normal; text-align: center;" id="text-sub-2-0">AROUND THE WORLD</span>*@
-            </span>
-        </a>
-    </div>
 
     <div class="col-xs-12 text-center" style="margin-top: 20px;">
         <span style="display: inline-block; font-size: 26px; font-weight: bold; margin-top: 30px; margin-bottom: 10px;">NEW</span><span style="display: inline-block; font-size: 26px; margin-top: 30px; margin-bottom: 20px; margin-left: 10px;"> RELEASES</span>

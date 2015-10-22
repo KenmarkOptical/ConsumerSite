@@ -221,16 +221,16 @@
             $('#FilterDiv').html(data.htmlfilter);
 
             //update query string
-            var loc = window.location.href.indexOf('?Page=');
+            var loc = window.location.href.indexOf('Page=');
             var uref = window.location.href.substring(0, loc);
             
-            var qs = updateQueryStringParameter(uref + '?Page=0' + data.query, 'Page', '1');
+            var qs = updateQueryStringParameter(uref + 'Page=0' + data.query, 'Page', '1');
             window.history.pushState('Kenmark View Frames', 'Kenmark View Frames', qs);
 
             //update the paging links
             $('.filter-nav-link').each(function (index,value) {
-               var num = $(this).html();
-               var u = updateQueryStringParameter(uref + '&Page=0' + data.query, 'Page', num);
+                var num = $(this).html();
+                var u = updateQueryStringParameter(qs, 'Page', num);
                $(this).attr('href', u);
             });
 

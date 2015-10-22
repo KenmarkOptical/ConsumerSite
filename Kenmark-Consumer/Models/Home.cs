@@ -9,6 +9,7 @@ namespace Kenmark_Consumer.Models
     {
         public List<NewReleaseFrame> NewFrames { get; set; }
         public List<CMS_Home_Carousel> Carousel { get; set; }
+        public List<CMS_Home_Images> Images { get; set; }
 
         public Home GetData()
         {
@@ -49,6 +50,9 @@ namespace Kenmark_Consumer.Models
           
                 //set up the carousel
                 h.Carousel = db.CMS_Home_Carousel.Where(m => m.enabled == true).OrderBy(m => m.rank).ToList();
+
+                //get images
+                h.Images = db.CMS_Home_Images.Where(m => m.active == true).OrderBy(m => m.rank).ToList();
             }
             return h;
         }

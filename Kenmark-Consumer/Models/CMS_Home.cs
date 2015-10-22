@@ -53,25 +53,12 @@ namespace Kenmark_Consumer.Models
 
 
         public void SaveEditShow(CMS_Home_Image_Class s)
-        {
-            s.Release.rank -= 1;
+        {         
 
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
-            {
-                //fix the ordering
-                var b = db.CMS_Home_Images.Where(m => m.active == true && m.id != s.Release.id).OrderBy(m => m.rank).ToList();
-                b.Insert((int)s.Release.rank, s.Release);
-                for (int i = 0; i < b.Count; i++)
-                {
-                    var id = b[i].id;
-                    var item = db.CMS_Home_Images.Where(m => m.id == id).FirstOrDefault();
-                    if (item != null && item.id != s.Release.id)
-                        item.rank = i;
-                }
-
+            {              
                 var r = db.CMS_Home_Images.Where(m => m.id == s.Release.id).FirstOrDefault();
-                r.active = true;
-                r.rank = s.Release.rank;
+                r.active = true;              
                 r.link = s.Release.link;
                 r.main_text = s.Release.main_text;
                 r.sub_text = s.Release.sub_text;

@@ -8,7 +8,7 @@
 
     function CreateAutoDropDown() {
         @(Html.Raw(Html.JavaScriptArray((List<string>)Common.GetQuickSearchFrames(), "QuickSearchArray")))
-        actb($('#QuickSearchTB').get(0), QuickSearchArray);
+        actb($('#QuickSearchTB').get(0), QuickSearchArray, 'AutoForm');
     }
 </script>
 <div class="col-xs-12 col-sm-4">

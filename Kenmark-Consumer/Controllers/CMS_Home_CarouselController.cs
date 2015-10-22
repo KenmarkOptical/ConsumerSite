@@ -118,7 +118,7 @@ namespace Kenmark_Consumer.Controllers
             if (!string.IsNullOrEmpty(error_msg))
             {
                 ViewBag.Error = error_msg;
-                ViewBag.Type = "EDIT";
+                ViewBag.Type = "EDIT2";
                 return View("Form", s);
             }
 
