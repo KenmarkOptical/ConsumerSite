@@ -102,7 +102,7 @@
             
                             }
 
-                            // show the page directly after the page you are on
+                            // show the page directly after the page you are on.
                             if ((i + 2) != ((Model.FrameCount / 8) + 1))
                             {
                         <a class="filter-nav-link" style="font-weight:bold;text-decoration:underline;margin-right:3px;color:black;" href="/Collection/ViewCollection?n=@(Model.CollectionName)&collection=@(Model.CollectionCode)&Sub=@(Model.CollectionGroup)&Type=@(Model.Type)&sort=@(ViewBag.sort)&page=@(i + 2)&@(ViewBag.FilterQuery)">@(i + 2)</a>
