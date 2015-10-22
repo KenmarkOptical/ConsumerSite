@@ -2,15 +2,16 @@
 
 <!DOCTYPE html>
 
-<html 
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:addthis="http://www.addthis.com/help/api-spec">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:addthis="http://www.addthis.com/help/api-spec">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-   
- 
-      @if (ViewBag.Title != null) { 
+
+
+    @if (ViewBag.Title != null)
+    { 
         <meta property="og:title" content="@ViewBag.Title" />
     }
 
@@ -20,21 +21,23 @@
     { 
         <meta property="og:url" content="@ViewBag.URL" />
     }
-    
-    @if (ViewBag.Image != null) { 
+
+    @if (ViewBag.Image != null)
+    { 
         <meta property="og:image" content="@ViewBag.Image" />
     }
-    
-    
 
-   @if (ViewBag.Description != null) { 
+
+
+    @if (ViewBag.Description != null)
+    { 
         <meta property="og:description" content="@ViewBag.Description" />
     }
-    
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="@(Url.Content("~/Content/themes/base/jquery.fancybox.css"))" type="text/css" media="screen" />
     <link rel="stylesheet" href="@(Url.Content("~/Content/themes/base/jquery.fancybox-buttons.css"))" type="text/css" media="screen" />
-    <link rel="stylesheet" type="text/css" media="all" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/smoothness/jquery-ui.css"    />
+    <link rel="stylesheet" type="text/css" media="all" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/smoothness/jquery-ui.css" />
 
     @Styles.Render("~/Content/css")
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -54,7 +57,7 @@
         $(function () {
 
             $.get("/Home/GetBrandsData").done(function (data) {
-                
+
                 $("#brand-links-div").html(data);
             });
 
@@ -108,27 +111,27 @@
                 $('#logo-sprite').css('margin-right', 0);
             }
 
-            
+
 
 
             var h = $('.navbar').height() - 5;
             $('#main-body').css('margin-top', (h));
 
             $('#Brands-Link').click(function () {
-              
-                    $('.carousel-control').toggle();
-                    if ($('#brand-links-div').is(':visible')) {
-                        $('.navbar-inner .container').addClass('shadow');
-                    }
-                    else {
-                        $('.navbar-inner .container').removeClass('shadow');
-                    }
-                    $("#brand-links-div").fadeToggle(100);
 
-                    if ($('#profile-links-div').is(':visible')) {
-                        $('#profile-links-div').hide();
-                    }
-             });
+                $('.carousel-control').toggle();
+                if ($('#brand-links-div').is(':visible')) {
+                    $('.navbar-inner .container').addClass('shadow');
+                }
+                else {
+                    $('.navbar-inner .container').removeClass('shadow');
+                }
+                $("#brand-links-div").fadeToggle(100);
+
+                if ($('#profile-links-div').is(':visible')) {
+                    $('#profile-links-div').hide();
+                }
+            });
 
 
 
@@ -182,56 +185,55 @@
                 $(this).css("color", "black");
             });
 
-            $('#modalBtn').hover(function(){
+            $('#modalBtn').hover(function () {
                 $(this).css("background-color", "white");
             });
 
-            
+
             $('#logInBtn').click(function () {
                 location.href = "http://customer.kenmarkoptical.com/";
             });
-            
+
             $('#accountBtn').click(function () {
                 location.href = "http://customer.kenmarkoptical.com/Home/NewAccount";
             });
 
 
-           
+
         });
 
 
-       
+
     </script>
 
     <style type="text/css">
-        
         .modal-content {
-            background:rgb(203,203,203);
-            background:rgba(203,203,203,1.5);
-            padding:30px;
-            border-radius:0;
+            background: rgb(203,203,203);
+            background: rgba(203,203,203,1.5);
+            padding: 30px;
+            border-radius: 0;
         }
 
         .modal-backdrop {
-            background-color:transparent;
+            background-color: transparent;
         }
 
         @@media (min-width: 768px) {
             #borderDiv {
-                border-right: 1px solid black; 
+                border-right: 1px solid black;
             }
         }
 
         @@media (max-width: 767px) {
             #customerBorderDiv {
                 border-top: 1px solid black;
-                margin-top:20px;
+                margin-top: 20px;
             }
         }
 
-         @@media (max-width: 767px) {
+        @@media (max-width: 767px) {
             #customerNote {
-                margin-top:30px;
+                margin-top: 30px;
             }
         }
     </style>
@@ -245,9 +247,16 @@
         <div id="main-pushy-wrapper" class="topRow">
             <div class="col-xs-12" style="margin-top: 20px; margin-bottom: 50px;">
                 <a href="~/">
-                    <img src="~/Content/images/all_pages/logo/logo-nav.png"></a>
+                    <img src="~/Content/images/all_pages/logo/logo-nav.png" /></a>
             </div>
-            <ul style="padding: 20px;">
+            <div class="col-xs-11" style="margin: auto; margin-bottom: 20px;">
+                @using (Html.BeginForm("ParseOrderPad", "Home", null, FormMethod.Post, new { @id = "AutoForm" }))
+                {  
+                    <input class="form form-control" id="QuickSearchTB" name="QuickSearchTB" autocomplete="off" onclick="return false;" type="text" placeholder="Search for a frame..." class="input-text" style="color: black; background-color: transparent;" />                            
+                }
+            </div>
+            
+            <ul style="padding: 20px;padding-top:200px;">
                 <li><a id="shop" href="#">Shop <span class="glyphicon glyphicon-chevron-right" style="color: #FFF; margin-left: 110px;" aria-hidden="true"></span></a></li>
                 <li><a id="profile" href="#">Profile <span class="glyphicon glyphicon-chevron-right" style="color: #FFF; margin-left: 100px;" aria-hidden="true"></span></a></li>
                 <li><a href="/TheMirror">The Mirror <span class="glyphicon glyphicon-chevron-right" style="color: #FFF; margin-left: 68px;" aria-hidden="true"></span></a></li>
@@ -255,7 +264,7 @@
             </ul>
 
             <div class="col-xs-12 text-center">
-                <button  type="button" class="btn btn-default pushyBtn menu-btn" data-toggle="modal" data-target="#modalContainer">LOGIN</button>
+                <button type="button" class="btn btn-default pushyBtn menu-btn" data-toggle="modal" data-target="#modalContainer">LOGIN</button>
             </div>
             @*<div class="col-xs-12 text-center" style="margin-top: 10px;">
                 <span style="font-weight: normal; color: white; font-size: .90em;">or </span>
@@ -295,15 +304,15 @@
                 <li><span style="font-size: 0.9em; color: #d28b19;">BRANDS</span></li>
                 <li><a href="/Eyewear/Vera-Wang" style="font-size: 0.8em; font-weight: normal;">Vera Wang</a></li>
                 <li><a href="/Eyewear/Zac-Posen" style="font-size: 0.8em; font-weight: normal;">Zac Posen</a></li>
-                <li><a href="/Original-Penguin-Eyewear" class="menu-btn" style="font-size: 0.7em; font-weight: normal;">Original Penguin</a></li>
+                <li><a href="/Eyewear/Original-Penguin" style="font-size: 0.7em; font-weight: normal;">Original Penguin</a></li>
                 <li><a href="/Eyewear/Lilly-Pulitzer" style="font-size: 0.8em; font-weight: normal;">Lilly Pulitzer</a></li>
                 <li><a href="/Eyewear/Kensie" style="font-size: 0.8em; font-weight: normal;">Kensie</a></li>
                 <li><a href="/Eyewear/Timex" style="font-size: 0.8em; font-weight: normal;">Timex</a></li>
                 <li><a href="/Eyewear/Jhane-Barnes" style="font-size: 0.8em; font-weight: normal;">Jhane Barnes</a></li>
                 <li><a href="/Eyewear/Dana-Buchman" style="font-size: 0.8em; font-weight: normal;">Dana Buchman</a></li>
                 <li><a href="/Eyewear/Wolverine" style="font-size: 0.8em; font-weight: normal;">Wolverine</a></li>
-                <li><a href="/Eyewear/" style="font-size: 0.8em; font-weight: normal;">Republica</a></li>
-                <li><a href="/Eyewear/" style="font-size: 0.8em; font-weight: normal;">House Collection</a></li>
+                <li><a href="/Eyewear/Republica" style="font-size: 0.8em; font-weight: normal;">Republica</a></li>
+                <li><a href="/Eyewear/House-Collections" style="font-size: 0.8em; font-weight: normal;">House Collection</a></li>
             </ul>
         </div>
         <!-- END OF PUSHY SHOP WRAPPER -->
@@ -318,7 +327,7 @@
 
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-sm-12 text-right hidden-xs" style="margin-right: 15px;">
-                        <button id="modalBtn" type="button" class="btn btn-default navText" data-toggle="modal" data-target="#modalContainer" style="border:none;margin-left: 15px;margin-right:10px; font-size: 13px; font-weight:bold;">LOGIN</button>
+                        <button id="modalBtn" type="button" class="btn btn-default navText" data-toggle="modal" data-target="#modalContainer" style="border: none; margin-left: 15px; margin-right: 10px; font-size: 13px; font-weight: bold;">LOGIN</button>
                     </div>
                     <div class="col-sm-12 text-right visible-sm" style="margin-right: 20px;">
                         <a class="facebook-sprite" href="https://www.facebook.com/kenmarkeyewear" target="_blank" style="margin-right: 5px;"><span></span></a>
@@ -379,7 +388,6 @@
                 <!-- PROFILE DROPDOWN -->
 
                 <div id="profile-links-div" class="container navDropdown hidden-xs" style="background-color: #eeebdf; z-index: 5; display: none; width: 100%; max-width: 1074px; box-shadow: 0px 6px 6px -3px rgba(50, 50, 50, 0.67);">
-                    
                 </div>
 
             </div>
@@ -392,23 +400,23 @@
     <div id="modalContainer" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body" style="opacity:1;">
+                <div class="modal-body" style="opacity: 1;">
                     <div class="container-fluid">
                         <div class="row">
-                        <div class="col-xs-12 col-sm-7" id="borderDiv" >
-                            <span class="modal-title" style="display: inline-block; font-size: 20px; font-weight: bold; color: black;">FOR OPTICAL<br />
-                                PROFESSIONALS</span><br />
-                            <button type="button" class="btn btn-default pushyBtn" style="margin-top: 30px;" id="logInBtn">LOGIN</button><br />
-                            <button type="button" class="btn btn-default createAcctBtn" style="margin-top: 15px; margin-bottom: 15px;" id="accountBtn">CREATE ACCOUNT</button>
-                        </div>
-                        <div class="col-xs-12 col-sm-5 no-gutter" id="customerBorderDiv" style="padding-left:20px;">
-                            <span id="customerNote" style="font-weight:bold;font-size:15px;display:inline-block">A NOTE TO CONSUMERS</span><br />
-                            <span style="display:inline-block;margin-top:15px;font-size:14px;">Sorry, but Kenmark does not sell directly to consumers</span><br />
-                            <span style="display:inline-block;margin-top:15px;font-size:14px;">Please visit <a href="/wheretobuy" style="text-decoration:none;color:#d28b19">Where to Buy</a>
-                                to find a retailer near you who stocks Kenmark frames.
-                            </span>
-                        </div>
+                            <div class="col-xs-12 col-sm-7" id="borderDiv">
+                                <span class="modal-title" style="display: inline-block; font-size: 20px; font-weight: bold; color: black;">FOR OPTICAL<br />
+                                    PROFESSIONALS</span><br />
+                                <button type="button" class="btn btn-default pushyBtn" style="margin-top: 30px;" id="logInBtn">LOGIN</button><br />
+                                <button type="button" class="btn btn-default createAcctBtn" style="margin-top: 15px; margin-bottom: 15px;" id="accountBtn">CREATE ACCOUNT</button>
                             </div>
+                            <div class="col-xs-12 col-sm-5 no-gutter" id="customerBorderDiv" style="padding-left: 20px;">
+                                <span id="customerNote" style="font-weight: bold; font-size: 15px; display: inline-block">A NOTE TO CONSUMERS</span><br />
+                                <span style="display: inline-block; margin-top: 15px; font-size: 14px;">Sorry, but Kenmark does not sell directly to consumers</span><br />
+                                <span style="display: inline-block; margin-top: 15px; font-size: 14px;">Please visit <a href="/wheretobuy" style="text-decoration: none; color: #d28b19">Where to Buy</a>
+                                    to find a retailer near you who stocks Kenmark frames.
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
