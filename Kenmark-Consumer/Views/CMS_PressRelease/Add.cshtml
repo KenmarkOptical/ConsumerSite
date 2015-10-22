@@ -1,0 +1,83 @@
+﻿
+
+@{
+    ViewBag.Title = "Add Press Release";
+}
+
+<script type="text/javascript">
+
+    $(function () {
+        $('.date-picker').datepicker();
+        $('.pageContent').hide();
+
+        $('.pageTitle').click(function () {
+
+            var page = this.id;
+
+            $('.pageContent').hide();
+
+            $('#' + page + "Span").show();
+
+            $('.' + page + 'Upload').show();
+        });
+    });
+</script>
+
+
+@using (Html.BeginForm("AddPressRelease", "CMS_PressRelease", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-xs-12" style="margin-bottom: 50px; margin-top: 50px;">
+        <div class="col-xs-12 col-sm-4">
+            @Html.LabelFor(m => m.data.title, new { @style = "font-size:14px;" })<br />
+            @Html.TextBoxFor(m => m.data.title, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-4" style="margin-bottom: 100px;">
+            <p style="font-size: 14px; font-weight: bold;">
+                @Html.LabelFor(m => m.data.date)
+                @Html.TextBoxFor(m => m.data.date, new { @class = "date-picker form-control", @type = "text" })
+            </p>
+        </div>
+    </div>
+
+    <div class="col-xs-12" style="margin-bottom: 50px;">
+        <span style="display: inline-block; margin-bottom: 5px; font-weight: bold; font-size: 14px;">Enter your blog content below</span>
+
+        @Html.TextAreaFor(m => m.data.text, new { @id = "editor1", @name = "Content" })
+
+        <script>
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1', {
+
+        });
+        </script>
+
+        <div class="col-xs-12 col-sm-6" style="margin-top:20px;">
+            <label for="photo">Upload Main Image: </label>
+            <input type="file" name="main_image" class="btn btn-default" />
+        </div>
+        
+        <div class="col-xs-12 col-sm-6" style="margin-top:20px;">
+            <label for="photo">Upload Text Image: </label>
+            <input type="file" name="sub_image" class="btn btn-default" />
+        </div>
+       
+        <div class="col-xs-12 col-sm-6 " style="margin-top:20px;">
+            @Html.Label("Add a caption to your Text image here")
+            @Html.TextBoxFor(m => m.data.sub_image_caption, new { @class="form-control"})
+        </div>
+
+        <div class="col-xs-12" style="margin-top: 20px;">
+            <button class="btn btn-default submitButton" id="submit" type="submit">Submit</button>
+        </div>
+    </div>
+}
+
+<div class="col-xs-12" style="margin-bottom:20px;">
+    <span style="font-size:14px;">
+      <a href="~/cms_blog">< BACK</a>  
+    </span>
+</div>
