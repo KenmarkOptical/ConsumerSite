@@ -20,7 +20,8 @@ namespace Kenmark_Consumer.Models
             {
 
                 s.Shows = db.events.Where(m => m.is_active == true)
-                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth, Month = m.event_start_date.Month, Year = m.event_start_date.Year, Location = m.location})
+                                   .Select(m => new Show() { EventName = m.event_name, Date = m.display_date, Booth = m.Booth, Month = m.event_start_date.Month, Year = m.event_start_date.Year, Location = m.location, start_date = m.event_start_date})
+                                   .OrderByDescending(m => m.start_date)
                                    .ToList();
             }
 
@@ -41,10 +42,10 @@ namespace Kenmark_Consumer.Models
         public string Date { get; set; }
         public string Booth { get; set; }
         public string Location { get; set; }
-        public string Group { get; set; }
+        public string Group { get; set; }       
         public int Month { get; set; }
         public int Year { get; set; }
-
+        public DateTime? start_date { get; set; }
         
     }
 

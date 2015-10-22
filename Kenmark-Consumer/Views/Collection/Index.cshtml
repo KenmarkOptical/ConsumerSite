@@ -31,10 +31,11 @@
 
     <div style="margin-bottom: 30px;">
         @foreach (var s in Model.Links)
-        {
+        {  
         
-            <a class="collectionText" href="/Eyewear/@Model.collection_name/@s.sub/@s.code">
-                <span class="collectionText" style="display: inline-block; font-size: 20px; margin-top: 5px; font-weight: bold; text-decoration: none; color: black;">@s.sub
+            <a class="collectionText" href="/Eyewear/@Model.collection_name.Replace(" ","-")/@s.sub.Replace(" ","-")/@s.code">
+                <span class="collectionText" style="display: inline-block; font-size: 20px; margin-top: 5px; font-weight: bold; text-decoration: none; color: black;">
+                    @(s.code == "COM" ? "COMFORT FLEX" : s.code == "DES" ? "DESTINY" : s.code == "GAL" ? "GALLERY" : s.sub)
                     <span class="glyphicon glyphicon-chevron-right" style="color: #828282; font-size: 11px;" aria-hidden="true";></span>&nbsp;
                 </span>
                 <br />

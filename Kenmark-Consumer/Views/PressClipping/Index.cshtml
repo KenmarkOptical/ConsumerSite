@@ -8,13 +8,11 @@
    
     $(function () {
         
-        $(".fancybox").fancybox({
-
-            autoSize: false,
-            "width": 400,
-            "height": 500,
-
+        $('.fancybox').fancybox({
+            autoSize: 'true',
+            fitToView: 'true'
         });
+
 
         $("#filterButton").click(function () {
                
@@ -108,8 +106,8 @@
               
 <!-- START OF FANCYBOX DIV -->
 
-<div id="insideImage" style="display:none">
-    <img id="magPic" class="img-responsive center-block" style="max-width:295px;" src="#"/>
+<div id="insideImage" style="display:none;">
+    <img id="magPic" class="img-responsive center-block" style="" src="#"/>
                
     <div class="col-xs-12 no-gutter"  style="margin-top:20px;">
         <div class="col-xs-12 col-sm-6 no-gutter">

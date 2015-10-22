@@ -154,7 +154,7 @@ namespace Kenmark_Consumer.Models
                                 "boy",
                                 "youth",
                                 "yth"
-                    };
+            };
 
                 Style_List = db.inventories.Where(m => youth_list.Any( s => m.coll_name.ToLower().Contains(s)) && m.consumerportal_display == true)
                                 .Select(m => m.style_name)
@@ -173,6 +173,15 @@ namespace Kenmark_Consumer.Models
             else if (Type != null && Type.ToUpper() == "SUN")
             {
                 var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("SUN") && m.Enabled == true).Select(m => m.Group).ToList();
+
+                Style_List = db.inventories.Where(m => coll_list.Any(s => m.coll_group.ToLower().Contains(s)) && m.consumerportal_display == true)
+                                               .Select(m => m.style_name)
+                                               .Distinct()
+                                               .ToList();
+            }
+            else if (Type != null && Type.ToUpper() == "ALL")
+            {
+                var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Enabled == true).Select(m => m.Group).ToList();
 
                 Style_List = db.inventories.Where(m => coll_list.Any(s => m.coll_group.ToLower().Contains(s)) && m.consumerportal_display == true)
                                                .Select(m => m.style_name)
@@ -483,6 +492,15 @@ namespace Kenmark_Consumer.Models
             else if (Type == "SUN")
             {
                 var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Sub_Group.Contains("SUN") && m.Enabled == true).Select(m => m.Group).ToList();
+                var skuList = (from i in db.inventories
+                               where i.customerportal_display == true
+                               && coll_list.Any(s => i.coll_group.ToLower().Contains(s))
+                               select i.sku).ToList();
+                return skuList.Count();
+            }
+            else if (Type == "ALL")
+            {
+                var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Enabled == true).Select(m => m.Group).ToList();
                 var skuList = (from i in db.inventories
                                where i.customerportal_display == true
                                && coll_list.Any(s => i.coll_group.ToLower().Contains(s))

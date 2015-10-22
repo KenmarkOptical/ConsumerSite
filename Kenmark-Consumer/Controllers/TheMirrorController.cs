@@ -19,15 +19,10 @@ namespace Kenmark_Consumer.Controllers
 
         public ActionResult SingleBlog(int id)
         {
-            CMS_Blog a = new CMS_Blog();
-            SingleBlog b = new SingleBlog();
+            CMS_Blog a = new CMS_Blog();         
+            a = a.GetBlog(id);            
 
-            b = a.GetBlog(id);
-            b.main_image = b.main_image;
-            b.sub_image = b.sub_image;
-            
-
-            return View("SingleBlog", b);
+            return View("SingleBlog", a);
         }
 
     }

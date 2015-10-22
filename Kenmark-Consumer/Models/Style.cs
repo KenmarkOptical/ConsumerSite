@@ -9,6 +9,7 @@ namespace Kenmark_Consumer.Models
     {
         public string Style_Name { get; set; }
         public string Collection { get; set; }
+        public string Sub { get; set; }
         public List<String> Colors { get; set; }
         public string Main_Color { get; set; }
         public string Group { get; set; }
@@ -37,10 +38,11 @@ namespace Kenmark_Consumer.Models
             var data1 = db.inventories.Where(m => m.sku.Substring(0,4) == sku).ToList(); 
             string main_sku = data1[0].sku.Substring(0,4);
             var data2 = db2.INQInventories.Where(i => i.Item.Trim().Substring(0, 4) == main_sku).ToList();
+          
 
             //set the data
             s.Style_Name = data1.Select(m => m.style_name).FirstOrDefault();
-            s.Collection = data1.Select(m => m.coll_code).FirstOrDefault();
+            
             s.Main_Color = data1.Select(m=> m.sku.Substring(0,4)).FirstOrDefault() + ".jpg";
             s.Material = data1.Select(m => m.material).FirstOrDefault();
             s.Material = s.Material == "M" ? "Metal" : "Plastic";
@@ -48,6 +50,13 @@ namespace Kenmark_Consumer.Models
             s.Bridge = data2.Select(m => m.AG).FirstOrDefault();
             s.Group = data1.Select(m => m.coll_group).FirstOrDefault();
             s.SKU = main_sku;
+
+            string sub_g = data1.First().coll_sub;
+
+            var data3 = db.Kenmark_Collections_Sub.Where(m => m.Code == sub_g).FirstOrDefault();
+            var data4 = db.Kenmark_Collections_like.Where(m => m.Group == data3.Group).FirstOrDefault();
+            s.Sub = data3.Sub_Group;
+            s.Collection = data4.Site_Display;
 
             s.Colors = data1.Select(m => m.sku.Substring(0, 6) + ".jpg").Distinct().ToList();
             s.Measurements = (from d in data2

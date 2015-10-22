@@ -221,10 +221,10 @@
             $('#FilterDiv').html(data.htmlfilter);
 
             //update query string
-            var loc = window.location.href.indexOf('&Page=');
+            var loc = window.location.href.indexOf('?Page=');
             var uref = window.location.href.substring(0, loc);
             
-            var qs = updateQueryStringParameter(uref + '&Page=0' + data.query, 'Page', '1');
+            var qs = updateQueryStringParameter(uref + '?Page=0' + data.query, 'Page', '1');
             window.history.pushState('Kenmark View Frames', 'Kenmark View Frames', qs);
 
             //update the paging links
@@ -316,7 +316,7 @@
 
 
          <div class="col-xs-4 col-sm-12 "style="margin-bottom:10px;">
-             @if (Model.Collection_Like != null)
+             @if (Model.Collection_Like != null && ViewBag.IsAll == true)
             {
                 <span onclick="$('#collection-items').toggle();" style="cursor:pointer; margin-top:5px; display:inline-block;font-size:14px;">+ BRANDS</span><br />
                     if (Model.Collection_Like.Where(m => m.Value == true).Count() > 0)
@@ -471,7 +471,7 @@
         <div class="col-xs-4 col-sm-12 " style="margin-bottom:10px;display:@( !String.IsNullOrEmpty(Model.Type) ? "none;" : "");">
             @*<span onclick="$('#eye-items').toggle();" style="cursor:pointer;margin-top:5px; display:inline-block; vertical-align:top;font-size:14px;text-align:right;">+</span>*@
             <span style="cursor:pointer;margin-top:5px; display:inline-block;max-width:120px;font-size:14px;">
-               <a href="~/Eyewear/@(Model.coll.Replace(" ", "-"))" style="text-decoration:none;color:black;">+ BACK TO @(Model.coll.ToUpper()) COLLECTIONS</a>
+               <a href="~/Eyewear/@((Model.coll == "Comfort Flex" || Model.coll == "Gallery" || Model.coll == "Destiny") ? "House-Collections" : Model.coll.Replace(" ", "-"))" style="text-decoration:none;color:black;">+ BACK TO @((Model.coll == "Comfort Flex" || Model.coll == "Gallery" || Model.coll == "Destiny") ? "HOUSE" : Model.coll.ToUpper()) COLLECTIONS</a>
             </span>
         </div>
     

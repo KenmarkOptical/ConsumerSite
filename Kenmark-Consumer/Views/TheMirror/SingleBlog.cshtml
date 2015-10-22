@@ -1,15 +1,38 @@
-﻿@model Kenmark_Consumer.Models.SingleBlog
+﻿@model Kenmark_Consumer.Models.CMS_Blog
 @{
     ViewBag.Title = @Model.data.title;
 }
-<div style="margin-top:20px;"></div>
-<div><img src="@Model.data.main_image.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer","")" /></div>
 
-<div>@Model.data.title</div>
+<div class="col-xs-12 no-gutter" style="margin-top:20px;">
 
-<div>@Model.data.date</div>
+<div class="row">
+    <img src="@Url.Content("~/" + Model.data.main_image)" class="img-responsive" style="width:100%;max-height:600px;"/>
+</div>
 
-<div>@Html.Raw(@Model.data.text)</div>
+<div class="col-xs-12 col-sm-3 text-center-xs" style=" margin-top:30px;">
+    <span style="font-size:18px;">@(((DateTime)Model.data.date).ToString("MMMM dd, yyyy"))</span> <br />
+    <span style="font-size:23px;">@Model.data.title.ToUpper()</span>
+</div>
 
-<div><img src="@Model.data.sub_image.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer","")" /></div>
 
+
+<div class="col-xs-12 col-sm-9" style="font-size:14px; margin-top:20px;">
+    <div class="hidden-xs" style="float:right;margin-top:10px; margin-left:10px; margin-bottom:10px;">
+        <img src="@Url.Content("~/" + Model.data.sub_image)" class="img-responsive" style=" max-width:350px;"  />
+        <span style="margin:auto; display:inline-block;width:100%;text-align:center;color:#888;">@Model.data.sub_image_caption</span>
+    </div>
+     <div class="hidden-sm hidden-md hidden-lg text-center" style="margin-bottom:10px;">
+        <img src="@Url.Content("~/" + Model.data.sub_image)" style="margin:auto; max-width:350px;" class="img-responsive" />
+        <span style="margin:auto; display:inline-block;width:100%;text-align:center;color:#888;">@Model.data.sub_image_caption</span>
+    </div>
+
+    @Html.Raw(@Model.data.text)
+    
+</div>
+
+<div class="col-xs-3">
+    
+</div>
+
+
+</div>

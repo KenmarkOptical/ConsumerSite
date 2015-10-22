@@ -13,7 +13,8 @@
           <EntitySet Name="AdminExceptionDecision" EntityType="KenmarkTestDBModel.Store.AdminExceptionDecision" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BBX_Order_Log" EntityType="KenmarkTestDBModel.Store.BBX_Order_Log" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="careers" EntityType="KenmarkTestDBModel.Store.careers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CMS_Blog" EntityType="KenmarkTestDBModel.Store.CMS_Blog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CMS_Blogs" EntityType="KenmarkTestDBModel.Store.CMS_Blogs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CMS_Home_Carousel" EntityType="KenmarkTestDBModel.Store.CMS_Home_Carousel" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CMS_Like_Collection" EntityType="KenmarkTestDBModel.Store.CMS_Like_Collection" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="collection_codes" EntityType="KenmarkTestDBModel.Store.collection_codes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Collection_POP" EntityType="KenmarkTestDBModel.Store.Collection_POP" store:Type="Tables" Schema="dbo" />
@@ -650,16 +651,7 @@
           <EntitySet Name="payment_options" EntityType="KenmarkTestDBModel.Store.payment_options" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="payments" EntityType="KenmarkTestDBModel.Store.payments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Press_Clippings" EntityType="KenmarkTestDBModel.Store.Press_Clippings" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="press_releases" EntityType="KenmarkTestDBModel.Store.press_releases" store:Type="Tables" store:Schema="dbo" store:Name="press_releases">
-            <DefiningQuery>SELECT 
-      [press_releases].[press_release_id] AS [press_release_id], 
-      [press_releases].[release_date] AS [release_date], 
-      [press_releases].[release_title] AS [release_title], 
-      [press_releases].[release_text] AS [release_text], 
-      [press_releases].[active] AS [active], 
-      [press_releases].[insert_date] AS [insert_date]
-      FROM [dbo].[press_releases] AS [press_releases]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="press_releases" EntityType="KenmarkTestDBModel.Store.press_releases" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PressReleasePreview" EntityType="KenmarkTestDBModel.Store.PressReleasePreview" store:Type="Tables" store:Schema="dbo" store:Name="PressReleasePreview">
             <DefiningQuery>SELECT 
       [PressReleasePreview].[PressReleasePreviewID] AS [PressReleasePreviewID], 
@@ -1003,7 +995,7 @@
           <Property Name="url" Type="varchar" MaxLength="150" />
           <Property Name="seq_number" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="CMS_Blog">
+        <EntityType Name="CMS_Blogs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -1014,6 +1006,16 @@
           <Property Name="sub_image" Type="varchar" MaxLength="250" />
           <Property Name="sub_image_caption" Type="varchar" MaxLength="400" />
           <Property Name="text" Type="varchar(max)" />
+          <Property Name="enabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="CMS_Home_Carousel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="varchar" MaxLength="500" />
+          <Property Name="link" Type="varchar(max)" />
+          <Property Name="rank" Type="int" />
           <Property Name="enabled" Type="bit" />
         </EntityType>
         <EntityType Name="CMS_Like_Collection">
@@ -2462,17 +2464,9 @@
           <Property Name="pdf" Type="varchar" MaxLength="250" />
           <Property Name="enabled" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'KenmarkWeb_Live.dbo.press_releases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="press_releases">
           <Key>
             <PropertyRef Name="press_release_id" />
-            <PropertyRef Name="release_date" />
-            <PropertyRef Name="release_title" />
-            <PropertyRef Name="release_text" />
-            <PropertyRef Name="active" />
-            <PropertyRef Name="insert_date" />
           </Key>
           <Property Name="press_release_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="release_date" Type="datetime" Nullable="false" />
@@ -3577,6 +3571,8 @@
           <EntitySet Name="AdminExceptionDecisions" EntityType="KenmarkTestDBModel.AdminExceptionDecision" />
           <EntitySet Name="BBX_Order_Log" EntityType="KenmarkTestDBModel.BBX_Order_Log" />
           <EntitySet Name="careers" EntityType="KenmarkTestDBModel.career" />
+          <EntitySet Name="CMS_Blogs" EntityType="KenmarkTestDBModel.CMS_Blogs" />
+          <EntitySet Name="CMS_Like_Collection" EntityType="KenmarkTestDBModel.CMS_Like_Collection" />
           <EntitySet Name="collection_codes" EntityType="KenmarkTestDBModel.collection_codes" />
           <EntitySet Name="Collection_POP" EntityType="KenmarkTestDBModel.Collection_POP" />
           <EntitySet Name="collections" EntityType="KenmarkTestDBModel.collection" />
@@ -3700,9 +3696,8 @@
             <End Role="collection" EntitySet="collections" />
             <End Role="address_to_collections" EntitySet="address_to_collections" />
           </AssociationSet>
-          <EntitySet Name="CMS_Like_Collection" EntityType="KenmarkTestDBModel.CMS_Like_Collection" />
-          <EntitySet Name="CMS_Blogs" EntityType="KenmarkTestDBModel.CMS_Blogs" />
-        </EntityContainer>
+          <EntitySet Name="CMS_Home_Carousel" EntityType="KenmarkTestDBModel.CMS_Home_Carousel" />
+          </EntityContainer>
         <ComplexType Name="usp_where_to_buy_Result">
           <Property Type="String" Name="kenmark_id" Nullable="false" MaxLength="6" />
           <Property Type="String" Name="customer_name" Nullable="true" MaxLength="30" />
@@ -3787,6 +3782,30 @@
           <Property Type="String" Name="job_description" MaxLength="750" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="url" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="seq_number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CMS_Blogs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="date" Precision="0" />
+          <Property Type="String" Name="main_image" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="title" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sub_image" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sub_image_caption" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="text" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="enabled" />
+        </EntityType>
+        <EntityType Name="CMS_Like_Collection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="like_id" Nullable="false" />
+          <Property Type="String" Name="icon_image" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="icon_hover" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="about" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="about_image" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="collection_codes">
           <Key>
@@ -5131,11 +5150,6 @@
         <EntityType Name="press_releases">
           <Key>
             <PropertyRef Name="press_release_id" />
-            <PropertyRef Name="release_date" />
-            <PropertyRef Name="release_title" />
-            <PropertyRef Name="release_text" />
-            <PropertyRef Name="active" />
-            <PropertyRef Name="insert_date" />
           </Key>
           <Property Type="Int32" Name="press_release_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="release_date" Nullable="false" Precision="3" />
@@ -5783,28 +5797,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="CMS_Like_Collection">
+        <EntityType Name="CMS_Home_Carousel">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="like_id" Nullable="false" />
-          <Property Type="String" Name="icon_image" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="icon_hover" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="about" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="about_image" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="CMS_Blogs">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="date" Precision="0" />
-          <Property Type="String" Name="main_image" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="title" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="sub_image" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="sub_image_caption" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="text" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="image" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="link" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="rank" />
           <Property Type="Boolean" Name="enabled" />
         </EntityType>
         </Schema>
@@ -5905,6 +5905,32 @@
                 <ScalarProperty Name="location" ColumnName="location" />
                 <ScalarProperty Name="job_title" ColumnName="job_title" />
                 <ScalarProperty Name="career_id" ColumnName="career_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_Blogs">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Blogs">
+              <MappingFragment StoreEntitySet="CMS_Blogs">
+                <ScalarProperty Name="enabled" ColumnName="enabled" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="sub_image_caption" ColumnName="sub_image_caption" />
+                <ScalarProperty Name="sub_image" ColumnName="sub_image" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="main_image" ColumnName="main_image" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_Like_Collection">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Like_Collection">
+              <MappingFragment StoreEntitySet="CMS_Like_Collection">
+                <ScalarProperty Name="about_image" ColumnName="about_image" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="icon_hover" ColumnName="icon_hover" />
+                <ScalarProperty Name="icon_image" ColumnName="icon_image" />
+                <ScalarProperty Name="like_id" ColumnName="like_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -7905,28 +7931,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CMS_Like_Collection">
-            <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Like_Collection">
-              <MappingFragment StoreEntitySet="CMS_Like_Collection">
-                <ScalarProperty Name="about_image" ColumnName="about_image" />
-                <ScalarProperty Name="about" ColumnName="about" />
-                <ScalarProperty Name="icon_hover" ColumnName="icon_hover" />
-                <ScalarProperty Name="icon_image" ColumnName="icon_image" />
-                <ScalarProperty Name="like_id" ColumnName="like_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CMS_Blogs">
-            <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Blogs">
-              <MappingFragment StoreEntitySet="CMS_Blog">
+          <EntitySetMapping Name="CMS_Home_Carousel">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Home_Carousel">
+              <MappingFragment StoreEntitySet="CMS_Home_Carousel">
                 <ScalarProperty Name="enabled" ColumnName="enabled" />
-                <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="sub_image_caption" ColumnName="sub_image_caption" />
-                <ScalarProperty Name="sub_image" ColumnName="sub_image" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="main_image" ColumnName="main_image" />
-                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

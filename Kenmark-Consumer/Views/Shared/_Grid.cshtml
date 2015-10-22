@@ -120,37 +120,43 @@
     @if (String.IsNullOrEmpty(Model.Type))
     {
         <div class="col-xs-12 text-center no-gutter">
-            <span style="font-size: 3vmax;">@(Model.CollectionName.ToUpper()) @(Model.CollectionGroup) COLLECTION  </span>
+            <span style="font-size: 2.5vmax;">@(Model.CollectionName.ToUpper()) @(Model.CollectionGroup) COLLECTION  </span>
         </div> 
     }
     else if (Model.Type == "MEN")
     {
         <div class="col-xs-12 text-center no-gutter">
-            <span style="font-size: 3vmax;">MEN'S FRAMES  </span>
+            <span style="font-size: 2.5vmax;">MEN'S FRAMES  </span>
         </div> 
     }
     else if (Model.Type == "WOMEN")
     {
         <div class="col-xs-12 text-center no-gutter">
-            <span style="font-size: 3vmax;">WOMEN'S FRAMES  </span>
+            <span style="font-size: 2.5vmax;">WOMEN'S FRAMES  </span>
         </div> 
     }
     else if (Model.Type == "YOUTH")
     {
         <div class="col-xs-12 text-center no-gutter">
-            <span style="font-size: 3vmax;">YOUTH'S FRAMES  </span>
+            <span style="font-size: 2.5vmax;">YOUTH'S FRAMES  </span>
         </div> 
     }
     else if (Model.Type == "RX")
     {
         <div class="col-xs-12 text-center no-gutter">
-            <span style="font-size: 3vmax;">RX FRAMES  </span>
+            <span style="font-size: 2.5vmax;">RX FRAMES  </span>
         </div> 
     }
     else if (Model.Type == "SUN")
     {
         <div class="col-xs-12 text-center no-gutter">
-            <span style="font-size: 3vmax;">SUN FRAMES  </span>
+            <span style="font-size: 2.5vmax;">SUN FRAMES  </span>
+        </div> 
+    }
+    else if (Model.Type == "ALL")
+    {
+        <div class="col-xs-12 text-center no-gutter">
+            <span style="font-size: 2.5vmax;">ALL FRAMES  </span>
         </div> 
     }
 </div>

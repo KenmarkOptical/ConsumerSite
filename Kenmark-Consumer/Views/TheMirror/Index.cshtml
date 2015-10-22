@@ -41,18 +41,18 @@
 
 @foreach (var m in Model.Items)
 { 
-    <div class="col-xs-12 img-row">
-        <img class="img-responsive" src="@m.data.main_image.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer","")" />
+    <div class="row">
+        <img src="@Url.Content("~/" + m.main_image)" class="img-responsive" style="width:100%;"/>
     </div>
 
     <div class="row">
 
-        <div class="col-xs-12 col-sm-3">
-            <span style="font-size: 20px;">@m.data.title</span><br />
-            <span style="display: inline-block; margin-bottom: 20px;">@m.data.date</span>
+        <div class="col-xs-12 col-sm-3" style="margin-top:11px;">
+             <span style="font-size:18px;">@(((DateTime)m.date).ToString("MMMM dd, yyyy"))</span> <br />
+              <span style="font-size:23px;">@m.title.ToUpper()</span>
         </div>
         <div class="col-xs-12 col-sm-6">
-            <span class="blogContent" style="display: inline-block; font-size: 14px;">@Html.Raw(@m.data.text)</span>
+            <span class="blogContent" style="display: inline-block; font-size: 14px;">@Html.Raw(m.text)</span>
         </div>
         <div class="hidden-xs col-sm-3 no-gutter">
             <div class="col-sm-6 no-gutter text-right">
@@ -69,8 +69,8 @@
         </div>
         <div class="col-xs-12 col-sm-8 col-sm-offset-3">
             <span style="display: inline-block; color: red; margin-bottom: 50px; margin-top: 30px; font-weight: bold; font-size: 14px;">
-                <a href="~/TheMirror/SingleBlog?id=@m.data.id"> + MORE</a></span>
-            <input type="hidden" name="BlogId" value="@m.data.id" />
+                <a href="~/TheMirror/SingleBlog?id=@m.id"> + MORE</a></span>
+            <input type="hidden" name="BlogId" value="@m.id" />
         </div>
 
         <div class="hidden-xs col-sm-12">

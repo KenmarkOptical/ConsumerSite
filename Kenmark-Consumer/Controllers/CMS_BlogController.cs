@@ -12,137 +12,155 @@ namespace Kenmark_Consumer.Controllers
 {
     public class CMS_BlogController : MyBaseController
     {
-        //
-        // GET: /CMS_Blog/
-
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult AddBlogIndex()
+        public ActionResult Add()
         {
-            return View("Add");
+            CMS_Blog s = new CMS_Blog();
+            ViewBag.Type = "ADD";
+            return View("Form", s);
         }
 
-        public ActionResult DeleteBlogIndex()
+        public ActionResult Delete()
         {
-            CMS_Blog b = new CMS_Blog().GetBlogs();
-            return View("Delete", b);
+            CMS_Blog s = new CMS_Blog();
+            s = s.GetBlogs();
+            ViewBag.Type = "DELETE";
+            return View("Form", s);
         }
 
-        public ActionResult EditBlogIndex()
+        public ActionResult Edit()
         {
-            CMS_Blog b = new CMS_Blog().GetBlogs();
-            return View("Edit", b);
+            CMS_Blog s = new CMS_Blog();
+            s = s.GetBlogs();
+            ViewBag.Type = "Edit";
+            return View("Form", s);
         }
 
-
-        public ActionResult GetBlog(int blog_id)
-        {
-            CMS_Blog a = new CMS_Blog();
-            SingleBlog b = new SingleBlog();
-            b = a.GetBlog(blog_id);
-
-            string html = RenderPartialViewToString("_GridEdit", b);
-            return Json(new { html = html }, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddBlog(HttpPostedFileBase main_image, HttpPostedFileBase sub_image, SingleBlog blog)
+        public ActionResult AddShow(HttpPostedFileBase main_image, HttpPostedFileBase sub_image, CMS_Blog s)
         {
-            CMS_Blog a = new CMS_Blog();
-            string directory = Server.MapPath("~/Content/images/TheMirror");
-            
-            if (main_image != null && main_image.ContentLength > 0)
-            {
-                // image1 = Image.FromStream(main_image.InputStream, true, true) ; // saving these variables incase I find a better way to 
-                //var imageDimension = image1.PhysicalDimension;                   // save images to allow changing image properties
-                //var imageHeight = image1.Height;
-                //var imageWidth = image1.Width;
-                var fileName = Path.GetFileName(main_image.FileName);
-                var imagePath = (Path.Combine(directory, fileName));
-
-                main_image.SaveAs(imagePath);
-                blog.data.main_image = imagePath.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer","");
-                
-                blog.main_image = main_image;
-            }
-           
-            if (sub_image != null && sub_image.ContentLength > 0)
-            {
-                //image2 = Image.FromStream(sub_image.InputStream);
-                //var imageDimension = image2.PhysicalDimension;
-                //var imageHeight = image2.Height;
-                //var imageWidth = image2.Width;
-                var fileName = Path.GetFileName(sub_image.FileName);
-                var imagePath = (Path.Combine(directory, fileName));
-
-                sub_image.SaveAs(imagePath);
-                blog.data.sub_image = imagePath;
-                blog.sub_image = sub_image;
-            }
-
-            blog.data.enabled = true;
-            
-            if (ModelState.IsValid)
-            {
-                bool result = a.AddBlog(blog);
-
-                a.AddBlog(blog);
-
-                return Json(new { successs = true });
-            }
-            
-            else {
-
-                var errors = ModelState.Select(x => x.Value.Errors).Where(y => y.Count > 0).ToList();
-                return Json(new { success = false });
-            }
-         }// end addBlog
-
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult EditBlog(HttpPostedFileBase main_image, HttpPostedFileBase sub_image, SingleBlog blog)
-        {
-            CMS_Blog a = new CMS_Blog();
 
             string directory = Server.MapPath("~/Content/images/TheMirror");
-
+            string error_msg = "";
 
             if (main_image != null && main_image.ContentLength > 0)
             {
-                var fileName = Path.GetFileName(main_image.FileName);
-                var imagePath = (Path.Combine(directory, fileName));
-                main_image.SaveAs(imagePath);
-                blog.data.main_image = imagePath.Replace("C:\\Users\\telkins\\Source\\Repos\\ConsumerSite\\Kenmark-Consumer", "");
-                blog.main_image = main_image;
+                List<string> Errors = Common.CheckImage(main_image, "main image", 0, 0);
+                if (Errors.Count > 0)
+                {
+                    foreach (var item in Errors)
+                    {
+                        error_msg += item + " <br /> ";
+                    }
+                }
+                else
+                {
+                    s.data.main_image = Common.SaveImage(main_image, directory);
+                }
+
             }
+
 
             if (sub_image != null && sub_image.ContentLength > 0)
             {
-                var fileName = Path.GetFileName(sub_image.FileName);
-                var imagePath = (Path.Combine(directory, fileName));
-                sub_image.SaveAs(imagePath);
-                blog.data.sub_image = imagePath;
-                blog.sub_image = sub_image;
+                List<string> Errors = Common.CheckImage(sub_image, "sub image", 0, 0);
+                if (Errors.Count > 0)
+                {
+                    foreach (var item in Errors)
+                    {
+                        error_msg += item + " <br /> ";
+                    }
+                }
+                else
+                {
+                    s.data.sub_image = Common.SaveImage(sub_image, directory);
+                }
+
             }
 
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(error_msg))
             {
-                a.EditBlog(blog);
+                ViewBag.Error = error_msg;
+                ViewBag.Type = "ADD";
+                var s2 = s.GetBlogs();      
+                return View("Form", s);
             }
 
+            s.AddBlog(s);
             return RedirectToAction("Index");
-        }// end editBlog
+        }
 
-        [HttpPost]
-        public ActionResult DeleteBlog(int id)
+        public ActionResult DeleteShow(int delete_id)
         {
-            CMS_Blog a = new CMS_Blog();
-            a.DeleteBlog(id);
+            CMS_Blog s = new CMS_Blog();
+            s.DeleteBlog(delete_id);
+            return RedirectToAction("Index");
+        }
+
+        [ValidateInput(false)]
+        public ActionResult EditShow(int edit_id)
+        {
+            CMS_Blog s = new CMS_Blog();
+            s = s.GetBlog(edit_id);
+            ViewBag.Type = "EDIT2";
+            return PartialView("Form", s);
+        }
+
+        [ValidateInput(false)]
+        public ActionResult SaveEditShow(HttpPostedFileBase main_image, HttpPostedFileBase sub_image, CMS_Blog s)
+        {
+            string directory = Server.MapPath("~/Content/images/TheMirror");
+            string error_msg = "";
+
+            if (main_image != null && main_image.ContentLength > 0)
+            {
+                List<string> Errors = Common.CheckImage(main_image, "main image", 1073, 0);
+                if (Errors.Count > 0)
+                {
+                    foreach (var item in Errors)
+                    {
+                        error_msg += item + " <br /> ";
+                    }
+                }
+                else
+                {
+                    s.data.main_image = Common.SaveImage(main_image, directory);
+                }
+
+            }
+
+
+            if (sub_image != null && sub_image.ContentLength > 0)
+            {
+                List<string> Errors = Common.CheckImage(sub_image, "sub image", 350, 250);
+                if (Errors.Count > 0)
+                {
+                    foreach (var item in Errors)
+                    {
+                        error_msg += item + " <br /> ";
+                    }
+                }
+                else
+                {
+                    s.data.sub_image = Common.SaveImage(sub_image, directory);
+                }
+
+            }
+
+            if (!string.IsNullOrEmpty(error_msg))
+            {
+                ViewBag.Error = error_msg;
+                ViewBag.Type = "ADD";
+                return View("Form", s);
+            }
+
+            s.EditBlog(s);
             return RedirectToAction("Index");
         }
     }
 }
+

@@ -94,10 +94,10 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560d5a96a846b598" async="async"></script>
 
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
-    <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ", "-")"
+    <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ", "-")" 
          style="text-decoration:none;color:black;">@(Model.Collection.ToUpper())</a> / 
         
-        <a href="~/Eyewear/@Model.Collection.Replace(" ", "-")/@(Model.Group)">
+        <a href="~/Eyewear/@Model.Collection.Replace(" ", "-")/@Model.Sub/@(Model.Group)"  style="text-decoration:none;color:black;">
             @(Model.Group)</a>
         
         / @(Model.Style_Name)
@@ -283,7 +283,9 @@
 </div>
 
 <div class="row" style="margin-top:15px;">
-    <img class="img-responsive" src= "@Url.Content("~/Content/images/Brand/" + @Model.Collection.Replace(" ", "").Replace("Eye", "").Replace("Original", "") + "/bottom.jpg")"  />
+     <a href="~/Eyewear/@Model.Collection.Replace(" ", "-")" style="text-decoration:none;color:black;">
+        <img class="img-responsive" src= "@Url.Content("~/Content/images/Brand/" + @Model.Collection.Replace(" ", "").Replace("Eye", "").Replace("Original", "") + "/bottom.jpg")"  />
+    </a>
 </div>
 
 <div id="updateCustomerZip" class="modal fade" role="dialog">

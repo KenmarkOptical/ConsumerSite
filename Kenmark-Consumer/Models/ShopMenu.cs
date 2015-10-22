@@ -16,6 +16,7 @@ namespace Kenmark_Consumer.Models
             {
                 m.Items = (from c in db.CMS_Like_Collection
                            join l in db.Kenmark_Collections_like on c.like_id equals l.ID
+                           where l.Type != "H"
                            select new ShopItem
                            {
                                id = c.id,
@@ -33,6 +34,20 @@ namespace Kenmark_Consumer.Models
                            }).ToList();
             }
 
+            //add House Colelctions
+            m.Items.Add(new ShopItem()
+            {
+                icon_image = "~/Content/Images/All_Pages/Nav/logo_housecollection.jpg",
+                icon_hover = "~/Content/Images/All_Pages/Nav/logo_Housecollection_hover.jpg",
+                about_image = "~/Content/Images/Brand/House/feature.jpg",
+                group = "HOU",
+                order = 99,
+                type = "H",
+                enabled = true,
+                site_display = "House Collections",
+                collection = "House Collections",
+            });
+                  
             return m;
         }
     }
