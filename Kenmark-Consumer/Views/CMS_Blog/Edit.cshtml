@@ -29,6 +29,17 @@
         });
     });
 
+    function Complete(data) {
+        if (data.error) {
+            $('#data-container-wrapper').remove();
+            $('#data-container').html("<div id='data-container-wrapper'></div>");
+            $('#data-container-wrapper').html(data.html);
+            alert(data.html);
+        }
+        else {
+            window.location = "/CMS_Blog/Index";
+        }
+    }
 </script>
 
 <div class="col-xs-12" style="margin-top: 50px;"></div>
@@ -44,7 +55,7 @@
 
             @for (int i = 0; i < Model.Items.Count; i++)
             { 
-                <option value ="@Model.Items[i].data.id">@Model.Items[i].data.id - @Model.Items[i].data.title</option> 
+                <option value ="@Model.Items[i].id">@Model.Items[i].id - @Model.Items[i].title</option> 
             }
         </select>
     </div>
@@ -52,6 +63,7 @@
 
 <div class="col-xs-12" style="margin-top: 20px; margin-bottom: 20px;">
     <button id="whichBlog" type="button" class="btn btn-default submitButton" style="margin-bottom: 30px;">SUBMIT</button>
+    <hr />
 </div>
 
 <div class="col-xs-12">

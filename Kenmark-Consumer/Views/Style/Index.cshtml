@@ -94,11 +94,13 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560d5a96a846b598" async="async"></script>
 
 <div class="row" style="padding-left: 50px; margin-top: 20px;">
-    <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ", "-")"
+    <div class="col-md-3" style="font-size: 12px;"><a href="~/Eyewear/@Model.Collection.Replace(" ", "-")" 
          style="text-decoration:none;color:black;">@(Model.Collection.ToUpper())</a> / 
         
-        <a href="~/Eyewear/@Model.Collection.Replace(" ", "-")/@(Model.Group)">
-            </a> @(Model.Style_Name)
+        <a href="~/Eyewear/@Model.Collection.Replace(" ", "-")/@Model.Sub/@(Model.Group)"  style="text-decoration:none;color:black;">
+            @(Model.Group)</a>
+        
+        / @(Model.Style_Name)
 </div>
 </div>
 
@@ -124,6 +126,7 @@
             <div class="carousel-inner" role="listbox" style="margin-top: 80px; margin-bottom: 40px;">
                 <div class="item active">
                     
+
                 @for (int i = 0; i < Model.Colors.Count; i++)
                 {
 
@@ -166,32 +169,16 @@
             <span style="display:inline-block;margin-top:40px;"></span>
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
            <div class="addthis_sharing_toolbox" data-title="@Model.Style_Name"></div><br />
-            
-            <a class="addthis_button_facebook facebook-sprite-large">
-                <img src="~/Content/images/all_pages/icons/icon_facebook.png"
-  	            alt="Share" />
-            </a>
-             
-            <a class="addthis_button_twitter twitter-sprite-large" data-title="@Model.Style_Name">
-                <img src="~/Content/images/all_pages/icons/icon_twitter.png"
-  	            alt="Share" />
-            </a> 
-            
-            <!-- Matt this section I am trying to use pinterests button instead of the addthis button configuration since I am making no progress
-                 that way... this builds the URL for the image in the "pin it" pop up... for some reason the &media section... even if i try to hard
-                code in a specific image stops after aspx... ex (https://kenmark.kenmarkoptical.com/showimage.aspx) I dont know how to force the url(in the
-                media section) to build the section that specifies the image and width in the URL for the image (?img=(whatever image).jpg&w=650 -->
+
             <a href="https://www.pinterest.com/pin/create/button/
-                ?url=http://1181.kenmarkoptical.com
-                &media=https://kenmark.kenmarkoptical.com/showimage.aspx?img=TAAF.jpg&w=600
-                &description=ABRIANA"
-                data-pin-do="buttonPin"
-                data-pin-config="beside">
-
-            <img src="~/Content/images/all_pages/icons/icon_pinterest.png" />
-            </a>
-
-            <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+        ?url=http://1181.kenmarkoptical.com
+        &media=https://1181.kenmarkoptical.com/Style?sku=ABRN
+        &description=ABRIANA"
+        data-pin-do="buttonPin"
+        data-pin-config="beside">
+  <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+</a>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 
 
             @*<div class="fb-share-button" data-href="http://1181.kenmarkoptical.com/Style?sku=@Model.SKU" data-layout="button_count"></div>
@@ -296,7 +283,9 @@
 </div>
 
 <div class="row" style="margin-top:15px;">
-    <img class="img-responsive" src="@Url.Content("~/Content/images/Brand/" + @Model.Collection.Replace(" ", "").Replace("Eye", "").Replace("Original", "") + "/bottom.jpg")"  />
+     <a href="~/Eyewear/@Model.Collection.Replace(" ", "-")" style="text-decoration:none;color:black;">
+        <img class="img-responsive" src= "@Url.Content("~/Content/images/Brand/" + @Model.Collection.Replace(" ", "").Replace("Eye", "").Replace("Original", "") + "/bottom.jpg")"  />
+    </a>
 </div>
 
 <div id="updateCustomerZip" class="modal fade" role="dialog">

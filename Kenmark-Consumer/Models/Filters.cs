@@ -128,6 +128,14 @@ namespace Kenmark_Consumer.Models
                                && coll_list.Any(s => i.coll_group.ToLower().Contains(s))
                                select i.sku).ToList();
                 }
+                else if (Type.ToUpper() == "ALL")
+                {
+                    var coll_list = db.Kenmark_Collections_Sub.Where(m => m.Enabled == true).Select(m => m.Group).ToList();
+                    skuList = (from i in db.inventories
+                               where i.customerportal_display == true
+                               && coll_list.Any(s => i.coll_group.ToLower().Contains(s))
+                               select i.sku).ToList();
+                }
                 else
                 {
                     skuList = (from i in db.inventories

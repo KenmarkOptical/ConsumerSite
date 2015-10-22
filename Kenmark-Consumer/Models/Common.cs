@@ -22,6 +22,72 @@ namespace Kenmark_Consumer.Models
             get { return "test"; }
         }
 
+        
+        public static string SaveImage(HttpPostedFileBase image, string directory)
+        {           
+            if (image != null && image.ContentLength > 0)
+            {
+                string extension = image.FileName.Substring(image.FileName.IndexOf('.'), image.FileName.Length - image.FileName.IndexOf('.'));
+                var fileName = Path.GetFileName(System.IO.Path.GetRandomFileName());
+                fileName = fileName.Substring(0, fileName.IndexOf('.')) + extension;
+                var imagePath = (Path.Combine(directory, fileName));
+                image.SaveAs(imagePath);
+                var save_path = imagePath.Substring(imagePath.IndexOf("Content"), imagePath.Length - imagePath.IndexOf("Content"));
+                return save_path;
+            }
+            return "";
+        }
+
+        public static List<string> CheckImage(HttpPostedFileBase image, string target_image_name, int width, int height)
+        {
+            //use 0 if it doesnt matter
+
+            int min_width = (int)Math.Ceiling((decimal)width * (decimal).95);
+            int min_height = (int)Math.Ceiling((decimal)height * (decimal).95);
+            int max_width = (int)Math.Ceiling((decimal)width * (decimal)1.5);
+            int max_height = (int)Math.Ceiling((decimal)height * (decimal)1.5);
+
+            decimal ratio = (width == 0 || height == 0) ? 0 : Decimal.Divide(width, height);
+            if(ratio != 0)
+            {
+                ratio = decimal.Round(ratio, 2, MidpointRounding.AwayFromZero);
+            }
+            List<string> FileTypes = new List<string>() { ".png", ".jpg", ".gif" };
+            string extension = image.FileName.Substring(image.FileName.IndexOf('.'), image.FileName.Length - image.FileName.IndexOf('.'));
+
+            List<string> Results = new List<string>();
+            using (System.Drawing.Image i = System.Drawing.Image.FromStream(image.InputStream, true, true))
+            {
+                decimal img_ratio = (width == 0 || height == 0) ? 0 : Decimal.Divide(i.Width, i.Height);
+                
+                if ((width != 0 && i.Width < min_width) || (height != 0 && i.Height < min_height))
+                {
+                    Results.Add(target_image_name +" is " + i.Width + "x" + i.Height + " but must be at least " + min_width + "x" + min_height);
+                }
+                if ((width != 0 && i.Width > max_width) || (height != 0 && i.Height > max_height))
+                {
+                    Results.Add(target_image_name +" is " + i.Width + "x" + i.Height + " but must be no greater than " + max_width + "x" + max_height);
+                }
+                if ((width != 0 && height != 0) && (img_ratio < (ratio * (decimal).97) || img_ratio > (ratio * (decimal)1.03)))
+                {
+                    Results.Add(target_image_name +" ratio (width / height) should be " + ratio + " please resize the width and height to meet these requirements");
+                }
+
+
+                if (!FileTypes.Contains(extension))
+                {
+                    string e = target_image_name+ " must be one of the following formats: ";
+                    foreach (var item in FileTypes)
+                    {
+                        e += item + "  ";
+                    }
+                    Results.Add(e);
+                }
+            }
+
+            return Results;
+        }
+
         /// <summary>
         /// Produces optional, URL-friendly version of a title, "like-this-one". 
         /// hand-tuned for speed, reflects performance refactoring contributed

@@ -205,6 +205,9 @@
     <Compile Include="CMS_Blogs.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CMS_Home_Carousel.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="CMS_Like_Collection.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
@@ -231,7 +234,11 @@
     </Compile>
     <Compile Include="Controllers\BlogStoryController.cs" />
     <Compile Include="Controllers\CMS_BlogController.cs" />
+    <Compile Include="Controllers\CMS_HomeController.cs" />
+    <Compile Include="Controllers\CMS_Home_CarouselController.cs" />
+    <Compile Include="Controllers\CMS_PressController.cs" />
     <Compile Include="Controllers\CMS_PressReleaseController.cs" />
+    <Compile Include="Controllers\CMS_ShowScheduleController.cs" />
     <Compile Include="Controllers\CollectionController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -241,7 +248,6 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ShowScheduleController.cs" />
     <Compile Include="Controllers\StyleController.cs" />
-    <Compile Include="Controllers\TestCMSController.cs" />
     <Compile Include="Controllers\TheMirrorController.cs" />
     <Compile Include="Controllers\WhereToBuyController.cs" />
     <Compile Include="country.cs">
@@ -524,8 +530,11 @@
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CMS_Blog.cs" />
+    <Compile Include="Models\CMS_Home.cs" />
     <Compile Include="Models\CMS_Menu.cs" />
+    <Compile Include="Models\CMS_Press.cs" />
     <Compile Include="Models\CMS_PressRelease.cs" />
+    <Compile Include="Models\CMS_ShowSchedule.cs" />
     <Compile Include="Models\CollectionMain.cs" />
     <Compile Include="Models\Collections.cs" />
     <Compile Include="Models\Common.cs" />
@@ -543,7 +552,6 @@
     <Compile Include="Models\ShopMenu.cs" />
     <Compile Include="Models\ShowSchedule.cs" />
     <Compile Include="Models\Style.cs" />
-    <Compile Include="Models\TestCMS.cs" />
     <Compile Include="Models\WhereToBuy.cs" />
     <Compile Include="MyDateTable.cs">
       <DependentUpon>Inquiry.tt</DependentUpon>
@@ -1279,12 +1287,6 @@
     <Content Include="Views\Style\Index.cshtml" />
     <Content Include="Views\Feedback\_Grid.cshtml" />
     <Content Include="Views\Style\_Grid.cshtml" />
-    <Content Include="Views\TestCMS\Index.cshtml" />
-    <Content Include="Views\TestCMS\_GridTheMirror.cshtml" />
-    <Content Include="Views\TestCMS\_GridHome.cshtml" />
-    <Content Include="Views\TestCMS\_GridOurStory.cshtml" />
-    <Content Include="Views\TestCMS\_GridShop.cshtml" />
-    <Content Include="Views\TestCMS\_GridCollection.cshtml" />
     <Content Include="Views\Shared\_ShopMenu.cshtml" />
     <Content Include="Views\Shared\_ProfileMenu.cshtml" />
     <Content Include="Views\CMS_Blog\Index.cshtml" />
@@ -1294,10 +1296,16 @@
     <Content Include="Views\CMS_Blog\Add.cshtml" />
     <Content Include="Views\TheMirror\SingleBlog.cshtml" />
     <Content Include="Views\WhereToBuy\_Email.cshtml" />
+    <Content Include="Views\CMS_ShowSchedule\Index.cshtml" />
+    <Content Include="Views\CMS_ShowSchedule\Form.cshtml" />
+    <Content Include="Views\CMS_Press\Index.cshtml" />
+    <Content Include="Views\CMS_PressRelease\Form.cshtml" />
     <Content Include="Views\CMS_PressRelease\Index.cshtml" />
-    <Content Include="Views\CMS_PressRelease\Add.cshtml" />
-    <Content Include="Views\CMS_PressRelease\Edit.cshtml" />
-    <Content Include="Views\CMS_PressRelease\Delete.cshtml" />
+    <Content Include="Views\CMS_Press\Form.cshtml" />
+    <Content Include="Views\CMS_Home\Index.cshtml" />
+    <Content Include="Views\CMS_Blog\Form.cshtml" />
+    <Content Include="Views\CMS_Home_Carousel\Index.cshtml" />
+    <Content Include="Views\CMS_Home_Carousel\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

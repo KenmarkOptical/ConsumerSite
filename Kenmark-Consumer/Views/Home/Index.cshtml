@@ -24,31 +24,40 @@
     <div id="image-carousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#image-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#image-carousel" data-slide-to="1"></li>
-            <li data-target="#image-carousel" data-slide-to="2"></li>
+             @for (int i = 0; i < Model.Carousel.Count; i++)
+            {
+                <li data-target="#image-carousel" data-slide-to="@(i)" class="@(i == 0 ? "active" : "")"></li>
+             }
+            
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
+        <div class="carousel-inner" role="listbox">
+            @for (int i = 0; i < Model.Carousel.Count; i++)
+            {
+              <div class="item @(i == 0? "active" : "")">
+                  @if (String.IsNullOrEmpty(Model.Carousel[i].link))
+                  {
+                      <img class="img-responsive feature" id="image-@(i)" src="@(Model.Carousel[i].image)" />  
+                  }
+                  else
+                  {
+                        <a href="@(Model.Carousel[i].link.Contains("http://") || Model.Carousel[i].link.Contains("https://") ?  Model.Carousel[i].link : "http://" +  Model.Carousel[i].link)" target="_blank">
+                            <img class="img-responsive feature" id="image-@(i)" src="@(Model.Carousel[i].image)" />  
+                        </a>
+                  }
+                              
+            </div>  
+            }
+            
+           @* <div class="item">
                 <img class="img-responsive feature" id="image-0" src="@Url.Content("~/Content/images/home/feature.png")" />
-                @*<div class="carousel-caption">
-          <h3>Caption Text</h3>
-      </div>*@
-            </div>
-            <div class="item">
-                <img class="img-responsive feature" id="image-1" src="@Url.Content("~/Content/images/home/feature.png")" />
-                @* <div class="carousel-caption">
-          <h3>Caption Text</h3>
-      </div>*@
-            </div>
-            <div class="item">
-                <img class="img-responsive feature" id="image-2" src="@Url.Content("~/Content/images/home/feature.png")" />
-                @*<div class="carousel-caption">
-          <h3>Caption Text</h3>
-      </div>*@
-            </div>
+                <div class="carousel-caption">
+                    <h3>Caption Text</h3>
+                </div>
+            </div>*@
+
+
         </div>
 
         <!-- Controls -->
@@ -145,9 +154,11 @@
 
 <div class="row" style="margin-top: 19px;">
     <div class="col-xs-12 no-gutter">
+        <a href="~/Collection/ViewCollection?collection=ALL&n=ALL&Type=ALL&Page=1">
         <img class="img-responsive" id="image-8" src="@Url.Content("~/Content/images/home/viewall.jpg")" />
         <span class="div-text-center collection-link-static">
             <span style="display: block; text-align: center;" id="text-5">VIEW ALL BRANDS</span>
         </span>
+        </a>
     </div>
 </div>

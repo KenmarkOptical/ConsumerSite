@@ -21,7 +21,12 @@ namespace Kenmark_Consumer.Controllers
          
 
         public ActionResult ViewCollection(string n, string collection, int page = 1, int sort = 1,string sub = "", Filters filter = null, string Type = "")
-        {          
+        {
+            //clean up hyphens
+            collection = collection.Replace("-", " ");
+            n = n.Replace("-", " ");
+            sub = sub.Replace("-", " ");
+
             //get the filter from session
             if (filter == null)
             {
@@ -77,7 +82,20 @@ namespace Kenmark_Consumer.Controllers
             c.CollectionCode = collection;
             c.CollectionGroup = sub;
             c.Type = Type;
-            c.CollectionName = n;
+            c.CollectionName = n.Replace("-"," ");
+
+            if (c.CollectionCode == "COM")
+            {
+                c.CollectionName = "Comfort Flex";
+            }
+            if (c.CollectionCode == "DES")
+            {
+                c.CollectionName = "Destiny";
+            }
+            if (c.CollectionCode == "GAL")
+            {
+                c.CollectionName = "Gallery";
+            }
             
             ViewBag.Sort = sort;
             ViewBag.Filter = new JavaScriptSerializer().Serialize(filter);
@@ -122,6 +140,9 @@ namespace Kenmark_Consumer.Controllers
         [ValidateInput(false)]
         public ActionResult GetFilters(string coll, string group, int sort, string f, string s_type, string coll_name)
         {
+            coll = Server.HtmlDecode(coll);
+            group = Server.HtmlDecode(group);
+
             JavaScriptSerializer js = new JavaScriptSerializer();
             Filters filter = (Filters)js.Deserialize(f, typeof(Filters));
 
@@ -134,6 +155,11 @@ namespace Kenmark_Consumer.Controllers
 
             filter.Type = s_type;
             filter.coll = coll_name;
+
+            if (coll == "ALL")
+            {
+                ViewBag.IsAll = true;
+            }
 
             return PartialView("_Filter", filter);
         }

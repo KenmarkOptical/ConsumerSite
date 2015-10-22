@@ -8,6 +8,7 @@ namespace Kenmark_Consumer.Models
     public class Home
     {
         public List<NewReleaseFrame> NewFrames { get; set; }
+        public List<CMS_Home_Carousel> Carousel { get; set; }
 
         public Home GetData()
         {
@@ -44,7 +45,10 @@ namespace Kenmark_Consumer.Models
                 foreach (var item in h.NewFrames)
                 {
                     item.Colors = fcList.Where(m => m.Sku == item.SKU.Substring(0, 4)).ToList();
-                }             
+                }   
+          
+                //set up the carousel
+                h.Carousel = db.CMS_Home_Carousel.Where(m => m.enabled == true).OrderBy(m => m.rank).ToList();
             }
             return h;
         }

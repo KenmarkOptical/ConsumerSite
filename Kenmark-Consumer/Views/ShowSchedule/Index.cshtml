@@ -23,7 +23,7 @@
         the large industry trade shows this year, including MIDO, SECO and Vision Expo.
         To request an appointment contact <u>shows@kenmarkoptical.com </u>
 
-        @foreach (var s in Model.Shows.GroupBy(s => s.Group).OrderBy(s => s.Key)) {
+        @foreach (var s in Model.Shows.GroupBy(s => s.Group)) {
           
        <hr style="border-color:#bbb;"/>
        <div class="row"> 

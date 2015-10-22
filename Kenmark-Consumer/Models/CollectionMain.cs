@@ -19,18 +19,32 @@ namespace Kenmark_Consumer.Models
             CollectionMain c = new CollectionMain();
             using (KenmarkTestDBEntities db = new KenmarkTestDBEntities())
             {
-                var lc = db.Kenmark_Collections_like.Where(m => m.Site_Display == collection).FirstOrDefault();
-                c.collection = lc.Group;
-                c.collection_name = lc.Site_Display;
+                if (collection == "House Collections")
+                {
+                    c.collection = "House Collections";
+                    c.collection_name = "House";
+                    c.main_image = "about.jpg";
+                    c.about = "About House Collections";
 
-                var cm = db.CMS_Like_Collection.Where(m => m.like_id == lc.ID).FirstOrDefault();
-                c.main_image = cm.about_image;
-                c.about = cm.about;
+                    c.Links.Add(new CollectionLink() { code = "COM", sub = "RX" });
+                    c.Links.Add(new CollectionLink() { code = "DES", sub = "RX" });
+                    c.Links.Add(new CollectionLink() { code = "GAL", sub = "RX" });
 
-                c.Links = (from kc in db.Kenmark_Collections
-                           where kc.Group == c.collection
-                           select new CollectionLink{ code = kc.Group, sub = kc.Site_Display}).ToList();
+                }
+                else
+                {
+                    var lc = db.Kenmark_Collections_like.Where(m => m.Site_Display == collection).FirstOrDefault();
+                    c.collection = lc.Group;
+                    c.collection_name = lc.Site_Display;
 
+                    var cm = db.CMS_Like_Collection.Where(m => m.like_id == lc.ID).FirstOrDefault();
+                    c.main_image = cm.about_image;
+                    c.about = cm.about;
+
+                    c.Links = (from kc in db.Kenmark_Collections
+                               where kc.Group == c.collection
+                               select new CollectionLink { code = kc.Group, sub = kc.Site_Display }).ToList();
+                }
                
             }
             return c;

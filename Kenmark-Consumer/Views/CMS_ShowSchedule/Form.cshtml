@@ -1,0 +1,171 @@
+﻿@model Kenmark_Consumer.Models.CMS_ShowSchedule
+
+@{
+    ViewBag.Title = "Form";
+}
+
+<script type="text/javascript">
+
+    $(function () {
+        $('.date-picker').datepicker();
+        $('.pageContent').hide();
+
+        $('.pageTitle').click(function () {
+
+            var page = this.id;
+
+            $('.pageContent').hide();
+
+            $('#' + page + "Span").show();
+
+            $('.' + page + 'Upload').show();
+        });
+    });
+
+    $(function () {
+        $('#AddBlogFrom').die();
+        $("#AddBlogFrom").live('submit', function (e) {
+            //some code
+            $(this).submit();
+            e.preventDefault();
+        });
+    });
+</script>
+
+<div style="margin-top:50px;">
+
+@if (ViewBag.Type == "DELETE")
+{
+    using (Html.BeginForm("DeleteShow", "CMS_ShowSchedule", FormMethod.Post, new {id = "DeletelogFrom" }))
+    { 
+        <div class="col-xs-12">
+            <span style="font-size:22px;">Which show would you like to delete?</span>
+        </div>
+    
+        <div class="col-xs-12 col-sm-4">
+            <select id="delete_id" name="delete_id" class="form-control">
+    
+            @for (int i = 0; i < Model.Shows.Count; i++)
+            { 
+                <option value ="@Model.Shows[i].event_id">@Model.Shows[i].event_id - @Model.Shows[i].event_name</option> 
+            }
+        
+            </select>
+       </div>
+
+       <div class="col-xs-12" style="margin-top: 20px;margin-bottom:20px;">
+           <button class="btn btn-default submitButton" id="submit-delete" type="submit">Submit</button>
+       </div>
+    }
+}
+
+
+@if (ViewBag.Type == "Edit")
+{
+    using (Ajax.BeginForm("EditShow", "CMS_ShowSchedule", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "edit-wrapper" }))
+    { 
+        <div class="col-xs-12">
+            <span style="font-size:22px;">Which show would you like to edit?</span>
+        </div>
+    
+        <div class="col-xs-12 col-sm-4">
+            <select id="edit_id" name="edit_id" class="form-control">
+    
+            @for (int i = 0; i < Model.Shows.Count; i++)
+            { 
+                <option value ="@Model.Shows[i].event_id">@Model.Shows[i].event_id - @Model.Shows[i].event_name</option> 
+            }
+        
+            </select>
+       </div>
+
+       <div class="col-xs-12" style="margin-top: 20px;margin-bottom:20px;">
+           <button class="btn btn-default submitButton" id="submit-edit" type="submit">Submit</button>
+       </div>
+    }
+    
+    <div id="edit-wrapper">
+
+    </div>
+}
+
+@if (ViewBag.Type == "EDIT2")
+{
+    using (Html.BeginForm("SaveEditShow", "CMS_ShowSchedule", FormMethod.Post, new { id = "EditBlogFrom" }))
+    {
+        @Html.HiddenFor(m => m.Show.event_id)
+        <div class="col-xs-12 col-sm-6" style="margin-bottom: 20px;">       
+           <span style="font-size:14px; font-weight:bold;">Event Name:</span><br />
+            @Html.TextBoxFor(m => m.Show.event_name, new { @class = "form-control" })
+        </div>
+    
+        <div class="col-xs-12 col-sm-6" style="margin-bottom: 20px;">       
+            <span style="font-size:14px;font-weight:bold;">Show Location:</span><br />
+            @Html.TextBoxFor(m => m.Show.location, new { @class = "form-control" })
+        </div>
+    
+        <div class="col-xs-12 col-sm-12" style="margin-bottom: 20px;">       
+            <span style="font-size:14px;font-weight:bold;">Booth:</span><br />
+            @Html.TextBoxFor(m => m.Show.Booth, new { @class = "form-control", @style = "max-width:300px;" })
+        </div>
+    
+        <div class="col-xs-12 col-sm-6" style="margin-bottom: 20px;">       
+            <span style="font-size:14px;font-weight:bold;">Display Date:</span><br />
+            @Html.TextBoxFor(m => m.Show.display_date, new { @class = "form-control" })
+        </div>
+
+        <div class="col-xs-12 col-sm-6"  style="margin-bottom: 20px;">            
+            <span style="font-size:14px;font-weight:bold;">Start Date:</span><br />
+            @Html.TextBoxFor(m => m.Show.event_start_date, new { @class = "date-picker form-control", @type = "text", @style = "max-width:250px;" })
+        </div>
+
+            <div class="col-xs-12" style="margin-top: 20px;">
+                <button class="btn btn-default submitButton" id="submit" type="submit">Submit</button>
+            </div>
+    }
+}
+
+@if (ViewBag.Type == "ADD")
+{
+    using (Html.BeginForm("AddShow", "CMS_ShowSchedule", FormMethod.Post, new { enctype = "multipart/form-data", id = "AddBlogFrom" }))
+    {
+        <div class="col-xs-12 col-sm-6" style="margin-bottom: 20px;">       
+           <span style="font-size:14px; font-weight:bold;">Event Name:</span><br />
+            @Html.TextBoxFor(m => m.Show.event_name, new { @class = "form-control" })
+        </div>
+    
+        <div class="col-xs-12 col-sm-6" style="margin-bottom: 20px;">       
+            <span style="font-size:14px;font-weight:bold;">Show Location:</span><br />
+            @Html.TextBoxFor(m => m.Show.location, new { @class = "form-control" })
+        </div>
+    
+        <div class="col-xs-12 col-sm-12" style="margin-bottom: 20px;">       
+            <span style="font-size:14px;font-weight:bold;">Booth:</span><br />
+            @Html.TextBoxFor(m => m.Show.Booth, new { @class = "form-control", @style = "max-width:300px;" })
+        </div>
+    
+        <div class="col-xs-12 col-sm-6" style="margin-bottom: 20px;">       
+            <span style="font-size:14px;font-weight:bold;">Display Date:</span><br />
+            @Html.TextBoxFor(m => m.Show.display_date, new { @class = "form-control" })
+        </div>
+
+        <div class="col-xs-12 col-sm-6"  style="margin-bottom: 20px;">            
+            <span style="font-size:14px;font-weight:bold;">Start Date:</span><br />
+            @Html.TextBoxFor(m => m.Show.event_start_date, new { @class = "date-picker form-control", @type = "text", @style = "max-width:250px;" })
+        </div>
+
+            <div class="col-xs-12" style="margin-top: 20px;">
+                <button class="btn btn-default submitButton" id="submit" type="submit">Submit</button>
+            </div>
+    }
+}
+</div>
+
+@if(ViewBag.Type != "EDIT2")
+{
+<div class="col-xs-12" style="margin-bottom:20px; margin-top:30px;">
+    <span style="font-size:14px;">
+      <a href="~/cms_showschedule">< BACK</a>  
+    </span>
+</div>
+}
