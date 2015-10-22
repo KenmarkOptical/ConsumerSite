@@ -1,4 +1,4 @@
-﻿@model Kenmark_Consumer.Models.CMS_Home_CarouselClass
+﻿@model Kenmark_Consumer.Models.CMS_Home_Image_Class
 
 @{
     ViewBag.Title = "Form";
@@ -34,32 +34,6 @@
 
 <div style="margin-top:50px;">
 
-@if (ViewBag.Type == "DELETE")
-{
-    using (Html.BeginForm("DeleteShow", "CMS_Home_Carousel", FormMethod.Post, new { id = "DeletelogFrom" }))
-    { 
-        <div class="col-xs-12">
-            <span style="font-size:22px;">Which Image would you like to delete?</span> <br /><br />
-        </div>
-    
-         <div class="col-xs-12 col-sm-12">
-            <input type="hidden" id="delete_id" name="delete_id" >
-
-            @for (int i = 0; i < Model.Releases.Count; i++)
-            { 
-               <div class="col-xs-6 col-sm-4">
-                   <img src="../@Model.Releases[i].image" class="img-responsive img-thumbnail img-delete" onclick="$('#delete_id').val('@(Model.Releases[i].id)');$('.img-delete').css('border','none');$(this).css('border','1px solid blue');"/>
-               </div>                 
-            }
-        
-               </div>
-      
-
-       <div class="col-xs-12" style="margin-top: 50px;margin-bottom:20px;">
-           <button class="btn btn-default submitButton" id="submit-delete" type="submit">Submit</button>
-       </div>
-    }
-}
 
 
 @if (ViewBag.Type == "Edit")
@@ -95,7 +69,7 @@
 
 @if (ViewBag.Type == "EDIT2")
 {
-    using (Html.BeginForm("SaveEditShow", "CMS_Home_Carousel", FormMethod.Post, new { id = "EditBlogFrom" }))
+    using (Html.BeginForm("SaveEditShow", "CMS_Home_Images", FormMethod.Post, new { id = "EditBlogFrom" }))
     {
         @Html.HiddenFor(m => m.Release.id)
         
@@ -139,43 +113,6 @@
     }
 }
 
-@if (ViewBag.Type == "ADD")
-{
-    using (Html.BeginForm("AddShow", "CMS_Home_Carousel", FormMethod.Post, new { enctype = "multipart/form-data", id = "AddBlogFrom" }))
-    {
-      @Html.HiddenFor(m => m.Release.id)
-
-        if (!String.IsNullOrEmpty(ViewBag.Error))
-        {
-        <div class="col-xs-12" style="font-size:16px;font-weight:bold;color:red;">            
-            <span>Errors:</span><br />
-            @Html.Raw(ViewBag.Error)
-            <br /><br />
-        </div>
-        }
-        
-         <div class="col-xs-12 col-sm-12" style="margin-top:20px;">
-            <label for="photo">Upload Image: <br />(1070x560 px) </label>
-            <input type="file" name="main_image" class="btn btn-default" />
-        </div>
-
-        <div class="col-xs-12 col-sm-12" style="margin-bottom: 20px; margin-top:20px;">       
-            <span style="font-size:14px;font-weight:bold;">Link:</span><br />
-           @Html.TextBoxFor(m => m.Release.link, new { @class = "form-control", @type = "text"})
-        </div>
-    
-        <div class="col-xs-12" style="margin-bottom: 20px;">       
-           <span style="font-size:14px; font-weight:bold;">Order:</span><br />
-            @Html.DropDownListFor(m => m.Release.rank, Model.Order, new { @class = "form-control", @style="max-width:85px;" })
-        </div> 
-        
-      
-            <div class="col-xs-12" style="margin-top: 50px;">
-                <button class="btn btn-default submitButton" id="submit-add" type="submit">Submit</button>
-            </div>
-    }
-}
-</div>
 
 @if (ViewBag.Type != "EDIT2")
 {
