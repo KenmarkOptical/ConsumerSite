@@ -208,6 +208,9 @@
     <Compile Include="CMS_Home_Carousel.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CMS_Home_Images.cs">
+      <DependentUpon>KenmarkTestDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="CMS_Like_Collection.cs">
       <DependentUpon>KenmarkTestDB.tt</DependentUpon>
     </Compile>
@@ -236,6 +239,7 @@
     <Compile Include="Controllers\CMS_BlogController.cs" />
     <Compile Include="Controllers\CMS_HomeController.cs" />
     <Compile Include="Controllers\CMS_Home_CarouselController.cs" />
+    <Compile Include="Controllers\CMS_Home_ImagesController.cs" />
     <Compile Include="Controllers\CMS_PressController.cs" />
     <Compile Include="Controllers\CMS_PressReleaseController.cs" />
     <Compile Include="Controllers\CMS_ShowScheduleController.cs" />
@@ -1306,6 +1310,8 @@
     <Content Include="Views\CMS_Blog\Form.cshtml" />
     <Content Include="Views\CMS_Home_Carousel\Index.cshtml" />
     <Content Include="Views\CMS_Home_Carousel\Form.cshtml" />
+    <Content Include="Views\CMS_Home_Images\Form.cshtml" />
+    <Content Include="Views\CMS_Home_Images\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

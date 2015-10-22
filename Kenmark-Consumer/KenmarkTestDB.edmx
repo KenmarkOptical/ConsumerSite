@@ -15,6 +15,7 @@
           <EntitySet Name="careers" EntityType="KenmarkTestDBModel.Store.careers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CMS_Blogs" EntityType="KenmarkTestDBModel.Store.CMS_Blogs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CMS_Home_Carousel" EntityType="KenmarkTestDBModel.Store.CMS_Home_Carousel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CMS_Home_Images" EntityType="KenmarkTestDBModel.Store.CMS_Home_Images" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CMS_Like_Collection" EntityType="KenmarkTestDBModel.Store.CMS_Like_Collection" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="collection_codes" EntityType="KenmarkTestDBModel.Store.collection_codes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Collection_POP" EntityType="KenmarkTestDBModel.Store.Collection_POP" store:Type="Tables" Schema="dbo" />
@@ -1017,6 +1018,18 @@
           <Property Name="link" Type="varchar(max)" />
           <Property Name="rank" Type="int" />
           <Property Name="enabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="CMS_Home_Images">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="link" Type="varchar(max)" />
+          <Property Name="main_text" Type="varchar" MaxLength="500" />
+          <Property Name="sub_text" Type="varchar" MaxLength="500" />
+          <Property Name="image" Type="varchar" MaxLength="500" />
+          <Property Name="active" Type="bit" />
+          <Property Name="rank" Type="int" />
         </EntityType>
         <EntityType Name="CMS_Like_Collection">
           <Key>
@@ -3697,6 +3710,7 @@
             <End Role="address_to_collections" EntitySet="address_to_collections" />
           </AssociationSet>
           <EntitySet Name="CMS_Home_Carousel" EntityType="KenmarkTestDBModel.CMS_Home_Carousel" />
+          <EntitySet Name="CMS_Home_Images" EntityType="KenmarkTestDBModel.CMS_Home_Images" />
           </EntityContainer>
         <ComplexType Name="usp_where_to_buy_Result">
           <Property Type="String" Name="kenmark_id" Nullable="false" MaxLength="6" />
@@ -5806,6 +5820,18 @@
           <Property Type="String" Name="link" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="rank" />
           <Property Type="Boolean" Name="enabled" />
+        </EntityType>
+        <EntityType Name="CMS_Home_Images">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="link" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="main_text" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sub_text" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="image" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="active" />
+          <Property Type="Int32" Name="rank" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -7938,6 +7964,19 @@
                 <ScalarProperty Name="rank" ColumnName="rank" />
                 <ScalarProperty Name="link" ColumnName="link" />
                 <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_Home_Images">
+            <EntityTypeMapping TypeName="KenmarkTestDBModel.CMS_Home_Images">
+              <MappingFragment StoreEntitySet="CMS_Home_Images">
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="sub_text" ColumnName="sub_text" />
+                <ScalarProperty Name="main_text" ColumnName="main_text" />
+                <ScalarProperty Name="link" ColumnName="link" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
